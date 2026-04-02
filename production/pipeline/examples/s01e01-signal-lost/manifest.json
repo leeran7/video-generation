@@ -1,0 +1,37 @@
+{
+  "manifestVersion": 1,
+  "episode": {
+    "season": 1,
+    "number": 1,
+    "title": "Signal Lost",
+    "targetRuntimeMinutes": 30,
+    "scriptPath": "script.md",
+    "notes": "Replace example scene paths with your AI-generated files; keep order by scene order."
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "order": 1,
+      "title": "Cold open — city before pulse",
+      "file": "scenes/scene-01.mp4",
+      "generation": {
+        "promptSummary": "Meridian skyline, dusk, calm before storm",
+        "targetDurationSeconds": 45
+      }
+    },
+    {
+      "id": "scene-02",
+      "order": 2,
+      "title": "Orbital signal / blackout",
+      "file": "scenes/scene-02.mp4",
+      "generation": {
+        "promptSummary": "Energy pulse from sky, city goes dark",
+        "targetDurationSeconds": 60
+      }
+    }
+  ],
+  "output": {
+    "filename": "s01e01-master.mp4",
+    "reencode": false
+  }
+}

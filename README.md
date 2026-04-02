@@ -2,6 +2,12 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Package manager
+
+This project uses [pnpm](https://pnpm.io/) only (`packageManager` is set in `package.json`). Install dependencies with `pnpm install`, then run `pnpm dev`, `pnpm build`, or `pnpm lint`.
+
+**Nova episode pipeline** (script → scene videos → stitch): see [`production/pipeline/README.md`](production/pipeline/README.md) and run `pnpm pipeline:validate` / `pnpm pipeline:stitch` (requires FFmpeg). **AI generation integration:** [`production/pipeline/AI_INTEGRATION.md`](production/pipeline/AI_INTEGRATION.md).
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

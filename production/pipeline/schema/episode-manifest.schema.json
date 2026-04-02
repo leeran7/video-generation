@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nova.local/schema/episode-manifest.schema.json",
+  "title": "Nova episode stitch manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "episode", "scenes", "output"],
+  "properties": {
+    "manifestVersion": {
+      "type": "integer",
+      "const": 1,
+      "description": "Bump when breaking the manifest shape."
+    },
+    "episode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["season", "number", "title"],
+      "properties": {
+        "season": { "type": "integer", "minimum": 1 },
+        "number": { "type": "integer", "minimum": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "targetRuntimeMinutes": { "type": "number", "minimum": 1 },
+        "scriptPath": {
+          "type": "string",
+          "description": "Optional path to the written script, relative to this manifest file."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "order", "file"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "order": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string" },
+          "file": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Path to scene video, relative to this manifest file."
+          },
+          "generation": {
+            "type": "object",
+            "description": "Hints for your AI video tool or batch job; not used by the stitcher.",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["filename"],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Output file name (e.g. episode-master.mp4), written next to the manifest."
+        },
+        "reencode": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, re-encode for compatibility instead of stream copy."
+        }
+      }
+    }
+  }
+}
