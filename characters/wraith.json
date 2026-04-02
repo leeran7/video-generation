@@ -1,0 +1,29 @@
+{
+  "show": "NOVA FORCE",
+  "season": 1,
+  "rosterNumber": 2,
+  "codename": "WRAITH",
+  "icon": "🌑",
+  "realName": "Nadia Osei",
+  "age": 16,
+  "personality": "Nadia is calculating because certainty feels safer than hope. Her dry humor is not quirk — it is distance with good timing. She keeps people at arm's length not from cruelty but from a learned equation: closeness equals leverage someone can use against you. She reads rooms the way others read texts — fast, skeptical, hungry for the lie. Under the cloak is a girl who hates being watched unless she controls the angle; power made her visible in the worst way once already, and she is still negotiating whether visibility is a weapon or a wound.",
+  "traits": [
+    "Strategic",
+    "Guarded",
+    "Perceptive",
+    "Sardonic",
+    "Control-freak (earned)",
+    "Loyal once she chooses you"
+  ],
+  "mindset": "Everyone has a weakness — find it before it finds you. She treats people like puzzles because puzzles do not ask for trust; they ask for pattern recognition. Her Season 1 arc is learning that vulnerability is not a leak in the armor — sometimes it is how you survive a fight you cannot solo. She moves from \"I do not need you\" to \"I hate that I need you\" to \"I will choose you anyway.\"",
+  "visualDistinctions": "Her shadow moves independently of her body — wrong in a way that should not read as cool first; uncanny first, then powerful. Deep crimson and black asymmetrical cloak, hood partial mask — she uses silhouette like language. Skin gains faint translucency when phasing; pupils go pure black in darkness. Animators: let the shadow lag half a beat behind emotion — when she is scared, the shadow reaches first.",
+  "powers": "Shadow manipulation and phasing through objects",
+  "powersSpec": "Nadia can extend, sharpen, and weaponize shadows as semi-solid constructs — tendrils, blades, smokescreens — and phase through non-living matter by slipping along shadow planes. She cannot phase through living tissue cleanly without severe disorientation; she avoids it. Bright, broad-spectrum light degrades her constructs; strobe and sudden illumination break her rhythm. Prolonged use causes afterimages, migraines, and a cold numbness in her hands — the body remembering the lab. Her phasing is not intangibility forever; she has mass, momentum, and a time window — long holds risk partial snap-back. The shadow that moves alone is tied to stress: the less she trusts the ground beneath her, the more it acts on its own.",
+  "role": "Strategist / Infiltrator",
+  "signatureColor": "Crimson / Black",
+  "seasonOneArc": "Act I (eps 1–4): Nadia operates solo — Surge is collision, not partnership. Act II (eps 5–9): forced proximity in Episode 6 proves the team can win ugly; Episode 7 is her hinge — the organization is not abstract evil; it is her origin wound. Titan does not argue her into feelings; he stays, which is worse because it works. She almost leaves, then stays on her terms. Act III (eps 10–12): isolation as a weapon is turned against her; she must let someone in without a plan. Finale: she fights beside them not as a lone asset but as a person who chose the roster.",
+  "voiceCadence": "Low volume, high precision. Pauses before punchlines; uses silence as intimidation. When scared, sentences shorten — subject-verb-done. When softening (rare), her consonants get looser — almost like she is testing whether kindness fits her mouth. Avoid \"mysterious whisper\" as default; give her normal-teen volume in safe moments so the cloak is costume, not personality replacement.",
+  "humanizingDetails": "She keeps her phone on grayscale — color feels like bait. She rehearse-debates in the shower and wins every time. She steals moments to eat alone not because she likes it but because chewing in company feels oddly intimate. She knows Surge's coffee thing and pretends not to — a small war between gratitude and pride. She sleeps curled toward walls; open rooms feel like stages.",
+  "influencesAndTwist": "Batman's tactical mind and Rogue's touch-isolation echo here — but Nadia is not choosing mystique; she is managing trauma from an experiment that gave her power she never consented to. Sasuke-like distance appears in team anime — except her coolness is not superiority; it is hypervigilance. Nightcrawler's stealth reads playful; Wraith's reads threat-assessment. Raven (Teen Titans) suppresses emotion — Nadia does too, but when she breaks it is not magic horror only; it is ordinary teenage shame. Rule: if her shadow looks stylish before it looks wrong, revise — the show is human-first.",
+  "animationCraftNotes": "Shadow work: avoid clean anime gloss; prefer smear frames, imperfect edges, noise in the black. When she phases, hold on face micro-panic — power is not comfortable. Episode 7: longer holds on hands — Titan sitting with her should be stillness as action. In fights, storyboard her scanning before striking — strategist first. Recurring tell: she touches her own wrist when lying — checking she is still solid."
+}

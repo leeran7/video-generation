@@ -1,0 +1,108 @@
+{
+  "production_pipeline": [
+    {
+      "phase": 1,
+      "title": "Show Bible & IP Foundation",
+      "timeline": "Month 1–2",
+      "tasks": [
+        "Expand each character into a 10-page character bible (voice, arc, relationships, powers spec)",
+        "Write the season 1 series bible — world, tone, visual language, overarching mythology",
+        "Define the villain hierarchy and the organization's backstory",
+        "Lock the 12-episode outline (beat sheet per episode)",
+        "Register the IP — show name, characters, and any original lore as copyright"
+      ],
+      "executive_note": "This is the document you pitch from. Investors, distributors, and collaborators all want to see a bible before anything else. Do this first."
+    },
+    {
+      "phase": 2,
+      "title": "Visual Development",
+      "timeline": "Month 2–3",
+      "tasks": [
+        "Commission character design sheets for all 5 heroes (front, side, 3/4 view + power states)",
+        "Define the AI art style guide — reference images, color palettes, prohibited styles",
+        "Create 3–5 environment concept boards (Meridian City skyline, HQ, villain base)",
+        "Select and lock your AI image pipeline: Midjourney for concept, Runway/Kling for animation",
+        "Produce a 60–90 second style proof — a short clip to show exactly what the show looks like"
+      ],
+      "executive_note": "The style proof is your most powerful pitch tool. A single beautiful minute beats 40 slides."
+    },
+    {
+      "phase": 3,
+      "title": "Pilot Production (Episode 1)",
+      "timeline": "Month 3–5",
+      "tasks": [
+        "Write the full Episode 1 script — scene-by-scene with dialogue",
+        "Create storyboards or AI-generated animatics for every scene",
+        "Cast and record voice actors (SAG or indie — define your budget tier)",
+        "Generate all animation sequences using your AI pipeline, scene by scene",
+        "Sound design, score, and mix — audio is 50% of animation quality",
+        "Deliver a complete, polished Episode 1 as your proof of concept"
+      ],
+      "executive_note": "The pilot is your calling card. Everything else is a promise — the pilot is evidence."
+    },
+    {
+      "phase": 4,
+      "title": "Distribution & Monetization Strategy",
+      "timeline": "Month 4–6",
+      "tasks": [
+        "Define your release platform: YouTube, streaming pitch, or direct IP sale",
+        "Build a pre-release audience strategy — character reveal reels, behind-the-scenes AI content",
+        "Identify potential licensing partners for merchandise",
+        "Explore distribution pitches: Netflix Animation, Cartoon Network, Amazon Kids+, Apple TV+",
+        "Alternative: YouTube-first with brand deal / Patreon model to self-fund season 1"
+      ],
+      "executive_note": "A finished pilot gives you leverage. You can self-distribute to build an audience or use it to shop to streamers — but you need the pilot first."
+    },
+    {
+      "phase": 5,
+      "title": "Season 1 Full Production",
+      "timeline": "Month 6–18",
+      "tasks": [
+        "Write all 12 scripts with a dedicated writers room (2–3 writers minimum)",
+        "Build a repeatable AI production pipeline to generate episodes efficiently",
+        "Establish a release cadence — weekly drops build audiences fastest",
+        "Lock music licensing or commission an original score",
+        "Plan the Season 1 finale event — make episode 12 a cultural moment"
+      ],
+      "executive_note": "Efficiency is everything here. Once your pipeline is dialed in from the pilot, each episode should take less time to produce than the last."
+    }
+  ],
+  "executive_priorities": [
+    {
+      "priority": "Do this now",
+      "label": "Immediate Action",
+      "heading": "Write the show bible before anything else",
+      "body": "Every creative decision downstream depends on having a locked document that defines the show. Characters, tone, world rules, villain mythology, season arc — all of it on paper. This is also what you hand to any collaborator, investor, or distributor. Without it, you're building on sand."
+    },
+    {
+      "priority": "High priority",
+      "label": "Creative Foundation",
+      "heading": "Produce the style proof before pitching to anyone",
+      "body": "Streaming platforms and investors are pitched AI animated shows every week now. The ones that get greenlit have visual proof. A 60–90 second clip showing your art style, your characters in motion, and your tone is worth more than any deck. Build this before you go to any meeting."
+    },
+    {
+      "priority": "High priority",
+      "label": "IP & Legal",
+      "heading": "Protect your intellectual property immediately",
+      "body": "Register the show name, characters, and series bible as original copyright. Consult an entertainment attorney about work-for-hire agreements before bringing on any creative collaborators. This is a franchise-scale property — treat it like one from day one."
+    },
+    {
+      "priority": "Strategic",
+      "label": "Platform Strategy",
+      "heading": "Decide: Self-distribute first or pitch to streamers",
+      "body": "There are two viable paths. Path A: launch on YouTube to build a fanbase organically, monetize through ads and merchandise, use audience numbers as leverage for a streaming deal. Path B: produce the pilot and pitch directly to Netflix Animation, Cartoon Network, or Amazon Kids+ before public release. Path A has lower ceiling but lower risk. Path B is higher stakes but could move faster."
+    },
+    {
+      "priority": "Strategic",
+      "label": "The Teen Titans Playbook",
+      "heading": "Merchandise is where the real money lives",
+      "body": "Teen Titans wasn't just a show — it was a $400M+ merchandise empire. Design your characters from the start with product in mind. Each hero needs a signature color, a distinctive silhouette, and an iconic accessory. Those three things are what make a plush toy sell. The visual design you lock now will determine your licensing ceiling for the next decade."
+    },
+    {
+      "priority": "Milestone",
+      "label": "The North Star",
+      "heading": "Your 18-month goal: Season 1 complete, audience established",
+      "body": "Twelve episodes. A fanbase. One cultural moment — a scene, a villain reveal, a character death — that people talk about. If you hit those three things by the end of Season 1, you have a show. Everything else is execution."
+    }
+  ]
+}

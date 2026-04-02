@@ -1,0 +1,29 @@
+{
+  "show": "NOVA FORCE",
+  "season": 1,
+  "rosterNumber": 4,
+  "codename": "GLITCH",
+  "icon": "💻",
+  "realName": "Priya Shetty",
+  "age": 15,
+  "personality": "Priya is chaotic-good with a caffeine pulse and a brain that runs parallel threads — she finishes sentences in her head before the room catches up. She finds social rules arbitrary and combat weirdly inefficient compared to rewriting conditions. Her enthusiasm is real; so is her terror of being boring. She jokes to stay ahead of confusion — hers and everyone else's. Under the scatter is a kid who learned that being smart was sometimes the only currency that bought her space.",
+  "traits": [
+    "Brilliant",
+    "Scatterbrained",
+    "Enthusiastic",
+    "Unpredictable",
+    "Pattern-seer",
+    "Secretly afraid of being 'too much'"
+  ],
+  "mindset": "Rules are suggestions the universe made before it met her — except the rules that protect people she loves, which she is learning are not oppression but care wearing a boring mask. Her arc is from clever solo hacker to someone who chooses slowness on purpose: not because she is less brilliant, but because people are not puzzles to optimize. Episode 8 is her collision with Surge's leadership — not melodrama, moral precision: she followed him; he must earn that again.",
+  "visualDistinctions": "Oversized hoodies with handwritten code and equations — real math flavor, not random glyphs. Holographic UI orbits her head when thinking — clutter as thought made visible; dim it when she is ashamed. Twin buns with fiber-optic strands that shift with mood — not cute only; sometimes stutter when overwhelmed. Fingers always mid-gesture — typing air, conducting invisible orchestras. When still, worry.",
+  "powers": "Reality and system hacking / Tech manipulation",
+  "powersSpec": "Priya can interface with digital systems and — in controlled bursts — nudge physical outcomes like probability glitches: doors, feeds, drones, traffic patterns, AR overlays. She does not rewrite reality like a god; she exploits seams. Big hacks cause sensory overload: migraines, nosebleeds, hand tremors, temporary aphasia (words come wrong). Her 'reality hack' has a budget — the more she bends, the more the world snaps back with noise. Faraday cages, air-gapped systems, and human unpredictability still win. Failure mode: she over-commits to an elegant solution when a blunt human fix would save someone faster.",
+  "role": "Tech genius / Wildcard",
+  "signatureColor": "Neon multi-color (mood-based)",
+  "seasonOneArc": "Act I (eps 1–4): Episode 4 — she bites off classified data and loves the taste until the org bites back. Act II (eps 5–9): Episode 6 safehouse attack makes her body a liability she hates; Episode 8 — Surge's call endangers her; she does not forgive with a hug — she speaks quiet truth that rewires him. Act III (eps 10–12): she must slow down enough to feel stakes without optimizing them away — Episode 11 parallel vignette: brilliance as burden. Finale: still chaotic, but chaos aimed, not scattered.",
+  "voiceCadence": "Fast, overlapping clauses; interrupts herself with better ideas mid-sentence. Laughs at wrong moments when nervous. When hurt, speech gets precise — scary clear — then fractures back into speed. Give her half-finished jokes that land anyway because timing is accidental genius. Avoid making her only comic relief; give her one scene per block with zero jokes — just listening.",
+  "humanizingDetails": "She color-codes notes then forgets the key. She names her devices and denies it. She stress-eats spicy food until numb — sensation reset. She screenshots kind messages like evidence. She pretends not to care about birthdays and then scripts a perfect midnight message — then deletes it twice before sending.",
+  "influencesAndTwist": "Neo sees the Matrix; Priya sees APIs — less prophecy, more maintenance mode. Ed from Cowboy Bebop's scatter-genius energy — but Priya's chaos is not detachment; it is acceleration as coping. Peni Parker's tech-spider vibe — without the cute safety net; Meridian bites back. Shuri's brilliance — but Priya is younger, messier, and her hacks have hangovers. Q's gadgets — except failures are story, not reset button. Rule: every clever win costs something visible — time, trust, or headache — so the show never feels like cheat codes.",
+  "animationCraftNotes": "UI: busy but legible for a beat — then overwhelm when she is losing control. Finger micro-animation priority. Episode 4: faster cuts; Episode 11: intentional slow — same character, different tempo. When Surge endangers her in Ep 8, hold on Priya's eyes — not tears-first; disillusion first. Recurring tell: she taps three times on surfaces when lying — counting down a buffer overflow in her own nerves."
+}

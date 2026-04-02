@@ -1,0 +1,176 @@
+{
+  "document": {
+    "title": "Nova Force — Series Bible",
+    "version": "1.0.0",
+    "format": "Structured bible (JSON). Expand into prose docs or pitch PDFs as needed.",
+    "lockStatus": {
+      "pitch": "locked",
+      "worldRules": "locked",
+      "shadowOrganization": "draft",
+      "meridianCity": "draft",
+      "visualLanguage": "locked",
+      "seasonOneArcSummary": "locked",
+      "notes": "Promote sections from draft to locked when the team agrees — do not guess downstream."
+    }
+  },
+  "canonicalReferences": {
+    "show": "show.json",
+    "season1": "Season 1/season.json",
+    "characters": "characters/*.json"
+  },
+  "pitch": {
+    "logline": "After a mysterious pulse awakens impossible abilities across Meridian City, five strangers who never asked to be heroes must become Nova Force — or watch their home fall to people who think 'safety' means owning them.",
+    "tone": "Earnest teen ensemble drama with kinetic action and moral weight. Humor is a defense mechanism characters use when stakes get personal — not constant quips. The show trusts the audience with ambiguity: villains can believe they are right; heroes can be wrong in ways that hurt.",
+    "audience": "Young adult / teen (roughly 13–24 primary), crossover for adults who want character-first superhero stories. Themes: responsibility vs performance, trust vs control, belonging vs surveillance.",
+    "comparableShows": [
+      {
+        "title": "Young Justice",
+        "why": "Ensemble growth, conspiracy texture, consequences that stick."
+      },
+      {
+        "title": "Invincible (tone discipline, not gore)",
+        "why": "Power has cost; institutions lie with confidence."
+      },
+      {
+        "title": "My Hero Academia",
+        "why": "Clear power identity per character — Nova Force keeps powers narrower and more human-priced."
+      },
+      {
+        "title": "Spider-Man (any era)",
+        "why": "Ordinary life pressure colliding with impossible responsibility."
+      }
+    ],
+    "whatNovaForceIsNot": [
+      "A cynical parody of heroes — the world can joke, but the show does not sneer at hope.",
+      "A power-escalation arms race every episode — spikes matter because recovery does too.",
+      "A single chosen-one story — the team only wins when the roster complements, not when one character solos."
+    ]
+  },
+  "worldRules": {
+    "powerOrigin": "Powers in Season 1 are tied to the pulse event and its aftermath — activation is traumatic, uneven, and sometimes tied to prior exposure (experiments, stress, proximity). The full cosmology can deepen in later seasons; Season 1 only needs consistency, not every answer.",
+    "powerRules": [
+      "Every ability has a visible or felt cost (fatigue, pain, sensory overload, emotional bleed) — see each hero's powersSpec in characters/*.json.",
+      "No one is omniscient; no one is globally untouchable. If a fight looks easy, you are probably missing the price.",
+      "Technology can blunt, redirect, or exploit powers — especially surveillance, insulation, jamming, and social engineering.",
+      "Powers do not replace personality: fear, pride, love, and shame still drive choices."
+    ],
+    "publicKnowledge": "After the pulse, Meridian knows 'something happened.' Viral clips, rumors, and conflicting official statements create a fog: some believe terrorism, some believe a solar flare, some believe the first supers. By mid-season, public opinion is a character — fear, fascination, and influencers turning kids into content.",
+    "techLevel": "Near-modern plus: smartphones, drones, dense CCTV, AR overlays, and aggressive data brokers. The show treats hacking and leaks as realistic weapons — speed matters, but so do air gaps and human error.",
+    "lawEnforcementVsHeroes": "Police are not monolithic. Some officers want help; others see unlicensed powers as a riot waiting to happen. There is no official 'hero license' in Season 1 — acting in public creates legal exposure, viral exposure, or both. The team is not above the law narratively; they navigate it messily.",
+    "heroesLegalStatus": "Nova Force is a team name the city learns — not a registered agency at start. Consequences of vigilantism, property damage, and injury are story fuel, not hand-waved."
+  },
+  "shadowOrganization": {
+    "workingName": "Lattice",
+    "workingNameStatus": "draft — rename when a final title is chosen",
+    "publicFace": "Unknown early; later understood as a private continuity network that treats superhuman emergence as a systems problem: monitor, contain, recruit, or neutralize.",
+    "philosophyInOneSentence": "Freedom without oversight is extinction — they believe management is mercy.",
+    "goals": [
+      "Map and classify post-pulse individuals and threats.",
+      "Acquire leverage: data, assets, pressure points, and controlled operatives.",
+      "Prevent uncontrolled supers from collapsing civic order — as they define it.",
+      "Long-term: institutionalize control — not mustache-twirling world domination, but governance by fear dressed as safety."
+    ],
+    "recruitmentAndAttackPatterns": [
+      "Recruitment: offers disguised as help — jobs, medical access, debt relief — with contracts that do not read kind on close inspection.",
+      "Attack: isolate targets, manufacture scandal, drain resources, and when needed, direct action that looks like accidents or rival violence.",
+      "Information warfare is default; brute force is a last resort — but they will use it."
+    ],
+    "hierarchySlots": [
+      {
+        "slot": "Principal",
+        "description": "Ultimate authority over strategy and risk tolerance. Season 1 reveals this layer through The Architect — see `production/antagonist-bible.json` and Season 1/season.json."
+      },
+      {
+        "slot": "Handlers",
+        "description": "Field command: run teams, manage operatives, own specific city districts or targets."
+      },
+      {
+        "slot": "Operatives",
+        "description": "Tactical teams: capture, intimidation, extraction, crowd control — trained, equipped, sometimes anonymous."
+      },
+      {
+        "slot": "Continuity / Research",
+        "description": "Experiments, monitoring, long-term asset development — ties to backstory wounds (e.g., childhood exposure) without explaining everything in Season 1."
+      }
+    ],
+    "antagonistDetails": "See `production/antagonist-bible.json` — The Architect dossier, episodic roster, henchmen templates."
+  },
+  "meridianCity": {
+    "overview": "Meridian is a coastal American city big enough to have a skyline, a harbor, inequality, and neighborhoods that feel like different worlds. It is not Gotham-gray by default — sunlight is a storytelling tool — but danger lives in alleys, boardrooms, and feeds as much as in warehouses.",
+    "districts": [
+      {
+        "name": "Glasshook Pier",
+        "vibe": "Tourism, festivals, influencers — public chaos where a pulse event becomes instant content."
+      },
+      {
+        "name": "Ironclad",
+        "vibe": "Industrial docks and night shifts — quiet violence, smuggling texture, good for chases that feel grounded."
+      },
+      {
+        "name": "Verdance Heights",
+        "vibe": "Hills, older trees, wealth with walls — isolation, surveillance, and 'help' that arrives with strings."
+      },
+      {
+        "name": "Lowline",
+        "vibe": "Dense apartments, bodegas, community networks — where Elias's quiet work and Priya's messy genius feel native."
+      },
+      {
+        "name": "Meridian Central",
+        "vibe": "Downtown glass, protests, press packs, police cordons — where Titan's viral moment hits hardest."
+      }
+    ],
+    "landmarks": [
+      "Meridian Spire — skyline anchor; good for wide shots and 'the city watches' moments.",
+      "Harbor Bridge — wind, height, stakes; finale-adjacent energy without locking a specific ending beat here.",
+      "Old Rail Yards — maze geometry for stealth and Wraith-friendly shadows."
+    ],
+    "teamLocationsStatus": "draft — exact safehouse addresses and HQ logic should be locked during scripts. Principles: Glitch needs network redundancy; Titan needs load-bearing quiet; Wraith needs exits; Solace needs green space; Surge needs people nearby (whether he admits it or not).",
+    "publicLife": "Meridian runs on coffee lines, transit delays, school gossip, and local sports hate — heroes breathe the same air. Social media is a chorus: memes, misinformation, and moral panic."
+  },
+  "visualLanguage": {
+    "reference": "show.json style field: fusion of DC and Marvel animation — meaning cinematic posing with human micro-performance, not one flat house style.",
+    "aspectRatio": "16:9 primary delivery",
+    "frameRate": "24 fps for cinematic animation passes unless pipeline demands otherwise — document exceptions in the style guide.",
+    "resolutionTargets": "Master at production resolution appropriate to AI pipeline; deliver 1080p minimum for web; archive higher if available.",
+    "heroColorKeys": [
+      {
+        "codename": "SURGE",
+        "signatureColor": "Electric blue / Yellow",
+        "usage": "High-energy highlights; warmth vs danger in arcs — electricity reads tactile, imperfect."
+      },
+      {
+        "codename": "WRAITH",
+        "signatureColor": "Crimson / Black",
+        "usage": "Negative space and silhouette; crimson as warning, not romance default."
+      },
+      {
+        "codename": "TITAN",
+        "signatureColor": "Slate grey / Bioluminescent green",
+        "usage": "Weight and strain visible in light — green as stress under skin, not sparkle."
+      },
+      {
+        "codename": "GLITCH",
+        "signatureColor": "Neon multi-color (mood-based)",
+        "usage": "UI clutter and emotional tempo — color shifts track mental load, not fashion only."
+      },
+      {
+        "codename": "SOLACE",
+        "signatureColor": "Burnt orange / Sage green",
+        "usage": "Warmth and living texture — healing reads organic, never sterile."
+      }
+    ],
+    "pacingNotes": "Action breathes: let a face land before a city explodes. Episode rhythm follows Season 1 acts — intros (1–4), fracture (5–9), reckoning (10–12) — see Season 1/season.json.",
+    "aiAnimationNotes": [
+      "Lock a style guide before scaling episode count — prompts, banned looks, and reference boards belong in a separate visual pipeline doc (NEXT_STEPS §3).",
+      "Micro-performance beats spectacle-only shots: hands, eyes, breath — this is what makes AI-assisted work feel authored.",
+      "Avoid 'plastic skin' defaults; keep asymmetry, imperfect light, and consequence in costumes (wear, tear, sweat)."
+    ]
+  },
+  "seasonOneArcSummary": {
+    "source": "Season 1/season.json",
+    "structure": "Three acts: The Spark (eps 1–4) establishes the city and introduces each hero; The Fracture (eps 5–9) forces the team together and reveals the true antagonist ideology; The Reckoning (eps 10–12) breaks them apart and demands earned unity.",
+    "teamName": "The roster becomes publicly known as Nova Force by the end of Season 1 — aligned with show title and finale episode title in season.json.",
+    "antagonistThroughLine": "The Architect embodies managed control vs freedom — full dossier and episodic roster in `production/antagonist-bible.json`; series bible keeps high-level ideological consistency with season.json.",
+    "beatDocument": "Episode beat sheets (12) in `production/season-1-beats.json`."
+  }
+}

@@ -1,0 +1,646 @@
+{
+  "document": {
+    "title": "Nova Force — Season 1 Beat Document",
+    "version": "1.0.0",
+    "sourceOfTruth": "Derived from and subordinate to `Season 1/season.json`. Antagonist names cross-reference `production/antagonist-bible.json`.",
+    "runtimeAssumptionMinutes": 30,
+    "structureNotes": "Cold open + three acts + tag. Minute ranges are approximate for pacing — lock in script."
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "title": "Signal Lost",
+      "seasonArcAct": { "act": 1, "title": "The Spark" },
+      "focus": "World-building and Surge intro. A mysterious energy pulse blacks out Meridian City. Marcus stumbles into the blast zone and his powers activate for the first time.",
+      "fullBrief": "Cold open on a normal city. An orbital signal erupts. Marcus survives the blast and discovers he can generate electricity — but can't control it. The city begins to change. End on a glimpse of a shadowy organization watching the event.",
+      "charactersFeatured": ["Surge"],
+      "tags": ["Origin", "World-build", "Threat intro"],
+      "antagonistRefs": ["Rook"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Meridian morning — Glasshook Pier / Central — ordinary texture (transit, phones, noise).",
+            "Sky flickers; phones die; grid stutters — confusion before spectacle.",
+            "Orbital signal / pulse visual — not explained, only felt."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Shock and spark",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Marcus near blast radius — sensory overload; crowd panic beats.",
+            "First involuntary discharge — friendly collateral (sparks, scared bystander).",
+            "Marcus flees or hides; learns his body is a live wire.",
+            "Micro-beat: family / school text thread fails — isolation lands."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Consequence in the city",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Blackout aftermath: sirens, rumor velocity, first viral clip of 'something'.",
+            "Marcus tests limits in a contained space — small arcs, pain hangover (powersSpec).",
+            "Near-miss: almost hurts someone he cares about — stakes become moral, not just cool.",
+            "Lattice surveillance intercut — **Rook** extracts footage / metadata; not omniscient — human procedure."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — He survives the night",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Marcus chooses one deliberate act of help with his power — messy, ugly light — succeeds barely.",
+            "City 'changes' — tone shift: Meridian feels watched, mapped, categorized.",
+            "Final image: Marcus breathing, alive, terrified of being ordinary — and now impossible to ignore."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Lattice feed: Marcus's face flagged — not named yet, but tagged.",
+            "Hard cut to black / tone sting."
+          ]
+        }
+      },
+      "cliffhanger": "The organization is watching — Marcus is now data.",
+      "castWorkloadNote": "Spotlight Surge; ensemble not required. Background cast carries 'city' reality."
+    },
+    {
+      "episode": 2,
+      "title": "Phantom Frequency",
+      "seasonArcAct": { "act": 1, "title": "The Spark" },
+      "focus": "Wraith intro. Nadia is already using her shadow powers to steal intel on the organization behind the pulse. She crosses paths — and clashes — with Surge.",
+      "fullBrief": "Nadia is working alone, convinced that a team would only slow her down. The episode is largely a cat-and-mouse between her and Marcus. They accidentally expose a larger threat together, then go their separate ways — but they've seen each other now.",
+      "charactersFeatured": ["Wraith", "Surge"],
+      "tags": ["Character intro", "First contact", "Mystery"],
+      "antagonistRefs": ["Rook"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Nadia infiltration beat — shadows as tool, not aesthetic.",
+            "She steals a fragment that points at Lattice infrastructure — not the whole truth."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Two frequencies",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Marcus on the street — still learning; loud, visible, angry at his own fear.",
+            "First crossing: Wraith and Surge interfere with each other's plans — comedy with teeth.",
+            "Mutual annoyance: she thinks he's reckless; he thinks she's playing villain."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Cat-and-mouse",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Chase / counter-chase — Meridian rooftops or rail yards (Old Rail Yards texture).",
+            "Forced cooperation: a third-party threat emerges — Lattice cleanup crew or automated response — they must align for 60 seconds.",
+            "Together they expose a larger node: the org is bigger than pulse rumors — names still hidden."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Exposure",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Victory costs visibility — both flagged harder than before.",
+            "Separation beat: mutual respect buried under insults.",
+            "Promise: they go separate ways — but they've seen each other's tells."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "**Rook** stitch: two profiles linked — 'possible network forming.'"
+          ]
+        }
+      },
+      "cliffhanger": "Lattice connects the dots: Surge and Wraith are on a collision course with the org — and each other.",
+      "castWorkloadNote": "Dual lead. No other heroes required for story logic; keep crowd lean."
+    },
+    {
+      "episode": 3,
+      "title": "Weight of the World",
+      "seasonArcAct": { "act": 1, "title": "The Spark" },
+      "focus": "Titan intro. A construction collapse reveals Remi's abilities to the public. They become an overnight sensation — and a target. The organization sends its first operative to recruit or eliminate.",
+      "fullBrief": "Remi just wants to help people and disappear. Instead they're viral. The episode explores the burden of power through Remi's eyes. First real fight sequence — Remi holds a building up alone while civilians evacuate. A brutal reminder that they can't do this forever.",
+      "charactersFeatured": ["Titan"],
+      "tags": ["Character intro", "Public debut", "Stakes"],
+      "antagonistRefs": ["Agent Maren Vale"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Remi ordinary day — job site / volunteer texture — quiet competence."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — The collapse",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Construction disaster — practical stakes; civilians trapped.",
+            "Remi acts: strength + absorption — fissures glow; pain visible.",
+            "Evacuation cross-cut; Remi holds the line — first 'real' hero image in-world."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Viral",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Phones explode — Remi becomes a symbol overnight.",
+            "Burden: gratitude as pressure; strangers touch them like object.",
+            "Lattice response: **Agent Maren Vale** arrives — recruit pitch dressed as help."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Recruit or remove",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Fight or chase — Vale does not play fair; Remi's limits hit (overload texture).",
+            "Remi refuses ownership — wins escape, not dominance.",
+            "Cost: Remi cannot disappear anymore."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Vale files update: Titan priority target — symbol threat confirmed."
+          ]
+        }
+      },
+      "cliffhanger": "Remi is famous — and Lattice has decided what famous means.",
+      "castWorkloadNote": "Titan spotlight; Surge/Wraith optional as background rumor only — avoid stealing intro."
+    },
+    {
+      "episode": 4,
+      "title": "404: Hero Not Found",
+      "seasonArcAct": { "act": 1, "title": "The Spark" },
+      "focus": "Glitch intro. Priya accidentally hacks into the organization's network and downloads encrypted data she can't decode — and they know she has it. Chaos ensues.",
+      "fullBrief": "Priya is over her head and absolutely thriving. The episode plays lighter than the others — her problem-solving is brilliant but messy. By the end she's cracked enough of the data to know the city is in serious danger, and she reluctantly reaches out to the others.",
+      "charactersFeatured": ["Glitch"],
+      "tags": ["Character intro", "Comedy", "Escalation"],
+      "antagonistRefs": ["Weaver"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Priya's ordinary chaos — school / home / project — humor grounded in real stakes."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — The wrong door",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Accidental deep hack — comedy turns sharp — she steals encrypted package.",
+            "**Weaver** responds — UI hunter; Priya's first 'oh no' with a smile."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Messy brilliance",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Cat-and-mouse in systems — fiber UI, orbit screens (per character visual).",
+            "Real-world consequences: drones, location ping, safehouse seed planted.",
+            "Priya cracks partial plaintext — enough to feel doom — not enough to win solo."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Reluctant network",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Priya reaches out — awkward messages to numbers she swore she'd never use — Surge/Wraith/Titan threads (voicemail montage acceptable).",
+            "She names the danger without understanding it fully — invitation to collide."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Weaver locks a final door — smile glyph — 'see you in the real world.'"
+          ]
+        }
+      },
+      "cliffhanger": "Priya pulled the pin — Lattice is coming offline *and* online.",
+      "castWorkloadNote": "Glitch lead; other heroes voice/cameo acceptable for reach-out — keep on-theme: she hates needing people."
+    },
+    {
+      "episode": 5,
+      "title": "The Quiet One",
+      "seasonArcAct": { "act": 2, "title": "The Fracture" },
+      "focus": "Solace intro. Elias has been quietly de-escalating crises around the city. When a villain from Glitch's intel appears, Elias refuses to fight — and it nearly costs everyone. The team clashes with him immediately.",
+      "fullBrief": "Elias believes in redemption above all. The team clashes with him immediately. The villain escapes because Elias hesitated — but he also spotted something the others missed: the villain was being controlled, not acting freely. Introduces the season's moral core.",
+      "charactersFeatured": ["Solace"],
+      "tags": ["Character intro", "Team conflict", "Moral tension"],
+      "antagonistRefs": ["Echo"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Elias de-escalation mini-scene — empathy as technique — saves a stranger without powers as spectacle."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Collision",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Glitch intel routes the team into a fight — other four appear because Priya's reach-out forced convergence (or they were already circling).",
+            "**Echo** arrives — wrong motion tells — fight choreography emphasizes unease.",
+            "Elias blocks a finishing blow — team screams at him."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Cost of mercy",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Echo escapes — collateral: injured civilian / broken trust / Lattice wins narrative.",
+            "Argument scenes: Surge performance vs Solace principle — Wraith cynicism vs Solace hope — Titan burden vs Solace softness — Glitch furious at systems.",
+            "Elias stands his ground without winning the room."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — The real clue",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Elias proves observation: harness / failsafe mark — **Echo** is controlled.",
+            "Moral core lands: mercy must include victims, not only villains' stories.",
+            "Team does not forgive — but they cannot unsee the clue."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Lattice log: 'asset Echo — drift increasing' — horror in paperwork."
+          ]
+        }
+      },
+      "cliffhanger": "The season's ethics are now explicit — and the next fight will test them with teeth.",
+      "castWorkloadNote": "`season.json` lists Solace-only featured; story requires other four for 'team clashes' — treat featured as **spotlight character**; others are **present for ensemble conflict** (aligns with brief)."
+    },
+    {
+      "episode": 6,
+      "title": "Five Strangers",
+      "seasonArcAct": { "act": 2, "title": "The Fracture" },
+      "focus": "First real team-up — chaotic, messy, barely successful. All five are forced to work together when the organization attacks Glitch's safehouse.",
+      "fullBrief": "Nobody wants to be there. Surge takes charge and gets it wrong. Wraith goes solo. Titan carries Glitch's unconscious body through a collapsing building. Solace talks down a henchman mid-fight. They win — barely — and agree to a temporary alliance only.",
+      "charactersFeatured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
+      "tags": ["First team-up", "Action", "Character dynamics"],
+      "antagonistRefs": ["Stray", "Lattice Grunt", "Lattice Elite"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Safehouse texture — Priya's chaos made physical — cables, snacks, fear."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — The wrong leader",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Lattice assault led by **Stray** — grunts + elite templates — logistics read real (vans, timing).",
+            "Surge orders badly — splits the group — consequences immediate."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Collapse",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Wraith solo corridor — efficiency as isolation.",
+            "Titan carries unconscious Glitch — iconic visual — building failure.",
+            "Solace mid-fight talk-down — humanizes henchman — risk and reward.",
+            "Surge forced to listen — barely."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Barely won",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Reconvergence — ensemble beat — messy victory.",
+            "Stray extracted — team realizes: Lattice has scale."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Temporary alliance: 'we survive next week — then we revisit.'"
+          ]
+        }
+      },
+      "cliffhanger": "They are a team by catastrophe, not choice — the fracture is still there.",
+      "castWorkloadNote": "Full roster — workload balanced by POV rotation; give each a signature beat."
+    },
+    {
+      "episode": 7,
+      "title": "Bleed Through",
+      "seasonArcAct": { "act": 2, "title": "The Fracture" },
+      "focus": "Deep Wraith episode. Her backstory is revealed — her shadow power is a curse from a childhood experiment by the same organization. She's not just fighting them. She's fighting herself. Titan is the one who gets through to her.",
+      "fullBrief": "Wraith almost leaves the team entirely. Titan is the only one who gets through to her — not by arguing, but by simply sitting with her in silence. The bond between these two is established. Wraith stays, but on her own terms.",
+      "charactersFeatured": ["Wraith", "Titan"],
+      "tags": ["Backstory", "Emotional core", "Villain tie"],
+      "antagonistRefs": ["Dr. Aris Thorne"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Nadia alone — shadow misbehaves — fear, not power fantasy."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — The file bleeds through",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Flashback architecture — lab texture — consent violated — **Dr. Aris Thorne** as face of continuity.",
+            "Present: evidence surfaces — Nadia spirals — wants to run from team and self."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Argument vs silence",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Others try words offscreen or minimal — optional short beats — but story refuses easy comfort.",
+            "Remi finds her — does not debate — sits — silence as love language.",
+            "Action beat optional: Thorne's proxies close in — forces movement without solving trauma."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Stay, on her terms",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Nadia chooses roster — conditional — boundaries stated aloud.",
+            "Bond: Wraith/Titan lock — future payoff seeded."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Lattice file: subject line redacted — 'continuity intact' — cold institutional threat."
+          ]
+        }
+      },
+      "cliffhanger": "Nadia stays — but the org still owns part of her origin story.",
+      "castWorkloadNote": "Dual lead emotional episode; others minimal — preserves oxygen for backstory."
+    },
+    {
+      "episode": 8,
+      "title": "Overload",
+      "seasonArcAct": { "act": 2, "title": "The Fracture" },
+      "focus": "Surge's leadership crisis. He makes a call that puts Glitch at risk and the team loses trust in him. He has to decide if he actually wants to lead — or just be in front.",
+      "fullBrief": "The fallout from a failed mission. Marcus deflects, blames others, then finally sits with the fact that he was wrong. Glitch, bruised and tired, tells him quietly: 'I followed you because I thought you knew what you were doing. Did you?' Pivotal episode for Marcus's arc.",
+      "charactersFeatured": ["Surge", "Glitch"],
+      "tags": ["Leadership", "Consequence", "Character growth"],
+      "antagonistRefs": ["Marrow"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Cold open aftermath — bruises, ringing ears — failure visible."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — The wrong call",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Mission setup — Lattice pressure — **Marrow** exploits Surge's impulse to 'decide fast.'",
+            "Glitch endangered — specific, physical, scary — not abstract."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Deflection",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Team fracture surfaces — Marcus blames — room turns on him.",
+            "Priya quiet fury — tech precision as emotional violence.",
+            "Marrow retreats — relational win for villain — heroes lose trust."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — The question",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Marcus alone — stillness — rare for him — faces cowardice inside performance.",
+            "Talk scene: Glitch delivers the line — soft, devastating — per brief.",
+            "Marcus cannot answer with charm — only silence or honesty."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Leadership unearned — next episodes must pay."
+          ]
+        }
+      },
+      "cliffhanger": "Surge's arc turns — the team is watching if it is real.",
+      "castWorkloadNote": "Spotlight Surge + Glitch; others may appear in fallout scenes — keep tight."
+    },
+    {
+      "episode": 9,
+      "title": "The Architect",
+      "seasonArcAct": { "act": 2, "title": "The Fracture" },
+      "focus": "The main villain is revealed — and they're someone the team didn't expect. The organization's true goal becomes clear: not destruction, but control. Solace is the first to understand the ideology.",
+      "fullBrief": "The Architect is revealed — a former hero who believes superhumans are too dangerous to exist freely and must be managed. The twist: they believe they're protecting humanity. Solace is the first to understand this, and it disturbs him more than a straightforward evil would.",
+      "charactersFeatured": ["Surge", "Wraith", "Titan", "Glitch", "Solace", "Villain reveal"],
+      "tags": ["Villain reveal", "Plot twist", "Midpoint crisis"],
+      "antagonistRefs": ["The Architect"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Tension — city on edge — team already fractured from Ep 8."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Face of infrastructure",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Architect enters as calm authority — former hero texture — charisma without warmth.",
+            "Goal stated: control as protection — not destruction."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Ideological combat",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Each hero challenged on their core — rapid-fire confrontation.",
+            "Solace recognizes sincerity — disturbed — empathy weaponized against him.",
+            "Small action beat if needed — but win is informational: they understand what they're fighting."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — No easy hate",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Team escapes or survives — not a finale win — stakes escalate to Season endgame.",
+            "Architect's warning lands — management as cultural inevitability."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "To be continued — war is ideological now."
+          ]
+        }
+      },
+      "cliffhanger": "The enemy has a face — and a philosophy that haunts Solace.",
+      "castWorkloadNote": "Full team + villain — balance dialogue and visual iconography; see antagonist-bible."
+    },
+    {
+      "episode": 10,
+      "title": "Split Signal",
+      "seasonArcAct": { "act": 3, "title": "The Reckoning" },
+      "focus": "The organization exploits the team's fractures. Each member is individually targeted and manipulated against each other. The team splinters completely.",
+      "fullBrief": "The Architect weaponizes what each member fears most. Surge's recklessness. Wraith's isolation. Titan's self-sacrifice. Glitch's chaos. Solace's empathy. By episode's end, the team is scattered across the city, alone, and the clock is running.",
+      "charactersFeatured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
+      "tags": ["Dark turn", "Betrayal", "Stakes peak"],
+      "antagonistRefs": ["The Architect"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Meridian under pressure — time clock literal or metaphorical."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Personalized attacks",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Five parallel pressures begin — tailored — psychological + practical.",
+            "Miscommunication manufactured — each believes a different truth."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Turned inward",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Surge provoked into recklessness — public cost.",
+            "Wraith isolated by shame / data / ghost from past.",
+            "Titan forced to choose self-sacrifice scenario — cannot save everyone.",
+            "Glitch overwhelmed — systems + feelings overload.",
+            "Solace empathy used as trap — save the wrong person moment."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Scattered",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Team breaks — not melodrama — specific wounds — walkaways earned.",
+            "City stakes raised — Architect's endgame machinery visible."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Five alone shots — intercut — silence — clock tick."
+          ]
+        }
+      },
+      "cliffhanger": "Nova Force is not a team tonight — the city still needs them.",
+      "castWorkloadNote": "Ensemble with parallel structure — storyboard for clarity; avoid repetition without variation."
+    },
+    {
+      "episode": 11,
+      "title": "Frequency Zero",
+      "seasonArcAct": { "act": 3, "title": "The Reckoning" },
+      "focus": "Each character faces their shadow alone. Personal arcs converge — and each one has to choose: stay broken, or grow through it. Parallel vignettes.",
+      "fullBrief": "Five intercut solo vignettes. Surge admits he's afraid. Wraith lets someone in. Titan lets someone else carry something. Glitch slows down long enough to feel the weight of what's at stake. Solace confronts the possibility that some people don't want saving. They each find their way back.",
+      "charactersFeatured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
+      "tags": ["Character payoff", "Emotional climax", "Parallel structure"],
+      "antagonistRefs": [],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "Montage hook — five frequencies — audio design carries theme."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Lows",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "Surge: fear named — not performance — small location, intimate.",
+            "Wraith: trust beat — chooses contact — vulnerability costs.",
+            "Titan: delegates survival — asks for help — breaks stoic pattern."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Turning",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Glitch: slows — feels weight — no joke armor — chooses care.",
+            "Solace: mercy boundary — not everyone wants saving — grief, not cruelty.",
+            "Cross-cut rhythm accelerates toward convergence point."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Way back",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Each hero takes one action toward reunion — not yet together — pointed at finale.",
+            "Meridian night — storm or quiet — tone as character."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Five paths aim at one coordinate — rooftop / bridge / Spire-adjacent — script chooses."
+          ]
+        }
+      },
+      "cliffhanger": "They are ready — separately — for the last fight.",
+      "castWorkloadNote": "Parallel vignettes — ensure distinct emotional keys; intercut rules in edit."
+    },
+    {
+      "episode": 12,
+      "title": "Nova Force",
+      "seasonArcAct": { "act": 3, "title": "The Reckoning" },
+      "focus": "Season finale. Full team, fully united, against The Architect's endgame. The city watches. They win — but the cost is real, and the world knows who they are now.",
+      "fullBrief": "The biggest action sequence of the season. The team moves in perfect sync for the first time. The Architect is defeated but not destroyed — left with a warning and a grudging respect. The final scene: the five of them on a rooftop, the city lit below them, choosing to be a team. End credits roll over the team getting officially named: Nova Force.",
+      "charactersFeatured": ["Surge", "Wraith", "Titan", "Glitch", "Solace", "Final battle"],
+      "tags": ["Finale", "Full team", "Season closer"],
+      "antagonistRefs": ["The Architect", "Lattice Grunt", "Lattice Elite"],
+      "structure": {
+        "coldOpen": {
+          "approximateMinutes": "0:00–2:00",
+          "beats": [
+            "City-scale stakes — clear objective — what losing means."
+          ]
+        },
+        "actOne": {
+          "label": "Act I — Sync born",
+          "approximateMinutes": "2:00–10:00",
+          "beats": [
+            "First true combo rhythm — choreography shows complement, not competition.",
+            "Architect counters with ideology + force — pressure tests unity."
+          ]
+        },
+        "actTwo": {
+          "label": "Act II — Cost",
+          "approximateMinutes": "10:00–22:00",
+          "beats": [
+            "Mid-battle losses — physical and moral — price visible.",
+            "Turning point: each hero pays their season theme forward — not speech-only."
+          ]
+        },
+        "actThree": {
+          "label": "Act III — Defeat, not obliteration",
+          "approximateMinutes": "22:00–28:00",
+          "beats": [
+            "Architect endgame stopped — city saved enough to count as win.",
+            "Architect survives as threat — warning exchange — grudging respect — per brief.",
+            "Public identification: world knows them — consequences land."
+          ]
+        },
+        "tag": {
+          "approximateMinutes": "28:00–30:00",
+          "beats": [
+            "Rooftop five-shot — choose team — name lands: **Nova Force** — credits over sting."
+          ]
+        }
+      },
+      "cliffhanger": "Season ends on unity and exposure — Season 2 hooks: fame, law, Architect echo, Lattice idea surviving.",
+      "castWorkloadNote": "Full ensemble finale — balance spectacle with character beats; name reveal is emotional payoff."
+    }
+  ],
+  "crossChecks": {
+    "charactersFeaturedVsStory": "Episode 5 lists Solace-only in `season.json` while the brief requires team conflict — beat doc assumes other heroes **appear** for clash scenes; spotlight remains Solace. Update `season.json` in a future pass if you want metadata to list ensemble presence.",
+    "antagonistAlignment": "Episodic refs follow `production/antagonist-bible.json` through Episode 9+."
+  }
+}

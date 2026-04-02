@@ -1,0 +1,29 @@
+{
+  "show": "NOVA FORCE",
+  "season": 1,
+  "rosterNumber": 1,
+  "codename": "SURGE",
+  "icon": "⚡",
+  "realName": "Marcus \"Marc\" Valdez",
+  "age": 17,
+  "personality": "Marcus is loud on purpose — silence feels like disappearing. He performs confidence the way some kids perform homework: convincingly enough to pass, but never without a tremor underneath. He jokes mid-fight because stillness reads as fear to him. He is fiercely loyal, quick-witted, and hot-headed, but his recklessness is not cartoon stupidity; it is a habit formed from growing up underestimated and deciding that being remembered is worth the collateral damage. Behind the bravado is someone terrified of being ordinary — not because he wants fame, but because ordinary felt like a verdict in a house where nobody looked up when he walked into a room.",
+  "traits": [
+    "Reckless",
+    "Loyal",
+    "Quick-witted",
+    "Hot-headed",
+    "Attention-as-armor",
+    "Secretly approval-starved"
+  ],
+  "mindset": "He tells himself: hit first, ask questions later — hesitation is fear wearing a smarter mask. What he is slow to admit is that he sometimes confuses motion with meaning. Season 1 forces him to learn that leadership is not standing in front; it is choosing consequences for other people and owning them when nobody is clapping. His arc is from \"watch me\" to \"I did this to us.\"",
+  "visualDistinctions": "Electric-blue streaks race through his dark hair when powered up. Wears a torn yellow bomber jacket over a black bodysuit with crackling circuit-line patterns. Eyes flash white during power surges. Always in motion — tapping, bouncing, never still — except in rare moments after a mistake, when he goes unnervingly still, like a machine cooling down.",
+  "powers": "Electricity generation and manipulation",
+  "powersSpec": "Marcus can pull charge from his own bioelectric field and shape it into arcs, bursts, and magnet-adjacent pulls on conductive metal. He is not a weather god: no storms from clear sky, no city-wide blackouts as a casual flex. His upper limit rises with adrenaline — and collapses with exhaustion. Overuse causes micro-tremors, nosebleeds, migraines, and temporary numbness in his hands (a human price that reads on camera). Water is not instant death, but it is dangerous sloppy terrain — he has to think, not splash. Insulating gear can blunt him; grounded strategy can outlast him. His signature failure mode is friendly fire: wide arcs when panicked, and collateral he did not mean to pay.",
+  "role": "De facto leader",
+  "signatureColor": "Electric blue / Yellow",
+  "seasonOneArc": "Act I (eps 1–4): Marcus discovers power as proof — he mistakes visibility for value. Act II (eps 5–9): forced teamwork humiliates him in the best way; he learns other people's skills are not an insult to his. Episode 8 is his hinge: a call he makes to look decisive puts Glitch in danger and fractures trust — for the first time he cannot charm his way past consequence. Act III (eps 10–12): the team is targeted individually; Marcus faces the fear underneath the performance — not being strong, but being responsible. Finale: he earns leadership as accountability, not spotlight — still Marcus, still funny, but no longer hiding behind motion.",
+  "voiceCadence": "Speaks fast, stacks jokes, interrupts himself when nervous. Volume spikes when he feels unseen. When guilty, he gets weirdly formal for two sentences — like he is trying on apology from a manual — then snaps back to deflection. Rare honest lines land quieter; those are the moments animators should hold the face longer than he is comfortable with.",
+  "humanizingDetails": "He hums without noticing when charging small devices for strangers. He keeps his phone cracked because fixing it feels like pretending he has money he does not. He over-apologizes to inanimate objects after a misfire — a private tell that he is ashamed of his own strength. He practices smiles in reflective surfaces; he hates that he does it. He remembers everyone's coffee order but pretends it is random — a kindness he will not name because naming it sounds needy.",
+  "influencesAndTwist": "Static's wit and heart, but Virgil's humor is often grounded in moral clarity — Marcus uses humor to avoid clarity. Bakugo's forward fire, but Katsuki's drive is dominance; Marcus's drive is fear of irrelevance, which makes his aggression more defensive and more ashamed. Flash-like momentum appears in stories as speed; Surge's parallel is not velocity but voltage — spikes, brownouts, and recovery time. Thor's lightning reads divine; Marcus reads like a breaker tripping in an old house — powerful, imperfect, and a little embarrassing in daylight. The writers' room rule: if it looks cool without cost, it is not Surge yet.",
+  "animationCraftNotes": "Micro-performance: show his hands first — tapping, fiddling, grounding static — before wide hero poses. Let dialogue overlap and step on lines in group scenes until episode 8+, where he learns to pause and listen — same actor energy, different timing. Avoid perpetual smirk; give him a real listening face when someone else is the smartest person in the room. Action: electricity should feel hot, tactile, and slightly ugly — sparks that stain, light that flickers, not a clean laser wash. Give him a post-surge tremor on fingers so power has hangover. When he is lying to himself, keep the body moving; when he tells truth, lock the shoulders. One recurring visual motif: a small lightbulb flutter somewhere in frame when he is emotionally cornered — not as comedy beat every time, but as a subtle tell tied to his field leaking under stress."
+}
