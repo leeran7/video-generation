@@ -4,9 +4,9 @@
   "villain": {
     "name": "The Architect",
     "revealed_in_episode": 9,
-    "motivation": "A former hero who believes superhumans are too dangerous to exist freely and must be managed. They believe they are protecting humanity — not destroying it.",
-    "twist": "The villain's conviction that they are right makes them more dangerous than a straightforwardly evil antagonist."
+    "details": "See production/antagonist-bible.json → theArchitect"
   },
+  "beatDocument": "production/season-1-beats.json",
   "acts": [
     {
       "act": 1,

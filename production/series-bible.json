@@ -170,7 +170,7 @@
     "source": "Season 1/season.json",
     "structure": "Three acts: The Spark (eps 1–4) establishes the city and introduces each hero; The Fracture (eps 5–9) forces the team together and reveals the true antagonist ideology; The Reckoning (eps 10–12) breaks them apart and demands earned unity.",
     "teamName": "The roster becomes publicly known as Nova Force by the end of Season 1 — aligned with show title and finale episode title in season.json.",
-    "antagonistThroughLine": "The Architect embodies managed control vs freedom — full dossier and episodic roster in `production/antagonist-bible.json`; series bible keeps high-level ideological consistency with season.json.",
+    "antagonistThroughLine": "See production/antagonist-bible.json → theArchitect",
     "beatDocument": "Episode beat sheets (12) in `production/season-1-beats.json`."
   }
 }
