@@ -62,38 +62,8 @@
   "shadowOrganization": {
     "workingName": "Lattice",
     "workingNameStatus": "draft — rename when a final title is chosen",
-    "publicFace": "Unknown early; later understood as a private continuity network that treats superhuman emergence as a systems problem: monitor, contain, recruit, or neutralize.",
     "philosophyInOneSentence": "Freedom without oversight is extinction — they believe management is mercy.",
-    "goals": [
-      "Map and classify post-pulse individuals and threats.",
-      "Acquire leverage: data, assets, pressure points, and controlled operatives.",
-      "Prevent uncontrolled supers from collapsing civic order — as they define it.",
-      "Long-term: institutionalize control — not mustache-twirling world domination, but governance by fear dressed as safety."
-    ],
-    "recruitmentAndAttackPatterns": [
-      "Recruitment: offers disguised as help — jobs, medical access, debt relief — with contracts that do not read kind on close inspection.",
-      "Attack: isolate targets, manufacture scandal, drain resources, and when needed, direct action that looks like accidents or rival violence.",
-      "Information warfare is default; brute force is a last resort — but they will use it."
-    ],
-    "hierarchySlots": [
-      {
-        "slot": "Principal",
-        "description": "Ultimate authority over strategy and risk tolerance. Season 1 reveals this layer through The Architect — see `production/antagonist-bible.json` and Season 1/season.json."
-      },
-      {
-        "slot": "Handlers",
-        "description": "Field command: run teams, manage operatives, own specific city districts or targets."
-      },
-      {
-        "slot": "Operatives",
-        "description": "Tactical teams: capture, intimidation, extraction, crowd control — trained, equipped, sometimes anonymous."
-      },
-      {
-        "slot": "Continuity / Research",
-        "description": "Experiments, monitoring, long-term asset development — ties to backstory wounds (e.g., childhood exposure) without explaining everything in Season 1."
-      }
-    ],
-    "antagonistDetails": "See `production/antagonist-bible.json` — The Architect dossier, episodic roster, henchmen templates."
+    "details": "See production/antagonist-bible.json — goals, recruitment patterns, hierarchy, The Architect dossier, episodic roster, henchmen templates."
   },
   "meridianCity": {
     "overview": "Meridian is a coastal American city big enough to have a skyline, a harbor, inequality, and neighborhoods that feel like different worlds. It is not Gotham-gray by default — sunlight is a storytelling tool — but danger lives in alleys, boardrooms, and feeds as much as in warehouses.",
