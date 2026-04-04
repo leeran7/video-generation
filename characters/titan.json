@@ -7,21 +7,35 @@
   "realName": "Remi Nakashima",
   "age": 18,
   "personality": "Remi is calm because panic is a luxury their body will not allow — someone has to be the place others run to. Quietly commanding is not ego; it is exhaustion managed with grace. They protect like breathing: first, automatic, not always healthy. They almost never crack on purpose — which means when they do, it lands like structural failure. They are the emotional anchor because they learned early that being needed feels safer than being known.",
-  "traits": [
-    "Stoic",
-    "Protective",
-    "Self-sacrificing",
-    "Disciplined",
-    "Gentle giant energy",
-    "Afraid to need help"
-  ],
+  "traits": ["Stoic", "Protective", "Self-sacrificing", "Disciplined", "Gentle giant energy", "Afraid to need help"],
   "mindset": "My pain matters less than everyone else's safety — that is the story they tell to stay useful. Season 1 asks whether a shield is allowed to be a person. Remi's arc moves from \"carry it all\" to \"let someone else carry something\" — not abandonment of duty, but redistribution of humanity. They learn that being the tank is not the same as being invisible.",
   "visualDistinctions": "Towering build; bioluminescent green fissures spread across skin when absorbing impact — light should feel like stress visible under the surface, not a party trick. Slate-grey armor, minimal ornament — function reads as character. Close-cropped hair, single glowing green streak. Hands slightly oversized — always reaching, bracing, holding. When not fighting, fissures dim but never fully vanish — a quiet reminder the body keeps score.",
   "powers": "Superhuman strength and impact absorption",
   "powersSpec": "Remi can absorb kinetic energy from strikes and redirects it — not infinite; their body stores strain as heat and micro-damage. Sustained assaults or bizarre physics (piercing, vibration, sonic) bypass simple bracing. Overload causes fissure flare, nosebleeds, and temporary motor slip — fine motor tasks shake. They are strong, not invulnerable; cutting edges, toxins, and emotional collapse still work. Impact absorption does not fix emotional pain — writers should never use power as therapy cheat. Lifting limits rise with adrenaline but drop hard after — recovery scenes matter.",
   "role": "Tank / Emotional anchor",
   "signatureColor": "Slate grey / Bioluminescent green",
-  "seasonOneArc": "Act I (eps 1–4): public debut in Episode 3 makes Remi a symbol before they feel ready — viral fame as prison. Act II (eps 5–9): Episode 6 forces messy teamwork; Episode 7 pairs them with Wraith — not debate, presence. Remi becomes the person who stays when words fail. Act III (eps 10–12): targeted isolation weaponizes their self-sacrifice; they must accept help without guilt. Finale: still the shield — but visible as a whole person, not a function.",
+  "seasonOneArc": [
+    {
+      "act": 1,
+      "episodes": [1, 2, 3, 4],
+      "description": "public debut in Episode 3 makes Remi a symbol before they feel ready — viral fame as prison."
+    },
+    {
+      "act": 2,
+      "episodes": [5, 6, 7, 8, 9],
+      "description": "Episode 6 forces messy teamwork; Episode 7 pairs them with Wraith — not debate, presence. Remi becomes the person who stays when words fail."
+    },
+    {
+      "act": 3,
+      "episodes": [10, 11, 12],
+      "description": "Targeted isolation weaponizes their self-sacrifice; they must accept help without guilt."
+    },
+    {
+      "act": 4,
+      "episodes": [13, 14, 15],
+      "description": "Finale: still the shield — but visible as a whole person, not a function."
+    }
+  ],
   "voiceCadence": "Measured, warm low register; avoids interrupting. Sentences complete — Remi does not trail off unless emotionally cornered. Under stress, words get fewer — not colder, tighter. When angry (rare), volume stays level — which is scarier. They use they/them consistency in dialogue as natural; avoid making their calm feel robotic — add small hesitations when admitting need.",
   "humanizingDetails": "They count exits in new rooms — not paranoia, habit. They carry granola bars for other people and forget to eat. They watch medical dramas and mute the sound during surgery scenes — empathy overload. They have a laugh that surprises them when it happens — like they forgot they were allowed. They sleep heavy after big fights — not hero cool-down, teenage fatigue.",
   "influencesAndTwist": "Colossus's gentle strength and All Might's protector presence — but Remi is not a mentor figure; they are still a kid carrying adult weight. The Thing's body-as-isolation parallels the fissures — beauty is not the point; durability with loneliness is. Hulk's rage is absent by design: Remi's danger is not anger overflow but self-erasure. Superman parallels stop at savior imagery — Remi cannot fly away from consequences; they absorb them. Rule: every time they save someone, show a cost — sound, breath, a cracked fissure line — so strength never reads free.",

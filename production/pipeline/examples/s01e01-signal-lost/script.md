@@ -1,17 +1,7 @@
-# S01E01 — Signal Lost (script outline)
+# S01E01 — Signal Lost
 
-Use this file (or a richer screenplay) as the **source of truth** for dialogue and beats. Your AI video step should produce **one file per scene** listed in `manifest.json`.
+**Full screenplay:** [`production/scripts/s01e01-signal-lost.md`](../../../scripts/s01e01-signal-lost.md)
 
-## Act structure
+The canonical screenplay lives at the path above. It contains all 17 scenes, full dialogue, action lines, production notes, and a scene index that maps directly to `manifest.json`.
 
-- **Cold open:** Normal Meridian → pulse → blackout.
-- **Surge intro:** Marcus in blast zone; first uncontrolled surge.
-
-## Scene checklist
-
-| Scene id   | Beat | Dialogue / VO | AI output file    |
-| ---------- | ---- | --------------- | ----------------- |
-| scene-01   |      |                 | `scenes/scene-01.mp4` |
-| scene-02   |      |                 | `scenes/scene-02.mp4` |
-
-Add rows until the full episode is covered; update `manifest.json` to match.
+This file is kept as a pipeline-level reference stub. Do not add story content here — edit the screenplay directly.

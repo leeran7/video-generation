@@ -37,17 +37,17 @@ Each scene can carry a `generation` object (ignored by validate/stitch today). *
 
 Suggested convention (all optional; extend as needed):
 
-| Field | Purpose |
-| ----- | ------- |
-| `provider` | Logical name: `runway`, `replicate`, `fal`, `local`, etc. |
-| `model` | Model id/version your script maps to the provider API |
-| `prompt` | Full text-to-video prompt |
-| `negativePrompt` | What to avoid |
-| `imageRef` | Path or URL to start/end frame for image-to-video |
-| `targetDurationSeconds` | Desired length (providers often snap to allowed values) |
-| `aspectRatio` | e.g. `16:9` |
-| `seed` | Reproducibility |
-| `styleRefs` | URLs or paths to reference images (character/location) |
+| Field                   | Purpose                                                   |
+| ----------------------- | --------------------------------------------------------- |
+| `provider`              | Logical name: `runway`, `replicate`, `fal`, `local`, etc. |
+| `model`                 | Model id/version your script maps to the provider API     |
+| `prompt`                | Full text-to-video prompt                                 |
+| `negativePrompt`        | What to avoid                                             |
+| `imageRef`              | Path or URL to start/end frame for image-to-video         |
+| `targetDurationSeconds` | Desired length (providers often snap to allowed values)   |
+| `aspectRatio`           | e.g. `16:9`                                               |
+| `seed`                  | Reproducibility                                           |
+| `styleRefs`             | URLs or paths to reference images (character/location)    |
 
 Example (illustrative — shape is up to you as long as your script understands it):
 
@@ -107,11 +107,11 @@ Your script encodes that two-step flow; the stitcher still sees only final `.mp4
 
 These are typical **programmatic** entry points; names and models change often—always read the vendor’s latest API docs.
 
-| Style | Examples | Notes |
-| ----- | -------- | ----- |
-| Direct vendor API | [Runway API](https://docs.dev.runwayml.com/), others | Official SDKs/REST; billing on vendor |
-| Model marketplace | [Replicate](https://replicate.com/) | Many text-to-video models behind one HTTP API; Node client available |
-| Other aggregators | fal, Modal, custom Vertex/GCP | Often similar: submit → poll → URL |
+| Style             | Examples                                             | Notes                                                                |
+| ----------------- | ---------------------------------------------------- | -------------------------------------------------------------------- |
+| Direct vendor API | [Runway API](https://docs.dev.runwayml.com/), others | Official SDKs/REST; billing on vendor                                |
+| Model marketplace | [Replicate](https://replicate.com/)                  | Many text-to-video models behind one HTTP API; Node client available |
+| Other aggregators | fal, Modal, custom Vertex/GCP                        | Often similar: submit → poll → URL                                   |
 
 **Choosing one:** optimize for **(a)** duration limits per request, **(b)** cost per second, **(c)** whether you need **image-to-video**, **(d)** export format (prefer **H.264 + AAC** in `.mp4` for easy concat).
 
@@ -155,6 +155,6 @@ Add a `pnpm pipeline:generate` script when that exists. Until then, use this doc
 
 ## Related files
 
-- [README.md](./README.md) — validate/stitch commands and folder layout  
-- [schema/episode-manifest.schema.json](./schema/episode-manifest.schema.json) — manifest schema (`generation` is open-ended)  
+- [README.md](./README.md) — validate/stitch commands and folder layout
+- [schema/episode-manifest.schema.json](./schema/episode-manifest.schema.json) — manifest schema (`generation` is open-ended)
 - Example manifest: [examples/s01e01-signal-lost/manifest.json](./examples/s01e01-signal-lost/manifest.json)

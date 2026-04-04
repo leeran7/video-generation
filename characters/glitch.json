@@ -21,7 +21,28 @@
   "powersSpec": "Priya can interface with digital systems and — in controlled bursts — nudge physical outcomes like probability glitches: doors, feeds, drones, traffic patterns, AR overlays. She does not rewrite reality like a god; she exploits seams. Big hacks cause sensory overload: migraines, nosebleeds, hand tremors, temporary aphasia (words come wrong). Her 'reality hack' has a budget — the more she bends, the more the world snaps back with noise. Faraday cages, air-gapped systems, and human unpredictability still win. Failure mode: she over-commits to an elegant solution when a blunt human fix would save someone faster.",
   "role": "Tech genius / Wildcard",
   "signatureColor": "Neon multi-color (mood-based)",
-  "seasonOneArc": "Act I (eps 1–4): Episode 4 — she bites off classified data and loves the taste until the org bites back. Act II (eps 5–9): Episode 6 safehouse attack makes her body a liability she hates; Episode 8 — Surge's call endangers her; she does not forgive with a hug — she speaks quiet truth that rewires him. Act III (eps 10–12): she must slow down enough to feel stakes without optimizing them away — Episode 11 parallel vignette: brilliance as burden. Finale: still chaotic, but chaos aimed, not scattered.",
+  "seasonOneArc": [
+    {
+      "act": 1,
+      "episodes": [1, 2, 3, 4],
+      "description": "Episode 4 — she bites off classified data and loves the taste until the org bites back."
+    },
+    {
+      "act": 2,
+      "episodes": [5, 6, 7, 8, 9],
+      "description": "Episode 6 safehouse attack makes her body a liability she hates; Episode 8 — Surge's call endangers her; she does not forgive with a hug — she speaks quiet truth that rewires him."
+    },
+    {
+      "act": 3,
+      "episodes": [10, 11, 12],
+      "description": "she must slow down enough to feel stakes without optimizing them away — Episode 11 parallel vignette: brilliance as burden. Finale: still chaotic, but chaos aimed, not scattered."
+    },
+    {
+      "act": 4,
+      "episodes": [13, 14, 15],
+      "description": "Finale: still chaotic, but chaos aimed, not scattered."
+    }
+  ],
   "voiceCadence": "Fast, overlapping clauses; interrupts herself with better ideas mid-sentence. Laughs at wrong moments when nervous. When hurt, speech gets precise — scary clear — then fractures back into speed. Give her half-finished jokes that land anyway because timing is accidental genius. Avoid making her only comic relief; give her one scene per block with zero jokes — just listening.",
   "humanizingDetails": "She color-codes notes then forgets the key. She names her devices and denies it. She stress-eats spicy food until numb — sensation reset. She screenshots kind messages like evidence. She pretends not to care about birthdays and then scripts a perfect midnight message — then deletes it twice before sending.",
   "influencesAndTwist": "Neo sees the Matrix; Priya sees APIs — less prophecy, more maintenance mode. Ed from Cowboy Bebop's scatter-genius energy — but Priya's chaos is not detachment; it is acceleration as coping. Peni Parker's tech-spider vibe — without the cute safety net; Meridian bites back. Shuri's brilliance — but Priya is younger, messier, and her hacks have hangovers. Q's gadgets — except failures are story, not reset button. Rule: every clever win costs something visible — time, trust, or headache — so the show never feels like cheat codes.",
