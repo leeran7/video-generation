@@ -37,7 +37,7 @@ export interface Character {
   powersSpec: string
   role: string
   signatureColor: string
-  seasonOneArc: string
+  seasonOneArc: { act: number; episodes: number[]; description: string }[]
   voiceCadence: string
   humanizingDetails: string
   influencesAndTwist: string

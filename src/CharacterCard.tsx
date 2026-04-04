@@ -64,7 +64,13 @@ export function CharacterCard({ character, accent, index }: CharacterCardProps) 
         <div className="section-content">{character.signatureColor}</div>
 
         <div className="section-label">Season 1 arc</div>
-        <div className="section-content">{character.seasonOneArc}</div>
+        <div className="section-content">
+          {character.seasonOneArc.map((arc) => (
+            <div key={arc.act}>
+              <strong>Act {arc.act}</strong> (Ep {arc.episodes.join(', ')}): {arc.description}
+            </div>
+          ))}
+        </div>
 
         <div className="section-label">Voice &amp; cadence</div>
         <div className="section-content">{character.voiceCadence}</div>

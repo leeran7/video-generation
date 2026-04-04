@@ -3,6 +3,7 @@
 ## Season 1, Episode 1 — "Signal Lost"
 
 **Written from:** `production/season-1-beats.json` (Ep 1), `characters/surge.json`, `production/series-bible.json`, `production/antagonist-bible.json`
+**Season arc:** Act 1 — "The Spark"
 **Status:** First draft
 **Runtime target:** 30 minutes
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
@@ -12,12 +13,13 @@
 
 ## CAST (THIS EPISODE)
 
-- **MARCUS VALDEZ / SURGE** — 17. Yellow bomber jacket, cracked phone, never still.
+- **MARCUS VALDEZ / SURGE** — 17. Yellow bomber jacket (left cuff torn). Cracked phone. Always in motion — tapping, bouncing, touching things — except in the moments after a mistake, when he goes unnervingly still.
 - **DANIELA VALDEZ** — 13. Marcus's little sister. Appears via text only.
-- **MR. OKAFOR** — Late 50s. Runs the corner store in Lowline. Kind face, tired eyes.
-- **ELENA** — 8. The kid with the live wire. Doesn't speak in this episode.
-- **WOMAN ON FOURTH FLOOR** — 40s. Practical. Not grateful the way movies are grateful.
-- **ROOK** — Lattice surveillance lead. Never addresses Marcus directly. Too still. Cheap coffee.
+- **MR. OKAFOR** — Late 50s. Runs the corner store in Lowline. Kind face, tired eyes. Reads people the way a good shopkeeper does — fast and without judgment.
+- **MAN WITH BRIEFCASE** — Late 40s. Scared. The unlucky bystander for Marcus's first discharge.
+- **ELENA** — 8. The kid with the live wire. Does not speak in this episode.
+- **WOMAN ON FOURTH FLOOR** — 40s. Practical. Already had her plan before Marcus arrived.
+- **ROOK** — Lattice surveillance lead. Cheap coffee stains. Unremarkable clothes. Memorable posture: too still.
 - **GREY** — Lattice analyst. Voice and silhouette only. Clipped. Competent.
 - **MERIDIAN CITY** — Acts as a character throughout.
 
@@ -25,9 +27,13 @@
 
 ## PRODUCTION NOTES
 
-Visual language for Marcus's electricity: **hot, tactile, slightly ugly** — sparks that stain concrete, light that flickers at the wrong frequency, not a clean laser wash. Give every discharge a **hangover**: post-surge tremor in the fingers, salt at the back of the throat, nosebleeds that arrive without ceremony. His **yellow bomber jacket** accumulates scorch marks across the episode — the sleeve by Act II, the shoulder by Act III. **Eyes flash white** at full discharge. **Electric-blue streaks** in dark hair when powered up, fade when exhausted. **Always in motion** (tapping, bouncing, touching things) — except in the two moments after a mistake, where he goes unnervingly still, like a machine cooling down. One recurring tell: a small lightbulb or nearby bulb flickers in frames when Marcus is emotionally cornered — subtle, not comic.
+**Marcus's electricity:** Hot, tactile, slightly ugly — sparks that stain concrete, light that flickers at the wrong frequency. Never a clean laser wash. Every discharge has a **hangover**: micro-tremors in the fingers, nosebleeds, temporary numbness in the hands. These read on camera. **Eyes flash white** at full discharge. **Electric-blue streaks** race through his dark hair when powered up, fade when exhausted. His **yellow bomber jacket** accumulates scorch marks across the episode — sleeve by Act II, shoulder by Act III.
 
-Rook scenes: near-black environment. Multiple screens. The aesthetic is a surveillance van that has been lived in for weeks — coffee rings, cable management by habit, no wasted motion. Rook's stillness is the inverse of Marcus's constant motion.
+**Marcus's tells:** He is always in motion — tapping, bouncing, touching things. In the two moments after a mistake he goes unnervingly still, like a machine cooling down. When emotionally cornered, a small bulb somewhere in frame flickers — not as a comedy beat, as a tell tied to his field leaking under stress. He over-apologizes to inanimate objects after a misfire. He hums without noticing.
+
+**Rook scenes:** Near-black environment. Multiple screens in a lived-in van. Coffee rings, cable management by habit, no wasted motion. Rook's stillness is the inverse of Marcus's constant motion. Lattice works by human procedure — footage scraped, metadata pulled, calls made — never omniscient.
+
+**Sound design:** Marcus's electricity has two registers. Uncontrolled — a crackling, wet, industrial sound, like a transformer blowing. Controlled — a cleaner, higher hum, almost musical but not quite. The distinction should track his arc.
 
 ---
 
@@ -39,87 +45,87 @@ Rook scenes: near-black environment. Multiple screens. The aesthetic is a survei
 
 ### SCENE 01 — EXT. GLASSHOOK PIER — EARLY MORNING
 
-*(0:00 – 0:45)*
+*(0:00 – 1:00)*
 
-The city before the city knows anything is wrong.
+The city before it knows anything is wrong.
 
-GLASSHOOK PIER at the threshold of a weekday morning — tourist shops not yet open, fishermen already done, commuters starting to funnel through. Light is low-gold and coastal. A transit bus rolls past with an ad for a local sports team. A WOMAN walks a dog and scrolls her phone simultaneously. Two TEENS argue over shared earbuds. Somewhere off-camera, a VENDOR is already arguing with a supplier about delivery times. 
+GLASSHOOK PIER on a Tuesday. Tourist shops dark, fishermen already gone, commuters beginning to filter through. Light is low-gold and coastal — the kind that makes ordinary things look briefly dignified before the day gets going and stops caring.
 
-Ordinary. Meridian is an ordinary city.
+A transit bus rolls past. A WOMAN walks a dog and checks her phone simultaneously, neither getting her full attention. Two TEENS argue over shared earbuds, pulling the wire taut without noticing.
 
-MARCUS VALDEZ enters frame from the left, heading toward Meridian Central. Seventeen years old. Yellow bomber jacket — torn at the left cuff, and he knows it, and hasn't fixed it. Cracked phone in his right hand, thumb working a text thread. He's got one earbud in, the other dangling. He's walking like the sidewalk owes him something.
+MARCUS VALDEZ enters frame from the left. Seventeen. Yellow bomber jacket — torn at the left cuff, worn that way on purpose or close enough that the distinction doesn't matter. Cracked phone in his right hand. One earbud in, the other dangling. Walking like the sidewalk owes him something.
 
-He passes a BUSKER playing guitar near the pier entrance. Without breaking stride, without looking up from his phone — Marcus hums two bars of the melody perfectly.
+He passes a BUSKER — woman, 50s, guitar, something bluesy — and without breaking stride, without looking up from his phone, hums two bars of her melody perfectly. He doesn't know he did it.
 
-His phone screen: a text thread labeled **DANI 🌩️**
+His phone screen — a thread labeled **DANI 🌩️**:
 
 > **DANI:** did you eat anything
 > **MARCUS:** yes
 > **DANI:** what
 > **MARCUS:** food
+> **DANI:** marcus
+> **MARCUS:** it was nutritious food
+> **DANI:** I will tell Mrs. Chen
+> **MARCUS:** bold
 
 He half-smiles at his own response. Keeps walking.
 
-A PIGEON lands directly in front of him. He sidesteps it, mutters an apology to the pigeon, catches himself, looks around to see if anyone noticed. No one noticed.
-
-He keeps walking.
+A PIGEON lands directly in front of him. He sidesteps it, mutters a quiet sorry at the bird, catches himself, checks if anyone noticed. Nobody noticed. He keeps walking.
 
 ---
 
 ### SCENE 02 — EXT. MERIDIAN CENTRAL — CONTINUOUS
 
-*(0:45 – 1:20)*
+*(1:00 – 1:30)*
 
-The downtown core. Glass towers and transit hubs and a thousand people doing a thousand things. The MERIDIAN SPIRE is visible in the background — the city's tallest landmark, a needle of reflective glass against the morning.
+Downtown Meridian. Glass towers, transit hubs, a thousand people. The MERIDIAN SPIRE visible in the distance — reflective glass catching the morning and throwing it back slightly warmer.
 
-Marcus is cutting through the central plaza, phone still in hand. He slows as a COUPLE argues near a food cart. He doesn't mean to watch. He watches for exactly three seconds. Then he consciously looks away and speeds up.
-
-He bumps into a MAN in a suit, who drops a coffee.
+Marcus is threading the plaza crowd with the unconscious fluency of someone who has moved through this space every day for years. He bumps a MAN IN A SUIT. The man's coffee drops. The lid pops. A pale beige wave across the pavement.
 
 **MARCUS**
-Oh — sorry. My bad, that's on me—
+Oh — sorry. That's on me, I'm—
 
 **MAN IN SUIT**
 *(already walking)*
-Watch it, kid.
+Watch it.
 
-Marcus watches him go. His jaw works slightly. He doesn't say the thing he was going to say.
+Marcus watches him go. He had something good to say. He doesn't say it.
 
-He reaches down and picks up the man's coffee lid from the ground. Holds it. Looks at the retreating suit. Sets the lid carefully on a nearby trash can rim.
+He picks up the coffee lid and sets it carefully on the rim of a nearby trash can. Not in it. On it.
 
-He pulls out his cracked phone again — and then he stops.
+He pulls out his phone. And stops.
 
-The phone screen is flickering.
+The screen is flickering. Not a dead-battery flicker. Something else — bright, then dim, then bright, a pulse behind the glass.
 
-Just slightly. Not a dead-battery flicker. Something else.
+He holds the phone at arm's length and looks at it.
 
 ---
 
-### SCENE 03 — EXT. MERIDIAN CENTRAL — CONTINUOUS
+### SCENE 03 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
 
-*(1:20 – 2:00)*
+*(1:30 – 2:00)*
 
 Marcus looks up.
 
-So do twenty other people in the plaza, in the same second, like a synchronized reflex.
+So do twenty other people in the plaza, at the same second, like a conductor just raised a baton nobody saw. No sound causes it. Something registers at a frequency below hearing — and twenty people look up.
 
 The sky above Meridian is wrong.
 
-Not storming — wrong. The light at high altitude shifts, very briefly, from blue-morning to a flat white-violet, like the aperture of something enormous opening and closing in one breath. Birds scatter from the Spire in a single mass. Every screen in the plaza goes dark — phones, the transit ticker, the coffee cart's digital menu.
+Not storming — wrong. The light at high altitude shifts from blue-morning to a flat white-violet, briefly, like the aperture of something enormous opening and closing in one breath. The birds that nest in the infrastructure above the Spire's 80th floor scatter as a single mass. Every screen in the plaza goes dark — phones, transit ticker, the café menu, the news kiosk. All at once. Without a sound.
 
-One second of total quiet. The city holds its breath.
+One second of total quiet.
 
-Then —
+Then — a **PULSE.** Not a sound. A feeling — like standing two feet from a speaker turned all the way up, except there is no sound, only pressure. From everywhere at once.
 
-A **PULSE**. Not a sound, exactly — a feeling, like being too close to a speaker turned all the way up, except there's no sound. Just pressure, from everywhere at once.
+People stumble. A window cracks — one spiderweb fracture, lower left corner, clean. A CHILD across the plaza starts crying before she understands why.
 
-People stumble. Glass in a nearby window cracks — not shatters, cracks, a single spiderweb fracture. A CHILD starts crying before she understands why.
+Marcus doesn't stumble. He grabs a railing — and the railing sparks under his palm.
 
-Marcus doesn't stumble. He grabs a nearby railing — and the railing sparks under his palm.
+Not static. Not a doorknob jolt. Something with body to it, something that comes from inside him and meets the metal and doesn't know what to do.
 
 He lets go. Stares at his hand.
 
-A thin crackle of blue-white electricity is moving between his fingers.
+Between his fingers — alive, moving — a thin crackle of blue-white electricity arcs from knuckle to knuckle. It smells like burning and something sweeter. Ozone and copper.
 
 He stares at it.
 
@@ -139,124 +145,183 @@ He doesn't know what he's looking at yet.
 
 ### SCENE 04 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
 
-*(2:00 – 3:45)*
+*(2:00 – 4:15)*
 
 The city comes back wrong.
 
-About a third of the visible lights are still on. The other two-thirds are dark. Sirens are already starting somewhere — not close yet, building from multiple directions. People in the plaza are on their phones — some working, some not. A few are filming the sky. Nobody is sure what they saw.
+A third of the visible lights on. Two-thirds dark. Sirens building from multiple directions — not close yet, six blocks out, eight, the system spinning up. People in the plaza are on their phones, some calling, some filming the sky, some just holding their devices up toward the darkness above the Spire as if proximity to information will make it arrive faster.
 
-Marcus is pressed against the railing, hand tucked into his jacket pocket. He looks at the crowd. He looks at his hidden hand. Back at the crowd.
+Marcus is pressed against the railing. His right hand is in his jacket pocket. He can feel his fingers. They're doing the thing. He doesn't know what to call the thing yet.
 
-A MAN near him — late 40s, briefcase, scared — stumbles and goes down on one knee. Marcus's instinct kicks before thought does:
+He looks at the crowd. He looks at his hidden hand.
+
+A MAN — late 40s, briefcase, the face of someone who commutes every day and is very good at it and is not good at this — stumbles and goes down on one knee. Not injured. Just overwhelmed. He's going to need a second.
+
+Marcus moves before he thinks about it.
 
 **MARCUS**
-Hey — hey, I got you—
+Hey — I've got you—
 
-He reaches out and grabs the man's arm to steady him.
+He grabs the man's arm.
 
-The man JOLTS — not violently, but visibly, like touching an electric fence. He rips his arm back, nearly falls again, stares at Marcus.
+The man **JOLTS** — the same reflex as touching an electric fence, the body's own objection before the brain arrives. He rips his arm back, nearly goes down again, catches himself. Stares at Marcus.
 
-**MAN**
+**MAN WITH BRIEFCASE**
 What — what did you—
 
 **MARCUS**
 I didn't — I'm sorry, I didn't mean to—
 
-The man backs away, fast, into the crowd. Gone.
+**MAN WITH BRIEFCASE**
+*(backing away)*
+Don't touch me.
 
-Marcus holds his own hand in front of him. The fingers are trembling — a fine, mechanical tremor. He presses his palm flat against his thigh, willing it to stop.
+He's gone into the crowd.
+
+Marcus holds his own hand up. Looks at it. The fingers are trembling — fine, mechanical, like a motor running under the skin. He presses his palm flat against his thigh and wills it to stop.
 
 It doesn't stop.
+
+He looks around the plaza. Everyone is dealing with their version of right now. Nobody is looking at him specifically. He knows — without logic, just knows — that will change.
+
+He starts walking.
 
 ---
 
 ### SCENE 05 — EXT. MERIDIAN CENTRAL — SIDE STREET — CONTINUOUS
 
-*(3:45 – 5:15)*
+*(4:15 – 5:45)*
 
-Marcus has pulled off the main plaza into a narrower side street. Old brick walls on both sides. He's alone here, mostly — a DELIVERY GUY on a bike passes without looking at him.
+A narrower side street off the plaza. Old brick on both sides. A loading dock at the far end nobody uses anymore. Marcus is alone here. He leans against the brick wall.
 
-Marcus leans against the brick wall. He looks at his hand again. Carefully, like it's an object that belongs to someone else, he extends one finger toward the wall.
+He breathes.
 
-Blue electricity arcs from his fingertip to the brick. A small divot of soot appears on the wall.
+He extends one finger toward the wall — slowly, the way you'd approach something that might or might not be safe.
 
-He yanks his hand back. His hand is shaking harder now.
+Blue electricity arcs from his fingertip to the brick. A small divot of soot. The smell is immediate.
 
-He tries again. Smaller. More controlled. The arc is shorter — maybe two inches.
+He yanks his hand back. His hand shakes harder.
+
+He looks at the mark. Coin-sized.
+
+He tries again. Smaller this time — he concentrates, the way you'd concentrate on making your handwriting neater. The arc is shorter. Two inches. The mark is slightly smaller. Same.
 
 **MARCUS**
 *(to himself)*
 Okay. Okay okay okay.
 
-He straightens up. Looks both ways down the street. Nobody saw.
+He straightens. Looks both ways. Nobody saw.
 
-He presses both palms against the brick wall. The electricity travels from his palms in branching tendrils across the brick face — and the streetlight directly above him POPS. Glass rains down in a small, harmless shower.
+He presses both palms flat against the brick.
 
-Marcus ducks. Straightens. Stares at the dark light fixture.
+The electricity travels from both palms in branching, tree-like tendrils — not the small controlled thing, everywhere at once. The streetlight directly above him **POPS**. The housing, then a small shower of glass raining down in a harmless glittering curtain.
 
-He looks at his jacket sleeve. There's a new scorch mark there, coin-sized.
+Marcus ducks. Waits for it to finish. Straightens.
 
-He didn't mean to do any of that. He walks.
+He looks at the dark fixture. At the soot patterns on the brick — branching, reaching, like something that wanted to go everywhere and went everywhere.
+
+He looks at the back of his left sleeve. A new scorch mark, coin-sized. He didn't feel it happen.
+
+He walks.
 
 ---
 
 ### SCENE 06 — EXT. MERIDIAN CENTRAL — CONTINUOUS
 
-*(5:15 – 7:00)*
+*(5:45 – 7:15)*
 
-Marcus is trying to move through the post-pulse chaos without touching anyone. This is harder than it sounds. The street is filling with confused, frightened people — the power grid is patchy and some traffic signals are dark, creating gridlock. People are on foot, looking at the sky, looking at each other.
+The post-pulse chaos has settled into a specific texture — not panic, Meridian has had things happen before — but a sustained low-grade confusion. Power is patchy in a way that makes no geographical sense: one side of an intersection lit, the other dark. Traffic signals out at maybe forty percent of intersections, gridlock propagating outward from each dark signal like a slow wave.
 
-Marcus keeps his hands in his pockets. His face is doing the work of performing calm he does not feel.
+Marcus moves with his hands deep in his jacket pockets. Face performing calm he does not feel. Heading toward Lowline. Careful. Not touching anyone.
 
-Then: an AMBULANCE is forcing its way through the intersection ahead. Moving slowly, horn going. The crowd is parting, but slowly.
+An AMBULANCE is forcing its way through the intersection ahead. Two-tone horn, lights going, eight miles per hour through the gridlock.
 
-As the ambulance passes two feet from Marcus — its radio antenna, jutting from the roof of the vehicle, picks up his field. The AMBULANCE RADIO **bursts** — static, loud, ugly — for three full seconds. The PARAMEDIC in the passenger seat slaps the unit. The radio settles.
+As the ambulance passes two feet from Marcus — its radio antenna, a simple whip antenna on the roof, enters his field. He doesn't know he has a field.
 
-But the MAN NEXT TO MARCUS heard the burst and saw the antenna flare. He's staring at Marcus.
+The **AMBULANCE RADIO BURSTS** — three seconds of white static so loud the PARAMEDIC in the passenger seat flinches and slaps the unit. The radio settles. The ambulance continues.
+
+The MAN STANDING NEXT TO MARCUS heard the burst. Saw the antenna flare. He's doing the arithmetic.
 
 **MAN NEXT TO MARCUS**
-Did you — what did you just—
+Did you just — what did you—
 
 **MARCUS**
+*(meeting his eyes)*
 Nothing. I didn't do anything.
 
-He walks. Fast. He doesn't run, because running would mean something is wrong. His face says nothing is wrong. His hands, in his pockets, are shaking.
+The man keeps looking. Running through whether what he saw could have been something else.
+
+**MARCUS (CONT'D)**
+*(already walking)*
+A lot going on today, man.
+
+He doesn't run. Running means something is wrong. His face says nothing is wrong. His pace is maybe fifteen percent faster than before.
 
 ---
 
 ### SCENE 07 — INT. PARKING GARAGE — SHORTLY AFTER
 
-*(7:00 – 10:00)*
+*(7:15 – 10:00)*
 
-A mid-level parking garage off Meridian Central. Half the cars are still here — people couldn't leave in the gridlock. It's dim — emergency lighting only — and relatively empty of people.
+A mid-level garage off Meridian Central. Half the cars still here — gridlock means nobody can leave. Emergency lighting only. The concrete smells of exhaust and the specific emptiness of spaces designed for cars.
 
-Marcus finds a corner between two SUVs. He slides down the wall until he's sitting on the concrete. He pulls out his cracked phone.
+Marcus finds a corner on the second level, back against a pillar, knees up, between two SUVs. He pulls out his cracked phone.
 
 He tries to turn the screen on.
 
-The phone sparks. **Shuts down completely.** He stares at it. Picks it up. Holds it carefully, pressing nothing. The phone doesn't respond.
+The phone **sparks** — a small discharge from the case into his palm. The screen lights too-bright and shuts down completely. He stares at it.
 
-He tries again, very gently. Blue electricity bleeds from the edge of his palm onto the case.
+He tries again. Very gently. Blue electricity bleeds from his palm onto the case — he can see it, a thin corona. He concentrates. Tries to pull the electricity back inward. It doesn't fully work. But it's slightly better. The discharge slows.
 
-**MARCUS**
-*(quietly)*
-Come on. Come on, come on—
-
-The phone screen flickers — a ghost of a notification. He sees part of a text from DANI:
+The phone screen flickers. A ghost notification:
 
 > **DANI:** where are
 
-Then it goes dark again. Dead.
+That's all he gets. Then dark. Dead.
 
 He holds the useless phone in both hands, elbows on his knees.
 
-The parking garage hums with emergency ventilation. Somewhere outside, more sirens. He can hear a distant CROWD — not rioting, not yet, just the noise of three hundred thousand people who don't understand what just happened and are saying so simultaneously.
+Outside, the city: sirens, a car alarm cycling endlessly, the murmur of three hundred thousand people who don't understand what happened and are saying so simultaneously — coming through the concrete like weather.
 
-Marcus's phone. His hands. The wall.
+*(long beat)*
 
-He opens his palm and stares at it. In the palm's center, electricity moves between the lines like a diagram of itself. It's beautiful, in a way that is also terrible.
+He opens his palm and looks at it.
+
+In the center, electricity moves between the lines of his hand — fate line, life line, heart line — all of them traced in blue light, pulsing faintly in a rhythm that matches his heartbeat.
 
 He closes his fist.
+
+He opens it again. Extends one finger. Points it at the concrete floor.
+
+A hairline arc, barely visible, touches the floor and vanishes.
+
+Again. Same.
+
+Again — slightly larger. About the width of a pen line. Controlled.
+
+He lets out a slow breath through his nose.
+
+He looks at the dead phone. He has an idea. He knows it's a bad idea. He holds the phone in his left hand, brings his right index finger to the charging port without touching it. Closes his eyes.
+
+He tries to feel for the hairline. The minimum. No more than that.
+
+*(very long beat)*
+
+The screen flickers.
+
+One bar of battery. Two. A notification:
+
+> **DANI:** where are you, marcus. it's been 2 hours
+> **DANI:** I heard about the downtown thing
+> **DANI:** marcus
+
+He exhales. Reads it. His hand drops. Whatever he just did, it isn't stable — the battery already dropping — but enough to type.
+
+> **MARCUS:** I'm okay. Sorry. Phone died. Home in an hour.
+
+He sends it. The phone goes dark immediately after. Four percent was enough.
+
+He sets it in his jacket pocket.
 
 *(beat)*
 
@@ -268,6 +333,10 @@ He says it like he's trying to convince himself at a volume the universe can hea
 
 He's not okay.
 
+But he's going to be.
+
+He gets up.
+
 ---
 
 ---
@@ -276,83 +345,101 @@ He's not okay.
 
 ---
 
-### SCENE 08 — EXT. MERIDIAN CENTRAL / VARIOUS STREETS — LATER AFTERNOON
+### SCENE 08 — EXT./INT. VARIOUS — MERIDIAN CENTRAL — LATER MORNING
 
-*(10:00 – 12:30)*
+*(10:00 – 12:00)*
 
 The city two hours after the pulse. B-roll of a city recalibrating.
 
-Some blocks have power. Some don't — and the boundary is sharp and arbitrary, like a line drawn by a child. A RESTAURATEUR is propping open his dark restaurant with a brick, serving sandwiches from a cooler. A WOMAN sits on her stoop and charges her phone from a portable battery, surrounded by three NEIGHBORS also waiting to use it.
+Some blocks have power. Some don't — the boundary sharp and arbitrary. A RESTAURATEUR propping open his dark restaurant with a brick, serving sandwiches from a cooler. A WOMAN on her stoop, charging her phone from a portable battery, three NEIGHBORS waiting their turn without asking.
 
-Near the transit hub: a TEENAGER is already live-streaming, holding his phone toward the still-damaged skyline.
-
-**LIVE-STREAMER**
-...whatever happened up there, the grid is still patchwork, city says 'under investigation' which means they don't know either, so — yeah. We're watching. Stay tuned.
-
-He pans his phone toward a woman who is refusing to be filmed. He pans away.
-
-On the livestream chat: **is it aliens / no it was a hack / there were LIGHTS / I SAW SOMEONE with ELECTRICITY don't tell me I'm crazy**
-
-He reads the chat. Laughs nervously.
+Near the transit hub: a TEENAGER live-streaming, phone extended, face at the angle of someone who does this.
 
 **LIVE-STREAMER**
-Okay, someone in chat says — and look, I'm not — I'm just reading—
+—update: grid still patchy, city says 'under investigation,' which means they don't know either. Transit at half capacity. The Spire lost its facade lights for like forty minutes and got them back, nobody knows why. Officially there's nothing to panic about—
 
-On a NEARBY SCREEN (someone else's phone, visible over a shoulder): a grainy clip is playing. It shows Marcus — distant, from a bad angle, partly obscured by the crowd — grabbing the wire from Scene 06, eyes going white, a blue corona visible even through potato-camera compression. It is approximately five seconds long.
+He checks his chat. His expression shifts.
 
-The text under it: **"WHAT IS THIS??"**
+**LIVE-STREAMER (CONT'D)**
+Okay. Someone in chat has a video. I'm pulling it up—
 
-It has three thousand shares and counting.
+On a SCREEN visible over a bystander's shoulder: a grainy clip. Shot on a phone, bad angle, compressed. Five seconds of Marcus — distant, partly obscured — at the railing in the plaza. Eyes going white. A blue corona around him, visible even through the compression.
+
+Caption: **"WHAT IS THIS?? caught this during the blackout in meridian central — is this related??"**
+
+Three thousand shares. The counter climbing in real time.
+
+**LIVE-STREAMER (CONT'D)**
+*(reading the number, voice losing some of its presentation)*
+I'm not going to speculate. That's not — I'm not doing that. But if anyone was in Meridian Central around eight this morning and you saw something—
+
+He trails off. The crowd continues around him. The city continues around the crowd.
 
 ---
 
-### SCENE 09 — INT. PARKING GARAGE — CONTINUOUS
+### SCENE 09 — INT. PARKING GARAGE — LOWER LEVEL — CONTINUOUS
 
-*(12:30 – 15:00)*
+*(12:00 – 15:30)*
 
-Marcus is still in the garage. He's moved to a section that's completely empty of other vehicles. He has his jacket off — draped over the hood of a car — and is in the black bodysuit underneath. The circuit-line patterns in the fabric are faintly luminous in the dim light.
+Marcus has moved to the bottom level — dead-end concrete, no windows. His jacket is draped over a car hood. He's in the black bodysuit underneath, the circuit-line patterns faintly luminous in the dim emergency lighting.
 
-He squares up against a bare concrete pillar.
+He squares up against the bare concrete wall. Six feet out. Hands at his sides.
 
 **MARCUS**
 *(low, to himself)*
-Okay. Smaller this time.
+Smaller. You had smaller. Start there.
 
-He flicks his finger at the pillar. A thin arc — two inches, controlled — hits the concrete and leaves a scorch mark about the width of a pen.
+He flicks his index finger at the wall.
 
-He tries again. Same size. Good.
+A thin arc — two inches, controlled — touches the concrete and leaves a mark the width of a pen. He examines it. Good.
 
-Again. Slightly larger — about the width of a fist. The fluorescent light one row over **flickers**.
+Again. Same. Good.
 
-**MARCUS**
-*(irritated, at the light)*
-That wasn't — I wasn't aiming at you.
+Slightly larger — three inches. The fluorescent light one row over **flickers** — once, sympathetic.
 
-He tries a fourth time — bigger, pushing it — and the arc **surges**, a full arm's-length discharge that leaves a black scar across the pillar and blows the emergency lighting in his row entirely. Dark.
+**MARCUS (CONT'D)**
+*(irritated at the light)*
+That wasn't — I wasn't talking to you.
 
-His hand is shaking. He wipes his nose with the back of his other hand. Blood. He stares at it.
+He tries bigger — deliberate, wanting to know the ceiling — and the arc **surges**, arm's-length, diagonal scar across the pillar. The emergency lighting in his whole row blows. Darkness.
 
-He presses the back of his wrist against his nose. Tilts his head back. Stands very still for a moment — still in the way Marcus Valdez almost never is.
+He doesn't wipe his nose. He knows what's there. He wipes it anyway. Blood. Not much. Enough.
+
+He presses the back of his wrist under his nose. Tilts his head back. Goes completely still — still in the way Marcus Valdez almost never is. Like something that has been running at full speed and has come to a full stop.
 
 *(long beat)*
 
-He lets out a slow breath. His hand is still trembling — a fine vibration he can't will away.
+He lets out a slow breath. His hand has a tremor he can't will away — fine, persistent, mechanical. He can see it.
+
+He goes back to the pen-width arc. Holds that size. Again. Smaller.
+
+A hairline.
+
+He can feel where the edge is. He doesn't have language for it yet. He doesn't know that what he's doing is mapping his own nervous system against an external output. He just knows there's a dial and he can feel the notches now.
+
+He picks up his jacket. Looks at the scorch mark on the back of the left sleeve. He puts the jacket back on.
 
 **MARCUS**
 *(quieter)*
-Alright. Okay. I hear you.
+Alright. I hear you.
 
 ---
 
 ### SCENE 10 — EXT. LOWLINE NEIGHBORHOOD — EARLY EVENING
 
-*(15:00 – 17:30)*
+*(15:30 – 18:30)*
 
-Marcus is back in his neighborhood now. Lowline: dense apartment blocks, corner stores, bodegas with their gates half-pulled. A few blocks have power back; most don't. People have brought chairs out into the street. Someone has a battery radio going. It feels like a neighborhood that has been through worse and knows it.
+Marcus in Lowline. The neighborhood is older and more horizontal than Meridian Central — apartment blocks that predate the skyline, corner stores with signs in multiple languages. Some blocks have power back. Most don't. People have brought chairs into the street — not a block party, just the logic of a dark apartment versus other people outside.
 
-Marcus walks with his hands in his jacket pockets. He nods to people he knows. He doesn't stop.
+Someone has a battery radio going. A few kids run between parked cars. Two OLDER MEN play chess under a streetlight that still works.
 
-He passes **MR. OKAFOR'S** corner store. The lights are off. Mr. Okafor is at the counter, squinting at a non-functioning cash register by the light of a phone propped against the counter.
+Marcus walks through it with his hands in his jacket pockets, nodding to people he knows. Not stopping.
+
+He passes MR. OKAFOR'S corner store.
+
+Lights off inside. Mr. Okafor at the counter, squinting at a non-functioning cash register by the light of a phone propped against a jar of pens.
+
+Marcus stops at the door.
 
 **MR. OKAFOR**
 *(not looking up)*
@@ -362,121 +449,168 @@ Marcus. You good?
 Yeah. You?
 
 **MR. OKAFOR**
-Register's dead. Everything's dead. I got a line of customers and I'm counting change like it's 1987.
+Register's dead. Card reader's dead. I got six people waiting on orders and I'm counting change like it's 1987. This thing's had my inventory data for three years.
 
-Marcus stops. Looks at the register. He could fix that. He knows he could fix that — one small, careful pulse, enough to reboot the system. He almost says it.
+He taps the register once. No heat. A man who has already made his peace with it.
+
+Marcus looks at the register. He could fix that. He knows, standing here, that he could — one small, careful pulse, enough to reboot the system. He's already moving toward the counter.
+
+Then he thinks about the parking garage. The man with the briefcase. The blood on his sleeve.
 
 **MARCUS**
-You want me to—
-
-Then he thinks about the parking garage. The pillar. The blood on his sleeve.
-
-**MARCUS (CONT'D)**
-—I could go get batteries. Hardware store might still be open on fifth.
+Could go get batteries. Hardware store on fifth might still be open.
 
 **MR. OKAFOR**
-*(now looking up, reading something in Marcus's face he doesn't have words for)*
+*(looking up for the first time, reading something in Marcus's face)*
 You sure you're alright?
 
+Marcus meets his eyes. Holds the performance.
+
 **MARCUS**
-*(performing perfect)*
 I'm always alright, Mr. O.
 
-He walks.
+A beat. Mr. Okafor doesn't push. He looks back at the register.
+
+**MR. OKAFOR**
+Tomorrow you come by. We figure out the board together.
+
+Marcus nods. Goes.
+
+A small lightbulb in the store window — battery-powered, the kind Okafor uses for the sale signs — flickers once as Marcus walks away.
+
+Neither of them notice.
 
 ---
 
 ### SCENE 11 — EXT. LOWLINE SIDE STREET — MOMENTS LATER
 
-*(17:30 – 19:30)*
+*(18:30 – 20:30)*
 
 Marcus hears it before he sees it.
 
-A child's voice — not screaming, which would have been easier to locate. Frozen. The particular silence of a child who is too scared to make a sound.
+Not screaming. The particular silence of a child who is too scared to make a sound. A held breath.
 
 He turns a corner.
 
-**ELENA** — 8 years old, braids, a backpack with a cartoon on it — is standing between two parked cars. She is not hurt. She is not moving. Because six feet in front of her, stretched across the intersection, is a **downed power line** — thick, whipping once in the wind as he watches, alive with current from a section of the grid that flickered back online.
+**ELENA** — 8 years old, braids with plastic beads, a backpack with a cartoon duck — is standing between two parked cars. Not hurt. Not moving. Because six feet in front of her, stretched across the intersection, is a **downed power line**.
 
-Two ADULTS are watching from the far sidewalk. Calling. She can't get past the wire to reach them, and she's frozen.
+It lies there, not whipping dramatically — just steady, purposeful, a live arc where it meets the wet pavement about the width of a handspan. A section of the grid that came back online without knowing the line was down.
 
-Marcus looks at the wire. Looks at his hands.
+Two ADULTS on the far sidewalk. Calling to her. She can hear them. She can't get past the wire to reach them. The gap she came through behind her is too narrow to reverse through. She's in a pocket.
 
-He looks at the adults watching. They don't have a plan.
+She's been standing there a while. The beads in her braids don't move.
+
+Marcus steps around the cars until he's on Elena's side of the wire.
 
 **MARCUS**
-*(to Elena, from her side of the wire)*
-Hey. Hey — look at me. What's your name?
+*(crouching to her level)*
+Hey. Hey — look at me.
 
-Elena looks at him. Doesn't answer.
+She does. Eight years old, enormous eyes, still as furniture.
 
 **MARCUS (CONT'D)**
-That's okay. I'm Marcus. I'm going to — just stay right there, okay? Don't move your feet. Stay exactly where you are.
+What's your name?
 
-He crouches down to her level. Looks at the wire. He did this once already today — grabbed a wire — but that was panic. That was reflex. This is a choice.
+She doesn't answer.
 
-He reaches out. His hand is trembling.
+**MARCUS (CONT'D)**
+That's okay. I'm Marcus. I live on this block, basically. I'm going to take care of that wire. You don't have to do anything, you don't have to move. Just stay exactly where you are.
+
+He stands.
+
+He did this once today — grabbed a wire — but that was reflex. Panic. A body that didn't know what it was doing. This is different. A choice. A child six feet away, a live commercial-grade line on wet pavement.
+
+He can feel his hands shaking. He's been feeling that for hours.
+
+He reaches out.
 
 He grabs the wire.
 
-His eyes go white. The current pours through him and he feels it like a swallowed scream — his whole field blazes, and for one awful second he loses the edge and blue electricity **crackles outward** from his feet in a ring across the pavement.
+His **eyes go white.**
 
-Elena stumbles back. The adults across the street shout.
+The current pours through him — not pain exactly, but a total experience, full-volume, arriving everywhere at once. His whole field blazes. Blue electricity crackles outward from his feet in a ring across the pavement, scoring the asphalt in a starburst pattern.
 
-Marcus bears down. He presses the current *inward*, compresses it, holds it—
+Elena stumbles backward against the parked car. The adults across the wire shout.
+
+Marcus bears down.
+
+He can feel the current — where it's going, how much of it there is. An enormous amount. More than the parking garage. He presses it inward, compresses it, the way you'd make a fist around something you're afraid to drop. Jaw locked. Eyes staying white.
 
 The wire goes dead.
 
-He drops it. Falls to one knee on the pavement.
+He drops it. Falls to one knee on the pavement. Stays there — one knee down, one hand flat against the asphalt, breathing in careful intervals.
 
-Elena is looking at him with enormous eyes. She runs — not away from him, but past him, toward the adults who had been waiting. One of them scoops her up.
+Elena looks at him with enormous eyes. Then runs — past him, toward the adults. The WOMAN in the delivery jacket scoops her up and holds her. Looks at Marcus over Elena's shoulder.
 
-Marcus watches them from the ground. They don't come over.
+**WOMAN IN DELIVERY JACKET**
+*(calling across)*
+Are you—
 
-He looks at his hands. The scorch marks on the pavement around him are shaped like a star.
+**MARCUS**
+*(still on one knee, voice level)*
+Get her inside.
 
-He gets up. Makes himself get up.
+They go. Marcus watches them until they're gone.
+
+He gets up. Looks at the pavement around him. The scorch marks are shaped like a star — each arm going in the direction his electricity wanted to go before he made it stop.
+
+He looks at the backs of his hands. New scorch marks on the knuckles. He didn't feel those happen.
+
+He walks.
 
 ---
 
-### SCENE 12 — INT. LATTICE SURVEILLANCE VAN — LOWLINE — NIGHT (INTERCUT)
+### SCENE 12 — INT. LATTICE SURVEILLANCE VAN — LOWLINE — NIGHT
 
-*(19:30 – 21:30)*
+*(20:30 – 22:00)*
 
-A panel van parked halfway up a block in Lowline. No markings. The windows are opaque.
+A panel van, halfway up a block in Lowline. No markings — the ghost of a removed logo still visible in the paint if you know where to look. Windows opaque. From outside it belongs here the way unremarkable vehicles always belong wherever they're parked.
 
-Inside: **ROOK**. Seated at a narrow desk that spans the van's rear. The desk holds four screens, a laptop, a police scanner, two empty coffee cups, and one half-full one. Rook is in unremarkable clothes — the kind of outfit a person wears when they want to disappear into a crowd. Posture: too still. The stillness of someone who has been trained to wait.
+Inside: **ROOK.**
 
-The screens source from a mosaic of feeds: city traffic cameras (several offline), phone footage scraped from social media in near-real-time, two privately-routed satellite angles on the Lowline grid.
+Narrow desk spanning the van's rear. Four screens, a laptop, a police scanner cycling through local frequencies, two empty coffee cups, one half-full one that went cold an hour ago and is still being used. Rook in dark, layered, forgettable clothes. Posture: upright, completely still. The stillness of someone trained to wait longer than other people are comfortable with.
 
-On the far left screen: the clip of Marcus and the wire. Rook has already found it, already enlarged it, already extracted a frame-grab of Marcus's face at the moment his eyes go white.
+The screens: city traffic cameras (several offline — the pulse did that), phone footage scraped from social media in near-real time, two privately-routed satellite angles on the Lowline grid. Human procedure. Every feed pulled manually, every metadata request filed, every clip downloaded and catalogued. Not omniscient. Patient.
 
-Rook opens a file. Types:
+Far left screen: the five-second clip of Marcus and the wire. Enlarged to fill the screen. A frame-grab extracted — Marcus at the moment his eyes go white and the corona is visible — timestamped, geotagged, cross-referenced with two other clips from different angles, pulled from the social media scrape. Three windows open in parallel, comparing.
+
+Rook opens a file. Types without looking at the keyboard:
 
 > **ZONE 4 | LOWLINE | 1740 HRS | POSSIBLE ACTIVATION**
-> Subject: unidentified male, est. 17, Latino, approx. 5'9".
+> Subject: unidentified male, est. 17, Latino, approx. 5'10".
 > Activation type: **electrical / bioelectric**
-> Control status: **partial — unstable**
-> Threat profile: **minimal — unknown ceiling**
+> Confirmed discharge events: 4 across ~9-hour window
+> Control status: **partial — improving within event window**
+> Threat profile: **minimal — upper bound unknown**
 > Priority: **OBSERVE**
 
-Rook picks up a phone. Dials.
+Rook pauses. Re-reads. Changes *upper bound unknown* to *ceiling unestablished.* More accurate.
+
+Picks up a phone. One ring.
 
 **ROOK**
 *(flat, professional)*
-Zone 4 flagged. Possible Surge-class. Visual confirmed from three sources. Not contained, not aware of coverage. I'm maintaining distance.
+Zone 4 flagged. Possible Surge-class. Visual confirmed from three independent sources. Not contained. Not aware of coverage. Control is improving — scattered at morning, tighter by evening. That's a meaningful delta for day one.
+
+*(listens)*
+
+He doesn't know what he is. Yet.
 
 *(listens)*
 
 Understood. I'll hold.
 
-Rook ends the call. Picks up the cold coffee. Drinks without looking away from the screens.
+Rook ends the call. Drinks the cold coffee without looking away from the screens.
 
-On one screen, in the traffic camera angle: Marcus, still visible two blocks away, walking. Rook circles his face on the screen with a trackpad. Adds him to the file.
+On the traffic camera: Marcus, two blocks away, walking south. Head down. Hands in his jacket pockets. He walks like someone who is very tired and is hiding it.
 
-The tag is not his name. It's a number, a zone, and a question mark.
+Rook circles his face on the screen with a trackpad. Tags the frame.
 
-Rook watches.
+Not a name. A zone, a number, a classification code, a question mark.
+
+Rook watches the tiny figure of Marcus reach the camera's edge and continue out of frame.
+
+The question mark stays.
 
 ---
 
@@ -486,88 +620,125 @@ Rook watches.
 
 ---
 
-### SCENE 13 — EXT. LOWLINE / MERIDIAN CENTRAL — NIGHT
+### SCENE 13 — EXT. LOWLINE RESIDENTIAL BLOCK — NIGHT
 
 *(22:00 – 23:30)*
 
-Marcus is back in the denser part of the city now. The grid is recovering — block by block, like a slow exhale — and the city is starting to function again at reduced capacity. But not everywhere.
+Marcus is moving through a residential part of Lowline — still circling, not quite ready to go home. The grid is recovering block by block, like a slow exhale.
 
-He comes around a corner onto a block where a residential building is dark. Six stories. A FIRE CREW is working the lower entrance — not a fire, but the pulse knocked out the emergency lighting and at least one door is electromagnetically locked and failing to release. A SUPERVISOR is on her radio. The elevator is dead. The crew is working methodically, but the fourth floor is still inaccessible.
+He comes around a corner onto a block where a six-story residential building is dark. A FIRE CREW at the lower entrance — not a fire, but the pulse knocked out the emergency lighting and two electromagnetically-locked fire doors are failing to release. The SUPERVISOR is on her radio. Two FIREFIGHTERS work the main entrance with pry tools. Methodical. Slow.
 
-Marcus watches from across the street. He counts the windows. Fourth floor: one light visible — a battery lantern.
+Marcus watches from across the street. He counts the windows. Fourth floor: one light — a battery lantern, set near the window. Someone waiting.
+
+He watches the crew's progress.
+
+He looks at his hand.
 
 He crosses to the building.
 
 ---
 
-### SCENE 14 — INT. EMERGENCY STAIRWELL — CONTINUOUS
+### SCENE 14 — INT. EMERGENCY STAIRWELL / 4TH FLOOR — CONTINUOUS
 
 *(23:30 – 25:30)*
 
-Dark stairwell. Emergency lighting gone. Marcus uses the light from a bystander's phone-torch (borrowed with "I'm just checking if someone's up there, I'll be right back"), climbs four flights fast.
+Dark stairwell. Emergency lighting gone. Marcus borrows a BYSTANDER'S phone for the light — "I'm just going to check if someone's stuck up there, two minutes" — and the bystander hands it over because he doesn't want to go upstairs himself.
 
-The fourth-floor door: a heavy fire door with an **electronic release lock** — the type that needs a signal to disengage. In a blackout it should fail open, but the pulse corrupted the system and it's cycling, failing, cycling again. The LED indicator blinks red, red, red.
+Four flights. Fast. His footsteps echo with a clarity that makes him sound like more people than he is.
 
-Marcus holds the phone light near his face. He can hear a WOMAN on the other side of the door — her voice muffled but steady, not panicking. Just stuck.
+The fourth-floor door: heavy fire door with an **electronic release lock**. Fail-open by design. But the pulse corrupted the system and it's cycling — a failing attempt to release, reset, another failing attempt. LED indicator blinking: red, red, red.
+
+He holds the phone light near the door. He can hear a WOMAN on the other side — voice muffled but steady. Not panicking. Waiting.
 
 He presses his palm flat against the lock panel.
 
-His fingers are still trembling. He closes his eyes. This is the smallest, most precise thing he's asked himself to do all day — less than a lightbulb. Just enough current to complete the failing circuit. Just enough.
+This is the smallest, most precise thing he has asked himself to do all day. Less than a lightbulb. Just enough current to complete the failing circuit — give the system the signal it's missing.
+
+Just enough.
+
+He breathes. Finds the hairline. The minimum.
 
 *(long beat)*
-
-He feels for the edge of it. The minimum.
 
 The LED blinks — red — red —
 
 **GREEN.**
 
-The door clicks. Pushes open.
+The door clicks. Swings open.
 
-The **WOMAN** is there — 40s, practical clothes, a carry bag over one shoulder. She was waiting at the door, not cowering. She looks at him.
+The **WOMAN** is right there — she'd been at the door, not the window. Carry bag over one shoulder, practical shoes, the face of someone who decided to be practical about this before she knew what this was.
 
 **WOMAN**
 *(matter-of-fact)*
 Fire crew sends kids now?
 
 **MARCUS**
-I'm not with — I just saw the light on.
+I'm not with — I saw the light on.
 
-A beat. She looks at his hand still on the lock panel. She looks at his face.
+She looks at the borrowed phone. Back at his face.
 
 **WOMAN**
-What are you?
+That's not your phone.
+
+**MARCUS**
+I borrowed it. For the light.
+
+**WOMAN**
+To come up four flights in the dark for a stranger.
+
+*(beat)*
+
+She looks at his hand, still resting on the lock panel. At the LED, still green.
+
+**WOMAN (CONT'D)**
+What did you do to the door?
 
 Marcus opens his mouth.
 
 *(beat)*
 
-He doesn't have an answer. The question doesn't have an answer yet. He steps out of the doorway so she can pass.
+He doesn't have an answer. The question doesn't have an answer yet.
+
+He steps back out of the doorway.
 
 **MARCUS**
-The stairwell goes straight down. There's a fire crew at the entrance.
+The stairwell goes straight down. Fire crew's at the front entrance.
 
-She looks at him for one more beat — not afraid, just measuring — then goes. Her footsteps echo down the stairwell.
+She looks at him for one more beat. Not afraid. Measuring. Reading something in his face with the eyes of someone who has done a lot of reading.
+
+**WOMAN**
+*(quietly, before she goes)*
+Thank you.
+
+She goes. Her footsteps echo down — steady, unhurried, practical to the end.
 
 Marcus stays at the door.
 
 ---
 
-### SCENE 15 — EXT. BUILDING — FIRE ESCAPE — SHORTLY AFTER
+### SCENE 15 — EXT. FIRE ESCAPE — 4TH FLOOR — SHORTLY AFTER
 
-*(25:30 – 27:30)*
+*(25:30 – 27:00)*
 
-Marcus on the fire escape outside the fourth floor. He pushed the window open on the empty hallway and climbed out. He sits on the metal grating, back against the brick, looking at Meridian.
+Marcus on the fire escape. He found an unlocked window in the empty hallway and climbed out. He's returned the bystander's phone. He has no phone of his own.
 
-The city is coming back online below him. Block by block, lights are returning — not all at once but in clusters, like neurons firing. The Meridian Spire, in the distance, gets its facade lighting back in a single column, bottom to top, like a slow breath.
+He sits on the metal grating, back against the brick, looking at Meridian.
 
-News drones are crisscrossing the sky — small, blinking, methodical. The city is documenting itself.
+The city is coming back online. Not all at once — in clusters, like a field of fireflies, in groups rather than sequence. Across the skyline, lights appear. The Meridian Spire gets its facade lighting back in a single column, bottom to top, one slow bright intake of breath.
 
-Marcus's yellow bomber jacket: the left sleeve has the original scorch mark from Scene 05. The right cuff has a new one. There's a third, fainter, on the back of the right shoulder.
+News drones crisscross the sky — small, blinking, methodical. The city is documenting itself. The documentation will outlast the event. This is already becoming part of what happened today.
 
-He holds both hands up and looks at them. The tremor is still there — finer now, but there. He flexes his fingers. Closes them. Opens them.
+Marcus's yellow bomber jacket: the scorch mark on the left sleeve from the side street. A new one on the right cuff from the garage. A third, fainter, on the back of the right shoulder from the Elena wire. A small constellation.
 
-The knuckle of his right index finger emits one small, involuntary spark. Barely anything.
+He holds both hands up in front of him.
+
+The tremor is still there. Finer now — spent itself down, like an engine cooling — but still there. He flexes his fingers. Closes them. Opens them.
+
+He tries something: he holds his right hand very still and concentrates on the tremor itself. Not the electricity. The shaking. They're different, he's starting to understand. The electricity is one thing. The tremor is what happens when the electricity has nowhere to go.
+
+He exhales. Very slowly.
+
+The knuckle of his right index finger emits one small involuntary spark. The size of a match strike.
 
 He watches it die.
 
@@ -575,7 +746,7 @@ He watches it die.
 
 He lowers his hands. Rests them on his knees. Looks at the city.
 
-He's alive. He doesn't know what he is, or what comes next. But he survived the day — and the day is a different shape now than when it started, and so is he, and there's no going back to before that spark hit the railing in the plaza.
+He's alive. He doesn't know what he is, or what comes next. But he survived the day — and the day is a different shape than when it started, and so is he, and there's no going back to before that spark hit the railing in the plaza.
 
 He does not look like a hero. He looks like a seventeen-year-old who is very tired and very scared and trying extremely hard not to let the second thing show.
 
@@ -583,31 +754,43 @@ He does not look like a hero. He looks like a seventeen-year-old who is very tir
 
 ### SCENE 16 — EXT. FIRE ESCAPE — CONTINUOUS
 
-*(27:30 – 28:30)*
+*(27:00 – 28:00)*
 
 His jacket pocket vibrates.
 
-He pulls out his cracked phone. The screen is lit — barely, struggling — but a single text has come through in the restored signal. From **DANI 🌩️**:
+He reaches in. His cracked phone. The screen is lit — barely, one percent — which shouldn't be possible, because the phone was dead. Something in his body recharged it while he was sitting here. Just enough.
+
+A single text from **DANI 🌩️**:
 
 > **DANI:** you alive?
 
 He stares at it.
 
-His thumb hovers over the keyboard for a long moment.
+The screen flickers. Less than one percent. Any second.
+
+He thinks about what to say. There are a lot of things he could say. He could say: *something happened today and I don't know how to tell you.* He could say: *I don't want you to be scared.* He could say: *I'm going to be okay.* Any of those would be true.
+
+His thumb hovers.
 
 He types: **yeah**
 
 Then he types: **sorry**
 
-He looks at the sorry. He deletes it.
+He looks at the sorry. He looks at the city.
+
+He deletes the sorry.
 
 He sends: **yeah**
 
-He puts the phone face-down on his knee. Looks at the Spire.
+The phone stays lit for two more seconds. Then dies. Completely. For real.
+
+He sets it face-down on his knee. Looks at the Spire.
 
 One small, cold lightbulb in the fire escape fixture above him flickers once — briefly, without being touched.
 
 Marcus doesn't look up at it.
+
+He knows.
 
 ---
 
@@ -619,47 +802,66 @@ Marcus doesn't look up at it.
 
 ### SCENE 17 — INT. LATTICE OPERATIONS CENTER — NIGHT
 
-*(28:30 – 30:00)*
+*(28:00 – 30:00)*
 
-Clean. Controlled. The aesthetic of a place built to last — not comfortable, not austere, just **designed**. Screens line the far wall in a grid. A soft operational hum. No clutter, because clutter is a symptom of a system that doesn't know what it wants.
+Clean. Controlled. Designed — every element present because it was evaluated and kept. Screens along the far wall in a grid. Soft operational hum. No clutter. Clutter is a symptom of a system that doesn't know what it wants.
 
-**ROOK** enters and crosses to a workstation where **GREY** is seated — silhouette only, backlit by the screen array, voice clipped and even.
+**ROOK** enters and crosses to a workstation where **GREY** is seated — silhouette only, backlit, face never visible. Voice clipped and even: someone who has had the unnecessary things edited out.
 
-Rook places a tablet on the desk. On the screen: the dossier. Marcus's face — the frame-grab from the live wire moment, eyes white, blue corona around him. Three verified video sources, corroborating metadata, zone location, estimated age, activation type.
+Rook sets a tablet on the desk.
+
+On screen: the dossier. Marcus's face — the frame-grab from the live wire moment. Eyes white. Blue corona. Scorch-star on the pavement around his feet. Below: three video sources, timestamps, metadata, geolocation. Below that: the incident log, four confirmed discharge events, the delta in control across nine hours.
 
 **ROOK**
-Zone 4. Lowline. Electrical. Activation confirmed at two separate sites — uncontrolled, then partially directed within the same event window. He doesn't know what he is yet.
+Zone 4. Lowline. Electrical. Four confirmed activations across a nine-hour window. First was reactive — the pulse triggered it. By evening he's absorbing live commercial-grade and holding it. Controlled enough to cycle a fourth-floor electronic lock at near minimum output. That's not random.
 
 **GREY**
-*(reading the file)*
+*(reading)*
 Ceiling?
 
 **ROOK**
-Unknown. The wire he absorbed was live commercial-grade. He held it.
+Unknown. The wire he absorbed was hot from a grid restoration. He held it approximately eight seconds before the line went dead. That's the lower bound of what we've confirmed. Actual ceiling is probably higher.
 
-A beat.
+*(beat)*
 
 **GREY**
-Tag him.
+Control trajectory?
 
-Rook reaches over and applies a **red glyph** to the file. Not a name. A designation — numbers, zone, priority tier.
+**ROOK**
+Steep. Day-one steep.
+
+A beat. Grey reads something in the file.
+
+**GREY**
+He doesn't know what he is.
+
+**ROOK**
+Not yet. No contact with anyone who does. I checked device history before it bricked — no searches, no calls out of pattern. He's operating on instinct.
+
+**GREY**
+*(quietly)*
+That changes.
+
+Rook reaches over and applies a **red glyph** to the dossier. Not a name. A zone, a number, a priority tier, a classification code.
 
 The glyph sits next to Marcus's face on the screen.
 
 **GREY (CONT'D)**
-Monitor. Don't move yet.
+Monitor. Don't move yet. I want the full picture before we decide what he is.
 
-Rook nods. Takes the tablet back. Walks out.
+Rook nods. Takes the tablet. Walks out.
 
-The screens remain on.
+The screens stay on.
 
-Marcus's face — still, glowing — stares back at an empty room.
+Marcus's face — still, glowing, white eyes and corona captured in that single frame — stares back at an empty room.
 
 **HARD CUT TO BLACK.**
 
 *(Beat of silence.)*
 
-*(Then: the low, clean hum of electricity. Sustained. Then gone.)*
+*(Then: the low, clean hum of electricity. Not the crackle. The hum. Controlled. Quiet. Present.)*
+
+*(Then: gone.)*
 
 **END OF EPISODE**
 
@@ -669,25 +871,22 @@ Marcus's face — still, glowing — stares back at an empty room.
 
 ## SCENE INDEX (for manifest.json)
 
-
-| Scene ID | Title                              | Location                             | Approx. Runtime | Characters            |
-| -------- | ---------------------------------- | ------------------------------------ | --------------- | --------------------- |
-| scene-01 | Ordinary Meridian — Glasshook Pier | EXT. Glasshook Pier — morning        | 0:00–0:45       | Marcus (background)   |
-| scene-02 | Something is wrong                 | EXT. Meridian Central                | 0:45–1:20       | Marcus                |
-| scene-03 | The pulse                          | EXT. Meridian Central                | 1:20–2:00       | Marcus, crowd         |
-| scene-04 | First discharge — the man's arm    | EXT. Meridian Central Plaza          | 2:00–3:45       | Marcus                |
-| scene-05 | Testing the wall                   | EXT. Meridian Central side street    | 3:45–5:15       | Marcus                |
-| scene-06 | Ambulance interference — he runs   | EXT. Meridian Central                | 5:15–7:00       | Marcus                |
-| scene-07 | Alone in the garage                | INT. Parking garage                  | 7:00–10:00      | Marcus                |
-| scene-08 | The city reacts — the viral clip   | EXT. City streets (montage)          | 10:00–12:30     | City, Streamer, crowd |
-| scene-09 | Testing limits                     | INT. Parking garage                  | 12:30–15:00     | Marcus                |
-| scene-10 | Mr. Okafor's store                 | EXT. Lowline / INT. corner store     | 15:00–17:30     | Marcus, Mr. Okafor    |
-| scene-11 | Elena and the live wire            | EXT. Lowline side street             | 17:30–19:30     | Marcus, Elena         |
-| scene-12 | Rook's van                         | INT. Surveillance van (Lowline)      | 19:30–21:30     | Rook                  |
-| scene-13 | The locked building                | EXT. Lowline residential             | 22:00–23:30     | Marcus, fire crew     |
-| scene-14 | The lock — and the question        | INT. Emergency stairwell / 4th floor | 23:30–25:30     | Marcus, Woman         |
-| scene-15 | Fire escape — city coming back     | EXT. Fire escape                     | 25:30–27:30     | Marcus                |
-| scene-16 | "you alive?"                       | EXT. Fire escape                     | 27:30–28:30     | Marcus                |
-| scene-17 | Lattice — tagged                   | INT. Lattice Operations Center       | 28:30–30:00     | Rook, Grey            |
-
-
+| Scene ID | Title | Location | Approx. Runtime | Characters |
+| --- | --- | --- | --- | --- |
+| scene-01 | Ordinary Meridian — Glasshook Pier | EXT. Glasshook Pier — morning | 0:00–1:00 | Marcus |
+| scene-02 | Something is wrong | EXT. Meridian Central | 1:00–1:30 | Marcus, Man in Suit |
+| scene-03 | The pulse | EXT. Meridian Central Plaza | 1:30–2:00 | Marcus, crowd |
+| scene-04 | First discharge | EXT. Meridian Central Plaza | 2:00–4:15 | Marcus, Man w/ Briefcase |
+| scene-05 | Testing the wall | EXT. Meridian Central side street | 4:15–5:45 | Marcus |
+| scene-06 | Ambulance interference | EXT. Meridian Central | 5:45–7:15 | Marcus |
+| scene-07 | Alone in the garage | INT. Parking garage | 7:15–10:00 | Marcus |
+| scene-08 | The city reacts — the viral clip | EXT. City streets / livestream | 10:00–12:00 | Live-streamer, crowd |
+| scene-09 | Testing limits — finding the dial | INT. Parking garage (lower level) | 12:00–15:30 | Marcus |
+| scene-10 | Mr. Okafor's store | EXT./INT. Lowline corner store | 15:30–18:30 | Marcus, Mr. Okafor |
+| scene-11 | Elena and the live wire | EXT. Lowline side street | 18:30–20:30 | Marcus, Elena |
+| scene-12 | Rook's van | INT. Surveillance van (Lowline) | 20:30–22:00 | Rook |
+| scene-13 | The locked building | EXT. Lowline residential | 22:00–23:30 | Marcus, fire crew |
+| scene-14 | The lock — and the question | INT. Stairwell / 4th floor | 23:30–25:30 | Marcus, Woman on 4th Floor |
+| scene-15 | Fire escape — city coming back | EXT. Fire escape | 25:30–27:00 | Marcus |
+| scene-16 | "you alive?" | EXT. Fire escape | 27:00–28:00 | Marcus |
+| scene-17 | Lattice — tagged | INT. Lattice Operations Center | 28:00–30:00 | Rook, Grey |
