@@ -17,6 +17,8 @@ pnpm build                 # type-check + Vite production build
 pnpm lint                  # ESLint
 
 # Episode pipeline
+pnpm pipeline:manifest -- <path/to/script.md>                 # generate manifest.json from script's scene index
+pnpm pipeline:manifest -- --dry-run <path/to/script.md>       # preview without writing
 pnpm pipeline:validate -- <path/to/manifest.json>
 pnpm pipeline:stitch -- <path/to/manifest.json>
 pnpm pipeline:stitch -- --reencode <path/to/manifest.json>   # force re-encode for mixed codecs
@@ -36,7 +38,8 @@ Character data lives in `characters/*.json` (one file per hero). The `Character`
 
 ### Production pipeline (`scripts/pipeline/`)
 
-- `manifest.ts` — shared validation logic (`validateManifest`).
+- `manifest.ts` — shared types and validation logic (`validateManifest`).
+- `generate-manifest.ts` — CLI: parses a script markdown file's header and scene index table, generates `manifest.json` with scene entries, durations, and generation hints. The script is the source of truth; the manifest is a build artifact.
 - `validate-manifest.ts` — CLI: checks manifest JSON shape and whether scene `.mp4` files exist on disk (exit 2 if files missing, exit 1 on schema/parse errors).
 - `stitch-episode.ts` — CLI: reads the manifest, builds an FFmpeg concat list, and runs FFmpeg to produce the master `.mp4`.
 
@@ -74,3 +77,5 @@ To add a new checked field to the lint, add an entry to the `CHECKS` array in `s
 **No creative data in TypeScript:** Character display values (colors, names, etc.) belong in `characters/*.json`. `src/characterData.ts` should only contain the interface definition and utility functions, not hardcoded creative values.
 
 **Episode manifest `scriptPath`:** Always points directly to `production/scripts/<slug>.md`. Never use stub or redirect files as intermediaries.
+
+**Manifest generation:** Episode manifests are derived from scripts, not hand-written. Run `pnpm pipeline:manifest -- <script.md>` to regenerate after editing a script's scene index table. Do not manually edit `manifest.json` scene lists.

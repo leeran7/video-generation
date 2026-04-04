@@ -5,33 +5,182 @@
     "number": 1,
     "title": "Signal Lost",
     "targetRuntimeMinutes": 30,
-    "scriptPath": "../../../../production/scripts/s01e01-signal-lost.md",
-    "notes": "Replace example scene paths with your AI-generated files; keep order by scene order."
+    "scriptPath": "../../../scripts/s01e01-signal-lost.md"
   },
   "scenes": [
     {
       "id": "scene-01",
       "order": 1,
-      "title": "Cold open — city before pulse",
+      "title": "Ordinary Meridian — Glasshook Pier",
       "file": "scenes/scene-01.mp4",
       "generation": {
-        "promptSummary": "Meridian skyline, dusk, calm before storm",
-        "targetDurationSeconds": 45
+        "promptSummary": "EXT. Glasshook Pier — morning — Marcus",
+        "targetDurationSeconds": 60
       }
     },
     {
       "id": "scene-02",
       "order": 2,
-      "title": "Orbital signal / blackout",
+      "title": "Something is wrong",
       "file": "scenes/scene-02.mp4",
       "generation": {
-        "promptSummary": "Energy pulse from sky, city goes dark",
+        "promptSummary": "EXT. Meridian Central — Marcus, Man in Suit",
+        "targetDurationSeconds": 30
+      }
+    },
+    {
+      "id": "scene-03",
+      "order": 3,
+      "title": "The pulse",
+      "file": "scenes/scene-03.mp4",
+      "generation": {
+        "promptSummary": "EXT. Meridian Central Plaza — Marcus, crowd",
+        "targetDurationSeconds": 30
+      }
+    },
+    {
+      "id": "scene-04",
+      "order": 4,
+      "title": "First discharge",
+      "file": "scenes/scene-04.mp4",
+      "generation": {
+        "promptSummary": "EXT. Meridian Central Plaza — Marcus, Man w/ Briefcase",
+        "targetDurationSeconds": 135
+      }
+    },
+    {
+      "id": "scene-05",
+      "order": 5,
+      "title": "Testing the wall",
+      "file": "scenes/scene-05.mp4",
+      "generation": {
+        "promptSummary": "EXT. Meridian Central side street — Marcus",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-06",
+      "order": 6,
+      "title": "Ambulance interference",
+      "file": "scenes/scene-06.mp4",
+      "generation": {
+        "promptSummary": "EXT. Meridian Central — Marcus",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-07",
+      "order": 7,
+      "title": "Alone in the garage",
+      "file": "scenes/scene-07.mp4",
+      "generation": {
+        "promptSummary": "INT. Parking garage — Marcus",
+        "targetDurationSeconds": 165
+      }
+    },
+    {
+      "id": "scene-08",
+      "order": 8,
+      "title": "The city reacts — the viral clip",
+      "file": "scenes/scene-08.mp4",
+      "generation": {
+        "promptSummary": "EXT. City streets / livestream — Live-streamer, crowd",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-09",
+      "order": 9,
+      "title": "Testing limits — finding the dial",
+      "file": "scenes/scene-09.mp4",
+      "generation": {
+        "promptSummary": "INT. Parking garage (lower level) — Marcus",
+        "targetDurationSeconds": 210
+      }
+    },
+    {
+      "id": "scene-10",
+      "order": 10,
+      "title": "Mr. Okafor's store",
+      "file": "scenes/scene-10.mp4",
+      "generation": {
+        "promptSummary": "EXT./INT. Lowline corner store — Marcus, Mr. Okafor",
+        "targetDurationSeconds": 180
+      }
+    },
+    {
+      "id": "scene-11",
+      "order": 11,
+      "title": "Elena and the live wire",
+      "file": "scenes/scene-11.mp4",
+      "generation": {
+        "promptSummary": "EXT. Lowline side street — Marcus, Elena",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-12",
+      "order": 12,
+      "title": "Rook's van",
+      "file": "scenes/scene-12.mp4",
+      "generation": {
+        "promptSummary": "INT. Surveillance van (Lowline) — Rook",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-13",
+      "order": 13,
+      "title": "The locked building",
+      "file": "scenes/scene-13.mp4",
+      "generation": {
+        "promptSummary": "EXT. Lowline residential — Marcus, fire crew",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-14",
+      "order": 14,
+      "title": "The lock — and the question",
+      "file": "scenes/scene-14.mp4",
+      "generation": {
+        "promptSummary": "INT. Stairwell / 4th floor — Marcus, Woman on 4th Floor",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-15",
+      "order": 15,
+      "title": "Fire escape — city coming back",
+      "file": "scenes/scene-15.mp4",
+      "generation": {
+        "promptSummary": "EXT. Fire escape — Marcus",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-16",
+      "order": 16,
+      "title": "\"you alive?\"",
+      "file": "scenes/scene-16.mp4",
+      "generation": {
+        "promptSummary": "EXT. Fire escape — Marcus",
         "targetDurationSeconds": 60
+      }
+    },
+    {
+      "id": "scene-17",
+      "order": 17,
+      "title": "Lattice — tagged",
+      "file": "scenes/scene-17.mp4",
+      "generation": {
+        "promptSummary": "INT. Lattice Operations Center — Rook, Grey",
+        "targetDurationSeconds": 120
       }
     }
   ],
   "output": {
-    "filename": "s01e01-master.mp4",
+    "filename": "s01e01-signal-lost-master.mp4",
     "reencode": false
   }
 }

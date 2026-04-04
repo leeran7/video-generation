@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "pipeline:manifest": "tsx scripts/pipeline/generate-manifest.ts",
     "pipeline:validate": "tsx scripts/pipeline/validate-manifest.ts",
     "pipeline:stitch": "tsx scripts/pipeline/stitch-episode.ts",
     "content:lint": "tsx scripts/lint-content.ts"
