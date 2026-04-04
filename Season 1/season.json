@@ -11,122 +11,20 @@
     {
       "act": 1,
       "title": "The Spark",
-      "episodes": "1–4",
-      "description": "The world is established, the threat is seeded, and each hero is introduced individually.",
-      "episodes_list": [
-        {
-          "episode": 1,
-          "title": "Signal Lost",
-          "focus": "World-building and Surge intro. A mysterious energy pulse blacks out Meridian City. Marcus stumbles into the blast zone and his powers activate for the first time.",
-          "characters_featured": ["Surge"],
-          "tags": ["Origin", "World-build", "Threat intro"],
-          "full_brief": "Cold open on a normal city. An orbital signal erupts. Marcus survives the blast and discovers he can generate electricity — but can't control it. The city begins to change. End on a glimpse of a shadowy organization watching the event."
-        },
-        {
-          "episode": 2,
-          "title": "Phantom Frequency",
-          "focus": "Wraith intro. Nadia is already using her shadow powers to steal intel on the organization behind the pulse. She crosses paths — and clashes — with Surge.",
-          "characters_featured": ["Wraith", "Surge"],
-          "tags": ["Character intro", "First contact", "Mystery"],
-          "full_brief": "Nadia is working alone, convinced that a team would only slow her down. The episode is largely a cat-and-mouse between her and Marcus. They accidentally expose a larger threat together, then go their separate ways — but they've seen each other now."
-        },
-        {
-          "episode": 3,
-          "title": "Weight of the World",
-          "focus": "Titan intro. A construction collapse reveals Remi's abilities to the public. They become an overnight sensation — and a target. The organization sends its first operative to recruit or eliminate.",
-          "characters_featured": ["Titan"],
-          "tags": ["Character intro", "Public debut", "Stakes"],
-          "full_brief": "Remi just wants to help people and disappear. Instead they're viral. The episode explores the burden of power through Remi's eyes. First real fight sequence — Remi holds a building up alone while civilians evacuate. A brutal reminder that they can't do this forever."
-        },
-        {
-          "episode": 4,
-          "title": "404: Hero Not Found",
-          "focus": "Glitch intro. Priya accidentally hacks into the organization's network and downloads encrypted data she can't decode — and they know she has it. Chaos ensues.",
-          "characters_featured": ["Glitch"],
-          "tags": ["Character intro", "Comedy", "Escalation"],
-          "full_brief": "Priya is over her head and absolutely thriving. The episode plays lighter than the others — her problem-solving is brilliant but messy. By the end she's cracked enough of the data to know the city is in serious danger, and she reluctantly reaches out to the others."
-        }
-      ]
+      "episodes": [1, 2, 3, 4],
+      "description": "The world is established, the threat is seeded, and each hero is introduced individually."
     },
     {
       "act": 2,
       "title": "The Fracture",
-      "episodes": "5–9",
-      "description": "The team is forced together badly, fractures under pressure, and the true villain is revealed.",
-      "episodes_list": [
-        {
-          "episode": 5,
-          "title": "The Quiet One",
-          "focus": "Solace intro. Elias has been quietly de-escalating crises around the city. When a villain from Glitch's intel appears, Elias refuses to fight — and it nearly costs everyone.",
-          "characters_featured": ["Solace"],
-          "tags": ["Character intro", "Team conflict", "Moral tension"],
-          "full_brief": "Elias believes in redemption above all. The team clashes with him immediately. The villain escapes because Elias hesitated — but he also spotted something the others missed: the villain was being controlled, not acting freely. Introduces the season's moral core."
-        },
-        {
-          "episode": 6,
-          "title": "Five Strangers",
-          "focus": "First real team-up — chaotic, messy, barely successful. All five are forced to work together when the organization attacks Glitch's safehouse.",
-          "characters_featured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
-          "tags": ["First team-up", "Action", "Character dynamics"],
-          "full_brief": "Nobody wants to be there. Surge takes charge and gets it wrong. Wraith goes solo. Titan carries Glitch's unconscious body through a collapsing building. Solace talks down a henchman mid-fight. They win — barely — and agree to a temporary alliance only."
-        },
-        {
-          "episode": 7,
-          "title": "Bleed Through",
-          "focus": "Deep Wraith episode. Her backstory is revealed — her shadow power is a curse from a childhood experiment by the same organization. She's not just fighting them. She's fighting herself.",
-          "characters_featured": ["Wraith", "Titan"],
-          "tags": ["Backstory", "Emotional core", "Villain tie"],
-          "full_brief": "Wraith almost leaves the team entirely. Titan is the only one who gets through to her — not by arguing, but by simply sitting with her in silence. The bond between these two is established. Wraith stays, but on her own terms."
-        },
-        {
-          "episode": 8,
-          "title": "Overload",
-          "focus": "Surge's leadership crisis. He makes a call that puts Glitch at risk and the team loses trust in him. He has to decide if he actually wants to lead — or just be in front.",
-          "characters_featured": ["Surge", "Glitch"],
-          "tags": ["Leadership", "Consequence", "Character growth"],
-          "full_brief": "The fallout from a failed mission. Marcus deflects, blames others, then finally sits with the fact that he was wrong. Glitch, bruised and tired, tells him quietly: 'I followed you because I thought you knew what you were doing. Did you?' Pivotal episode for Marcus's arc."
-        },
-        {
-          "episode": 9,
-          "title": "The Architect",
-          "focus": "The main villain is revealed — and they're someone the team didn't expect. The organization's true goal becomes clear: not destruction, but control.",
-          "characters_featured": ["Surge", "Wraith", "Titan", "Glitch", "Solace", "Villain reveal"],
-          "tags": ["Villain reveal", "Plot twist", "Midpoint crisis"],
-          "full_brief": "The Architect is revealed — a former hero who believes superhumans are too dangerous to exist freely and must be managed. The twist: they believe they're protecting humanity. Solace is the first to understand this, and it disturbs him more than a straightforward evil would."
-        }
-      ]
+      "episodes": [5, 6, 7, 8, 9],
+      "description": "The team is forced together badly, fractures under pressure, and the true villain is revealed."
     },
     {
       "act": 3,
       "title": "The Reckoning",
-      "episodes": "10–12",
-      "description": "The team splinters completely, each member faces their shadow alone, and they must earn the right to call themselves a team.",
-      "episodes_list": [
-        {
-          "episode": 10,
-          "title": "Split Signal",
-          "focus": "The organization exploits the team's fractures. Each member is individually targeted and manipulated against each other. The team splinters completely.",
-          "characters_featured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
-          "tags": ["Dark turn", "Betrayal", "Stakes peak"],
-          "full_brief": "The Architect weaponizes what each member fears most. Surge's recklessness. Wraith's isolation. Titan's self-sacrifice. Glitch's chaos. Solace's empathy. By episode's end, the team is scattered across the city, alone, and the clock is running."
-        },
-        {
-          "episode": 11,
-          "title": "Frequency Zero",
-          "focus": "Each character faces their shadow alone. Personal arcs converge — and each one has to choose: stay broken, or grow through it.",
-          "characters_featured": ["Surge", "Wraith", "Titan", "Glitch", "Solace"],
-          "tags": ["Character payoff", "Emotional climax", "Parallel structure"],
-          "full_brief": "Five intercut solo vignettes. Surge admits he's afraid. Wraith lets someone in. Titan lets someone else carry something. Glitch slows down long enough to feel the weight of what's at stake. Solace confronts the possibility that some people don't want saving. They each find their way back."
-        },
-        {
-          "episode": 12,
-          "title": "Nova Force",
-          "focus": "Season finale. Full team, fully united, against The Architect's endgame. The city watches. They win — but the cost is real, and the world knows who they are now.",
-          "characters_featured": ["Surge", "Wraith", "Titan", "Glitch", "Solace", "Final battle"],
-          "tags": ["Finale", "Full team", "Season closer"],
-          "full_brief": "The biggest action sequence of the season. The team moves in perfect sync for the first time. The Architect is defeated but not destroyed — left with a warning and a grudging respect. The final scene: the five of them on a rooftop, the city lit below them, choosing to be a team. End credits roll over the team getting officially named: Nova Force."
-        }
-      ]
+      "episodes": [10, 11, 12],
+      "description": "The team splinters completely, each member faces their shadow alone, and they must earn the right to call themselves a team."
     }
   ]
 }
