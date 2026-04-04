@@ -10,107 +10,30 @@
       "notes": "Civilian names and final casting details can lock at script without breaking structure."
     }
   },
+  "canonicalReferences": {
+    "antagonists": "characters/antagonists/*.json"
+  },
   "organization": {
     "name": "Lattice",
     "roleInSeason": "Primary antagonist force — surveillance, recruitment pressure, direct action, and continuity research tied to Wraith's origin."
   },
-  "theArchitect": {
-    "codename": "The Architect",
-    "revealedInEpisode": 9,
-    "publicPresentation": "Speaks like infrastructure: calm, inevitable, precise. Dresses controlled — nothing flashy unless it serves intimidation. Moves like someone who used to save people and still believes they are saving them.",
-    "originSketch": "Former hero (details of old codename and public fall — **TBD at script**). Believes unregulated superhumans collapse civic trust faster than any villain. Lattice is their instrument — or they are Lattice's mind — Season 1 can keep the reporting structure ambiguous until late; what cannot waver is motivation and moral self-image.",
-    "motivation": "Superhumans are too dangerous to exist freely and must be managed. They believe they are protecting humanity — not destroying it. Destruction is a bug; control is the product.",
-    "ideologicalTwist": "They may be right enough to disturb — especially Elias (Solace), who recognizes sincerity faster than he recognizes malice. That makes them more dangerous than cackling evil: the story can argue back without strawmen.",
-    "methods": [
-      "Framing choices as triage: who gets contained, who gets leveraged, who gets erased from the narrative.",
-      "Weaponizing psychology in Episodes 10–12 — fear profiles per Nova member (per `Season 1/season.json` Ep 10 brief).",
-      "Preferring institutional outcomes over personal grudges — personal cruelty can appear, but it should feel like policy with a face."
-    ],
-    "relationshipToLattice": "Occupies or eclipses the **Principal** slot from the series bible hierarchy — whether they founded Lattice, inherited it, or hijack it in Season 1 is **draft** until writers' room locks continuity.",
-    "powersAndThreatLevel": "**Draft:** Former hero implies combat competence and tactical genius. Avoid omniscience; their edge is preparation, narrative control, and resources — not invulnerability. Finale allows defeat without obliteration: **defeated but not destroyed** (Ep 12 brief) with grudging respect and a warning — they remain a future reckoning.",
-    "defeatOutcomeSeason1": "Loss of immediate endgame (city-scale control objective — **specify in script**), survival with status damaged, threat dormant not erased. Nova Force wins publicly; the idea of management survives in the culture.",
-    "voiceNotes": "No cartoon villain laugh. Warmth used as a tool. When challenged morally, slows down — listens too carefully — which reads as creepier than shouting.",
-    "visualHook": "Architecture motifs: grids, blueprints-as-cloth, clean lines vs the team's messy humanity. Color palette cool and authoritative — contrast with hero warmth (see `series-bible.json` heroColorKeys)."
-  },
+  "theArchitect": "See characters/antagonists/the-architect.json",
   "episodicThreatRoster": {
     "minimumNamedFigures": 8,
     "figures": [
-      {
-        "name": "Rook",
-        "type": "Lattice surveillance lead",
-        "visualHook": "Binocular gloss and cheap coffee stains — someone who lives in vans and rooftops. Unremarkable clothes; memorable posture: too still.",
-        "roleInPlot": "Episodes 1–2: eyes on the pulse zone and early powered activity — the 'shadowy organization watching' from Ep 1; crosshair on Wraith/Surge friction in Ep 2.",
-        "episodes": [1, 2],
-        "outcome": "Does not fight to win publicly — extracts intel and vanishes. Survives; may recur as background threat."
-      },
-      {
-        "name": "Agent Maren Vale",
-        "type": "Handler — recruitment / elimination",
-        "visualHook": "Tailored wrong for the neighborhood — too clean. Smile that costs money. Hands always visible — 'trust me' body language as weapon.",
-        "roleInPlot": "Episode 3: Titan public debut draws Lattice response — recruit or remove Remi before they become a symbol.",
-        "episodes": [3],
-        "outcome": "Fails the clean recruit; fight or chase ends inconclusively enough that Remi survives viral — Vale retreats with a dossier thicker than before."
-      },
-      {
-        "name": "Weaver",
-        "type": "Digital counter-persona (security persona / hunter routine)",
-        "visualHook": "Never a body early — only UI: a calm glyph that rethreads Priya's hacks back at her. If embodied later, androgynous, too-perfect hair, wrong frame rate.",
-        "roleInPlot": "Episode 4: Glitch steals encrypted data; Weaver is the system's immune response — chase, counter-intrusion, panic as comedy turns sharp.",
-        "episodes": [4],
-        "outcome": "Priya keeps partial data; Weaver locks her out hard enough to force real-world consequences — sets up Ep 6 strike path."
-      },
-      {
-        "name": "Echo",
-        "type": "Controlled powered asset (not acting freely)",
-        "visualHook": "Repeating motion tells — same step twice, laugh twice — subtle wrongness. Restraint harness under clothes; Lattice failsafe glow at neck or wrist.",
-        "roleInPlot": "Episode 5: villain drawn from Glitch's intel. Elias refuses the finishing blow; Echo escapes — proving mercy has a bill. Elias notices control, not cruelty.",
-        "episodes": [5],
-        "outcome": "Escape (per brief). Sets moral template: some enemies are prisoners. May recur as tragedy, not moustache villain."
-      },
-      {
-        "name": "Stray",
-        "type": "Field strike lead — assault commander",
-        "visualHook": "Tactical gear with Lattice sigil abstracted to 'corporate sports team.' Helmet optional; eyes always read tired — true believer in procedure.",
-        "roleInPlot": "Episode 6: attacks Glitch's safehouse — forces first full team-up. Henchmen-heavy; Stray is the voice yelling orders through smoke.",
-        "episodes": [6],
-        "outcome": "Tactical loss — team wins messy. Stray extracted by protocol; leaves behind evidence that Lattice has scale."
-      },
-      {
-        "name": "Dr. Aris Thorne",
-        "type": "Continuity / Research — Wraith origin tie",
-        "visualHook": "Soft hands, hard watch. Lab coat as costume even in flashback. Smile that says 'consent' while signing harm.",
-        "roleInPlot": "Episode 7: backstory reveal — childhood experiment lattice (organization) links to Nadia's shadow curse. May appear in testimony, recording, or present-day probe — not always a fistfight antagonist.",
-        "episodes": [7],
-        "outcome": "Emotional victory over ideological: Nadia stays, but Thorne's institution survives her rage — files exist, guilt exists. Survives to Season 2 potential; escape or protected by lawyers in-world."
-      },
-      {
-        "name": "Marrow",
-        "type": "Tactical closer — mission that fractures Surge/Glitch trust",
-        "visualHook": "Brutalist speed — straight lines, elbow-first. Gear built to punish clustered heroes (nets, directed EMP-adjacent tech — **not magic**).",
-        "roleInPlot": "Episode 8: fallout mission from prior Lattice pressure — Marrow exploits Surge's impulse; Glitch ends up bruised enough to ask the painful question (per Ep 8 brief).",
-        "episodes": [8],
-        "outcome": "Mission 'won' but trust damaged — Marrow's win condition is relational, not kill-count. Retreats with proof of hero fracture."
-      },
-      {
-        "name": "The Architect",
-        "type": "Season villain — Principal-tier ideology",
-        "visualHook": "See `theArchitect.visualHook`. Presence fills rooms without shouting.",
-        "roleInPlot": "Episodes 9–12: reveal (9), psychological siege (10), parallel to ensemble recovery (11), finale confrontation (12).",
-        "episodes": [9, 10, 11, 12],
-        "outcome": "See `theArchitect.defeatOutcomeSeason1`."
-      }
-    ],
-    "supportingFigures": [
-      {
-        "name": "Lattice Analyst 'Grey'",
-        "type": "Voice-only / screen-only support",
-        "visualHook": "Waveforms and clipped diction — competence without charisma.",
-        "roleInPlot": "Optional recurring pressure in ops scenes — can appear whenever Lattice needs a faceless brain.",
-        "episodes": ["TBD — sprinkle 2–4"],
-        "outcome": "Survives; humanizes Lattice as an institution, not one body."
-      }
+      "See characters/antagonists/rook.json",
+      "See characters/antagonists/agent-maren-vale.json",
+      "See characters/antagonists/weaver.json",
+      "See characters/antagonists/echo.json",
+      "See characters/antagonists/stray.json",
+      "See characters/antagonists/dr-aris-thorne.json",
+      "See characters/antagonists/marrow.json",
+      "See characters/antagonists/the-architect.json"
     ]
   },
+  "supportingFigures": [
+    "See characters/antagonists/grey.json"
+  ],
   "henchmenAndSquadTemplates": {
     "purpose": "Episodes 6+ need repeatable mooks with rules so fights stay authored — not random armor guys.",
     "latticeGrunt": {
@@ -132,8 +55,8 @@
     ]
   },
   "continuityChecks": {
-    "episode5": "Echo must read as **controlled** — Solace's observation must be fair on rewatch.",
-    "episode9": "Architect motivation must match `Season 1/season.json` villain block verbatim in spirit.",
-    "episode12": "Architect defeated but not destroyed — no accidental death fakeout unless scripted with purpose."
+    "episode5": "Echo must read as controlled — Solace's observation must be fair on rewatch. See characters/antagonists/echo.json → continuityNote",
+    "episode9": "Architect motivation must match Season 1/season.json villain block verbatim in spirit. See characters/antagonists/the-architect.json → motivation",
+    "episode12": "Architect defeated but not destroyed — no accidental death fakeout unless scripted with purpose. See characters/antagonists/the-architect.json → outcome"
   }
 }

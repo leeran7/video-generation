@@ -1,0 +1,24 @@
+{
+  "show": "NOVA FORCE",
+  "season": 1,
+  "name": "The Architect",
+  "codename": "The Architect",
+  "type": "Season villain — Principal-tier ideology",
+  "affiliation": "Lattice — Principal slot (relationship to org is draft; may have founded, inherited, or hijacked it)",
+  "revealedInEpisode": 9,
+  "episodes": [9, 10, 11, 12],
+  "visualHook": "Architecture motifs: grids, blueprints-as-cloth, clean lines vs the team's messy humanity. Color palette cool and authoritative — contrast with hero warmth. Presence fills rooms without shouting.",
+  "publicPresentation": "Speaks like infrastructure: calm, inevitable, precise. Dresses controlled — nothing flashy unless it serves intimidation. Moves like someone who used to save people and still believes they are saving them.",
+  "originSketch": "Former hero (old codename and public fall — TBD at script). Believes unregulated superhumans collapse civic trust faster than any villain. Lattice is their instrument — or they are Lattice's mind — Season 1 keeps reporting structure ambiguous until late.",
+  "motivation": "Superhumans are too dangerous to exist freely and must be managed. They believe they are protecting humanity — not destroying it. Destruction is a bug; control is the product.",
+  "ideologicalTwist": "They may be right enough to disturb — especially Elias (Solace), who recognizes sincerity faster than he recognizes malice. The story can argue back without strawmen.",
+  "methods": [
+    "Framing choices as triage: who gets contained, who gets leveraged, who gets erased from the narrative.",
+    "Weaponizing psychology in Episodes 10–12 — fear profiles per Nova member.",
+    "Preferring institutional outcomes over personal grudges — personal cruelty can appear, but it should feel like policy with a face."
+  ],
+  "voiceNotes": "No cartoon villain laugh. Warmth used as a tool. When challenged morally, slows down — listens too carefully — which reads as creepier than shouting.",
+  "roleInPlot": "Episodes 9–12: reveal (9), psychological siege (10), parallel to ensemble recovery (11), finale confrontation (12).",
+  "outcome": "Loss of immediate endgame (city-scale control objective — specify in script), survival with status damaged, threat dormant not erased. Nova Force wins publicly; the idea of management survives in the culture. Defeated but not destroyed — left with a warning and grudging respect. No accidental death fakeout unless scripted with purpose.",
+  "lockStatus": "draft"
+}

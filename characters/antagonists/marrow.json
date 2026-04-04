@@ -1,0 +1,12 @@
+{
+  "show": "NOVA FORCE",
+  "season": 1,
+  "name": "Marrow",
+  "type": "Tactical closer — mission that fractures Surge/Glitch trust",
+  "affiliation": "Lattice",
+  "episodes": [8],
+  "visualHook": "Brutalist speed — straight lines, elbow-first. Gear built to punish clustered heroes (nets, directed EMP-adjacent tech — not magic).",
+  "roleInPlot": "Episode 8: fallout mission from prior Lattice pressure — Marrow exploits Surge's impulse; Glitch ends up bruised enough to ask the painful question.",
+  "outcome": "Mission 'won' but trust damaged — Marrow's win condition is relational, not kill-count. Retreats with proof of hero fracture.",
+  "lockStatus": "draft"
+}

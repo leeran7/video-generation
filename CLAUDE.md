@@ -52,10 +52,11 @@ Each piece of creative data must live in exactly one file. All other files that 
 
 | Data | Owner |
 |---|---|
-| Character attributes (colors, powers, arc, etc.) | `characters/<name>.json` |
+| Hero attributes (colors, powers, arc, etc.) | `characters/<name>.json` |
+| Antagonist attributes (motivation, methods, episodes) | `characters/antagonists/<name>.json` |
 | Episode detail (title, focus, brief, tags, structure) | `production/season-1-beats.json` |
 | Season structure (acts, episode ranges) | `Season 1/season.json` |
-| Antagonist detail (motivation, methods, roster) | `production/antagonist-bible.json` |
+| Henchmen templates, org structure | `production/antagonist-bible.json` |
 | World rules, tone, visual language | `production/series-bible.json` |
 
 When adding new data: find the correct owner above and put it there. If another file needs to reference it, add a pointer — do not duplicate the value.

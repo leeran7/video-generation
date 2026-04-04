@@ -17,7 +17,8 @@
     "season1": "Season 1/season.json",
     "seasonBeats": "production/season-1-beats.json",
     "antagonists": "production/antagonist-bible.json",
-    "characters": "characters/*.json"
+    "characters": "characters/*.json",
+    "antagonistCharacters": "characters/antagonists/*.json"
   },
   "pitch": {
     "logline": "After a mysterious pulse awakens impossible abilities across Meridian City, five strangers who never asked to be heroes must become Nova Force — or watch their home fall to people who think 'safety' means owning them.",
