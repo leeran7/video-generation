@@ -113,7 +113,7 @@ Canonical story data lives in `show.json`, `Season 1/season.json`, `characters/*
 
 ### Tasks
 
-- [ ] **Script:** full screenplay for episode 1 only — scene headings, dialogue, SFX cues; align to `Season 1/season.json` episode 1 `full_brief`.
+- [x] **Script:** full screenplay for episode 1 only — scene headings, dialogue, SFX cues; align to `Season 1/season.json` episode 1 `full_brief`. → `production/scripts/s01e01-signal-lost.md` (17 scenes, 30 min)
 - [ ] **Storyboard / animatic:** every scene; timing notes for AI generation passes.
 - [ ] **Casting & VO:** define budget tier (SAG vs indie); record all lines; room tone if needed.
 - [ ] **Animation generation:** scene-by-scene passes using locked models and style guide; **QC pass** for on-model continuity.

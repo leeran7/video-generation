@@ -143,9 +143,13 @@ run("pnpm pipeline:validate -- " + manifestPath)
 run("pnpm pipeline:stitch -- " + manifestPath)
 ```
 
+## Current state
+
+**Manifest generation is automated.** Episode scripts (`production/scripts/<slug>.md`) are the single source of truth. Running `pnpm pipeline:manifest -- <path/to/script.md>` parses the script's header and scene index table to produce `manifest.json` with scene entries, durations, and generation hint fields. Do not hand-edit manifest scene lists.
+
 ## Next step in this repository
 
-Implement **`scripts/pipeline/generate-scenes.ts`** (or a small package) that:
+Implement **`scripts/pipeline/generate-scenes.ts`** that:
 
 1. Parses CLI: `--manifest <path>`, optional `--dry-run`, `--force`.
 2. Implements **one** provider adapter (e.g. Replicate HTTP with `REPLICATE_API_TOKEN`).
@@ -153,8 +157,11 @@ Implement **`scripts/pipeline/generate-scenes.ts`** (or a small package) that:
 
 Add a `pnpm pipeline:generate` script when that exists. Until then, use this document and the manifest `generation` field to drive an external script or notebook.
 
+See [GENERATION_TODO.md](./GENERATION_TODO.md) for the full remaining checklist.
+
 ## Related files
 
 - [README.md](./README.md) — validate/stitch commands and folder layout
 - [schema/episode-manifest.schema.json](./schema/episode-manifest.schema.json) — manifest schema (`generation` is open-ended)
+- [GENERATION_TODO.md](./GENERATION_TODO.md) — remaining steps for S1E1 generation
 - Example manifest: [examples/s01e01-signal-lost/manifest.json](./examples/s01e01-signal-lost/manifest.json)
