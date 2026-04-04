@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); echo \"$FILE\" | grep -qE '(production/|characters/|Season 1/).*\\.json$' && /Users/leeranfarin/.asdf/shims/npx tsx scripts/lint-content.ts 2>/dev/null || true",
+            "statusMessage": "Checking content structure...",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

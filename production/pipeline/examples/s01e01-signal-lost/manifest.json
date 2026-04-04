@@ -5,7 +5,7 @@
     "number": 1,
     "title": "Signal Lost",
     "targetRuntimeMinutes": 30,
-    "scriptPath": "../../../scripts/s01e01-signal-lost.md",
+    "scriptPath": "../../../../production/scripts/s01e01-signal-lost.md",
     "notes": "Replace example scene paths with your AI-generated files; keep order by scene order."
   },
   "scenes": [

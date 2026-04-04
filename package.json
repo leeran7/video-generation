@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pipeline:validate": "tsx scripts/pipeline/validate-manifest.ts",
-    "pipeline:stitch": "tsx scripts/pipeline/stitch-episode.ts"
+    "pipeline:stitch": "tsx scripts/pipeline/stitch-episode.ts",
+    "content:lint": "tsx scripts/lint-content.ts"
   },
   "dependencies": {
     "react": "^19.2.4",

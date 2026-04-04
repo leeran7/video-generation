@@ -45,3 +45,31 @@ Episode manifests live under `production/pipeline/examples/` (and future `episod
 ### Production content (`production/`)
 
 JSON documents that define the show's creative canon: `series-bible.json`, `season-1-beats.json`, `roadmap.json`, `antagonist-bible.json`, and `Season 1/season.json`. These are source-of-truth for story/character decisions — treat locked sections as immutable.
+
+## Single source of truth rule
+
+Each piece of creative data must live in exactly one file. All other files that need to reference it use a pointer string in the form `"See <path> → <field>"`. Never copy values across files.
+
+| Data | Owner |
+|---|---|
+| Character attributes (colors, powers, arc, etc.) | `characters/<name>.json` |
+| Episode detail (title, focus, brief, tags, structure) | `production/season-1-beats.json` |
+| Season structure (acts, episode ranges) | `Season 1/season.json` |
+| Antagonist detail (motivation, methods, roster) | `production/antagonist-bible.json` |
+| World rules, tone, visual language | `production/series-bible.json` |
+
+When adding new data: find the correct owner above and put it there. If another file needs to reference it, add a pointer — do not duplicate the value.
+
+This is enforced automatically: editing any JSON in `production/`, `characters/`, or `Season 1/` triggers `scripts/lint-content.ts` via a PostToolUse hook. Violations are injected as context so they can be fixed immediately.
+
+To add a new checked field to the lint, add an entry to the `CHECKS` array in `scripts/lint-content.ts`.
+
+## Additional rules
+
+**Lock status:** Before editing any section of a production JSON, check its `lockStatus` field. Sections marked `"locked"` require explicit user approval before changes.
+
+**Character JSON shape:** The `Character` interface in `src/characterData.ts` is the contract for all `characters/*.json` files. Update the interface first if adding new fields, then update the JSON files.
+
+**No creative data in TypeScript:** Character display values (colors, names, etc.) belong in `characters/*.json`. `src/characterData.ts` should only contain the interface definition and utility functions, not hardcoded creative values.
+
+**Episode manifest `scriptPath`:** Always points directly to `production/scripts/<slug>.md`. Never use stub or redirect files as intermediaries.

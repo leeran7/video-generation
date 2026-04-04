@@ -14,8 +14,9 @@
     }
   },
   "canonicalReferences": {
-    "show": "show.json",
     "season1": "Season 1/season.json",
+    "seasonBeats": "production/season-1-beats.json",
+    "antagonists": "production/antagonist-bible.json",
     "characters": "characters/*.json"
   },
   "pitch": {
@@ -63,7 +64,7 @@
     "workingName": "Lattice",
     "workingNameStatus": "draft — rename when a final title is chosen",
     "philosophyInOneSentence": "Freedom without oversight is extinction — they believe management is mercy.",
-    "details": "See production/antagonist-bible.json — goals, recruitment patterns, hierarchy, The Architect dossier, episodic roster, henchmen templates."
+    "details": "See production/antagonist-bible.json → organization, theArchitect, episodicThreatRoster, henchmenAndSquadTemplates"
   },
   "meridianCity": {
     "overview": "Meridian is a coastal American city big enough to have a skyline, a harbor, inequality, and neighborhoods that feel like different worlds. It is not Gotham-gray by default — sunlight is a storytelling tool — but danger lives in alleys, boardrooms, and feeds as much as in warehouses.",
@@ -105,27 +106,27 @@
     "heroColorKeys": [
       {
         "codename": "SURGE",
-        "signatureColor": "Electric blue / Yellow",
+        "signatureColor": "See characters/surge.json → signatureColor",
         "usage": "High-energy highlights; warmth vs danger in arcs — electricity reads tactile, imperfect."
       },
       {
         "codename": "WRAITH",
-        "signatureColor": "Crimson / Black",
+        "signatureColor": "See characters/wraith.json → signatureColor",
         "usage": "Negative space and silhouette; crimson as warning, not romance default."
       },
       {
         "codename": "TITAN",
-        "signatureColor": "Slate grey / Bioluminescent green",
+        "signatureColor": "See characters/titan.json → signatureColor",
         "usage": "Weight and strain visible in light — green as stress under skin, not sparkle."
       },
       {
         "codename": "GLITCH",
-        "signatureColor": "Neon multi-color (mood-based)",
+        "signatureColor": "See characters/glitch.json → signatureColor",
         "usage": "UI clutter and emotional tempo — color shifts track mental load, not fashion only."
       },
       {
         "codename": "SOLACE",
-        "signatureColor": "Burnt orange / Sage green",
+        "signatureColor": "See characters/solace.json → signatureColor",
         "usage": "Warmth and living texture — healing reads organic, never sterile."
       }
     ],
@@ -137,10 +138,8 @@
     ]
   },
   "seasonOneArcSummary": {
-    "source": "Season 1/season.json",
-    "structure": "Three acts: The Spark (eps 1–4) establishes the city and introduces each hero; The Fracture (eps 5–9) forces the team together and reveals the true antagonist ideology; The Reckoning (eps 10–12) breaks them apart and demands earned unity.",
-    "teamName": "The roster becomes publicly known as Nova Force by the end of Season 1 — aligned with show title and finale episode title in season.json.",
-    "antagonistThroughLine": "See production/antagonist-bible.json → theArchitect",
-    "beatDocument": "Episode beat sheets (12) in `production/season-1-beats.json`."
+    "structure": "See Season 1/season.json → acts",
+    "antagonist": "See production/antagonist-bible.json → theArchitect",
+    "beats": "See production/season-1-beats.json → episodes"
   }
 }
