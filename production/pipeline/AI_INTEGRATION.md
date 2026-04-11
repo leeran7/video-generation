@@ -147,15 +147,19 @@ run("pnpm pipeline:stitch -- " + manifestPath)
 
 **Manifest generation is automated.** Episode scripts (`production/scripts/<slug>.md`) are the single source of truth. Running `pnpm pipeline:manifest -- <path/to/script.md>` parses the script's header and scene index table to produce `manifest.json` with scene entries, durations, and generation hint fields. Do not hand-edit manifest scene lists.
 
-## Next step in this repository
+## Scene generation is implemented
 
-Implement **`scripts/pipeline/generate-scenes.ts`** that:
+**`scripts/pipeline/generate-scenes.ts`** is live with the Runway provider:
 
-1. Parses CLI: `--manifest <path>`, optional `--dry-run`, `--force`.
-2. Implements **one** provider adapter (e.g. Replicate HTTP with `REPLICATE_API_TOKEN`).
-3. Writes each scene to `scenes[].file` as specified.
+```bash
+pnpm pipeline:generate -- <path/to/manifest.json>            # generate all scenes
+pnpm pipeline:generate -- --dry-run <path/to/manifest.json>   # preview without API calls
+pnpm pipeline:generate -- --force <path/to/manifest.json>     # regenerate even if files exist
+```
 
-Add a `pnpm pipeline:generate` script when that exists. Until then, use this document and the manifest `generation` field to drive an external script or notebook.
+Requires `RUNWAYML_API_SECRET` env var. Uses `@runwayml/sdk` with Gen-4.5 (text-to-video or image-to-video based on whether `generation.imageRef` is set). SDK handles polling and retries automatically.
+
+**Note:** Runway clips are max 10 seconds. Scenes longer than 10s generate a first-pass clip. Full scene assembly requires multi-pass generation (see GENERATION_TODO.md §4).
 
 See [GENERATION_TODO.md](./GENERATION_TODO.md) for the full remaining checklist.
 

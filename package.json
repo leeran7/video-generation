@@ -11,10 +11,12 @@
     "preview": "vite preview",
     "pipeline:manifest": "tsx scripts/pipeline/generate-manifest.ts",
     "pipeline:validate": "tsx scripts/pipeline/validate-manifest.ts",
+    "pipeline:generate": "tsx scripts/pipeline/generate-scenes.ts",
     "pipeline:stitch": "tsx scripts/pipeline/stitch-episode.ts",
     "content:lint": "tsx scripts/lint-content.ts"
   },
   "dependencies": {
+    "@runwayml/sdk": "^3.19.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

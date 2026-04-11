@@ -19,6 +19,9 @@ pnpm lint                  # ESLint
 # Episode pipeline
 pnpm pipeline:manifest -- <path/to/script.md>                 # generate manifest.json from script's scene index
 pnpm pipeline:manifest -- --dry-run <path/to/script.md>       # preview without writing
+pnpm pipeline:generate -- <path/to/manifest.json>             # generate scene videos via Runway API
+pnpm pipeline:generate -- --dry-run <path/to/manifest.json>   # preview without API calls
+pnpm pipeline:generate -- --force <path/to/manifest.json>     # regenerate even if files exist
 pnpm pipeline:validate -- <path/to/manifest.json>
 pnpm pipeline:stitch -- <path/to/manifest.json>
 pnpm pipeline:stitch -- --reencode <path/to/manifest.json>   # force re-encode for mixed codecs
