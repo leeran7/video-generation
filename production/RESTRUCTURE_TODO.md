@@ -5,7 +5,7 @@
 - [x] Update `Season 1/season.json` — arc structure, format block, new episode numbering
 
 ## Remaining
-- [ ] Update `production/season-1-beats.json` — runtimeAssumptionMinutes 30→7, add `split` metadata to all 12 entries
+- [x] Update `production/season-1-beats.json` — runtimeAssumptionMinutes 30→7, add `split` metadata to all 12 entries
 - [x] Update `production/series-bible.json` — change "episodes" to "arcs" in pacingNotes (locked field)
 - [x] Update `production/roadmap.json` — "12 episodes" → "12 story arcs (~48 episodes)"
 - [x] Split S1E01 script into 4 files (scenes 1–6, 7–9, 10–12, 13–17)

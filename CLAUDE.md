@@ -88,4 +88,6 @@ To add a new checked field to the lint, add an entry to the `CHECKS` array in `s
 
 **AI video provider:** Runway (Gen-4) is the locked provider for all scene generation. Manifests include `provider: "runway"` in their generation blocks.
 
+**Fully AI-generated production:** All creative assets (video, voice, music, SFX, character designs, concept boards) are AI-generated. No human contractors, voice actors, or freelancers. Voice uses Runway Gen-4.5 TTS/voice cloning. Music uses AI generation (Suno/Udio). Scripts use AI-assisted writing via `/write-script`. Never suggest hiring, commissioning, or outsourcing creative work.
+
 **Episode format:** Each episode targets ~7 minutes runtime with 3–6 scenes. Episodes are grouped into story arcs (~4 episodes per arc). Each arc maps to one original 30-min episode concept. See `Season 1/season.json` for the arc-to-episode mapping and `show.json` for format details.

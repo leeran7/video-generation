@@ -18,7 +18,7 @@
       "title": "Visual Development",
       "timeline": "Month 2–3",
       "tasks": [
-        "Commission character design sheets for all 5 heroes (front, side, 3/4 view + power states)",
+        "AI-generate character design sheets for all 5 heroes (front, side, 3/4 view + power states)",
         "Define the AI art style guide — reference images, color palettes, prohibited styles",
         "Create 3–5 environment concept boards (Meridian City skyline, HQ, villain base)",
         "Select and lock your AI image pipeline: Midjourney for concept, Runway/Kling for animation",
@@ -33,7 +33,7 @@
       "tasks": [
         "Write the full Episode 1 script — scene-by-scene with dialogue",
         "Create storyboards or AI-generated animatics for every scene",
-        "Cast and record voice actors (SAG or indie — define your budget tier)",
+        "Generate character voices using AI voice cloning (Runway Gen-4.5 built-in TTS)",
         "Generate all animation sequences using your AI pipeline, scene by scene",
         "Sound design, score, and mix — audio is 50% of animation quality",
         "Deliver a complete, polished Episode 1 as your proof of concept"
@@ -58,10 +58,10 @@
       "title": "Season 1 Full Production",
       "timeline": "Month 6–18",
       "tasks": [
-        "Write all ~48 episode scripts (12 story arcs) with a dedicated writers room (2–3 writers minimum)",
+        "Write all ~48 episode scripts (12 story arcs) using AI-assisted scripting",
         "Build a repeatable AI production pipeline to generate episodes efficiently",
         "Establish a release cadence — weekly drops build audiences fastest",
-        "Lock music licensing or commission an original score",
+        "Generate original score and music cues using AI music generation (Suno/Udio)",
         "Plan the Season 1 finale event — make the final arc a cultural moment"
       ],
       "executive_note": "Efficiency is everything here. Once your pipeline is dialed in from the pilot, each episode should take less time to produce than the last."
@@ -72,7 +72,7 @@
       "priority": "Do this now",
       "label": "Immediate Action",
       "heading": "Write the show bible before anything else",
-      "body": "Every creative decision downstream depends on having a locked document that defines the show. Characters, tone, world rules, villain mythology, season arc — all of it on paper. This is also what you hand to any collaborator, investor, or distributor. Without it, you're building on sand."
+      "body": "Every creative decision downstream depends on having a locked document that defines the show. Characters, tone, world rules, villain mythology, season arc — all of it on paper. This is also what you hand to any investor or distributor. Without it, you're building on sand."
     },
     {
       "priority": "High priority",
@@ -84,7 +84,7 @@
       "priority": "High priority",
       "label": "IP & Legal",
       "heading": "Protect your intellectual property immediately",
-      "body": "Register the show name, characters, and series bible as original copyright. Consult an entertainment attorney about work-for-hire agreements before bringing on any creative collaborators. This is a franchise-scale property — treat it like one from day one."
+      "body": "Register the show name, characters, and series bible as original copyright. This is a franchise-scale property — treat it like one from day one."
     },
     {
       "priority": "Strategic",

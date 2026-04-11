@@ -2,7 +2,7 @@
 
 **How to use:** Mark tasks with `[x]` when **completed**; leave `[ ]` when **pending**. In GitHub, VS Code, Obsidian, and many editors you can click the box to toggle.
 
-**Current focus:** **§3 — Visual development & style proof** (design sheets, AI style guide, 60–90s style proof). **Optional parallel:** §2a legal hygiene if collaborators join.
+**Current focus:** **§3 — Visual development & style proof** (design sheets, AI style guide, 60–90s style proof).
 
 **IP note:** Formal **IP registration / locking the IP** (copyright filings, registering the show name and characters as formal assets) is **intentionally deferred** — do not treat those items as blocked work. Revisit **before** wide public release or buyer pitch. See **§2**.
 
@@ -58,17 +58,15 @@ Canonical story data lives in `show.json`, `Season 1/season.json`, `characters/*
 ### Done when
 
 - [ ] ⏸ **(deferred)** Copyright registration (or your counsel’s equivalent recommendation) is **filed or scheduled** for: show title, bible, and character pack — **skip until you activate §2b**.
-- [ ] **Work-for-hire / collaboration** templates exist before any non-founder touches scripts, art, or voice.
+- [ ] ~~Work-for-hire / collaboration templates~~ — N/A (fully AI-generated production).
 - [ ] A simple **IP log** exists (spreadsheet is fine): asset name, creator, date, rights status.
 
 ### Tasks
 
 #### 2a — Can do before formal IP lock (recommended)
 
-- [ ] Engage an **entertainment attorney** for a short consult (contracts, WFH — does **not** require filing registrations).
-- [ ] Draft **one-page collaborator agreement** (WFH or license) for: writers, designers, VO, musicians.
 - [ ] Store **source files** and **dated exports** of bibles and design sheets in a locked folder or repo tag.
-- [ ] Start a simple **IP log** spreadsheet (tracks what exists and who made it — does not require registration).
+- [ ] Start a simple **IP log** spreadsheet (tracks what exists, generation tool used, date — does not require registration).
 
 #### 2b — Deferred — formal IP lock (do when you choose to activate)
 
@@ -115,7 +113,7 @@ Canonical story data lives in `show.json`, `Season 1/season.json`, `characters/*
 
 - [x] **Script:** full screenplay for episode 1 only — scene headings, dialogue, SFX cues; align to `Season 1/season.json` episode 1 `full_brief`. → `production/scripts/s01e01-signal-lost.md` (17 scenes, 30 min)
 - [ ] **Storyboard / animatic:** every scene; timing notes for AI generation passes.
-- [ ] **Casting & VO:** define budget tier (SAG vs indie); record all lines; room tone if needed.
+- [ ] **Voice generation:** create AI voice profiles for all characters using Runway Gen-4.5 TTS / voice cloning.
 - [ ] **Animation generation:** scene-by-scene passes using locked models and style guide; **QC pass** for on-model continuity.
 - [ ] **Audio:** temp score OK for internal cuts; **final pilot** needs **mixed** dialogue, SFX, and music bed (or composed sting).
 - [ ] **Pilot deliverables checklist**
@@ -168,7 +166,7 @@ Canonical story data lives in `show.json`, `Season 1/season.json`, `characters/*
 
 ### Tasks
 
-- [ ] **Writers’ room:** minimum **2–3 writers**; break season into arcs; assign episode drafts.
+- [ ] **AI-assisted scripting:** use `/write-script` command to generate episode scripts from beat sheets.
 - [ ] **Per-episode production pack (template)** — duplicate for episodes 2–12:
   - [ ] Script + revision table.
   - [ ] Storyboard PDF + animatic.
@@ -185,7 +183,7 @@ Canonical story data lives in `show.json`, `Season 1/season.json`, `characters/*
 - [ ] **Character animation library growth**
   - [ ] After pilot: add **run/walk cycles** or **loopable motion clips** per hero as pipeline allows (reduces generation entropy later).
   - [ ] **Org vehicles / tech** — design once, reuse (drones, vans, etc.).
-- [ ] **Music:** commission or license **main theme** + **Architect motif** + **hero sting** library for recurring use.
+- [ ] **Music:** AI-generate **main theme** + **Architect motif** + **hero sting** library using Suno/Udio for recurring use.
 - [ ] **Season finale “cultural moment” plan**
   - [ ] Define **one** intended water-cooler beat (scene, line, or twist); storyboard emphasis and marketing hook.
 
@@ -230,14 +228,14 @@ Sections 1–8 include strategy and creative work. This section lists **gaps tha
 #### Done when
 
 - [ ] Each episode has a **final mix** (dialogue + music + SFX) that passes your **loudness/peak** rules.
-- [ ] **Every music cue** is accounted for: licensed, commissioned, or royalty-free with **documentation** stored next to masters.
+- [ ] **Every music cue** is accounted for: AI-generated or royalty-free with **documentation** stored next to masters.
 
 #### Tasks
 
 - [ ] Define **mix spec** (e.g. integrated loudness target for web delivery, true peak ceiling, stereo vs 5.1 if ever needed).
-- [ ] **Season-wide music strategy:** main theme, Architect motif, hero stingers — **cue list** or spreadsheet with **source + license scope** per cue.
-- [ ] **Pickup VO budget/plan:** schedule for missed lines after animatic; **ADR decision tree** (re-render vs dialogue overlay) if sync fails.
-- [ ] **Room tone / ambience** library for Meridian exteriors/interiors so episodes 2–12 do not sound empty compared to the pilot.
+- [ ] **Season-wide music strategy:** main theme, Architect motif, hero stingers — **cue list** or spreadsheet with **source + AI generation tool** per cue.
+- [ ] **Voice regeneration plan:** schedule for missed lines after animatic; **re-generation decision tree** (re-render vs dialogue overlay) if sync fails.
+- [ ] **Room tone / ambience** library for Meridian exteriors/interiors — AI-generated or sourced from royalty-free libraries.
 
 ### C. Post-production masters & QC (every episode)
 
@@ -257,15 +255,13 @@ Sections 1–8 include strategy and creative work. This section lists **gaps tha
 
 #### Done when
 
-- [ ] **Releases** on file for: voice talent, composers, designers, writers (as applicable).
-- [ ] **Music:** sync rights or composer agreement; **stems ownership** and **buyout vs term** are written down.
+- [ ] **AI tool licenses** documented: which tools generated which assets, terms of use for commercial output.
+- [ ] **Music:** AI-generated music terms documented; confirm commercial use rights from generation platform.
 - [ ] A **chain-of-title folder** exists for buyer/partner due diligence (even if you self-publish).
 
 #### Tasks
 
-- [ ] **Talent releases** aligned with your union tier (SAG vs indie).
-- [ ] **Work-for-hire** or assignment for every paid creative deliverable.
-- [ ] **E&O (errors & omissions) insurance** — confirm with counsel **when** it is required (often before licensing to a major platform).
+- [ ] **AI platform commercial licenses** verified for all tools used (Runway, Suno/Udio, image generators).
 - [ ] **Content rating / audience** decision (e.g. TV-Y7 vs teen) — affects writing, platform eligibility, and marketing.
 
 ### E. Continuity & story accountability across 12 episodes

@@ -47,13 +47,13 @@ The batch script described in `AI_INTEGRATION.md`:
 
 ## 5. Audio
 
-- [ ] **Casting & VO** — define budget tier (SAG vs indie); record all dialogue lines.
+- [ ] **Voice generation** — create AI voice profiles for each character using Runway Gen-4.5 TTS; generate all dialogue lines.
 - [ ] **SFX design**:
   - [ ] Marcus's electricity — two registers (uncontrolled crackle vs controlled hum) per production notes.
   - [ ] Ambient city — sirens, traffic, crowds, battery radio.
   - [ ] Pulse event — pressure feeling, not a traditional explosion sound.
   - [ ] Phone vibrate, text notification sounds.
-- [ ] **Music** — temp score or composed sting for:
+- [ ] **Music** — AI-generated score (Suno/Udio) for:
   - [ ] Cold open / Meridian morning.
   - [ ] Pulse moment.
   - [ ] Parking garage isolation.
@@ -69,7 +69,7 @@ The batch script described in `AI_INTEGRATION.md`:
 - [ ] **QC pass**: black frames, flash frames, audio sync, continuity (jacket scorch marks accumulate correctly), on-model character consistency.
 - [ ] **Mix**: dialogue + SFX + music → final audio track overlaid on master video.
 - [ ] **Captions/subtitles** — SRT file, at least English.
-- [ ] **Credits** — aligned with contracts/collaborators.
+- [ ] **Credits** — list AI tools used in production.
 - [ ] **30-second cutdown** for social/pitch (optional but high leverage).
 
 ---
