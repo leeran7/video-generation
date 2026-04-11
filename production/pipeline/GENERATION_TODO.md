@@ -31,11 +31,12 @@ Once the provider and style are locked:
 
 The batch script described in `AI_INTEGRATION.md`:
 
-- [ ] **Implement one provider adapter** (e.g., Replicate HTTP with `REPLICATE_API_TOKEN`).
+- [ ] **Implement Runway provider adapter** (Runway Gen-4 API with `RUNWAY_API_TOKEN`).
 - [ ] **CLI**: `pnpm pipeline:generate -- <path/to/manifest.json>` with `--dry-run` and `--force` flags.
 - [ ] **Idempotent** — skip scenes where the `.mp4` already exists unless `--force`.
 - [ ] **Poll/wait** — video APIs take minutes per clip; handle long polls, backoff on rate limits.
 - [ ] **Error handling** — exit non-zero on any failure so pipeline doesn't stitch bad episodes.
+- [ ] **Auto-update `production/locations.json`** — after generating a concept board or scene, write the asset path back into the matching location entry (`conceptBoardAsset`, `referenceImageAsset`, `runwayStyleRefAsset`) and set `conceptBoard: true`. This closes the loop with `lint-locations.ts` so completed locations stop being flagged.
 - [ ] Wire up as `pnpm pipeline:generate` in `package.json`.
 
 ## 4. Storyboard / animatic

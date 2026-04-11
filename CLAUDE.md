@@ -61,6 +61,7 @@ Each piece of creative data must live in exactly one file. All other files that 
 | Season structure (acts, episode ranges) | `Season 1/season.json` |
 | Henchmen templates, org structure | `production/antagonist-bible.json` |
 | World rules, tone, visual language | `production/series-bible.json` |
+| Location/environment registry & asset paths | `production/locations.json` |
 
 When adding new data: find the correct owner above and put it there. If another file needs to reference it, add a pointer — do not duplicate the value.
 
@@ -79,3 +80,7 @@ To add a new checked field to the lint, add an entry to the `CHECKS` array in `s
 **Episode manifest `scriptPath`:** Always points directly to `production/scripts/<slug>.md`. Never use stub or redirect files as intermediaries.
 
 **Manifest generation:** Episode manifests are derived from scripts, not hand-written. Run `pnpm pipeline:manifest -- <script.md>` to regenerate after editing a script's scene index table. Do not manually edit `manifest.json` scene lists.
+
+**Location tracking:** Every environment/location used in scripts must be registered in `production/locations.json`. This is enforced automatically: editing any script in `production/scripts/` triggers `scripts/lint-locations.ts` via a PostToolUse hook, which reports unregistered locations and locations still needing Runway concept board generation. When adding a new location, add it to `locations.json` with `conceptBoard: false` and empty asset path strings. Set `conceptBoard: true` and fill asset paths once the Runway-generated concept board is ready.
+
+**AI video provider:** Runway (Gen-4) is the locked provider for all scene generation. Manifests include `provider: "runway"` in their generation blocks.

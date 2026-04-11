@@ -1,0 +1,138 @@
+{
+  "locationsVersion": 1,
+  "description": "Registry of all environments/locations used across Nova Force scripts. Source of truth for which concept boards exist and which still need generation via Runway.",
+  "locations": [
+    {
+      "slug": "glasshook-pier",
+      "name": "Glasshook Pier",
+      "area": "Meridian City",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Morning coastal light, tourist shops dark, fishermen gone, commuters filtering through. Low-gold light."
+    },
+    {
+      "slug": "meridian-central-plaza",
+      "name": "Meridian Central Plaza",
+      "area": "Meridian City",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Glass towers, the Spire backdrop. Busy urban center — crowds, street traffic, ambulances."
+    },
+    {
+      "slug": "meridian-central-street",
+      "name": "Meridian Central Side Street",
+      "area": "Meridian City",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Side streets off the main plaza. Urban, daytime."
+    },
+    {
+      "slug": "parking-garage",
+      "name": "Parking Garage",
+      "area": "Meridian City",
+      "interior": true,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Dim emergency lighting, concrete, lower level even darker. Marcus's isolation space."
+    },
+    {
+      "slug": "city-streets-general",
+      "name": "City Streets (General)",
+      "area": "Meridian City",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Generic Meridian streets for crowd/livestream footage."
+    },
+    {
+      "slug": "lowline-corner-store",
+      "name": "Lowline Corner Store (Okafor's)",
+      "area": "Meridian City — Lowline",
+      "interior": true,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Mr. Okafor's shop. Older blocks, corner stores, street chairs. Warm interior."
+    },
+    {
+      "slug": "lowline-side-street",
+      "name": "Lowline Side Street",
+      "area": "Meridian City — Lowline",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Elena and the live wire scene. Residential neighborhood feel."
+    },
+    {
+      "slug": "lowline-residential",
+      "name": "Lowline Residential",
+      "area": "Meridian City — Lowline",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Residential block, locked building exterior. Fire crew present."
+    },
+    {
+      "slug": "surveillance-van",
+      "name": "Lattice Surveillance Van",
+      "area": "Meridian City — Lowline",
+      "interior": true,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Near-black environment. Multiple screens, coffee rings, cable management. Rook's workspace."
+    },
+    {
+      "slug": "stairwell-4th-floor",
+      "name": "Stairwell / 4th Floor",
+      "area": "Meridian City — Lowline",
+      "interior": true,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Interior of the locked building. Dark stairwell, 4th floor landing."
+    },
+    {
+      "slug": "fire-escape",
+      "name": "Fire Escape",
+      "area": "Meridian City — Lowline",
+      "interior": false,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Nighttime city skyline, the Spire lighting up in the distance. Reflective mood."
+    },
+    {
+      "slug": "lattice-operations-center",
+      "name": "Lattice Operations Center",
+      "area": "Unknown — Lattice HQ",
+      "interior": true,
+      "conceptBoard": false,
+      "conceptBoardAsset": "",
+      "referenceImageAsset": "",
+      "runwayStyleRefAsset": "",
+      "notes": "Screens, darkness, institutional. Cold, clinical. Rook and Grey's command post."
+    }
+  ]
+}

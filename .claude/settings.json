@@ -6,8 +6,14 @@
         "hooks": [
           {
             "type": "command",
-            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); echo \"$FILE\" | grep -qE '(production/|characters/|Season 1/).*\\.json$' && /Users/leeranfarin/.asdf/shims/npx tsx scripts/lint-content.ts 2>/dev/null || true",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); echo \"$FILE\" | grep -qE '(production/|characters/|Season 1/).*\\.json$' && npx tsx scripts/lint-content.ts 2>/dev/null || true",
             "statusMessage": "Checking content structure...",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); echo \"$FILE\" | grep -qE 'production/scripts/.*\\.md$' && npx tsx scripts/lint-locations.ts \"$FILE\" 2>/dev/null || true",
+            "statusMessage": "Checking locations for Runway generation...",
             "timeout": 30
           }
         ]
