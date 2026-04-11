@@ -1,0 +1,66 @@
+{
+  "manifestVersion": 1,
+  "episode": {
+    "season": 1,
+    "number": 4,
+    "title": "Alive",
+    "targetRuntimeMinutes": 7,
+    "scriptPath": "../../../scripts/s01e04-alive.md"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "order": 1,
+      "title": "The locked building",
+      "file": "scenes/scene-01.mp4",
+      "generation": {
+        "promptSummary": "EXT. Lowline residential — Marcus, fire crew",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-02",
+      "order": 2,
+      "title": "The lock — and the question",
+      "file": "scenes/scene-02.mp4",
+      "generation": {
+        "promptSummary": "INT. Stairwell / 4th floor — Marcus, Woman on 4th Floor",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-03",
+      "order": 3,
+      "title": "Fire escape — city coming back",
+      "file": "scenes/scene-03.mp4",
+      "generation": {
+        "promptSummary": "EXT. Fire escape — Marcus",
+        "targetDurationSeconds": 90
+      }
+    },
+    {
+      "id": "scene-04",
+      "order": 4,
+      "title": "\"you alive?\"",
+      "file": "scenes/scene-04.mp4",
+      "generation": {
+        "promptSummary": "EXT. Fire escape — Marcus",
+        "targetDurationSeconds": 60
+      }
+    },
+    {
+      "id": "scene-05",
+      "order": 5,
+      "title": "Lattice — tagged",
+      "file": "scenes/scene-05.mp4",
+      "generation": {
+        "promptSummary": "INT. Lattice Operations Center — Rook, Grey",
+        "targetDurationSeconds": 120
+      }
+    }
+  ],
+  "output": {
+    "filename": "s01e04-alive-master.mp4",
+    "reencode": false
+  }
+}

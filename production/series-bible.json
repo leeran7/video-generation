@@ -131,7 +131,7 @@
         "usage": "Warmth and living texture — healing reads organic, never sterile."
       }
     ],
-    "pacingNotes": "Action breathes: let a face land before a city explodes. Episode rhythm follows Season 1 acts — intros (1–4), fracture (5–9), reckoning (10–12) — see Season 1/season.json.",
+    "pacingNotes": "Action breathes: let a face land before a city explodes. Episode rhythm follows Season 1 acts — intros (arcs 1–4), fracture (arcs 5–9), reckoning (arcs 10–12) — see Season 1/season.json.",
     "aiAnimationNotes": [
       "Lock a style guide before scaling episode count — prompts, banned looks, and reference boards belong in a separate visual pipeline doc (NEXT_STEPS §3).",
       "Micro-performance beats spectacle-only shots: hands, eyes, breath — this is what makes AI-assisted work feel authored.",

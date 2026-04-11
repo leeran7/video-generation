@@ -8,7 +8,7 @@
         "Expand each character into a 10-page character bible (voice, arc, relationships, powers spec)",
         "Write the season 1 series bible — world, tone, visual language, overarching mythology",
         "Define the villain hierarchy and the organization's backstory",
-        "Lock the 12-episode outline (beat sheet per episode)",
+        "Lock the 12 story-arc outline (beat sheet per arc)",
         "Register the IP — show name, characters, and any original lore as copyright"
       ],
       "executive_note": "This is the document you pitch from. Investors, distributors, and collaborators all want to see a bible before anything else. Do this first."
@@ -58,11 +58,11 @@
       "title": "Season 1 Full Production",
       "timeline": "Month 6–18",
       "tasks": [
-        "Write all 12 scripts with a dedicated writers room (2–3 writers minimum)",
+        "Write all ~48 episode scripts (12 story arcs) with a dedicated writers room (2–3 writers minimum)",
         "Build a repeatable AI production pipeline to generate episodes efficiently",
         "Establish a release cadence — weekly drops build audiences fastest",
         "Lock music licensing or commission an original score",
-        "Plan the Season 1 finale event — make episode 12 a cultural moment"
+        "Plan the Season 1 finale event — make the final arc a cultural moment"
       ],
       "executive_note": "Efficiency is everything here. Once your pipeline is dialed in from the pilot, each episode should take less time to produce than the last."
     }
@@ -102,7 +102,7 @@
       "priority": "Milestone",
       "label": "The North Star",
       "heading": "Your 18-month goal: Season 1 complete, audience established",
-      "body": "Twelve episodes. A fanbase. One cultural moment — a scene, a villain reveal, a character death — that people talk about. If you hit those three things by the end of Season 1, you have a show. Everything else is execution."
+      "body": "Twelve story arcs (~48 episodes). A fanbase. One cultural moment — a scene, a villain reveal, a character death — that people talk about. If you hit those three things by the end of Season 1, you have a show. Everything else is execution."
     }
   ]
 }

@@ -24,11 +24,12 @@ If episode-id is missing, ask the user for it before proceeding.
 
 Before writing anything, read the following files in order:
 
-1. **`production/season-1-beats.json`** — find the beat entry matching the episode number. Extract:
+1. **`production/season-1-beats.json`** — find the beat entry matching the episode's story arc. Extract:
    - `title`, `focus`, `fullBrief`, `charactersFeatured`, `antagonistRefs`
    - `structure` (cold open, actOne, actTwo, actThree, tag beats and approximate minute ranges)
-   - `document.runtimeAssumptionMinutes` — **this is the hard runtime target** (currently 30 min)
-   - `document.structureNotes` — format constraint (cold open + three acts + tag)
+   - `split` metadata — check which episode within the arc you are writing and which scenes/beats belong to it
+   - `document.runtimeAssumptionMinutes` — **this is the hard runtime target** (currently 7 min)
+   - `document.structureNotes` — format constraint
 
 2. **`characters/<name>.json`** for each name in `charactersFeatured` and `antagonistRefs`. Extract:
    - `displayName`, `alias`, `age`, `powersSpec` (costs, limits, visual language)
@@ -42,9 +43,9 @@ Before writing anything, read the following files in order:
    - `meridianCity.districts` — for location grounding
    - `visualLanguage` if present
 
-5. **`Season 1/season.json`** — confirm episode slot, season arc position.
+5. **`Season 1/season.json`** — confirm episode slot, story arc, and season arc position.
 
-6. **`production/scripts/s01e01-signal-lost.md`** — read as the format reference. Match its:
+6. **`production/scripts/s01e01-the-pulse.md`** — read as the format reference for the 7-min episode format. Match its:
    - Header block (written-from, status, runtime target, hero focus, antagonist ref)
    - Cast section format
    - Production notes section
@@ -57,15 +58,15 @@ Before writing anything, read the following files in order:
 
 ## Step 2 — Validate runtime before writing
 
-The `runtimeAssumptionMinutes` is a hard constraint. Plan the scene count and timing before writing:
+The `runtimeAssumptionMinutes` is a hard constraint (~7 minutes). Plan the scene count and timing before writing:
 
-- A full episode needs approximately 18–22 scenes at 1–3 minutes each to hit 30 minutes.
-- The structure is non-negotiable: **Cold Open + Act I + Act II + Act III + Tag**.
-- Use the beat document's `approximateMinutes` ranges as your act boundaries.
-- Budget longer scenes (2–3 min) for emotional anchors and shorter ones (0:45–1:30) for transitions and intercuts.
-- If the beat document specifies minute ranges, honor them. Do not compress a 12-minute act into 4 scenes.
+- A 7-minute episode needs approximately **3–6 scenes** at 1–2.5 minutes each.
+- Each episode is one segment of a larger story arc (~4 episodes per arc). The episode should have a clear internal arc (setup → escalation → hook/cliffhanger) while serving the larger arc narrative.
+- Use the beat document's `split` metadata to determine which scenes/beats belong to this episode.
+- Budget the longest scene (2–2.5 min) for the emotional anchor. Keep transitions tight (0:45–1:00).
+- Each episode should end on a strong hook that pulls the viewer into the next episode.
 
-Write out the scene plan (scene number, title, location, estimated runtime) as a brief outline before drafting the script. This is your internal check — if the outline doesn't add up to ~30 minutes, adjust before writing.
+Write out the scene plan (scene number, title, location, estimated runtime) as a brief outline before drafting the script. This is your internal check — if the outline doesn't add up to ~7 minutes, adjust before writing.
 
 ---
 

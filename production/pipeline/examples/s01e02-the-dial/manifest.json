@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 1,
+  "episode": {
+    "season": 1,
+    "number": 2,
+    "title": "The Dial",
+    "targetRuntimeMinutes": 7,
+    "scriptPath": "../../../scripts/s01e02-the-dial.md"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "order": 1,
+      "title": "Alone in the garage",
+      "file": "scenes/scene-01.mp4",
+      "generation": {
+        "promptSummary": "INT. Parking garage — Marcus",
+        "targetDurationSeconds": 165
+      }
+    },
+    {
+      "id": "scene-02",
+      "order": 2,
+      "title": "The city reacts — the viral clip",
+      "file": "scenes/scene-02.mp4",
+      "generation": {
+        "promptSummary": "EXT. City streets / livestream — Live-streamer, crowd",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-03",
+      "order": 3,
+      "title": "Testing limits — finding the dial",
+      "file": "scenes/scene-03.mp4",
+      "generation": {
+        "promptSummary": "INT. Parking garage (lower level) — Marcus",
+        "targetDurationSeconds": 210
+      }
+    }
+  ],
+  "output": {
+    "filename": "s01e02-the-dial-master.mp4",
+    "reencode": false
+  }
+}

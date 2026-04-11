@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 1,
+  "episode": {
+    "season": 1,
+    "number": 3,
+    "title": "Watched",
+    "targetRuntimeMinutes": 7,
+    "scriptPath": "../../../scripts/s01e03-watched.md"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "order": 1,
+      "title": "Mr. Okafor's store",
+      "file": "scenes/scene-01.mp4",
+      "generation": {
+        "promptSummary": "EXT./INT. Lowline corner store — Marcus, Mr. Okafor",
+        "targetDurationSeconds": 180
+      }
+    },
+    {
+      "id": "scene-02",
+      "order": 2,
+      "title": "Elena and the live wire",
+      "file": "scenes/scene-02.mp4",
+      "generation": {
+        "promptSummary": "EXT. Lowline side street — Marcus, Elena",
+        "targetDurationSeconds": 120
+      }
+    },
+    {
+      "id": "scene-03",
+      "order": 3,
+      "title": "Rook's van",
+      "file": "scenes/scene-03.mp4",
+      "generation": {
+        "promptSummary": "INT. Surveillance van (Lowline) — Rook",
+        "targetDurationSeconds": 90
+      }
+    }
+  ],
+  "output": {
+    "filename": "s01e03-watched-master.mp4",
+    "reencode": false
+  }
+}

@@ -1,11 +1,16 @@
 # NOVA FORCE
 
-## Season 1, Episode 1 — "Signal Lost"
+## Season 1, Arc 1 — "Signal Lost" (Full Arc Script)
 
-**Written from:** `production/season-1-beats.json` (Ep 1), `characters/surge.json`, `production/series-bible.json`, `production/antagonist-bible.json`
+**Written from:** `production/season-1-beats.json` (Arc 1), `characters/surge.json`, `production/series-bible.json`, `production/antagonist-bible.json`
 **Season arc:** Act 1 — "The Spark"
-**Status:** First draft
-**Runtime target:** 30 minutes
+**Status:** Split into 4 episodes
+**Runtime target:** 30 minutes (original) → 4 × ~7 min episodes
+**Split episodes:**
+- `s01e01-the-pulse.md` — Scenes 1–6 (~7:15)
+- `s01e02-the-dial.md` — Scenes 7–9 (~8:15)
+- `s01e03-watched.md` — Scenes 10–12 (~6:30)
+- `s01e04-alive.md` — Scenes 13–17 (~8:00)
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
 **Antagonist ref:** Rook (Lattice surveillance lead — does not fight, only watches)
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-**Nova Force** is a superhero animated series concept. This repo has two distinct parts:
+**Nova Force** is a superhero animated series concept — YouTube-first, 7-minute episodes grouped into story arcs (~4 episodes per arc, 12 arcs per season, ~48 episodes per season). This repo has two distinct parts:
 
 1. **Roster app** (`src/`) — a React/Vite web app that renders the team roster as character cards, pulling data from `characters/*.json`.
 2. **Production pipeline** (`production/`, `scripts/pipeline/`) — Node.js scripts that validate episode manifests and stitch AI-generated scene files into a master video via FFmpeg.
@@ -87,3 +87,5 @@ To add a new checked field to the lint, add an entry to the `CHECKS` array in `s
 **Location tracking:** Every environment/location used in scripts must be registered in `production/locations.json`. This is enforced automatically: editing any script in `production/scripts/` triggers `scripts/lint-locations.ts` via a PostToolUse hook, which reports unregistered locations and locations still needing Runway concept board generation. When adding a new location, add it to `locations.json` with `conceptBoard: false` and empty asset path strings. Set `conceptBoard: true` and fill asset paths once the Runway-generated concept board is ready.
 
 **AI video provider:** Runway (Gen-4) is the locked provider for all scene generation. Manifests include `provider: "runway"` in their generation blocks.
+
+**Episode format:** Each episode targets ~7 minutes runtime with 3–6 scenes. Episodes are grouped into story arcs (~4 episodes per arc). Each arc maps to one original 30-min episode concept. See `Season 1/season.json` for the arc-to-episode mapping and `show.json` for format details.

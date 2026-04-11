@@ -1,10 +1,11 @@
 {
   "document": {
     "title": "Nova Force — Season 1 Beat Document",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "sourceOfTruth": "Derived from and subordinate to `Season 1/season.json`. Antagonist names cross-reference `production/antagonist-bible.json`.",
-    "runtimeAssumptionMinutes": 30,
-    "structureNotes": "Cold open + three acts + tag. Minute ranges are approximate for pacing — lock in script."
+    "runtimeAssumptionMinutes": 7,
+    "legacyRuntimeMinutes": 30,
+    "structureNotes": "Each entry is a story arc (~30 min of content) that spans ~4 × 7-min YouTube episodes. The beat structure (cold open + three acts + tag) describes the arc. The split field defines how the arc divides into individual episodes."
   },
   "episodes": [
     {
@@ -63,7 +64,44 @@
         }
       },
       "cliffhanger": "The organization is watching — Marcus is now data.",
-      "castWorkloadNote": "Spotlight Surge; ensemble not required. Background cast carries 'city' reality."
+      "castWorkloadNote": "Spotlight Surge; ensemble not required. Background cast carries 'city' reality.",
+      "split": {
+        "status": "scripted",
+        "episodes": [
+          {
+            "episodeNumber": 1,
+            "title": "The Pulse",
+            "scenes": ["scene-01", "scene-02", "scene-03", "scene-04", "scene-05", "scene-06"],
+            "approximateMinutes": 7.25,
+            "scriptFile": "production/scripts/s01e01-the-pulse.md",
+            "hook": "Ambulance radio burst — Marcus realizes he has a field."
+          },
+          {
+            "episodeNumber": 2,
+            "title": "The Dial",
+            "scenes": ["scene-07", "scene-08", "scene-09"],
+            "approximateMinutes": 8.25,
+            "scriptFile": "production/scripts/s01e02-the-dial.md",
+            "hook": "Marcus masters the hairline arc. The garage goes dark behind him."
+          },
+          {
+            "episodeNumber": 3,
+            "title": "Watched",
+            "scenes": ["scene-10", "scene-11", "scene-12"],
+            "approximateMinutes": 6.5,
+            "scriptFile": "production/scripts/s01e03-watched.md",
+            "hook": "Red glyph applied to Marcus's dossier — 'Monitor. Don't move yet.'"
+          },
+          {
+            "episodeNumber": 4,
+            "title": "Alive",
+            "scenes": ["scene-13", "scene-14", "scene-15", "scene-16", "scene-17"],
+            "approximateMinutes": 8.0,
+            "scriptFile": "production/scripts/s01e04-alive.md",
+            "hook": "Lattice tags Marcus — he is now data. The hum continues."
+          }
+        ]
+      }
     },
     {
       "episode": 2,
@@ -115,7 +153,8 @@
         }
       },
       "cliffhanger": "Lattice connects the dots: Surge and Wraith are on a collision course with the org — and each other.",
-      "castWorkloadNote": "Dual lead. No other heroes required for story logic; keep crowd lean."
+      "castWorkloadNote": "Dual lead. No other heroes required for story logic; keep crowd lean.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 3,
@@ -164,7 +203,8 @@
         }
       },
       "cliffhanger": "Remi is famous — and Lattice has decided what famous means.",
-      "castWorkloadNote": "Titan spotlight; Surge/Wraith optional as background rumor only — avoid stealing intro."
+      "castWorkloadNote": "Titan spotlight; Surge/Wraith optional as background rumor only — avoid stealing intro.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 4,
@@ -211,7 +251,8 @@
         }
       },
       "cliffhanger": "Priya pulled the pin — Lattice is coming offline *and* online.",
-      "castWorkloadNote": "Glitch lead; other heroes voice/cameo acceptable for reach-out — keep on-theme: she hates needing people."
+      "castWorkloadNote": "Glitch lead; other heroes voice/cameo acceptable for reach-out — keep on-theme: she hates needing people.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 5,
@@ -262,7 +303,8 @@
         }
       },
       "cliffhanger": "The season's ethics are now explicit — and the next fight will test them with teeth.",
-      "castWorkloadNote": "`season.json` lists Solace-only featured; story requires other four for 'team clashes' — treat featured as **spotlight character**; others are **present for ensemble conflict** (aligns with brief)."
+      "castWorkloadNote": "`season.json` lists Solace-only featured; story requires other four for 'team clashes' — treat featured as **spotlight character**; others are **present for ensemble conflict** (aligns with brief).",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 6,
@@ -310,7 +352,8 @@
         }
       },
       "cliffhanger": "They are a team by catastrophe, not choice — the fracture is still there.",
-      "castWorkloadNote": "Full roster — workload balanced by POV rotation; give each a signature beat."
+      "castWorkloadNote": "Full roster — workload balanced by POV rotation; give each a signature beat.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 7,
@@ -357,7 +400,8 @@
         }
       },
       "cliffhanger": "Nadia stays — but the org still owns part of her origin story.",
-      "castWorkloadNote": "Dual lead emotional episode; others minimal — preserves oxygen for backstory."
+      "castWorkloadNote": "Dual lead emotional episode; others minimal — preserves oxygen for backstory.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 8,
@@ -405,7 +449,8 @@
         }
       },
       "cliffhanger": "Surge's arc turns — the team is watching if it is real.",
-      "castWorkloadNote": "Spotlight Surge + Glitch; others may appear in fallout scenes — keep tight."
+      "castWorkloadNote": "Spotlight Surge + Glitch; others may appear in fallout scenes — keep tight.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 9,
@@ -452,7 +497,8 @@
         }
       },
       "cliffhanger": "The enemy has a face — and a philosophy that haunts Solace.",
-      "castWorkloadNote": "Full team + villain — balance dialogue and visual iconography; see antagonist-bible."
+      "castWorkloadNote": "Full team + villain — balance dialogue and visual iconography; see antagonist-bible.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 10,
@@ -501,7 +547,8 @@
         }
       },
       "cliffhanger": "Nova Force is not a team tonight — the city still needs them.",
-      "castWorkloadNote": "Ensemble with parallel structure — storyboard for clarity; avoid repetition without variation."
+      "castWorkloadNote": "Ensemble with parallel structure — storyboard for clarity; avoid repetition without variation.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 11,
@@ -549,7 +596,8 @@
         }
       },
       "cliffhanger": "They are ready — separately — for the last fight.",
-      "castWorkloadNote": "Parallel vignettes — ensure distinct emotional keys; intercut rules in edit."
+      "castWorkloadNote": "Parallel vignettes — ensure distinct emotional keys; intercut rules in edit.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     },
     {
       "episode": 12,
@@ -596,7 +644,8 @@
         }
       },
       "cliffhanger": "Season ends on unity and exposure — Season 2 hooks: fame, law, Architect echo, Lattice idea surviving.",
-      "castWorkloadNote": "Full ensemble finale — balance spectacle with character beats; name reveal is emotional payoff."
+      "castWorkloadNote": "Full ensemble finale — balance spectacle with character beats; name reveal is emotional payoff.",
+      "split": { "status": "pending", "estimatedEpisodeCount": 4, "episodes": [] }
     }
   ],
   "crossChecks": {

@@ -1,29 +1,55 @@
 {
   "title": "Season 1",
-  "concept": "An origin story told in three acts. Each act peels back another layer — the threat escalates, the team fractures, and by episode 12 they must choose to unite or fall alone. Every episode introduces or deepens one character while advancing the overarching plot.",
+  "concept": "An origin story told in three acts. Each act peels back another layer — the threat escalates, the team fractures, and by the finale they must choose to unite or fall alone. Every story arc introduces or deepens one character while advancing the overarching plot.",
+  "format": {
+    "episodeRuntimeMinutes": 7,
+    "totalStoryArcs": 12,
+    "approximateTotalEpisodes": 48,
+    "note": "Each story arc (originally one 30-min episode) spans ~4 × 7-min YouTube episodes. Exact episode counts per arc are determined when scripted."
+  },
   "villain": {
     "name": "The Architect",
-    "revealed_in_episode": 9,
+    "revealed_in_arc": 9,
     "details": "See production/antagonist-bible.json → theArchitect"
   },
   "beatDocument": "production/season-1-beats.json",
+  "storyArcs": [
+    { "arc": 1, "title": "Signal Lost", "episodes": [1, 2, 3, 4], "status": "scripted" },
+    { "arc": 2, "title": "Phantom Frequency", "episodes": [5, 6, 7, 8], "status": "pending" },
+    { "arc": 3, "title": "Weight of the World", "episodes": [9, 10, 11, 12], "status": "pending" },
+    { "arc": 4, "title": "404: Hero Not Found", "episodes": [13, 14, 15, 16], "status": "pending" },
+    { "arc": 5, "title": "The Quiet One", "episodes": [17, 18, 19, 20], "status": "pending" },
+    { "arc": 6, "title": "Five Strangers", "episodes": [21, 22, 23, 24], "status": "pending" },
+    { "arc": 7, "title": "Bleed Through", "episodes": [25, 26, 27, 28], "status": "pending" },
+    { "arc": 8, "title": "Overload", "episodes": [29, 30, 31, 32], "status": "pending" },
+    { "arc": 9, "title": "The Architect", "episodes": [33, 34, 35, 36], "status": "pending" },
+    { "arc": 10, "title": "Split Signal", "episodes": [37, 38, 39, 40], "status": "pending" },
+    { "arc": 11, "title": "Frequency Zero", "episodes": [41, 42, 43, 44], "status": "pending" },
+    { "arc": 12, "title": "Nova Force", "episodes": [45, 46, 47, 48], "status": "pending" }
+  ],
   "acts": [
     {
       "act": 1,
       "title": "The Spark",
-      "episodes": [1, 2, 3, 4],
+      "storyArcs": [1, 2, 3, 4],
+      "episodes": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "episodeRangeStatus": "approximate",
       "description": "The world is established, the threat is seeded, and each hero is introduced individually."
     },
     {
       "act": 2,
       "title": "The Fracture",
-      "episodes": [5, 6, 7, 8, 9],
+      "storyArcs": [5, 6, 7, 8, 9],
+      "episodes": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+      "episodeRangeStatus": "approximate",
       "description": "The team is forced together badly, fractures under pressure, and the true villain is revealed."
     },
     {
       "act": 3,
       "title": "The Reckoning",
-      "episodes": [10, 11, 12],
+      "storyArcs": [10, 11, 12],
+      "episodes": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+      "episodeRangeStatus": "approximate",
       "description": "The team splinters completely, each member faces their shadow alone, and they must earn the right to call themselves a team."
     }
   ]

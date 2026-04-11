@@ -1,9 +1,12 @@
 {
   "title": "Nova Force",
   "tagline": "Five Heroes. One City. Infinite Stakes.",
-  "format": "AI-generated animated series",
+  "format": "AI-generated animated series (YouTube short-form)",
   "style": "Fusion of DC and Marvel animation",
-  "episodes_per_season": 12,
-  "episode_runtime_minutes": 30,
-  "setting": "Meridian City"
+  "storyArcsPerSeason": 12,
+  "episodesPerArc": "~4 (varies by arc)",
+  "approximateEpisodesPerSeason": 48,
+  "episodeRuntimeMinutes": 7,
+  "setting": "Meridian City",
+  "distributionNote": "YouTube-first with Shorts. Each story arc (originally one 30-min concept) spans ~4 × 7-min episodes."
 }
