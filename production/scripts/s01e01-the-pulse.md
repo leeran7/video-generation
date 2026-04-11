@@ -9,7 +9,6 @@
 **Runtime target:** 7 minutes
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
 **Antagonist ref:** Rook (Lattice surveillance lead — does not fight, only watches)
-**Full arc script:** `production/scripts/s01e01-signal-lost.md`
 
 ---
 
@@ -40,9 +39,27 @@
 
 ---
 
-### SCENE 01 — EXT. GLASSHOOK PIER — EARLY MORNING
+### SCENE 01 — EXT. MERIDIAN CENTRAL PLAZA — MORNING (FLASH-FORWARD)
 
-*(0:00 – 1:00)*
+*(0:00 – 0:20)*
+
+No context. No establishing shot. Just a hand grabbing a metal railing.
+
+The railing **sparks** under the palm. Not static. Something with body to it — something alive.
+
+The hand pulls back. Between the fingers — blue-white electricity arcs from knuckle to knuckle. The owner of the hand stares at it. We don't see his face yet. Just the hand, the light, and the sound: a wet, industrial crackle, like a transformer blowing two rooms away.
+
+The electricity dies.
+
+**SMASH CUT TO BLACK.**
+
+**14 HOURS EARLIER**
+
+---
+
+### SCENE 02 — EXT. GLASSHOOK PIER — EARLY MORNING
+
+*(0:20 – 1:15)*
 
 The city before it knows anything is wrong.
 
@@ -62,8 +79,9 @@ His phone screen — a thread labeled **DANI 🌩️**:
 > **MARCUS:** food
 > **DANI:** marcus
 > **MARCUS:** it was nutritious food
-> **DANI:** I will tell Mrs. Chen
-> **MARCUS:** bold
+> **DANI:** the power flickered here for like two seconds and I made Mrs. Chen's cat come inside. he did NOT want to
+> **MARCUS:** bold of you to fight a cat before 8am
+> **DANI:** I won. eat real food
 
 He half-smiles at his own response. Keeps walking.
 
@@ -71,9 +89,9 @@ A PIGEON lands directly in front of him. He sidesteps it, mutters a quiet sorry 
 
 ---
 
-### SCENE 02 — EXT. MERIDIAN CENTRAL — CONTINUOUS
+### SCENE 03 — EXT. MERIDIAN CENTRAL — CONTINUOUS
 
-*(1:00 – 1:30)*
+*(1:15 – 1:45)*
 
 Downtown Meridian. Glass towers, transit hubs, a thousand people. The MERIDIAN SPIRE visible in the distance — reflective glass catching the morning and throwing it back slightly warmer.
 
@@ -98,9 +116,9 @@ He holds the phone at arm's length and looks at it.
 
 ---
 
-### SCENE 03 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
+### SCENE 04 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
 
-*(1:30 – 2:00)*
+*(1:45 – 2:15)*
 
 Marcus looks up.
 
@@ -140,9 +158,9 @@ He doesn't know what he's looking at yet.
 
 ---
 
-### SCENE 04 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
+### SCENE 05 — EXT. MERIDIAN CENTRAL PLAZA — CONTINUOUS
 
-*(2:00 – 4:15)*
+*(2:15 – 4:30)*
 
 The city comes back wrong.
 
@@ -185,9 +203,9 @@ He starts walking.
 
 ---
 
-### SCENE 05 — EXT. MERIDIAN CENTRAL — SIDE STREET — CONTINUOUS
+### SCENE 06 — EXT. MERIDIAN CENTRAL — SIDE STREET — CONTINUOUS
 
-*(4:15 – 5:45)*
+*(4:30 – 6:00)*
 
 A narrower side street off the plaza. Old brick on both sides. A loading dock at the far end nobody uses anymore. Marcus is alone here. He leans against the brick wall.
 
@@ -223,9 +241,9 @@ He walks.
 
 ---
 
-### SCENE 06 — EXT. MERIDIAN CENTRAL — CONTINUOUS
+### SCENE 07 — EXT. MERIDIAN CENTRAL — CONTINUOUS
 
-*(5:45 – 7:15)*
+*(6:00 – 7:30)*
 
 The post-pulse chaos has settled into a specific texture — not panic, Meridian has had things happen before — but a sustained low-grade confusion. Power is patchy in a way that makes no geographical sense: one side of an intersection lit, the other dark. Traffic signals out at maybe forty percent of intersections, gridlock propagating outward from each dark signal like a slow wave.
 
@@ -254,6 +272,14 @@ A lot going on today, man.
 
 He doesn't run. Running means something is wrong. His face says nothing is wrong. His pace is maybe fifteen percent faster than before.
 
+He turns the corner and is gone.
+
+The intersection holds for a beat. Traffic. Sirens. The ambulance long past.
+
+At the far corner, parked against the curb: a panel van. No markings — the ghost of a removed logo still visible in the paint if you know where to look. Windows opaque. It wasn't in the frame before.
+
+It belongs here the way unremarkable vehicles always belong wherever they're parked.
+
 ---
 
 ---
@@ -262,9 +288,10 @@ He doesn't run. Running means something is wrong. His face says nothing is wrong
 
 | Scene ID | Title | Location | Approx. Runtime | Characters |
 | --- | --- | --- | --- | --- |
-| scene-01 | Ordinary Meridian — Glasshook Pier | EXT. Glasshook Pier — morning | 0:00–1:00 | Marcus |
-| scene-02 | Something is wrong | EXT. Meridian Central | 1:00–1:30 | Marcus, Man in Suit |
-| scene-03 | The pulse | EXT. Meridian Central Plaza | 1:30–2:00 | Marcus, crowd |
-| scene-04 | First discharge | EXT. Meridian Central Plaza | 2:00–4:15 | Marcus, Man w/ Briefcase |
-| scene-05 | Testing the wall | EXT. Meridian Central side street | 4:15–5:45 | Marcus |
-| scene-06 | Ambulance interference | EXT. Meridian Central | 5:45–7:15 | Marcus |
+| scene-01 | Flash-forward — the railing | EXT. Meridian Central Plaza | 0:00–0:20 | Marcus (hands only) |
+| scene-02 | Ordinary Meridian — Glasshook Pier | EXT. Glasshook Pier — morning | 0:20–1:15 | Marcus |
+| scene-03 | Something is wrong | EXT. Meridian Central | 1:15–1:45 | Marcus, Man in Suit |
+| scene-04 | The pulse | EXT. Meridian Central Plaza | 1:45–2:15 | Marcus, crowd |
+| scene-05 | First discharge | EXT. Meridian Central Plaza | 2:15–4:30 | Marcus, Man w/ Briefcase |
+| scene-06 | Testing the wall | EXT. Meridian Central side street | 4:30–6:00 | Marcus |
+| scene-07 | Ambulance interference | EXT. Meridian Central | 6:00–7:30 | Marcus |

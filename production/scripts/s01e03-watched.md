@@ -9,7 +9,6 @@
 **Runtime target:** 7 minutes
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
 **Antagonist ref:** Rook (Lattice surveillance lead — does not fight, only watches)
-**Full arc script:** `production/scripts/s01e01-signal-lost.md`
 
 ---
 

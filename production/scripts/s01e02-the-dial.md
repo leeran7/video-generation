@@ -9,7 +9,6 @@
 **Runtime target:** 7 minutes
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
 **Antagonist ref:** Rook (Lattice surveillance lead — does not fight, only watches)
-**Full arc script:** `production/scripts/s01e01-signal-lost.md`
 
 ---
 
@@ -17,7 +16,7 @@
 
 - **MARCUS VALDEZ / SURGE** — 17. Yellow bomber jacket (left cuff torn, new scorch mark on sleeve). Cracked phone. The tremor in his hands is persistent now.
 - **DANIELA VALDEZ** — 13. Marcus's little sister. Appears via text only.
-- **LIVE-STREAMER** — Teenager. The face of someone who does this. Breaking the viral clip.
+- **MAN IN ELECTRONICS STORE** — Behind the counter. Doing the arithmetic between the TV and the kid outside.
 - **MERIDIAN CITY** — Acts as a character throughout.
 
 ---
@@ -118,7 +117,7 @@ He gets up.
 
 ---
 
-### SCENE 08 — EXT./INT. VARIOUS — MERIDIAN CENTRAL — LATER MORNING
+### SCENE 08 — EXT. MERIDIAN CENTRAL — LATER MORNING
 
 *(2:45 – 4:45)*
 
@@ -126,27 +125,25 @@ The city two hours after the pulse. B-roll of a city recalibrating.
 
 Some blocks have power. Some don't — the boundary sharp and arbitrary. A RESTAURATEUR propping open his dark restaurant with a brick, serving sandwiches from a cooler. A WOMAN on her stoop, charging her phone from a portable battery, three NEIGHBORS waiting their turn without asking.
 
-Near the transit hub: a TEENAGER live-streaming, phone extended, face at the angle of someone who does this.
+Marcus is moving through it — hands in pockets, head down, navigating toward the garage. Keeping to the edges. Not touching anyone.
 
-**LIVE-STREAMER**
-—update: grid still patchy, city says 'under investigation,' which means they don't know either. Transit at half capacity. The Spire lost its facade lights for like forty minutes and got them back, nobody knows why. Officially there's nothing to panic about—
+He passes a storefront — electronics repair, still lit, one of the lucky blocks. Three TVs in the window, all tuned to the same local news feed.
 
-He checks his chat. His expression shifts.
+He glances at the screens the way you glance at anything — and stops.
 
-**LIVE-STREAMER (CONT'D)**
-Okay. Someone in chat has a video. I'm pulling it up—
+His own face is on the television.
 
-On a SCREEN visible over a bystander's shoulder: a grainy clip. Shot on a phone, bad angle, compressed. Five seconds of Marcus — distant, partly obscured — at the railing in the plaza. Eyes going white. A blue corona around him, visible even through the compression.
+Grainy. Shot on a phone, bad angle, compressed. Five seconds of him at the railing in the plaza. Eyes going white. A blue corona around him, visible even through the compression. Looping. The chyron reads: **UNIDENTIFIED INDIVIDUAL — MERIDIAN CENTRAL — 8:07 AM — VIEWERS URGED TO CONTACT TIPS LINE.**
 
-Caption: **"WHAT IS THIS?? caught this during the blackout in meridian central — is this related??"**
+He stares at it.
 
-Three thousand shares. The counter climbing in real time.
+Inside the store, a MAN behind the counter glances at the TV. Then through the window at Marcus. Then back at the TV. His eyes narrow — not recognition yet, but the arithmetic is starting.
 
-**LIVE-STREAMER (CONT'D)**
-*(reading the number, voice losing some of its presentation)*
-I'm not going to speculate. That's not — I'm not doing that. But if anyone was in Meridian Central around eight this morning and you saw something—
+Marcus is already walking. Not running. Running means something is wrong. But his reflection slides across the storefront glass as he goes, and for one frame it lines up perfectly with the frozen image on the TV behind it — the same face, the same jacket, one version ordinary, one version glowing.
 
-He trails off. The crowd continues around him. The city continues around the crowd.
+He doesn't see the alignment. The man in the store watches him go.
+
+The clip loops again. Three thousand shares. The counter climbing.
 
 ---
 
@@ -188,6 +185,14 @@ He goes back to the pen-width arc. Holds that size. Again. Smaller.
 
 A hairline.
 
+He holds it. Perfectly steady. The thinnest possible line of light between his finger and the concrete, humming at a frequency that's almost musical.
+
+And something happens to his face.
+
+He smiles. Not a hero smile, not a brave face — the involuntary grin of a kid who just did something impossible and knows it. The kind of expression that arrives before the brain can edit it. For exactly two seconds, Marcus Valdez is not scared.
+
+Then the arc wavers. He catches it, steadies it, and the smile fades back into concentration. But it was there. He felt it.
+
 He can feel where the edge is. He doesn't have language for it yet. He doesn't know that what he's doing is mapping his own nervous system against an external output. He just knows there's a dial and he can feel the notches now.
 
 He picks up his jacket. Looks at the scorch mark on the back of the left sleeve. He puts the jacket back on.
@@ -205,5 +210,5 @@ Alright. I hear you.
 | Scene ID | Title | Location | Approx. Runtime | Characters |
 | --- | --- | --- | --- | --- |
 | scene-01 | Alone in the garage | INT. Parking garage | 0:00–2:45 | Marcus |
-| scene-02 | The city reacts — the viral clip | EXT. City streets / livestream | 2:45–4:45 | Live-streamer, crowd |
+| scene-02 | The storefront — his face on TV | EXT. City streets / storefront | 2:45–4:45 | Marcus |
 | scene-03 | Testing limits — finding the dial | INT. Parking garage (lower level) | 4:45–8:15 | Marcus |

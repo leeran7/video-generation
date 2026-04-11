@@ -41,21 +41,21 @@
     {
       "id": "scene-04",
       "order": 4,
-      "title": "\"you alive?\"",
+      "title": "Lattice — tagged",
       "file": "scenes/scene-04.mp4",
       "generation": {
-        "promptSummary": "EXT. Fire escape — Marcus",
-        "targetDurationSeconds": 60
+        "promptSummary": "INT. Lattice Operations Center — Rook, Grey",
+        "targetDurationSeconds": 90
       }
     },
     {
       "id": "scene-05",
       "order": 5,
-      "title": "Lattice — tagged",
+      "title": "\"you alive?\"",
       "file": "scenes/scene-05.mp4",
       "generation": {
-        "promptSummary": "INT. Lattice Operations Center — Rook, Grey",
-        "targetDurationSeconds": 120
+        "promptSummary": "EXT. Fire escape — Marcus",
+        "targetDurationSeconds": 90
       }
     }
   ],

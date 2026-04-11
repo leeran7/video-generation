@@ -9,7 +9,6 @@
 **Runtime target:** 7 minutes
 **Hero focus:** Surge (Marcus "Marc" Valdez, 17)
 **Antagonist ref:** Rook (Lattice surveillance lead — does not fight, only watches)
-**Full arc script:** `production/scripts/s01e01-signal-lost.md`
 
 ---
 
@@ -174,46 +173,6 @@ He does not look like a hero. He looks like a seventeen-year-old who is very tir
 
 ---
 
-### SCENE 16 — EXT. FIRE ESCAPE — CONTINUOUS
-
-*(5:00 – 6:00)*
-
-His jacket pocket vibrates.
-
-He reaches in. His cracked phone. The screen is lit — barely, one percent — which shouldn't be possible, because the phone was dead. Something in his body recharged it while he was sitting here. Just enough.
-
-A single text from **DANI 🌩️**:
-
-> **DANI:** you alive?
-
-He stares at it.
-
-The screen flickers. Less than one percent. Any second.
-
-He thinks about what to say. There are a lot of things he could say. He could say: *something happened today and I don't know how to tell you.* He could say: *I don't want you to be scared.* He could say: *I'm going to be okay.* Any of those would be true.
-
-His thumb hovers.
-
-He types: **yeah**
-
-Then he types: **sorry**
-
-He looks at the sorry. He looks at the city.
-
-He deletes the sorry.
-
-He sends: **yeah**
-
-The phone stays lit for two more seconds. Then dies. Completely. For real.
-
-He sets it face-down on his knee. Looks at the Spire.
-
-One small, cold lightbulb in the fire escape fixture above him flickers once — briefly, without being touched.
-
-Marcus doesn't look up at it.
-
-He knows.
-
 ---
 
 ---
@@ -222,9 +181,9 @@ He knows.
 
 ---
 
-### SCENE 17 — INT. LATTICE OPERATIONS CENTER — NIGHT
+### SCENE 16 — INT. LATTICE OPERATIONS CENTER — NIGHT
 
-*(6:00 – 8:00)*
+*(5:00 – 6:30)*
 
 Clean. Controlled. Designed — every element present because it was evaluated and kept. Screens along the far wall in a grid. Soft operational hum. No clutter. Clutter is a symptom of a system that doesn't know what it wants.
 
@@ -273,9 +232,53 @@ Monitor. Don't move yet. I want the full picture before we decide what he is.
 
 Rook nods. Takes the tablet. Walks out.
 
-The screens stay on.
+The screens stay on. Marcus's face — still, glowing, white eyes and corona captured in that single frame — stares back at an empty room.
 
-Marcus's face — still, glowing, white eyes and corona captured in that single frame — stares back at an empty room.
+---
+
+### SCENE 17 — EXT. FIRE ESCAPE — CONTINUOUS
+
+*(6:30 – 8:00)*
+
+Marcus on the fire escape. He doesn't know about the room. The glyph. The question mark next to his name.
+
+His jacket pocket vibrates.
+
+He reaches in. His cracked phone. The screen is lit — barely, one percent — which shouldn't be possible, because the phone was dead. Something in his body recharged it while he was sitting here. Just enough.
+
+A single text from **DANI 🌩️**:
+
+> **DANI:** you alive?
+
+He stares at it.
+
+The screen flickers. Less than one percent. Any second.
+
+He thinks about what to say. There are a lot of things he could say. He could say: *something happened today and I don't know how to tell you.* He could say: *I don't want you to be scared.* He could say: *I'm going to be okay.* Any of those would be true.
+
+His thumb hovers.
+
+He types: **yeah**
+
+Then he types: **sorry**
+
+He looks at the sorry. He looks at the city.
+
+He deletes the sorry.
+
+He sends: **yeah**
+
+The phone stays lit for two more seconds. Then dies. Completely. For real.
+
+He sets it face-down on his knee. Looks at the Spire.
+
+His right hand rests on the metal grating of the fire escape. Without effort, without thought, a single thin arc of electricity traces from his palm into the railing — steady, controlled, almost musical. He doesn't flinch. He doesn't look down at it. It's just there, the way a heartbeat is there.
+
+One small, cold lightbulb in the fire escape fixture above him flickers once — briefly, without being touched.
+
+Marcus doesn't look up at it.
+
+He knows.
 
 **HARD CUT TO BLACK.**
 
@@ -298,5 +301,5 @@ Marcus's face — still, glowing, white eyes and corona captured in that single 
 | scene-01 | The locked building | EXT. Lowline residential | 0:00–1:30 | Marcus, fire crew |
 | scene-02 | The lock — and the question | INT. Stairwell / 4th floor | 1:30–3:30 | Marcus, Woman on 4th Floor |
 | scene-03 | Fire escape — city coming back | EXT. Fire escape | 3:30–5:00 | Marcus |
-| scene-04 | "you alive?" | EXT. Fire escape | 5:00–6:00 | Marcus |
-| scene-05 | Lattice — tagged | INT. Lattice Operations Center | 6:00–8:00 | Rook, Grey |
+| scene-04 | Lattice — tagged | INT. Lattice Operations Center | 5:00–6:30 | Rook, Grey |
+| scene-05 | "you alive?" | EXT. Fire escape | 6:30–8:00 | Marcus |

@@ -21,10 +21,10 @@
     {
       "id": "scene-02",
       "order": 2,
-      "title": "The city reacts — the viral clip",
+      "title": "The storefront — his face on TV",
       "file": "scenes/scene-02.mp4",
       "generation": {
-        "promptSummary": "EXT. City streets / livestream — Live-streamer, crowd",
+        "promptSummary": "EXT. City streets / storefront — Marcus",
         "targetDurationSeconds": 120
       }
     },

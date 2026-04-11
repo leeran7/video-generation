@@ -11,58 +11,68 @@
     {
       "id": "scene-01",
       "order": 1,
-      "title": "Ordinary Meridian — Glasshook Pier",
+      "title": "Flash-forward — the railing",
       "file": "scenes/scene-01.mp4",
       "generation": {
-        "promptSummary": "EXT. Glasshook Pier — morning — Marcus",
-        "targetDurationSeconds": 60
+        "promptSummary": "EXT. Meridian Central Plaza — Marcus (hands only)",
+        "targetDurationSeconds": 20
       }
     },
     {
       "id": "scene-02",
       "order": 2,
-      "title": "Something is wrong",
+      "title": "Ordinary Meridian — Glasshook Pier",
       "file": "scenes/scene-02.mp4",
+      "generation": {
+        "promptSummary": "EXT. Glasshook Pier — morning — Marcus",
+        "targetDurationSeconds": 55
+      }
+    },
+    {
+      "id": "scene-03",
+      "order": 3,
+      "title": "Something is wrong",
+      "file": "scenes/scene-03.mp4",
       "generation": {
         "promptSummary": "EXT. Meridian Central — Marcus, Man in Suit",
         "targetDurationSeconds": 30
       }
     },
     {
-      "id": "scene-03",
-      "order": 3,
+      "id": "scene-04",
+      "order": 4,
       "title": "The pulse",
-      "file": "scenes/scene-03.mp4",
+      "file": "scenes/scene-04.mp4",
       "generation": {
         "promptSummary": "EXT. Meridian Central Plaza — Marcus, crowd",
         "targetDurationSeconds": 30
       }
     },
     {
-      "id": "scene-04",
-      "order": 4,
+      "id": "scene-05",
+      "order": 5,
       "title": "First discharge",
-      "file": "scenes/scene-04.mp4",
+      "file": "scenes/scene-05.mp4",
       "generation": {
         "promptSummary": "EXT. Meridian Central Plaza — Marcus, Man w/ Briefcase",
         "targetDurationSeconds": 135
       }
     },
     {
-      "id": "scene-05",
-      "order": 5,
+      "id": "scene-06",
+      "order": 6,
       "title": "Testing the wall",
-      "file": "scenes/scene-05.mp4",
+      "file": "scenes/scene-06.mp4",
       "generation": {
         "promptSummary": "EXT. Meridian Central side street — Marcus",
         "targetDurationSeconds": 90
       }
     },
     {
-      "id": "scene-06",
-      "order": 6,
+      "id": "scene-07",
+      "order": 7,
       "title": "Ambulance interference",
-      "file": "scenes/scene-06.mp4",
+      "file": "scenes/scene-07.mp4",
       "generation": {
         "promptSummary": "EXT. Meridian Central — Marcus",
         "targetDurationSeconds": 90
