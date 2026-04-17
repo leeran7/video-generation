@@ -5,6 +5,7 @@
   "type": "Voice-only / screen-only support",
   "affiliation": "Lattice",
   "episodes": ["TBD — sprinkle 2–4"],
+  "designSheet": "production/assets/antagonists/grey.png",
   "visualHook": "Waveforms and clipped diction — competence without charisma.",
   "roleInPlot": "Optional recurring pressure in ops scenes — can appear whenever Lattice needs a faceless brain.",
   "outcome": "Survives; humanizes Lattice as an institution, not one body.",

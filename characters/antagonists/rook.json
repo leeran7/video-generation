@@ -5,6 +5,7 @@
   "type": "Lattice surveillance lead",
   "affiliation": "Lattice",
   "episodes": [1, 2],
+  "designSheet": "production/assets/antagonists/rook.png",
   "visualHook": "Binocular gloss and cheap coffee stains — someone who lives in vans and rooftops. Unremarkable clothes; memorable posture: too still.",
   "roleInPlot": "Episodes 1–2: eyes on the pulse zone and early powered activity — the 'shadowy organization watching' from Ep 1; crosshair on Wraith/Surge friction in Ep 2.",
   "outcome": "Does not fight to win publicly — extracts intel and vanishes. Survives; may recur as background threat.",

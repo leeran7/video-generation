@@ -7,8 +7,8 @@
       "name": "Glasshook Pier",
       "area": "Meridian City",
       "interior": false,
-      "conceptBoard": false,
-      "conceptBoardAsset": "",
+      "conceptBoard": true,
+      "conceptBoardAsset": "production/assets/locations/glasshook-pier.png",
       "referenceImageAsset": "",
       "runwayStyleRefAsset": "",
       "notes": "Morning coastal light, tourist shops dark, fishermen gone, commuters filtering through. Low-gold light."
@@ -18,8 +18,8 @@
       "name": "Meridian Central Plaza",
       "area": "Meridian City",
       "interior": false,
-      "conceptBoard": false,
-      "conceptBoardAsset": "",
+      "conceptBoard": true,
+      "conceptBoardAsset": "production/assets/locations/meridian-central-plaza.png",
       "referenceImageAsset": "",
       "runwayStyleRefAsset": "",
       "notes": "Glass towers, the Spire backdrop. Busy urban center — crowds, street traffic, ambulances."
@@ -29,8 +29,8 @@
       "name": "Meridian Central Side Street",
       "area": "Meridian City",
       "interior": false,
-      "conceptBoard": false,
-      "conceptBoardAsset": "",
+      "conceptBoard": true,
+      "conceptBoardAsset": "production/assets/locations/meridian-central-street.png",
       "referenceImageAsset": "",
       "runwayStyleRefAsset": "",
       "notes": "Side streets off the main plaza. Urban, daytime."
@@ -51,8 +51,8 @@
       "name": "City Streets (General)",
       "area": "Meridian City",
       "interior": false,
-      "conceptBoard": false,
-      "conceptBoardAsset": "",
+      "conceptBoard": true,
+      "conceptBoardAsset": "production/assets/locations/city-streets-general.png",
       "referenceImageAsset": "",
       "runwayStyleRefAsset": "",
       "notes": "Generic Meridian streets for crowd/livestream footage."
