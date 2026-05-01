@@ -1,79 +1,37 @@
-# React + TypeScript + Vite
+# Nova Force
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nova Force is a YouTube-first AI-animated superhero series. This repo holds the show's creative canon, the page-level UI for the production platform, and the CLI pipeline that turns scripts into rendered episodes.
+
+## Stack
+
+- **Web app:** Next.js 16 (App Router), React 19, TypeScript.
+- **Auth:** Supabase (sign-in + middleware redirect).
+- **Pipeline:** Node scripts run via `tsx`; FFmpeg for stitching.
 
 ## Package manager
 
-This project uses [pnpm](https://pnpm.io/) only (`packageManager` is set in `package.json`). Install dependencies with `pnpm install`, then run `pnpm dev`, `pnpm build`, or `pnpm lint`.
+This project uses [pnpm](https://pnpm.io/) only (`packageManager` is set in `package.json`).
 
-**Nova episode pipeline** (script → scene videos → stitch): see [`production/pipeline/README.md`](production/pipeline/README.md) and run `pnpm pipeline:validate` / `pnpm pipeline:stitch` (requires FFmpeg). **AI generation integration:** [`production/pipeline/AI_INTEGRATION.md`](production/pipeline/AI_INTEGRATION.md).
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm dev      # Next.js dev server
+pnpm build    # Next.js production build
+pnpm lint     # ESLint via next lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Episode pipeline
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Script → scene videos → stitch. See [`production/pipeline/README.md`](production/pipeline/README.md) and [`production/pipeline/AI_INTEGRATION.md`](production/pipeline/AI_INTEGRATION.md). Common commands:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm pipeline:manifest -- <script.md>
+pnpm pipeline:validate -- <manifest.json>
+pnpm pipeline:generate -- <manifest.json>
+pnpm pipeline:stitch   -- <manifest.json>
 ```
+
+FFmpeg must be on `PATH` (or set `FFMPEG_PATH`).
+
+## Project layout
+
+See [`CLAUDE.md`](CLAUDE.md) for the architecture overview, single-source-of-truth rules, and contribution conventions.

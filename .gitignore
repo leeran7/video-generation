@@ -8,9 +8,14 @@ node_modules
 package-lock.json
 yarn.lock
 
-dist
-dist-ssr
 *.local
+
+# Next.js
+.next
+out
+
+# TypeScript
+*.tsbuildinfo
 
 .env
 .env.local

@@ -6,15 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Nova Force** is a superhero animated series concept — YouTube-first, 7-minute episodes grouped into story arcs (~4 episodes per arc, 12 arcs per season, ~48 episodes per season). This repo has two distinct parts:
 
-1. **Roster app** (`src/`) — a React/Vite web app that renders the team roster as character cards, pulling data from `characters/*.json`.
+1. **Web app** (`app/`, `lib/`) — a Next.js (App Router) web app. Currently scaffolds the page routes for the platform UI; pulls character data from `characters/*.json`.
 2. **Production pipeline** (`production/`, `scripts/pipeline/`) — Node.js scripts that validate episode manifests and stitch AI-generated scene files into a master video via FFmpeg.
 
 ## Commands
 
 ```bash
-pnpm dev                   # start Vite dev server
-pnpm build                 # type-check + Vite production build
-pnpm lint                  # ESLint
+pnpm dev                   # start Next.js dev server
+pnpm build                 # Next.js production build
+pnpm lint                  # ESLint (via next lint)
 
 # Episode pipeline
 pnpm pipeline:manifest -- <path/to/script.md>                 # generate manifest.json from script's scene index
@@ -31,13 +31,14 @@ Pipeline scripts run via `tsx` (no build step needed). FFmpeg must be on `PATH` 
 
 ## Architecture
 
-### Roster app (`src/`)
+### Web app (`app/`, `lib/`)
 
-- `characterData.ts` — imports all `characters/*.json` files, exports them as the `Character` interface and `CHARACTERS` array (sorted by `rosterNumber`), and maps roster numbers to accent colors.
-- `CharacterCard.tsx` — pure display component; receives a `Character`, its accent color, and index. Uses a CSS custom property `--accent` for per-character theming.
-- `App.tsx` — maps `CHARACTERS` through `CharacterCard`.
+- `lib/character-data.ts` — imports all `characters/*.json` files, exports them as the `Character` interface and `CHARACTERS` array (sorted by `rosterNumber`).
+- `app/page.tsx` — home; lists the roster.
+- `app/login/page.tsx` — Supabase auth sign-in.
+- `lib/supabase/` — browser/server Supabase clients and the auth-redirect proxy helper (wired in `proxy.ts`).
 
-Character data lives in `characters/*.json` (one file per hero). The `Character` interface in `characterData.ts` is the canonical shape — JSON files must match it.
+Character data lives in `characters/*.json` (one file per hero). The `Character` interface in `lib/character-data.ts` is the canonical shape — JSON files must match it.
 
 ### Production pipeline (`scripts/pipeline/`)
 
@@ -76,9 +77,9 @@ To add a new checked field to the lint, add an entry to the `CHECKS` array in `s
 
 **Lock status:** Before editing any section of a production JSON, check its `lockStatus` field. Sections marked `"locked"` require explicit user approval before changes.
 
-**Character JSON shape:** The `Character` interface in `src/characterData.ts` is the contract for all `characters/*.json` files. Update the interface first if adding new fields, then update the JSON files.
+**Character JSON shape:** The `Character` interface in `lib/character-data.ts` is the contract for all `characters/*.json` files. Update the interface first if adding new fields, then update the JSON files.
 
-**No creative data in TypeScript:** Character display values (colors, names, etc.) belong in `characters/*.json`. `src/characterData.ts` should only contain the interface definition and utility functions, not hardcoded creative values.
+**No creative data in TypeScript:** Character display values (colors, names, etc.) belong in `characters/*.json`. `lib/character-data.ts` should only contain the interface definition and utility functions, not hardcoded creative values.
 
 **Episode manifest `scriptPath`:** Always points directly to `production/scripts/<slug>.md`. Never use stub or redirect files as intermediaries.
 

@@ -1,0 +1,180 @@
+:root {
+  --bg: #080c14;
+  --panel: #0d1526;
+  --border: #1e2d4a;
+  --text: #c8d8f0;
+  --muted: #4a6080;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+main > h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+}
+
+main > p {
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 32px;
+}
+
+.show-section {
+  margin-top: 48px;
+}
+
+.show-section:first-of-type {
+  margin-top: 32px;
+}
+
+.show-title {
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+}
+
+.show-meta {
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin: 0 0 20px;
+}
+
+.roster-heading {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-bar {
+  height: 4px;
+  background: var(--accent);
+}
+
+.card-body {
+  padding: 20px 22px 24px;
+}
+
+.hero-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin: 0 0 2px;
+}
+
+.hero-alias {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.traits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.trait-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.chip-muted {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted);
+}
