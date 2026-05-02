@@ -1,10 +1,10 @@
 import "dotenv/config";
 import { eq, sql } from "drizzle-orm";
 import { pgTable, uuid, text } from "drizzle-orm/pg-core";
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { basename, join } from "node:path";
 import { db } from "./client";
-import { characters } from "./schema";
+import { arcs, characters, episodes } from "./schema";
 
 const shows = pgTable("shows", {
   id: uuid("id").primaryKey(),
@@ -87,6 +87,111 @@ async function main() {
   }
 
   console.log(`done — ${rows.length} characters`);
+
+  // Arcs + episodes: seed from production/season-1-beats.json.
+  type ArcEpisode = {
+    episodeNumber: number;
+    title: string;
+    scenes?: string[];
+    approximateMinutes?: number;
+    scriptFile?: string;
+    hook?: string;
+  };
+  type ArcEntry = {
+    episode: number; // arc number in legacy "episode" terms (1–12)
+    title: string;
+    fullBrief?: string;
+    tags?: string[];
+    split?: { status?: string; episodes?: ArcEpisode[] };
+  };
+  const beats = readJson("production/season-1-beats.json") as {
+    episodes: ArcEntry[];
+  };
+
+  const arcIdByNumber = new Map<number, string>();
+  for (const arc of beats.episodes) {
+    const row: typeof arcs.$inferInsert = {
+      showId: show.id,
+      season: 1,
+      arcNumber: arc.episode,
+      title: arc.title,
+      brief: arc.fullBrief ?? null,
+      tags: arc.tags ?? null,
+      lockStatus: "draft",
+    };
+    const [inserted] = await db
+      .insert(arcs)
+      .values(row)
+      .onConflictDoUpdate({
+        target: [arcs.showId, arcs.season, arcs.arcNumber],
+        set: {
+          title: row.title,
+          brief: row.brief,
+          tags: row.tags,
+          lockStatus: row.lockStatus,
+          updatedAt: sql`now()`,
+        },
+      })
+      .returning({ id: arcs.id, arcNumber: arcs.arcNumber });
+    arcIdByNumber.set(inserted.arcNumber, inserted.id);
+    console.log(`upserted arc ${inserted.arcNumber}: ${row.title}`);
+  }
+  console.log(`done — ${arcIdByNumber.size} arcs`);
+
+  const epRows: (typeof episodes.$inferInsert)[] = [];
+  for (const arc of beats.episodes) {
+    const split = arc.split;
+    if (!split || split.status !== "scripted" || !split.episodes) continue;
+    const arcId = arcIdByNumber.get(arc.episode) ?? null;
+    for (const ep of split.episodes) {
+      const slug = ep.scriptFile
+        ? basename(ep.scriptFile, ".md")
+        : `s01e${String(ep.episodeNumber).padStart(2, "0")}-${slugify(ep.title)}`;
+      const scriptContent =
+        ep.scriptFile && existsSync(ep.scriptFile)
+          ? readFileSync(ep.scriptFile, "utf-8")
+          : null;
+      epRows.push({
+        showId: show.id,
+        season: 1,
+        arcId,
+        episodeNumber: ep.episodeNumber,
+        title: ep.title,
+        slug,
+        brief: ep.hook ?? null,
+        tags: arc.tags ?? null,
+        scriptContent,
+        runtimeSeconds: ep.approximateMinutes
+          ? Math.round(ep.approximateMinutes * 60)
+          : null,
+        lockStatus: "draft",
+      });
+    }
+  }
+
+  for (const row of epRows) {
+    await db
+      .insert(episodes)
+      .values(row)
+      .onConflictDoUpdate({
+        target: [episodes.showId, episodes.slug],
+        set: {
+          season: row.season,
+          arcId: row.arcId,
+          episodeNumber: row.episodeNumber,
+          title: row.title,
+          brief: row.brief,
+          tags: row.tags,
+          scriptContent: row.scriptContent,
+          runtimeSeconds: row.runtimeSeconds,
+          lockStatus: row.lockStatus,
+          updatedAt: sql`now()`,
+        },
+      });
+    console.log(`upserted episode ${row.slug}`);
+  }
+
+  console.log(`done — ${epRows.length} episodes`);
   process.exit(0);
 }
 
