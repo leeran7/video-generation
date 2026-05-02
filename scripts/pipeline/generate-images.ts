@@ -19,9 +19,13 @@
  *   OPENAI_API_KEY — required (unless --dry-run or --list)
  */
 
+import "dotenv/config";
 import OpenAI, { toFile } from "openai";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname, basename } from "node:path";
+import { createAdminClient } from "../../lib/supabase/admin";
+
+const STORAGE_BUCKET = "character-art";
 
 // ---------------------------------------------------------------------------
 // Config
@@ -211,19 +215,27 @@ function insertFieldBefore(
   return result;
 }
 
-function updateJson(entry: ImageEntry): void {
+function updateJson(entry: ImageEntry, imageUrl?: string): void {
   if (entry.category === "hero") {
     const jsonPath = resolve(ROOT, `characters/${entry.slug}.json`);
     if (!existsSync(jsonPath)) return;
-    const data = JSON.parse(readFileSync(jsonPath, "utf-8"));
-    if (data.designSheet) return;
-    const updated = insertFieldBefore(
-      data,
-      "designSheet",
-      entry.assetPath,
-      "visualDistinctions",
-    );
-    writeFileSync(jsonPath, JSON.stringify(updated, null, 2) + "\n");
+    let data = JSON.parse(readFileSync(jsonPath, "utf-8"));
+    let changed = false;
+    if (!data.designSheet) {
+      data = insertFieldBefore(
+        data,
+        "designSheet",
+        entry.assetPath,
+        "visualDistinctions",
+      );
+      changed = true;
+    }
+    if (imageUrl && data.imageUrl !== imageUrl) {
+      data = insertFieldBefore(data, "imageUrl", imageUrl, "visualDistinctions");
+      changed = true;
+    }
+    if (!changed) return;
+    writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n");
     console.log(`  Updated characters/${entry.slug}.json`);
   } else if (entry.category === "antagonist") {
     const jsonPath = resolve(
@@ -231,15 +243,23 @@ function updateJson(entry: ImageEntry): void {
       `characters/antagonists/${entry.slug}.json`,
     );
     if (!existsSync(jsonPath)) return;
-    const data = JSON.parse(readFileSync(jsonPath, "utf-8"));
-    if (data.designSheet) return;
-    const updated = insertFieldBefore(
-      data,
-      "designSheet",
-      entry.assetPath,
-      "visualHook",
-    );
-    writeFileSync(jsonPath, JSON.stringify(updated, null, 2) + "\n");
+    let data = JSON.parse(readFileSync(jsonPath, "utf-8"));
+    let changed = false;
+    if (!data.designSheet) {
+      data = insertFieldBefore(
+        data,
+        "designSheet",
+        entry.assetPath,
+        "visualHook",
+      );
+      changed = true;
+    }
+    if (imageUrl && data.imageUrl !== imageUrl) {
+      data = insertFieldBefore(data, "imageUrl", imageUrl, "visualHook");
+      changed = true;
+    }
+    if (!changed) return;
+    writeFileSync(jsonPath, JSON.stringify(data, null, 2) + "\n");
     console.log(`  Updated characters/antagonists/${entry.slug}.json`);
   } else if (entry.category === "location") {
     if (!existsSync(LOCATIONS_PATH)) return;
@@ -253,6 +273,43 @@ function updateJson(entry: ImageEntry): void {
     writeFileSync(LOCATIONS_PATH, JSON.stringify(data, null, 2) + "\n");
     console.log(`  Updated locations.json → ${entry.slug}`);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Upload to Supabase Storage
+// ---------------------------------------------------------------------------
+
+type AdminClient = ReturnType<typeof createAdminClient>;
+
+async function ensureBucket(client: AdminClient): Promise<void> {
+  const { data, error } = await client.storage.getBucket(STORAGE_BUCKET);
+  if (data) return;
+  if (error && !/not.?found/i.test(error.message)) throw error;
+  const { error: createError } = await client.storage.createBucket(
+    STORAGE_BUCKET,
+    { public: true },
+  );
+  if (createError && !/already exists|duplicate/i.test(createError.message)) {
+    throw createError;
+  }
+  console.log(`  Created public bucket "${STORAGE_BUCKET}"`);
+}
+
+async function uploadHeadshot(
+  client: AdminClient,
+  entry: ImageEntry,
+  buffer: Buffer,
+): Promise<string> {
+  const objectPath = `${entry.category}/${entry.slug}.png`;
+  const { error } = await client.storage
+    .from(STORAGE_BUCKET)
+    .upload(objectPath, buffer, {
+      contentType: "image/png",
+      upsert: true,
+    });
+  if (error) throw error;
+  const { data } = client.storage.from(STORAGE_BUCKET).getPublicUrl(objectPath);
+  return data.publicUrl;
 }
 
 // ---------------------------------------------------------------------------
@@ -340,7 +397,9 @@ Usage:
   pnpm pipeline:image -- --model gpt-image-1             Use a different model
 
 Environment:
-  OPENAI_API_KEY    Required (unless --dry-run or --list)
+  OPENAI_API_KEY               Required for generation
+  NEXT_PUBLIC_SUPABASE_URL     Required for upload
+  SUPABASE_SERVICE_ROLE_KEY    Required for upload
 `);
 }
 
@@ -425,6 +484,12 @@ async function main() {
 
   const openai = dryRun ? (null as unknown as OpenAI) : new OpenAI();
 
+  // Supabase admin client for uploading headshots (hero/antagonist only).
+  const needsUpload =
+    !dryRun && targets.some((t) => t.category === "hero" || t.category === "antagonist");
+  const supabase = needsUpload ? createAdminClient() : null;
+  if (supabase) await ensureBucket(supabase);
+
   let generated = 0;
   let failed = 0;
 
@@ -455,6 +520,13 @@ async function main() {
       writeFileSync(fullPath, imageBuffer);
       console.log(`  Saved:    ${entry.assetPath} (${(imageBuffer.length / 1024).toFixed(0)} KB)`);
 
+      // Upload headshot for heroes/antagonists
+      let imageUrl: string | undefined;
+      if (supabase && (entry.category === "hero" || entry.category === "antagonist")) {
+        imageUrl = await uploadHeadshot(supabase, entry, imageBuffer);
+        console.log(`  Uploaded: ${imageUrl}`);
+      }
+
       // Update tracker
       if (!entry.done || extraPrompt) {
         markDone(entry, extraPrompt ? prompt : undefined);
@@ -462,7 +534,7 @@ async function main() {
       }
 
       // Update JSON
-      updateJson(entry);
+      updateJson(entry, imageUrl);
 
       generated++;
 

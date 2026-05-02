@@ -15,6 +15,14 @@ export function AntagonistCard({
   return (
     <article className="card" style={style}>
       <div className="card-bar" />
+      {antagonist.imageUrl && (
+        <img
+          className="card-image"
+          src={antagonist.imageUrl}
+          alt={antagonist.name}
+          loading="lazy"
+        />
+      )}
       <div className="card-body">
         <div className="card-row">
           <h3 className="hero-name">{antagonist.name}</h3>

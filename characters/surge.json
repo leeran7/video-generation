@@ -7,9 +7,17 @@
   "realName": "Marcus \"Marc\" Valdez",
   "age": 17,
   "personality": "Marcus is loud on purpose — silence feels like disappearing. He performs confidence the way some kids perform homework: convincingly enough to pass, but never without a tremor underneath. He jokes mid-fight because stillness reads as fear to him. He is fiercely loyal, quick-witted, and hot-headed, but his recklessness is not cartoon stupidity; it is a habit formed from growing up underestimated and deciding that being remembered is worth the collateral damage. Behind the bravado is someone terrified of being ordinary — not because he wants fame, but because ordinary felt like a verdict in a house where nobody looked up when he walked into a room.",
-  "traits": ["Reckless", "Loyal", "Quick-witted", "Hot-headed", "Attention-as-armor", "Secretly approval-starved"],
+  "traits": [
+    "Reckless",
+    "Loyal",
+    "Quick-witted",
+    "Hot-headed",
+    "Attention-as-armor",
+    "Secretly approval-starved"
+  ],
   "mindset": "He tells himself: hit first, ask questions later — hesitation is fear wearing a smarter mask. What he is slow to admit is that he sometimes confuses motion with meaning. Season 1 forces him to learn that leadership is not standing in front; it is choosing consequences for other people and owning them when nobody is clapping. His arc is from \"watch me\" to \"I did this to us.\"",
   "designSheet": "production/assets/characters/surge.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/hero/surge.png",
   "visualDistinctions": "Electric-blue streaks race through his dark hair when powered up. Wears a torn yellow bomber jacket over a black bodysuit with crackling circuit-line patterns. Eyes flash white during power surges. Always in motion — tapping, bouncing, never still — except in rare moments after a mistake, when he goes unnervingly still, like a machine cooling down.",
   "powers": "Electricity generation and manipulation",
   "powersSpec": "Marcus can pull charge from his own bioelectric field and shape it into arcs, bursts, and magnet-adjacent pulls on conductive metal. He is not a weather god: no storms from clear sky, no city-wide blackouts as a casual flex. His upper limit rises with adrenaline — and collapses with exhaustion. Overuse causes micro-tremors, nosebleeds, migraines, and temporary numbness in his hands (a human price that reads on camera). Water is not instant death, but it is dangerous sloppy terrain — he has to think, not splash. Insulating gear can blunt him; grounded strategy can outlast him. His signature failure mode is friendly fire: wide arcs when panicked, and collateral he did not mean to pay.",
@@ -18,22 +26,41 @@
   "seasonOneArc": [
     {
       "act": 1,
-      "episodes": [1, 2, 3, 4],
+      "episodes": [
+        1,
+        2,
+        3,
+        4
+      ],
       "description": "Marcus discovers power as proof — he mistakes visibility for value."
     },
     {
       "act": 2,
-      "episodes": [5, 6, 7, 8, 9],
+      "episodes": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
       "description": "forced teamwork humiliates him in the best way; he learns other people's skills are not an insult to his. Episode 8 is his hinge: a call he makes to look decisive puts Glitch in danger and fractures trust — for the first time he cannot charm his way past consequence."
     },
     {
       "act": 3,
-      "episodes": [10, 11, 12],
+      "episodes": [
+        10,
+        11,
+        12
+      ],
       "description": "the team is targeted individually; Marcus faces the fear underneath the performance — not being strong, but being responsible."
     },
     {
       "act": 4,
-      "episodes": [13, 14, 15],
+      "episodes": [
+        13,
+        14,
+        15
+      ],
       "description": "he earns leadership as accountability, not spotlight — still Marcus, still funny, but no longer hiding behind motion."
     }
   ],

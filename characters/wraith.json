@@ -7,9 +7,17 @@
   "realName": "Nadia Osei",
   "age": 16,
   "personality": "Nadia is calculating because certainty feels safer than hope. Her dry humor is not quirk — it is distance with good timing. She keeps people at arm's length not from cruelty but from a learned equation: closeness equals leverage someone can use against you. She reads rooms the way others read texts — fast, skeptical, hungry for the lie. Under the cloak is a girl who hates being watched unless she controls the angle; power made her visible in the worst way once already, and she is still negotiating whether visibility is a weapon or a wound.",
-  "traits": ["Strategic", "Guarded", "Perceptive", "Sardonic", "Control-freak (earned)", "Loyal once she chooses you"],
+  "traits": [
+    "Strategic",
+    "Guarded",
+    "Perceptive",
+    "Sardonic",
+    "Control-freak (earned)",
+    "Loyal once she chooses you"
+  ],
   "mindset": "Everyone has a weakness — find it before it finds you. She treats people like puzzles because puzzles do not ask for trust; they ask for pattern recognition. Her Season 1 arc is learning that vulnerability is not a leak in the armor — sometimes it is how you survive a fight you cannot solo. She moves from \"I do not need you\" to \"I hate that I need you\" to \"I will choose you anyway.\"",
   "designSheet": "production/assets/characters/wraith.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/hero/wraith.png",
   "visualDistinctions": "Her shadow moves independently of her body — wrong in a way that should not read as cool first; uncanny first, then powerful. Deep crimson and black asymmetrical cloak, hood partial mask — she uses silhouette like language. Skin gains faint translucency when phasing; pupils go pure black in darkness. Animators: let the shadow lag half a beat behind emotion — when she is scared, the shadow reaches first.",
   "powers": "Shadow manipulation and phasing through objects",
   "powersSpec": "Nadia can extend, sharpen, and weaponize shadows as semi-solid constructs — tendrils, blades, smokescreens — and phase through non-living matter by slipping along shadow planes. She cannot phase through living tissue cleanly without severe disorientation; she avoids it. Bright, broad-spectrum light degrades her constructs; strobe and sudden illumination break her rhythm. Prolonged use causes afterimages, migraines, and a cold numbness in her hands — the body remembering the lab. Her phasing is not intangibility forever; she has mass, momentum, and a time window — long holds risk partial snap-back. The shadow that moves alone is tied to stress: the less she trusts the ground beneath her, the more it acts on its own.",
@@ -18,22 +26,41 @@
   "seasonOneArc": [
     {
       "act": 1,
-      "episodes": [1, 2, 3, 4],
+      "episodes": [
+        1,
+        2,
+        3,
+        4
+      ],
       "description": "Nadia operates solo — Surge is collision, not partnership."
     },
     {
       "act": 2,
-      "episodes": [5, 6, 7, 8, 9],
+      "episodes": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
       "description": "Forced proximity in Episode 6 proves the team can win ugly; Episode 7 is her hinge — the organization is not abstract evil; it is her origin wound."
     },
     {
       "act": 3,
-      "episodes": [10, 11, 12],
+      "episodes": [
+        10,
+        11,
+        12
+      ],
       "description": "Isolation as a weapon is turned against her; she must let someone in without a plan."
     },
     {
       "act": 4,
-      "episodes": [13, 14, 15],
+      "episodes": [
+        13,
+        14,
+        15
+      ],
       "description": "Finale: she fights beside them not as a lone asset but as a person who chose the roster."
     }
   ],

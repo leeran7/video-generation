@@ -18,6 +18,8 @@ export interface Antagonist {
   type: string;
   affiliation: string;
   episodes: number[];
+  designSheet?: string;
+  imageUrl?: string;
   visualHook: string;
   roleInPlot: string;
   outcome: string;
@@ -39,6 +41,7 @@ export interface Character {
   traits: string[];
   mindset: string;
   designSheet?: string;
+  imageUrl?: string;
   visualDistinctions: string;
   powers: string;
   powersSpec: string;

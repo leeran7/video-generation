@@ -17,6 +17,7 @@
   ],
   "mindset": "Every villain was someone's child once — not an excuse, a fact. Elias refuses to flatten people into monsters because flattening is how you stop seeing the exit ramp. Season 1 tests whether compassion is strength or a form of self-destruction when the world punishes hesitation. Episode 5: mercy nearly costs everyone — and he still notices what others miss: control, not cruelty. Episode 9: understanding The Architect disturbs him more than cartoon evil — because empathy makes ideology personal.",
   "designSheet": "production/assets/characters/solace.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/hero/solace.png",
   "visualDistinctions": "Warm amber eyes; soft gold glow when healing — never sterile hospital light; always living warmth. Slight frame, layered earth tones — burnt orange, sage — fabric moves like there is always a breeze because his presence reads as weather. Living vines at wrists/forearms — subtle movement when he lies or when someone near him is suffering. Barefoot when possible — grounded, vulnerable, refusing armor he does not believe in.",
   "powers": "Empathy, healing, and nature manipulation",
   "powersSpec": "Elias senses emotional states strongly enough to guide choices — not mind-reading; inference amplified by empathy, sometimes too loud. Healing accelerates recovery for others; it drains him — fatigue, empathic echo (he carries their pain as somatic noise), and limits on catastrophic injury (he cannot un-death). Nature manipulation is small-scale: vines, growth, air quality shifts — not instant forest apocalypse. Overuse causes nosebleeds, tremors, emotional flooding — he may freeze or cry at wrong times. His power fails morally before it fails magically: he cannot heal someone who does not want to be helped; he cannot force consent. Failure mode: he hesitates lethal situations because he sees too many stories at once.",
@@ -25,22 +26,41 @@
   "seasonOneArc": [
     {
       "act": 1,
-      "episodes": [1, 2, 3, 4],
+      "episodes": [
+        1,
+        2,
+        3,
+        4
+      ],
       "description": "background kindness — Elias is present in the city's texture before spotlight."
     },
     {
       "act": 2,
-      "episodes": [5, 6, 7, 8, 9],
+      "episodes": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
       "description": "Episode 5 forces the team to confront his non-violence as risk; Episode 9 — Architect reveal lands as ideological wound, not monster hunt. He is right to be disturbed; wrong if he confuses understanding with surrender."
     },
     {
       "act": 3,
-      "episodes": [10, 11, 12],
+      "episodes": [
+        10,
+        11,
+        12
+      ],
       "description": "weaponized empathy targets him — he must confront that some people choose harm; compassion without boundaries is abandonment of victims."
     },
     {
       "act": 4,
-      "episodes": [13, 14, 15],
+      "episodes": [
+        13,
+        14,
+        15
+      ],
       "description": "Finale: still merciful — not harmless. Mercy with teeth."
     }
   ],

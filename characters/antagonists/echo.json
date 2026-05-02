@@ -4,7 +4,10 @@
   "name": "Echo",
   "type": "Controlled powered asset (not acting freely)",
   "affiliation": "Lattice — controlled operative, not a willing member",
-  "episodes": [5],
+  "episodes": [
+    5
+  ],
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/antagonist/echo.png",
   "visualHook": "Repeating motion tells — same step twice, laugh twice — subtle wrongness. Restraint harness under clothes; Lattice failsafe glow at neck or wrist.",
   "roleInPlot": "Villain drawn from Glitch's intel. Elias refuses the finishing blow; Echo escapes — proving mercy has a bill. Elias notices control, not cruelty.",
   "outcome": "Escape (per brief). Sets moral template: some enemies are prisoners. May recur as tragedy, not moustache villain.",

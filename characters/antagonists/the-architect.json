@@ -6,8 +6,14 @@
   "type": "Season villain — Principal-tier ideology",
   "affiliation": "Lattice — Principal slot (relationship to org is draft; may have founded, inherited, or hijacked it)",
   "revealedInEpisode": 9,
-  "episodes": [9, 10, 11, 12],
+  "episodes": [
+    9,
+    10,
+    11,
+    12
+  ],
   "designSheet": "production/assets/antagonists/the-architect.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/antagonist/the-architect.png",
   "visualHook": "Architecture motifs: grids, blueprints-as-cloth, clean lines vs the team's messy humanity. Color palette cool and authoritative — contrast with hero warmth. Presence fills rooms without shouting.",
   "publicPresentation": "Speaks like infrastructure: calm, inevitable, precise. Dresses controlled — nothing flashy unless it serves intimidation. Moves like someone who used to save people and still believes they are saving them.",
   "originSketch": "Former hero (old codename and public fall — TBD at script). Believes unregulated superhumans collapse civic trust faster than any villain. Lattice is their instrument — or they are Lattice's mind — Season 1 keeps reporting structure ambiguous until late.",

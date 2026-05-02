@@ -17,6 +17,7 @@
   ],
   "mindset": "Rules are suggestions the universe made before it met her — except the rules that protect people she loves, which she is learning are not oppression but care wearing a boring mask. Her arc is from clever solo hacker to someone who chooses slowness on purpose: not because she is less brilliant, but because people are not puzzles to optimize. Episode 8 is her collision with Surge's leadership — not melodrama, moral precision: she followed him; he must earn that again.",
   "designSheet": "production/assets/characters/glitch.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/hero/glitch.png",
   "visualDistinctions": "Oversized hoodies with handwritten code and equations — real math flavor, not random glyphs. Holographic UI orbits her head when thinking — clutter as thought made visible; dim it when she is ashamed. Twin buns with fiber-optic strands that shift with mood — not cute only; sometimes stutter when overwhelmed. Fingers always mid-gesture — typing air, conducting invisible orchestras. When still, worry.",
   "powers": "Reality and system hacking / Tech manipulation",
   "powersSpec": "Priya can interface with digital systems and — in controlled bursts — nudge physical outcomes like probability glitches: doors, feeds, drones, traffic patterns, AR overlays. She does not rewrite reality like a god; she exploits seams. Big hacks cause sensory overload: migraines, nosebleeds, hand tremors, temporary aphasia (words come wrong). Her 'reality hack' has a budget — the more she bends, the more the world snaps back with noise. Faraday cages, air-gapped systems, and human unpredictability still win. Failure mode: she over-commits to an elegant solution when a blunt human fix would save someone faster.",
@@ -25,22 +26,41 @@
   "seasonOneArc": [
     {
       "act": 1,
-      "episodes": [1, 2, 3, 4],
+      "episodes": [
+        1,
+        2,
+        3,
+        4
+      ],
       "description": "Episode 4 — she bites off classified data and loves the taste until the org bites back."
     },
     {
       "act": 2,
-      "episodes": [5, 6, 7, 8, 9],
+      "episodes": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
       "description": "Episode 6 safehouse attack makes her body a liability she hates; Episode 8 — Surge's call endangers her; she does not forgive with a hug — she speaks quiet truth that rewires him."
     },
     {
       "act": 3,
-      "episodes": [10, 11, 12],
+      "episodes": [
+        10,
+        11,
+        12
+      ],
       "description": "she must slow down enough to feel stakes without optimizing them away — Episode 11 parallel vignette: brilliance as burden. Finale: still chaotic, but chaos aimed, not scattered."
     },
     {
       "act": 4,
-      "episodes": [13, 14, 15],
+      "episodes": [
+        13,
+        14,
+        15
+      ],
       "description": "Finale: still chaotic, but chaos aimed, not scattered."
     }
   ],

@@ -92,6 +92,15 @@ main > p {
   background: var(--accent);
 }
 
+.card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #000;
+  border-bottom: 1px solid var(--border);
+}
+
 .card-body {
   padding: 20px 22px 24px;
 }

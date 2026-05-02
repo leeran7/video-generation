@@ -13,6 +13,14 @@ export function CharacterCard({
   return (
     <article className="card" style={style}>
       <div className="card-bar" />
+      {character.imageUrl && (
+        <img
+          className="card-image"
+          src={character.imageUrl}
+          alt={character.codename}
+          loading="lazy"
+        />
+      )}
       <div className="card-body">
         <h2 className="hero-name">{character.codename}</h2>
         <p className="hero-alias">

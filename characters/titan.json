@@ -7,9 +7,17 @@
   "realName": "Remi Nakashima",
   "age": 18,
   "personality": "Remi is calm because panic is a luxury their body will not allow — someone has to be the place others run to. Quietly commanding is not ego; it is exhaustion managed with grace. They protect like breathing: first, automatic, not always healthy. They almost never crack on purpose — which means when they do, it lands like structural failure. They are the emotional anchor because they learned early that being needed feels safer than being known.",
-  "traits": ["Stoic", "Protective", "Self-sacrificing", "Disciplined", "Gentle giant energy", "Afraid to need help"],
+  "traits": [
+    "Stoic",
+    "Protective",
+    "Self-sacrificing",
+    "Disciplined",
+    "Gentle giant energy",
+    "Afraid to need help"
+  ],
   "mindset": "My pain matters less than everyone else's safety — that is the story they tell to stay useful. Season 1 asks whether a shield is allowed to be a person. Remi's arc moves from \"carry it all\" to \"let someone else carry something\" — not abandonment of duty, but redistribution of humanity. They learn that being the tank is not the same as being invisible.",
   "designSheet": "production/assets/characters/titan.png",
+  "imageUrl": "https://rnpfoslimgmbizfdaxnj.supabase.co/storage/v1/object/public/character-art/hero/titan.png",
   "visualDistinctions": "Towering build; bioluminescent green fissures spread across skin when absorbing impact — light should feel like stress visible under the surface, not a party trick. Slate-grey armor, minimal ornament — function reads as character. Close-cropped hair, single glowing green streak. Hands slightly oversized — always reaching, bracing, holding. When not fighting, fissures dim but never fully vanish — a quiet reminder the body keeps score.",
   "powers": "Superhuman strength and impact absorption",
   "powersSpec": "Remi can absorb kinetic energy from strikes and redirects it — not infinite; their body stores strain as heat and micro-damage. Sustained assaults or bizarre physics (piercing, vibration, sonic) bypass simple bracing. Overload causes fissure flare, nosebleeds, and temporary motor slip — fine motor tasks shake. They are strong, not invulnerable; cutting edges, toxins, and emotional collapse still work. Impact absorption does not fix emotional pain — writers should never use power as therapy cheat. Lifting limits rise with adrenaline but drop hard after — recovery scenes matter.",
@@ -18,22 +26,41 @@
   "seasonOneArc": [
     {
       "act": 1,
-      "episodes": [1, 2, 3, 4],
+      "episodes": [
+        1,
+        2,
+        3,
+        4
+      ],
       "description": "public debut in Episode 3 makes Remi a symbol before they feel ready — viral fame as prison."
     },
     {
       "act": 2,
-      "episodes": [5, 6, 7, 8, 9],
+      "episodes": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
       "description": "Episode 6 forces messy teamwork; Episode 7 pairs them with Wraith — not debate, presence. Remi becomes the person who stays when words fail."
     },
     {
       "act": 3,
-      "episodes": [10, 11, 12],
+      "episodes": [
+        10,
+        11,
+        12
+      ],
       "description": "Targeted isolation weaponizes their self-sacrifice; they must accept help without guilt."
     },
     {
       "act": 4,
-      "episodes": [13, 14, 15],
+      "episodes": [
+        13,
+        14,
+        15
+      ],
       "description": "Finale: still the shield — but visible as a whole person, not a function."
     }
   ],
