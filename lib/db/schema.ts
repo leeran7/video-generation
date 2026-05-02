@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
   pgTable,
   uuid,
@@ -66,7 +67,53 @@ export const episodes = pgTable("episodes", {
   tags: text("tags").array(),
   scriptContent: text("script_content"),
   runtimeSeconds: integer("runtime_seconds"),
+  masterVideoPath: text("master_video_path"),
   lockStatus: text("lock_status").default("draft"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+});
+
+export const scenes = pgTable(
+  "scenes",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    episodeId: uuid("episode_id").references(() => episodes.id, {
+      onDelete: "cascade",
+    }),
+    sceneNumber: integer("scene_number").notNull(),
+    sceneId: text("scene_id"),
+    locationId: uuid("location_id"),
+    title: text("title"),
+    durationSeconds: integer("duration_seconds"),
+    scriptBlock: text("script_block"),
+    generationPrompt: text("generation_prompt"),
+    imageRef: text("image_ref"),
+    videoPath: text("video_path"),
+    status: text("status").default("pending"),
+    error: text("error"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [unique().on(table.episodeId, table.sceneNumber)]
+);
+
+export const jobs = pgTable("jobs", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  type: text("type").notNull(),
+  status: text("status").default("pending"),
+  episodeId: uuid("episode_id").references(() => episodes.id, {
+    onDelete: "cascade",
+  }),
+  sceneId: uuid("scene_id").references(() => scenes.id, {
+    onDelete: "cascade",
+  }),
+  inngestRunId: text("inngest_run_id"),
+  progress: jsonb("progress")
+    .$type<Record<string, unknown>>()
+    .default(sql`'{}'::jsonb`),
+  result: jsonb("result").$type<Record<string, unknown> | null>(),
+  error: text("error"),
+  startedAt: timestamp("started_at", { withTimezone: true }),
+  completedAt: timestamp("completed_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });

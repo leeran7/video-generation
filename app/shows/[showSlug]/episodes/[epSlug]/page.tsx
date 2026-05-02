@@ -4,6 +4,7 @@ import { and, eq } from "drizzle-orm";
 import { marked } from "marked";
 import { db } from "@/lib/db/client";
 import { arcs, characters, episodes, shows } from "@/lib/db/schema";
+import { RenderButton } from "./render-button";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -86,6 +87,23 @@ export default async function EpisodeDetailPage({
             {ep.lockStatus ? ` · ${ep.lockStatus}` : ""}
             {focus?.name ? ` · Focus: ${focus.name}` : ""}
           </p>
+          <div className="detail-actions">
+            <RenderButton
+              showSlug={showSlug}
+              epSlug={epSlug}
+              disabled={!ep.scriptContent}
+            />
+            {ep.masterVideoPath && (
+              <a
+                className="render-master-link"
+                href={ep.masterVideoPath}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open master video ↗
+              </a>
+            )}
+          </div>
         </div>
 
         {ep.brief && (

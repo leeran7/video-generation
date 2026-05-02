@@ -1,4 +1,10 @@
-import RunwayML, { TaskFailedError } from "@runwayml/sdk";
+import RunwayML, {
+  APIError,
+  AuthenticationError,
+  PermissionDeniedError,
+  RateLimitError,
+  TaskFailedError,
+} from "@runwayml/sdk";
 import type { TaskRetrieveResponse } from "@runwayml/sdk/resources/tasks";
 
 import type { GenerationBlock } from "./types";
@@ -109,15 +115,60 @@ export async function generateScene(
     void model;
     return { videoUrl, task };
   } catch (err) {
-    if (err instanceof TaskFailedError) {
-      const details = err.taskDetails as { failure?: string; failureCode?: string };
-      throw new RunwaySceneError(
-        details.failure ?? "Runway generation failed",
-        details.failureCode
+    throw translateRunwayError(err);
+  }
+}
+
+/**
+ * Convert a raw SDK error into a `RunwaySceneError` with a human-readable
+ * message. Surfaces credits/auth/rate-limit issues as named failure codes so
+ * the UI can show a targeted message and CTA.
+ */
+function translateRunwayError(err: unknown): RunwaySceneError {
+  if (err instanceof RunwaySceneError) return err;
+
+  if (err instanceof TaskFailedError) {
+    const details = err.taskDetails as { failure?: string; failureCode?: string };
+    return new RunwaySceneError(
+      details.failure ?? "Runway generation failed",
+      details.failureCode
+    );
+  }
+
+  if (err instanceof APIError) {
+    const body = (err as APIError & { error?: { error?: string } }).error;
+    const apiMessage = body?.error ?? err.message ?? "Runway API error";
+
+    if (
+      err instanceof AuthenticationError ||
+      err instanceof PermissionDeniedError
+    ) {
+      return new RunwaySceneError(
+        "Runway rejected the API key (authentication failed).",
+        "auth_failed"
       );
     }
-    throw err;
+
+    if (err instanceof RateLimitError) {
+      return new RunwaySceneError(
+        "Runway rate limit hit — try again in a minute.",
+        "rate_limited"
+      );
+    }
+
+    if (/credit/i.test(apiMessage)) {
+      return new RunwaySceneError(
+        "Runway account has no credits left. Top up at https://app.runwayml.com/billing and retry.",
+        "insufficient_credits"
+      );
+    }
+
+    return new RunwaySceneError(`Runway: ${apiMessage}`, `http_${err.status}`);
   }
+
+  return new RunwaySceneError(
+    (err as Error)?.message ?? "Unknown Runway error"
+  );
 }
 
 /**

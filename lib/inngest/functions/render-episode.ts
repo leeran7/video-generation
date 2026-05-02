@@ -1,0 +1,316 @@
+import { mkdirSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
+
+import RunwayML from "@runwayml/sdk";
+import { eq, sql } from "drizzle-orm";
+
+import { db } from "@/lib/db/client";
+import { episodes, jobs, scenes } from "@/lib/db/schema";
+import { inngest } from "@/lib/inngest/client";
+import {
+  downloadFromBucket,
+  ensureEpisodeBucket,
+  getStorageClient,
+  publicUrlToObjectPath,
+  uploadVideo,
+} from "@/lib/inngest/storage";
+import { parseScriptToManifest } from "@/packages/pipeline/manifest";
+import {
+  RunwaySceneError,
+  downloadVideo,
+  generateScene,
+  generationBlockToInput,
+} from "@/packages/pipeline/runway";
+import { stitchEpisode } from "@/packages/pipeline/stitch";
+
+export const renderEpisode = inngest.createFunction(
+  {
+    id: "render-episode",
+    retries: 0,
+    triggers: [{ event: "episode/render.requested" }],
+    onFailure: async ({ event, error }) => {
+      const original = (event.data as { event?: { data?: unknown } }).event;
+      const data = (original?.data ?? {}) as {
+        jobId?: string;
+        episodeId?: string;
+      };
+      const { jobId, episodeId } = data;
+      const message =
+        (error as Error)?.message ?? String(error) ?? "Unknown error";
+
+      if (jobId) {
+        await db
+          .update(jobs)
+          .set({
+            status: "failed",
+            error: message,
+            completedAt: sql`now()`,
+          })
+          .where(eq(jobs.id, jobId));
+      }
+
+      if (episodeId) {
+        await db
+          .update(scenes)
+          .set({
+            status: "failed",
+            error: sql`COALESCE(${scenes.error}, ${message})`,
+            updatedAt: sql`now()`,
+          })
+          .where(
+            sql`${scenes.episodeId} = ${episodeId} AND ${scenes.status} IN ('pending', 'generating')`
+          );
+      }
+    },
+  },
+  async ({ event, step }) => {
+    const { jobId, episodeId } = event.data as {
+      jobId: string;
+      episodeId: string;
+    };
+
+    if (!process.env.RUNWAYML_API_SECRET) {
+      throw new Error(
+        "RUNWAYML_API_SECRET not set — cannot generate scenes. Set it in .env to render."
+      );
+    }
+
+    await step.run("mark-running", async () => {
+      await db
+        .update(jobs)
+        .set({ status: "running", startedAt: sql`now()` })
+        .where(eq(jobs.id, jobId));
+    });
+
+    // 1. Load the episode + script
+    const episode = await step.run("load-episode", async () => {
+      const [row] = await db
+        .select()
+        .from(episodes)
+        .where(eq(episodes.id, episodeId))
+        .limit(1);
+      if (!row) throw new Error(`Episode ${episodeId} not found`);
+      if (!row.scriptContent) {
+        throw new Error(`Episode ${episodeId} has no scriptContent — cannot render`);
+      }
+      return {
+        id: row.id,
+        slug: row.slug,
+        title: row.title,
+        scriptContent: row.scriptContent,
+      };
+    });
+
+    // 2. Parse the script and upsert scenes
+    const sceneRows = await step.run("parse-and-upsert-scenes", async () => {
+      const { manifest } = parseScriptToManifest(episode.scriptContent, {
+        slug: episode.slug,
+      });
+
+      const inserted: {
+        id: string;
+        sceneNumber: number;
+        sceneId: string;
+        title: string | null;
+        durationSeconds: number | null;
+        generationPrompt: string | null;
+        videoPath: string | null;
+        status: string | null;
+      }[] = [];
+
+      for (const scene of manifest.scenes) {
+        const gen = scene.generation ?? {};
+        const [row] = await db
+          .insert(scenes)
+          .values({
+            episodeId: episode.id,
+            sceneNumber: scene.order,
+            sceneId: scene.id,
+            title: scene.title ?? null,
+            durationSeconds: gen.targetDurationSeconds ?? null,
+            generationPrompt: gen.prompt ?? gen.promptSummary ?? null,
+            imageRef: gen.imageRef ?? null,
+            status: "pending",
+          })
+          .onConflictDoUpdate({
+            target: [scenes.episodeId, scenes.sceneNumber],
+            set: {
+              sceneId: scene.id,
+              title: scene.title ?? null,
+              durationSeconds: gen.targetDurationSeconds ?? null,
+              generationPrompt: gen.prompt ?? gen.promptSummary ?? null,
+              imageRef: gen.imageRef ?? null,
+              updatedAt: sql`now()`,
+            },
+          })
+          .returning();
+        inserted.push({
+          id: row.id,
+          sceneNumber: row.sceneNumber,
+          sceneId: row.sceneId ?? scene.id,
+          title: row.title,
+          durationSeconds: row.durationSeconds,
+          generationPrompt: row.generationPrompt,
+          videoPath: row.videoPath,
+          status: row.status,
+        });
+      }
+
+      await db
+        .update(jobs)
+        .set({
+          progress: { scenesTotal: inserted.length, scenesComplete: 0, phase: "generating" },
+        })
+        .where(eq(jobs.id, jobId));
+
+      return inserted;
+    });
+
+    const runway = new RunwayML();
+    const supabase = getStorageClient();
+    await ensureEpisodeBucket(supabase);
+
+    // 3. Fan out per-scene generation in parallel
+    const sceneResults = await Promise.all(
+      sceneRows.map((s) =>
+        step.run(`generate-scene-${s.sceneNumber}`, async () => {
+          // Idempotent: if already complete and has a path, reuse it
+          const [existing] = await db
+            .select()
+            .from(scenes)
+            .where(eq(scenes.id, s.id))
+            .limit(1);
+          if (existing?.status === "complete" && existing.videoPath) {
+            return { sceneNumber: s.sceneNumber, videoPath: existing.videoPath };
+          }
+
+          await db
+            .update(scenes)
+            .set({ status: "generating", error: null, updatedAt: sql`now()` })
+            .where(eq(scenes.id, s.id));
+
+          try {
+            const input = generationBlockToInput(
+              {
+                prompt: s.generationPrompt ?? undefined,
+                targetDurationSeconds: s.durationSeconds ?? undefined,
+              },
+              s.title ?? `Scene ${s.sceneId}`
+            );
+
+            const { videoUrl } = await generateScene(input, runway);
+            const buf = await downloadVideo(videoUrl);
+
+            const objectPath = `scenes/${episode.slug}/${s.sceneId}.mp4`;
+            const publicUrl = await uploadVideo(supabase, objectPath, buf);
+
+            await db
+              .update(scenes)
+              .set({
+                status: "complete",
+                videoPath: publicUrl,
+                updatedAt: sql`now()`,
+              })
+              .where(eq(scenes.id, s.id));
+
+            return { sceneNumber: s.sceneNumber, videoPath: publicUrl };
+          } catch (err) {
+            const msg =
+              err instanceof RunwaySceneError
+                ? err.message
+                : (err as Error).message;
+            await db
+              .update(scenes)
+              .set({
+                status: "failed",
+                error: msg,
+                updatedAt: sql`now()`,
+              })
+              .where(eq(scenes.id, s.id));
+            throw err;
+          }
+        })
+      )
+    );
+
+    // 4. Stitch: download all scenes from Storage to /tmp, run ffmpeg, upload master
+    const masterUrl = await step.run("stitch-master", async () => {
+      await db
+        .update(jobs)
+        .set({
+          progress: {
+            scenesTotal: sceneRows.length,
+            scenesComplete: sceneRows.length,
+            phase: "stitching",
+          },
+        })
+        .where(eq(jobs.id, jobId));
+
+      const workDir = path.join(tmpdir(), `nova-${episode.slug}-${Date.now()}`);
+      mkdirSync(workDir, { recursive: true });
+
+      const ordered = [...sceneResults].sort((a, b) => a.sceneNumber - b.sceneNumber);
+      const localPaths: string[] = [];
+
+      for (const r of ordered) {
+        const objectPath = publicUrlToObjectPath(r.videoPath);
+        if (!objectPath) {
+          throw new Error(`Could not resolve object path from URL: ${r.videoPath}`);
+        }
+        const buf = await downloadFromBucket(supabase, objectPath);
+        const local = path.join(
+          workDir,
+          `scene-${String(r.sceneNumber).padStart(2, "0")}.mp4`
+        );
+        writeFileSync(local, buf);
+        localPaths.push(local);
+      }
+
+      const masterLocal = path.join(workDir, `${episode.slug}-master.mp4`);
+      await stitchEpisode({
+        scenePaths: localPaths,
+        outputPath: masterLocal,
+        reencode: true,
+      });
+
+      const { readFileSync } = await import("node:fs");
+      const masterBuf = readFileSync(masterLocal);
+      const masterObjectPath = `masters/${episode.slug}.mp4`;
+      const masterPublicUrl = await uploadVideo(
+        supabase,
+        masterObjectPath,
+        masterBuf
+      );
+
+      await db
+        .update(episodes)
+        .set({
+          masterVideoPath: masterPublicUrl,
+          updatedAt: sql`now()`,
+        })
+        .where(eq(episodes.id, episode.id));
+
+      return masterPublicUrl;
+    });
+
+    // 5. Mark job complete
+    await step.run("mark-complete", async () => {
+      await db
+        .update(jobs)
+        .set({
+          status: "complete",
+          completedAt: sql`now()`,
+          progress: {
+            scenesTotal: sceneRows.length,
+            scenesComplete: sceneRows.length,
+            phase: "complete",
+          },
+          result: { masterUrl, episodeId: episode.id },
+        })
+        .where(eq(jobs.id, jobId));
+    });
+
+    return { jobId, episodeId, masterUrl };
+  }
+);

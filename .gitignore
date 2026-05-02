@@ -23,6 +23,10 @@ out
 # FFmpeg concat list (generated next to manifest)
 .ffmpeg-concat-list.txt
 
+# Claude Code runtime
+.claude/scheduled_tasks.lock
+.claude/settings.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
