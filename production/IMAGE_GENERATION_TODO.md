@@ -58,19 +58,19 @@ Assets are stored in `production/assets/` organized by category.
 
 > Character reference sheet for an original animated series. Young adult, controlled operative acting against their will. Subtle wrongness in body language — repeated gestures, slightly mechanical movement. A thin technological restraint harness partially visible under civilian clothes. Small glowing failsafe device at neck and wrist — a leash made of light. Eyes slightly unfocused, present but not fully in control. Brief flickers of a real person underneath. Tragic, not menacing. Stylized animated proportions, expressive faces, soft painterly rendering. Muted tones with cold tech glow. Digital illustration, high detail.
 
-- [ ] **Weaver** — `production/assets/antagonists/weaver.png`
+- [x] **Weaver** — `production/assets/antagonists/weaver.png`
 
 > Character reference sheet for an original animated series. A digital entity — primary form is a calm geometric glyph symbol floating in a dark field of streaming code. Clean, mathematical, patient. If given a physical body: androgynous figure with too-perfect hair, moving at a slightly wrong speed — unsettling uncanny quality. Stylized animated proportions, soft painterly rendering. Neon geometric lines on black void. Digital illustration, high detail.
 
-- [ ] **Stray** — `production/assets/antagonists/stray.png`
+- [x] **Stray** — `production/assets/antagonists/stray.png`
 
 > Character reference sheet for an original animated series. Adult man, tactical field commander. Dark tactical gear with a small corporate-style team insignia on the shoulder. Helmet optional — eyes always look tired. A true believer in protocol, not a fanatic. Commands teams through chaos. Exhausted professionalism — no theatrics. Stylized animated proportions, expressive faces, soft painterly rendering. Dark palette — blacks, greys, muted blue accents. Smoke and debris environment. Digital illustration, high detail.
 
-- [ ] **Dr. Aris Thorne** — `production/assets/antagonists/dr-aris-thorne.png`
+- [x] **Dr. Aris Thorne** — `production/assets/antagonists/dr-aris-thorne.png`
 
 > Character reference sheet for an original animated series. Middle-aged man, research scientist. Soft hands, expensive watch. Lab coat worn everywhere like a second skin. A reassuring smile that hides something clinical underneath. Polished, academic, dangerous in conference rooms not battlefields. Expressions: false warmth, documentation stare, cornered denial. Stylized animated proportions, expressive faces, soft painterly rendering. Sterile whites and institutional blues contrasting with deceptively warm skin tones. Lab background with files and monitors. Digital illustration, high detail.
 
-- [ ] **Marrow** — `production/assets/antagonists/marrow.png`
+- [x] **Marrow** — `production/assets/antagonists/marrow.png`
 
 > Character reference sheet for an original animated series. Adult, tactical combat specialist. Brutalist design — all straight lines, sharp angles, elbow-first stance. Blocky angular dark armor built for function, not intimidation. Carries restraint nets and pulse-tech devices. Moves in straight lines only. Focused, professional, efficient. Stylized animated proportions, expressive faces, soft painterly rendering. Industrial palette — concrete grey, rust, matte black. Sharp edges on every surface. Urban environment background. Digital illustration, high detail.
 
@@ -132,6 +132,6 @@ Assets are stored in `production/assets/` organized by category.
 |---|---|---|
 | Style Reference | 1 | 1 |
 | Heroes | 5 | 5 |
-| Antagonists | 4 | 9 |
+| Antagonists | 8 | 9 |
 | Locations | 4 | 12 |
-| **Total** | **14** | **27** |
+| **Total** | **18** | **27** |
