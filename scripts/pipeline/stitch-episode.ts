@@ -1,25 +1,24 @@
 #!/usr/bin/env node
 /**
  * Stitch ordered scene videos into one episode file using FFmpeg concat demuxer.
- * Requires `ffmpeg` on PATH. See production/pipeline/README.md.
+ * Requires `ffmpeg` on PATH (or FFMPEG_PATH set). See production/pipeline/README.md.
  *
  * Usage:
  *   pnpm pipeline:stitch -- production/pipeline/examples/s01e01-signal-lost/manifest.json
- *   pnpm pipeline:stitch -- --reencode production/pipeline/examples/s01e01-signal-lost/manifest.json
+ *   pnpm pipeline:stitch -- --reencode <manifest.json>
  */
 
-import { spawnSync } from "node:child_process";
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 
-import { validateManifest } from "./manifest.js";
+import { validateManifest } from "../../packages/pipeline/manifest";
+import { stitchEpisode } from "../../packages/pipeline/stitch";
 
-main();
-
-function main(): void {
+async function main(): Promise<void> {
   const { manifestPath, forceReencode } = parseArgs(
-    process.argv.slice(2).filter((a) => a !== "--"),
+    process.argv.slice(2).filter((a) => a !== "--")
   );
+
   const raw = readFileSync(manifestPath, "utf8");
   let data: unknown;
   try {
@@ -29,47 +28,31 @@ function main(): void {
     process.exit(1);
   }
 
-  const manifestDir = path.dirname(path.resolve(manifestPath));
   const manifest = validateManifest(data);
+  const manifestDir = path.dirname(path.resolve(manifestPath));
   const sorted = [...manifest.scenes].sort((a, b) => a.order - b.order);
 
-  const scenePaths: string[] = [];
-  for (const scene of sorted) {
-    const abs = path.resolve(manifestDir, scene.file);
-    if (!existsSync(abs)) {
-      console.error(`Missing scene file for ${scene.id}: ${abs}`);
-      process.exit(1);
-    }
-    scenePaths.push(abs);
-  }
-
-  const outName = manifest.output.filename;
-  const outputPath = path.join(manifestDir, outName);
+  const scenePaths = sorted.map((s) => path.resolve(manifestDir, s.file));
+  const outputPath = path.join(manifestDir, manifest.output.filename);
   const reencode = forceReencode || manifest.output.reencode;
 
-  const listPath = path.join(manifestDir, ".ffmpeg-concat-list.txt");
-  const listBody = scenePaths
-    .map((p) => `file ${escapeConcatPath(p)}`)
-    .join("\n");
-  writeFileSync(listPath, listBody, "utf8");
-
-  const ffmpeg = process.env.FFMPEG_PATH?.trim() || "ffmpeg";
-  const args = buildFfmpegArgs({ listPath, outputPath, reencode });
-  console.log(`Running: ${ffmpeg} ${args.join(" ")}`);
-
-  const result = spawnSync(ffmpeg, args, {
-    stdio: "inherit",
-    env: process.env,
-  });
-
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
+  try {
+    const result = await stitchEpisode({
+      scenePaths,
+      outputPath,
+      reencode,
+    });
+    console.log(`Done: ${result.outputPath}`);
+  } catch (err) {
+    console.error((err as Error).message);
+    process.exit(1);
   }
-
-  console.log(`Done: ${outputPath}`);
 }
 
-function parseArgs(argv: string[]): { manifestPath: string; forceReencode: boolean } {
+function parseArgs(argv: string[]): {
+  manifestPath: string;
+  forceReencode: boolean;
+} {
   let forceReencode = false;
   const rest: string[] = [];
   for (const a of argv) {
@@ -78,49 +61,11 @@ function parseArgs(argv: string[]): { manifestPath: string; forceReencode: boole
   }
   if (rest.length !== 1) {
     console.error(
-      "Usage: pnpm pipeline:stitch -- [--reencode] <path/to/manifest.json>",
+      "Usage: pnpm pipeline:stitch -- [--reencode] <path/to/manifest.json>"
     );
     process.exit(1);
   }
   return { manifestPath: path.resolve(rest[0]), forceReencode };
 }
 
-function buildFfmpegArgs(options: {
-  listPath: string;
-  outputPath: string;
-  reencode: boolean;
-}): string[] {
-  const { listPath, outputPath, reencode } = options;
-  const outDir = path.dirname(outputPath);
-  if (!existsSync(outDir)) {
-    mkdirSync(outDir, { recursive: true });
-  }
-
-  const base = ["-y", "-f", "concat", "-safe", "0", "-i", listPath];
-  if (reencode) {
-    return [
-      ...base,
-      "-c:v",
-      "libx264",
-      "-preset",
-      "medium",
-      "-crf",
-      "20",
-      "-c:a",
-      "aac",
-      "-b:a",
-      "192k",
-      "-movflags",
-      "+faststart",
-      outputPath,
-    ];
-  }
-  return [...base, "-c", "copy", outputPath];
-}
-
-/** FFmpeg concat demuxer: forward slashes, single-quoted paths with embedded quotes escaped. */
-function escapeConcatPath(absPath: string): string {
-  const normalized = absPath.replace(/\\/g, "/");
-  const escaped = normalized.replace(/'/g, "'\\''");
-  return `'${escaped}'`;
-}
+main();

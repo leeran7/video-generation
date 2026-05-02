@@ -6,10 +6,10 @@
  *   pnpm pipeline:validate -- production/pipeline/examples/s01e01-signal-lost/manifest.json
  */
 
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
-import { validateManifest } from "./manifest.js";
+import { validateManifest } from "../../packages/pipeline/manifest";
 
 main();
 
@@ -25,24 +25,20 @@ function main(): void {
   }
 
   const manifestDir = path.dirname(path.resolve(manifestPath));
+  let manifest;
   try {
-    validateManifest(data);
+    manifest = validateManifest(data);
   } catch (e) {
     console.error(e instanceof Error ? e.message : e);
     process.exit(1);
   }
 
-  const m = data as {
-    scenes: Array<{ id: string; file: string }>;
-    episode: { title: string };
-  };
-
   console.log(
-    `Manifest OK: ${m.episode.title} — ${m.scenes.length} scene(s) listed.`,
+    `Manifest OK: ${manifest.episode.title} — ${manifest.scenes.length} scene(s) listed.`
   );
 
   let missing = 0;
-  for (const scene of m.scenes) {
+  for (const scene of manifest.scenes) {
     const abs = path.resolve(manifestDir, scene.file);
     if (!existsSync(abs)) {
       console.warn(`Missing file: ${scene.id} → ${abs}`);
@@ -52,7 +48,7 @@ function main(): void {
 
   if (missing > 0) {
     console.warn(
-      `${missing} scene file(s) missing (add AI outputs, then stitch). Exit 2.`,
+      `${missing} scene file(s) missing (add AI outputs, then stitch). Exit 2.`
     );
     process.exit(2);
   }
