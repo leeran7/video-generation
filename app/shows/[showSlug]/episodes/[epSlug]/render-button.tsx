@@ -7,10 +7,14 @@ export function RenderButton({
   showSlug,
   epSlug,
   disabled,
+  label = "Render episode",
+  pendingLabel = "Queuing…",
 }: {
   showSlug: string;
   epSlug: string;
   disabled?: boolean;
+  label?: string;
+  pendingLabel?: string;
 }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -55,7 +59,7 @@ export function RenderButton({
         disabled={disabled || pending}
         className="render-button"
       >
-        {pending ? "Queuing…" : "Render episode"}
+        {pending ? pendingLabel : label}
       </button>
       {error && <span className="render-error">{error}</span>}
     </div>

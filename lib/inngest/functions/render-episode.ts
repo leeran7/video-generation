@@ -175,14 +175,24 @@ export const renderEpisode = inngest.createFunction(
     const sceneResults = await Promise.all(
       sceneRows.map((s) =>
         step.run(`generate-scene-${s.sceneNumber}`, async () => {
-          // Idempotent: if already complete and has a path, reuse it
           const [existing] = await db
             .select()
             .from(scenes)
             .where(eq(scenes.id, s.id))
             .limit(1);
+
+          // Reuse already-rendered scene
           if (existing?.status === "complete" && existing.videoPath) {
-            return { sceneNumber: s.sceneNumber, videoPath: existing.videoPath };
+            return {
+              sceneNumber: s.sceneNumber,
+              videoPath: existing.videoPath,
+            };
+          }
+
+          // Leave previously-failed scenes alone unless caller explicitly
+          // reset them to "pending" via the selective-retry endpoint.
+          if (existing?.status === "failed") {
+            return { sceneNumber: s.sceneNumber, videoPath: null };
           }
 
           await db
@@ -216,6 +226,8 @@ export const renderEpisode = inngest.createFunction(
 
             return { sceneNumber: s.sceneNumber, videoPath: publicUrl };
           } catch (err) {
+            // Mark this scene failed but don't reject the run — let the rest
+            // of the fan-out finish so the user can retry just the failures.
             const msg =
               err instanceof RunwaySceneError
                 ? err.message
@@ -228,73 +240,95 @@ export const renderEpisode = inngest.createFunction(
                 updatedAt: sql`now()`,
               })
               .where(eq(scenes.id, s.id));
-            throw err;
+            return { sceneNumber: s.sceneNumber, videoPath: null };
           }
         })
       )
     );
 
-    // 4. Stitch: download all scenes from Storage to /tmp, run ffmpeg, upload master
-    const masterUrl = await step.run("stitch-master", async () => {
-      await db
-        .update(jobs)
-        .set({
-          progress: {
-            scenesTotal: sceneRows.length,
-            scenesComplete: sceneRows.length,
-            phase: "stitching",
-          },
+    const completed = sceneResults.filter(
+      (r): r is { sceneNumber: number; videoPath: string } =>
+        r.videoPath !== null
+    );
+    const incomplete = sceneResults.length - completed.length;
+    const allComplete = incomplete === 0;
+
+    // 4. Stitch — only when every scene has a videoPath. Partial runs (some
+    // failures) skip stitching; the user can retry the failures and we'll
+    // stitch on the next successful pass.
+    const masterUrl = allComplete
+      ? await step.run("stitch-master", async () => {
+          await db
+            .update(jobs)
+            .set({
+              progress: {
+                scenesTotal: sceneRows.length,
+                scenesComplete: completed.length,
+                phase: "stitching",
+              },
+            })
+            .where(eq(jobs.id, jobId));
+
+          const workDir = path.join(
+            tmpdir(),
+            `nova-${episode.slug}-${Date.now()}`
+          );
+          mkdirSync(workDir, { recursive: true });
+
+          const ordered = [...completed].sort(
+            (a, b) => a.sceneNumber - b.sceneNumber
+          );
+          const localPaths: string[] = [];
+
+          for (const r of ordered) {
+            const objectPath = publicUrlToObjectPath(r.videoPath);
+            if (!objectPath) {
+              throw new Error(
+                `Could not resolve object path from URL: ${r.videoPath}`
+              );
+            }
+            const buf = await downloadFromBucket(supabase, objectPath);
+            const local = path.join(
+              workDir,
+              `scene-${String(r.sceneNumber).padStart(2, "0")}.mp4`
+            );
+            writeFileSync(local, buf);
+            localPaths.push(local);
+          }
+
+          const masterLocal = path.join(
+            workDir,
+            `${episode.slug}-master.mp4`
+          );
+          await stitchEpisode({
+            scenePaths: localPaths,
+            outputPath: masterLocal,
+            reencode: true,
+          });
+
+          const { readFileSync } = await import("node:fs");
+          const masterBuf = readFileSync(masterLocal);
+          const masterObjectPath = `masters/${episode.slug}.mp4`;
+          const masterPublicUrl = await uploadVideo(
+            supabase,
+            masterObjectPath,
+            masterBuf
+          );
+
+          await db
+            .update(episodes)
+            .set({
+              masterVideoPath: masterPublicUrl,
+              updatedAt: sql`now()`,
+            })
+            .where(eq(episodes.id, episode.id));
+
+          return masterPublicUrl;
         })
-        .where(eq(jobs.id, jobId));
+      : null;
 
-      const workDir = path.join(tmpdir(), `nova-${episode.slug}-${Date.now()}`);
-      mkdirSync(workDir, { recursive: true });
-
-      const ordered = [...sceneResults].sort((a, b) => a.sceneNumber - b.sceneNumber);
-      const localPaths: string[] = [];
-
-      for (const r of ordered) {
-        const objectPath = publicUrlToObjectPath(r.videoPath);
-        if (!objectPath) {
-          throw new Error(`Could not resolve object path from URL: ${r.videoPath}`);
-        }
-        const buf = await downloadFromBucket(supabase, objectPath);
-        const local = path.join(
-          workDir,
-          `scene-${String(r.sceneNumber).padStart(2, "0")}.mp4`
-        );
-        writeFileSync(local, buf);
-        localPaths.push(local);
-      }
-
-      const masterLocal = path.join(workDir, `${episode.slug}-master.mp4`);
-      await stitchEpisode({
-        scenePaths: localPaths,
-        outputPath: masterLocal,
-        reencode: true,
-      });
-
-      const { readFileSync } = await import("node:fs");
-      const masterBuf = readFileSync(masterLocal);
-      const masterObjectPath = `masters/${episode.slug}.mp4`;
-      const masterPublicUrl = await uploadVideo(
-        supabase,
-        masterObjectPath,
-        masterBuf
-      );
-
-      await db
-        .update(episodes)
-        .set({
-          masterVideoPath: masterPublicUrl,
-          updatedAt: sql`now()`,
-        })
-        .where(eq(episodes.id, episode.id));
-
-      return masterPublicUrl;
-    });
-
-    // 5. Mark job complete
+    // 5. Mark job complete. Lifecycle is "complete" either way — the UI
+    // surfaces failures via scene-level state.
     await step.run("mark-complete", async () => {
       await db
         .update(jobs)
@@ -303,10 +337,15 @@ export const renderEpisode = inngest.createFunction(
           completedAt: sql`now()`,
           progress: {
             scenesTotal: sceneRows.length,
-            scenesComplete: sceneRows.length,
-            phase: "complete",
+            scenesComplete: completed.length,
+            phase: allComplete ? "complete" : "incomplete",
+            ...(allComplete ? {} : { incomplete }),
           },
-          result: { masterUrl, episodeId: episode.id },
+          result: {
+            masterUrl,
+            episodeId: episode.id,
+            ...(allComplete ? {} : { incomplete }),
+          },
         })
         .where(eq(jobs.id, jobId));
     });

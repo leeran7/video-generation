@@ -1,16 +1,28 @@
 import { NextResponse } from "next/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { episodes, jobs, shows } from "@/lib/db/schema";
+import { episodes, jobs, scenes, shows } from "@/lib/db/schema";
 import { inngest } from "@/lib/inngest/client";
 import { expireStalePendingJobs } from "@/lib/inngest/cleanup";
 
 export async function POST(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ showSlug: string; epSlug: string }> }
 ) {
   const { showSlug, epSlug } = await params;
+
+  let sceneIds: string[] = [];
+  try {
+    const body = (await req.json()) as { sceneIds?: unknown };
+    if (Array.isArray(body?.sceneIds)) {
+      sceneIds = body.sceneIds.filter(
+        (x): x is string => typeof x === "string" && x.length > 0
+      );
+    }
+  } catch {
+    // No body / invalid JSON — treat as full re-run.
+  }
 
   const [show] = await db
     .select({ id: shows.id })
@@ -37,6 +49,22 @@ export async function POST(
   }
 
   await expireStalePendingJobs({ episodeId: ep.id });
+
+  // Selective retry: reset chosen scenes so the per-scene idempotency check
+  // (`status === 'complete' && videoPath`) sees them as not-done and re-runs
+  // generation. Scenes not in the list are left alone — already-completed
+  // ones get skipped, anything else gets retried.
+  if (sceneIds.length > 0) {
+    await db
+      .update(scenes)
+      .set({
+        status: "pending",
+        error: null,
+        videoPath: null,
+        updatedAt: sql`now()`,
+      })
+      .where(and(eq(scenes.episodeId, ep.id), inArray(scenes.id, sceneIds)));
+  }
 
   const [job] = await db
     .insert(jobs)
