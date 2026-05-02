@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { asc, sql } from "drizzle-orm";
 import { CharacterCard } from "@/components/character-card";
 import { AntagonistCard } from "@/components/antagonist-card";
@@ -54,11 +55,16 @@ export default async function Home() {
                 <h3 className="roster-heading">Heroes</h3>
                 <div className="cards-container">
                   {heroes.map((row) => (
-                    <CharacterCard
+                    <Link
                       key={row.slug}
-                      character={row.data as unknown as Character}
-                      accent={accentForRoster(row.rosterNumber!)}
-                    />
+                      href={`/characters/${row.slug}`}
+                      className="card-link"
+                    >
+                      <CharacterCard
+                        character={row.data as unknown as Character}
+                        accent={accentForRoster(row.rosterNumber!)}
+                      />
+                    </Link>
                   ))}
                 </div>
               </>
@@ -71,11 +77,16 @@ export default async function Home() {
                   {antagonists.map((row) => {
                     const antagonist = row.data as unknown as Antagonist;
                     return (
-                      <AntagonistCard
+                      <Link
                         key={row.slug}
-                        antagonist={antagonist}
-                        accent={ANTAGONIST_ACCENT}
-                      />
+                        href={`/characters/${row.slug}`}
+                        className="card-link"
+                      >
+                        <AntagonistCard
+                          antagonist={antagonist}
+                          accent={ANTAGONIST_ACCENT}
+                        />
+                      </Link>
                     );
                   })}
                 </div>

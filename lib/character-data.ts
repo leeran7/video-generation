@@ -1,9 +1,9 @@
 const ACCENT_COLORS = [
   "#00f0ff",
   "#ff4060",
-  "#a855f7",
   "#22c55e",
-  "#f59e0b",
+  "#a855f7",
+  "#f59e0b", 
 ] as const;
 
 export function accentForRoster(rosterNumber: number): string {
@@ -24,6 +24,15 @@ export interface Antagonist {
   roleInPlot: string;
   outcome: string;
   lockStatus?: string;
+  codename?: string;
+  revealedInEpisode?: number;
+  publicPresentation?: string;
+  originSketch?: string;
+  motivation?: string;
+  ideologicalTwist?: string;
+  methods?: string[];
+  voiceNotes?: string;
+  continuityNote?: string;
 }
 
 export const ANTAGONIST_ACCENT = "#ef4444";
