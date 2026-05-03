@@ -41,7 +41,6 @@ export default async function ShowPage({
 
   return (
     <main>
-      <h1 className="show-title">{show.title}</h1>
       <p className="show-meta">
         {heroes.length} heroes · {antagonists.length} antagonists
       </p>

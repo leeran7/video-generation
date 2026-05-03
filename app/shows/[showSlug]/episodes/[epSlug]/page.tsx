@@ -113,7 +113,7 @@ export default async function EpisodeDetailPage({
             {arc ? `Arc ${arc.arcNumber} · ${arc.title}` : "No arc"} ·{" "}
             Ep {String(ep.episodeNumber).padStart(2, "0")}
           </div>
-          <h1 className="detail-name">{ep.title}</h1>
+          <h2 className="detail-name">{ep.title}</h2>
           <p className="detail-alias">
             {ep.runtimeSeconds
               ? `${Math.round(ep.runtimeSeconds / 60)} min`

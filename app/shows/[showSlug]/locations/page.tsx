@@ -59,7 +59,7 @@ export default async function LocationsPage({
 
   return (
     <main>
-      <h1>Locations</h1>
+      <h2 className="page-section-heading">Locations</h2>
       <p className="show-meta">
         {locations.length} location{locations.length === 1 ? "" : "s"} ·{" "}
         {withBoard} with concept board

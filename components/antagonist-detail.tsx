@@ -31,7 +31,7 @@ export function AntagonistDetail({
 
         <header className="detail-header">
           <div className="detail-eyebrow">{antagonist.type}</div>
-          <h1 className="detail-name">{antagonist.name}</h1>
+          <h2 className="detail-name">{antagonist.name}</h2>
 
           <div className="chip-row">
             {shortAffiliation && (

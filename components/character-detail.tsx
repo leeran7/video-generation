@@ -29,7 +29,7 @@ export function CharacterDetail({
           <div className="detail-eyebrow">
             {character.icon} · Roster {character.rosterNumber}
           </div>
-          <h1 className="detail-name">{character.codename}</h1>
+          <h2 className="detail-name">{character.codename}</h2>
           <p className="detail-alias">
             {character.realName} · Age {character.age} · {character.role}
           </p>

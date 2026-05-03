@@ -103,7 +103,7 @@ export default async function EpisodesPage({
 
   return (
     <main>
-      <h1>Episodes</h1>
+      <h2 className="page-section-heading">Episodes</h2>
       <p className="show-meta">
         {epRows.length} episode{epRows.length === 1 ? "" : "s"} ·{" "}
         {arcsWithEpisodes.length} arc{arcsWithEpisodes.length === 1 ? "" : "s"}

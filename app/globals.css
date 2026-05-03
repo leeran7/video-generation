@@ -38,6 +38,107 @@ body {
   display: flex;
   align-items: center;
   gap: 32px;
+  min-height: 48px;
+}
+
+.show-app-header {
+  position: sticky;
+  top: 49px;
+  z-index: 45;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.show-app-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 24px 0;
+}
+
+.breadcrumb-nav {
+  margin-bottom: 6px;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb-sep {
+  color: color-mix(in srgb, var(--muted) 50%, var(--border));
+  font-weight: 500;
+  user-select: none;
+}
+
+.breadcrumb-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--text);
+}
+
+.breadcrumb-current {
+  color: var(--text);
+}
+
+.show-app-title {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 14px;
+  color: var(--text);
+}
+
+.show-app-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.show-app-tab {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.show-app-tab:hover {
+  color: var(--text);
+}
+
+.show-app-tab.is-active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 8%, transparent);
 }
 
 .site-brand {
@@ -222,6 +323,14 @@ main > h1 {
   margin: 0 0 4px;
 }
 
+.page-section-heading {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+  color: var(--text);
+}
+
 main > p {
   color: var(--muted);
   letter-spacing: 0.2em;
@@ -236,12 +345,6 @@ main > p {
 
 .show-section:first-of-type {
   margin-top: 32px;
-}
-
-.show-title {
-  font-size: clamp(20px, 3vw, 28px);
-  letter-spacing: 0.1em;
-  margin: 0 0 4px;
 }
 
 .show-meta {
