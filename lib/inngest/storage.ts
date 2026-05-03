@@ -58,5 +58,6 @@ export function publicUrlToObjectPath(publicUrl: string): string | null {
   const marker = `/storage/v1/object/public/${EPISODE_BUCKET}/`;
   const idx = publicUrl.indexOf(marker);
   if (idx === -1) return null;
-  return publicUrl.slice(idx + marker.length);
+  // Strip query string (signed URLs append `?token=…`) and any URL fragment.
+  return publicUrl.slice(idx + marker.length).split(/[?#]/)[0];
 }

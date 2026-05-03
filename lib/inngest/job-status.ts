@@ -4,6 +4,8 @@ import { db } from "@/lib/db/client";
 import { episodes, jobs, scenes } from "@/lib/db/schema";
 import { expireStalePendingJobs } from "@/lib/inngest/cleanup";
 
+const TERMINAL_STATUSES = new Set(["complete", "failed", "error", "expired"]);
+
 export type SceneStatus = {
   id: string;
   sceneNumber: number;
@@ -35,12 +37,22 @@ export type JobStatusResponse = {
 /**
  * Fetch the current state of a render job + its scenes + the episode's
  * master video path. Used by both the API polling endpoint and the page
- * server-side hydrator. Sweeps stale pending/running jobs first.
+ * server-side hydrator. Sweeps stale jobs first — but only when the
+ * target job isn't already terminal, so the 2s console poll doesn't
+ * generate redundant cleanup queries on finished jobs.
  */
 export async function getJobStatus(
   jobId: string
 ): Promise<JobStatusResponse | null> {
-  await expireStalePendingJobs();
+  const [initial] = await db
+    .select({ status: jobs.status })
+    .from(jobs)
+    .where(eq(jobs.id, jobId))
+    .limit(1);
+  if (!initial) return null;
+
+  const wasTerminal = TERMINAL_STATUSES.has(initial.status ?? "");
+  if (!wasTerminal) await expireStalePendingJobs();
 
   const [job] = await db.select().from(jobs).where(eq(jobs.id, jobId)).limit(1);
   if (!job) return null;

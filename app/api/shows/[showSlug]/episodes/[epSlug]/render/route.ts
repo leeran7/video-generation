@@ -55,6 +55,20 @@ export async function POST(
   // generation. Scenes not in the list are left alone — already-completed
   // ones get skipped, anything else gets retried.
   if (sceneIds.length > 0) {
+    const owned = await db
+      .select({ id: scenes.id })
+      .from(scenes)
+      .where(and(eq(scenes.episodeId, ep.id), inArray(scenes.id, sceneIds)));
+    if (owned.length !== sceneIds.length) {
+      const ownedSet = new Set(owned.map((r) => r.id));
+      const stray = sceneIds.filter((id) => !ownedSet.has(id));
+      return NextResponse.json(
+        {
+          error: `sceneIds do not belong to this episode: ${stray.join(", ")}`,
+        },
+        { status: 400 }
+      );
+    }
     await db
       .update(scenes)
       .set({

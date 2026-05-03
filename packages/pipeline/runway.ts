@@ -85,9 +85,11 @@ export async function generateScene(
   try {
     let task: TaskRetrieveResponse.Succeeded;
     if (input.imageRef) {
+      const imgModel: "gen4.5" | "gen4_turbo" =
+        model === "gen4_turbo" ? "gen4_turbo" : "gen4.5";
       task = await client.imageToVideo
         .create({
-          model: "gen4.5",
+          model: imgModel,
           promptImage: input.imageRef,
           promptText: input.promptText,
           ratio,
@@ -96,6 +98,8 @@ export async function generateScene(
         })
         .waitForTaskOutput({ timeout });
     } else {
+      // textToVideo's gen4 overload only accepts "gen4.5"; veo models use a
+      // separate signature. Stick to gen4.5 here.
       task = await client.textToVideo
         .create({
           model: "gen4.5",
@@ -112,7 +116,6 @@ export async function generateScene(
       throw new RunwaySceneError("Task succeeded but returned no output URL");
     }
 
-    void model;
     return { videoUrl, task };
   } catch (err) {
     throw translateRunwayError(err);
