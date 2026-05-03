@@ -92,7 +92,11 @@ export async function POST(
   try {
     await inngest.send({
       name: "episode/render.requested",
-      data: { jobId: job.id, episodeId: ep.id },
+      data: {
+        jobId: job.id,
+        episodeId: ep.id,
+        ...(sceneIds.length > 0 ? { sceneIds } : {}),
+      },
     });
   } catch (err) {
     const msg = (err as Error).message ?? "unknown";

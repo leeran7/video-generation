@@ -7,6 +7,7 @@ import { eq, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
 import { episodes, jobs, scenes } from "@/lib/db/schema";
+import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 import { inngest } from "@/lib/inngest/client";
 import {
   downloadFromBucket,
@@ -15,7 +16,6 @@ import {
   publicUrlToObjectPath,
   uploadVideo,
 } from "@/lib/inngest/storage";
-import { parseScriptToManifest } from "@/packages/pipeline/manifest";
 import {
   RunwaySceneError,
   downloadVideo,
@@ -65,10 +65,20 @@ export const renderEpisode = inngest.createFunction(
     },
   },
   async ({ event, step }) => {
-    const { jobId, episodeId } = event.data as {
+    const { jobId, episodeId, sceneIds: rawSceneIds } = event.data as {
       jobId: string;
       episodeId: string;
+      sceneIds?: string[];
     };
+
+    const sceneIdSelection =
+      Array.isArray(rawSceneIds) && rawSceneIds.length > 0
+        ? new Set(
+            rawSceneIds.filter(
+              (id): id is string => typeof id === "string" && id.length > 0
+            )
+          )
+        : null;
 
     if (!process.env.RUNWAYML_API_SECRET) {
       throw new Error(
@@ -104,63 +114,19 @@ export const renderEpisode = inngest.createFunction(
 
     // 2. Parse the script and upsert scenes
     const sceneRows = await step.run("parse-and-upsert-scenes", async () => {
-      const { manifest } = parseScriptToManifest(episode.scriptContent, {
-        slug: episode.slug,
-      });
+      const inserted = await syncScenesFromScript(episode);
 
-      const inserted: {
-        id: string;
-        sceneNumber: number;
-        sceneId: string;
-        title: string | null;
-        durationSeconds: number | null;
-        generationPrompt: string | null;
-        videoPath: string | null;
-        status: string | null;
-      }[] = [];
-
-      for (const scene of manifest.scenes) {
-        const gen = scene.generation ?? {};
-        const [row] = await db
-          .insert(scenes)
-          .values({
-            episodeId: episode.id,
-            sceneNumber: scene.order,
-            sceneId: scene.id,
-            title: scene.title ?? null,
-            durationSeconds: gen.targetDurationSeconds ?? null,
-            generationPrompt: gen.prompt ?? gen.promptSummary ?? null,
-            imageRef: gen.imageRef ?? null,
-            status: "pending",
-          })
-          .onConflictDoUpdate({
-            target: [scenes.episodeId, scenes.sceneNumber],
-            set: {
-              sceneId: scene.id,
-              title: scene.title ?? null,
-              durationSeconds: gen.targetDurationSeconds ?? null,
-              generationPrompt: gen.prompt ?? gen.promptSummary ?? null,
-              imageRef: gen.imageRef ?? null,
-              updatedAt: sql`now()`,
-            },
-          })
-          .returning();
-        inserted.push({
-          id: row.id,
-          sceneNumber: row.sceneNumber,
-          sceneId: row.sceneId ?? scene.id,
-          title: row.title,
-          durationSeconds: row.durationSeconds,
-          generationPrompt: row.generationPrompt,
-          videoPath: row.videoPath,
-          status: row.status,
-        });
-      }
+      const scenesTotal =
+        sceneIdSelection?.size ?? inserted.length;
 
       await db
         .update(jobs)
         .set({
-          progress: { scenesTotal: inserted.length, scenesComplete: 0, phase: "generating" },
+          progress: {
+            scenesTotal,
+            scenesComplete: 0,
+            phase: "generating",
+          },
         })
         .where(eq(jobs.id, jobId));
 
@@ -180,6 +146,16 @@ export const renderEpisode = inngest.createFunction(
             .from(scenes)
             .where(eq(scenes.id, s.id))
             .limit(1);
+
+          if (sceneIdSelection && !sceneIdSelection.has(s.id)) {
+            if (existing?.status === "complete" && existing.videoPath) {
+              return {
+                sceneNumber: s.sceneNumber,
+                videoPath: existing.videoPath,
+              };
+            }
+            return { sceneNumber: s.sceneNumber, videoPath: null };
+          }
 
           // Reuse already-rendered scene
           if (existing?.status === "complete" && existing.videoPath) {

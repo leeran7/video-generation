@@ -5,6 +5,8 @@ export type EpisodeRenderRequested = {
   data: {
     jobId: string;
     episodeId: string;
+    /** When set, only these scene rows are generated; others are left unchanged. */
+    sceneIds?: string[];
   };
 };
 

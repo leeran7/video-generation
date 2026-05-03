@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { asc, eq } from "drizzle-orm";
+import { asc, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/client";
-import { arcs, episodes, shows } from "@/lib/db/schema";
+import { arcs, episodes, scenes, shows } from "@/lib/db/schema";
+import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 
 export default async function EpisodesPage({
   params,
@@ -30,6 +31,64 @@ export default async function EpisodesPage({
     .from(episodes)
     .where(eq(episodes.showId, show.id))
     .orderBy(asc(episodes.episodeNumber));
+
+  await Promise.all(
+    epRows.map((ep) =>
+      syncScenesFromScript({
+        id: ep.id,
+        slug: ep.slug,
+        scriptContent: ep.scriptContent,
+      }).catch((err) => {
+        console.error(
+          `[episodes list ${ep.slug}] sync-scenes-from-script:`,
+          err instanceof Error ? err.message : err
+        );
+      })
+    )
+  );
+
+  const sceneAggRows = await db
+    .select({
+      episodeId: scenes.episodeId,
+      total: sql<number>`count(*)::int`,
+      complete: sql<number>`count(*) filter (where ${scenes.status} = 'complete')::int`,
+      failed: sql<number>`count(*) filter (where ${scenes.status} = 'failed')::int`,
+    })
+    .from(scenes)
+    .innerJoin(episodes, eq(scenes.episodeId, episodes.id))
+    .where(eq(episodes.showId, show.id))
+    .groupBy(scenes.episodeId);
+
+  const sceneAgg = new Map(
+    sceneAggRows
+      .filter(
+        (r): r is typeof r & { episodeId: string } => r.episodeId != null
+      )
+      .map((r) => [r.episodeId, r])
+  );
+
+  function renderBadge(epId: string, hasMaster: boolean) {
+    const agg = sceneAgg.get(epId);
+    if (hasMaster) {
+      return <span className="ep-badge ep-badge-rendered">rendered</span>;
+    }
+    if (!agg) return null;
+    if (agg.failed > 0) {
+      return (
+        <span className="ep-badge ep-badge-failed">
+          {agg.complete}/{agg.total} · {agg.failed} failed
+        </span>
+      );
+    }
+    if (agg.complete < agg.total) {
+      return (
+        <span className="ep-badge ep-badge-partial">
+          {agg.complete}/{agg.total}
+        </span>
+      );
+    }
+    return null;
+  }
 
   const byArc = new Map<string | null, typeof epRows>();
   for (const ep of epRows) {
@@ -69,6 +128,7 @@ export default async function EpisodesPage({
                       Ep {String(ep.episodeNumber).padStart(2, "0")}
                     </span>
                     <span className="episode-title">{ep.title}</span>
+                    {renderBadge(ep.id, !!ep.masterVideoPath)}
                     <span className="episode-meta">
                       {ep.runtimeSeconds
                         ? `${Math.round(ep.runtimeSeconds / 60)} min`
@@ -104,6 +164,7 @@ export default async function EpisodesPage({
                     Ep {String(ep.episodeNumber).padStart(2, "0")}
                   </span>
                   <span className="episode-title">{ep.title}</span>
+                  {renderBadge(ep.id, !!ep.masterVideoPath)}
                   <span className="episode-meta">
                     {ep.runtimeSeconds
                       ? `${Math.round(ep.runtimeSeconds / 60)} min`

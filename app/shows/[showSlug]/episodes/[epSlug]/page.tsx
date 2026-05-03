@@ -1,22 +1,21 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { and, eq } from "drizzle-orm";
+import { and, asc, desc, eq } from "drizzle-orm";
 import { marked } from "marked";
 import { db } from "@/lib/db/client";
-import { arcs, characters, episodes, shows } from "@/lib/db/schema";
-import { RenderButton } from "./render-button";
+import {
+  arcs,
+  characters,
+  episodes,
+  jobs,
+  scenes,
+  shows,
+} from "@/lib/db/schema";
+import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
+import { getJobStatus } from "@/lib/inngest/job-status";
+import { RenderPanel } from "./render-panel";
 
 marked.setOptions({ gfm: true, breaks: false });
-
-function extractScenes(script: string): string[] {
-  const lines = script.split("\n");
-  const out: string[] = [];
-  for (const line of lines) {
-    const m = line.match(/^###\s+(SCENE\s+\d+.*)$/i);
-    if (m) out.push(m[1].trim());
-  }
-  return out;
-}
 
 export default async function EpisodeDetailPage({
   params,
@@ -41,27 +40,62 @@ export default async function EpisodeDetailPage({
 
   if (!ep) notFound();
 
-  const arc = ep.arcId
-    ? (
-        await db
+  try {
+    await syncScenesFromScript({
+      id: ep.id,
+      slug: ep.slug,
+      scriptContent: ep.scriptContent,
+    });
+  } catch (err) {
+    console.error(
+      `[episodes/${epSlug}] sync-scenes-from-script:`,
+      err instanceof Error ? err.message : err
+    );
+  }
+
+  const [arc, focus, latestJob] = await Promise.all([
+    ep.arcId
+      ? db
           .select()
           .from(arcs)
           .where(eq(arcs.id, ep.arcId))
           .limit(1)
-      )[0] ?? null
-    : null;
-
-  const focus = ep.focusCharacterId
-    ? (
-        await db
+          .then((r) => r[0] ?? null)
+      : Promise.resolve(null),
+    ep.focusCharacterId
+      ? db
           .select()
           .from(characters)
           .where(eq(characters.id, ep.focusCharacterId))
           .limit(1)
-      )[0] ?? null
-    : null;
+          .then((r) => r[0] ?? null)
+      : Promise.resolve(null),
+    db
+      .select({ id: jobs.id })
+      .from(jobs)
+      .where(eq(jobs.episodeId, ep.id))
+      .orderBy(desc(jobs.createdAt))
+      .limit(1)
+      .then((r) => r[0] ?? null),
+  ]);
 
-  const scenes = ep.scriptContent ? extractScenes(ep.scriptContent) : [];
+  const jobStatus = latestJob ? await getJobStatus(latestJob.id) : null;
+  const sceneRows = jobStatus
+    ? jobStatus.scenes
+    : await db
+        .select({
+          id: scenes.id,
+          sceneNumber: scenes.sceneNumber,
+          sceneId: scenes.sceneId,
+          title: scenes.title,
+          status: scenes.status,
+          videoPath: scenes.videoPath,
+          error: scenes.error,
+        })
+        .from(scenes)
+        .where(eq(scenes.episodeId, ep.id))
+        .orderBy(asc(scenes.sceneNumber));
+
   const scriptHtml = ep.scriptContent
     ? await marked.parse(ep.scriptContent)
     : null;
@@ -87,13 +121,8 @@ export default async function EpisodeDetailPage({
             {ep.lockStatus ? ` · ${ep.lockStatus}` : ""}
             {focus?.name ? ` · Focus: ${focus.name}` : ""}
           </p>
-          <div className="detail-actions">
-            <RenderButton
-              showSlug={showSlug}
-              epSlug={epSlug}
-              disabled={!ep.scriptContent}
-            />
-            {ep.masterVideoPath && (
+          {ep.masterVideoPath && (
+            <div className="detail-actions">
               <a
                 className="render-master-link"
                 href={ep.masterVideoPath}
@@ -102,8 +131,8 @@ export default async function EpisodeDetailPage({
               >
                 Open master video ↗
               </a>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {ep.brief && (
@@ -126,24 +155,25 @@ export default async function EpisodeDetailPage({
           </section>
         )}
 
-        {scenes.length > 0 && (
-          <section className="detail-section">
-            <div className="section-label">Scenes ({scenes.length})</div>
-            <ol className="methods-list">
-              {scenes.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ol>
-          </section>
-        )}
+        <RenderPanel
+          key={jobStatus?.job.id ?? "no-job"}
+          showSlug={showSlug}
+          epSlug={epSlug}
+          hasScript={!!ep.scriptContent}
+          initialJob={jobStatus}
+          initialScenes={sceneRows}
+        />
 
         <section className="detail-section">
           <div className="section-label">Script</div>
           {scriptHtml ? (
-            <div
-              className="script-md"
-              dangerouslySetInnerHTML={{ __html: scriptHtml }}
-            />
+            <details className="script-disclosure">
+              <summary>View script</summary>
+              <div
+                className="script-md"
+                dangerouslySetInnerHTML={{ __html: scriptHtml }}
+              />
+            </details>
           ) : (
             <p className="placeholder-text">No script content seeded.</p>
           )}
