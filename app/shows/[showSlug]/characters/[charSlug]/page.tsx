@@ -43,8 +43,11 @@ export default async function CharacterPage({
   const isHero = row.type === "hero";
 
   return (
-    <main>
-      <Link href={`/shows/${showSlug}`} className="back-link">
+    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
+      <Link
+        href={`/shows/${showSlug}`}
+        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]"
+      >
         ← Back to {show.title}
       </Link>
 

@@ -33,6 +33,24 @@ type JobResponse = {
 
 const TERMINAL = new Set(["complete", "failed", "error", "expired"]);
 
+const SECTION = "border-b border-[var(--border)] px-7 py-5 last:border-b-0";
+const SECTION_LABEL =
+  "mb-1.5 border-b border-[var(--border)] pb-1 text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]";
+const RENDER_BUTTON =
+  "cursor-pointer rounded-[2px] border border-[var(--text)] bg-[var(--text)] px-[18px] py-[9px] font-[inherit] text-xs uppercase tracking-[0.18em] text-[var(--bg)] transition-opacity hover:enabled:opacity-85 disabled:cursor-not-allowed disabled:opacity-40";
+const SELECTION_ACTION =
+  "cursor-pointer rounded-[2px] border border-[var(--border)] bg-transparent px-2.5 py-[5px] font-[inherit] text-[11px] uppercase tracking-[0.16em] text-[var(--text)] transition-colors hover:enabled:border-[var(--text)] disabled:cursor-not-allowed disabled:opacity-40";
+
+function sceneBorderClass(status: string | null): string {
+  if (status === "complete")
+    return "border-[color-mix(in_srgb,#4ec97e_50%,var(--border))]";
+  if (status === "failed")
+    return "border-[color-mix(in_srgb,#ff7466_50%,var(--border))]";
+  if (status === "generating")
+    return "border-[color-mix(in_srgb,var(--text)_30%,var(--border))]";
+  return "border-[var(--border)]";
+}
+
 export function RenderPanel({
   showSlug,
   epSlug,
@@ -210,25 +228,25 @@ export function RenderPanel({
       type="button"
       onClick={submit}
       disabled={buttonDisabled}
-      className="render-button"
+      className={RENDER_BUTTON}
     >
       {buttonLabel}
     </button>
   );
 
   const messages = hasMessages && (
-    <div className="render-toolbar-messages">
-      {hint && <span className="render-hint">{hint}</span>}
-      {errorText && <span className="render-error">{errorText}</span>}
+    <div className="flex flex-wrap items-center gap-3 border-t border-[var(--border)] pt-2">
+      {hint && <span className="text-xs text-[var(--muted)]">{hint}</span>}
+      {errorText && <span className="text-xs text-[#ff7466]">{errorText}</span>}
     </div>
   );
 
   if (scenes.length === 0) {
     return (
-      <section className="detail-section">
-        <div className="section-label">Render</div>
-        <div className="render-toolbar">
-          <div className="render-toolbar-actions">{renderButton}</div>
+      <section className={SECTION}>
+        <div className={SECTION_LABEL}>Render</div>
+        <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-[var(--border)] bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
+          <div className="flex flex-wrap items-center gap-2.5">{renderButton}</div>
           {messages}
         </div>
       </section>
@@ -238,73 +256,76 @@ export function RenderPanel({
   const isAllFailed = failedOnly === scenes.length;
 
   return (
-    <section className="detail-section">
-      <div className="section-label">
+    <section className={SECTION}>
+      <div className={SECTION_LABEL}>
         Scenes ({scenes.length})
         {total > 0 ? ` · ${done}/${total} complete` : ""}
         {failed > 0 ? ` · ${failed} failed` : ""}
       </div>
-      <div className="render-toolbar">
-        <div className="render-toolbar-actions">
+      <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-[var(--border)] bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           {renderButton}
           {checkboxesEnabled && (
-          <>
-            <span className="toolbar-divider" aria-hidden />
-            <button
-              type="button"
-              className="selection-action"
-              onClick={() => {
-                hasInteracted.current = true;
-                setSelected(new Set(scenes.map((s) => s.id)));
-              }}
-            >
-              Select all
-            </button>
-            {!isAllFailed && (
-            <button
-              type="button"
-              className="selection-action"
-              disabled={failed === 0}
-              onClick={() => {
-                hasInteracted.current = true;
-                setSelected(
-                  new Set(
-                    scenes
-                      .filter((s) => s.status === "failed")
-                      .map((s) => s.id)
-                  )
-                );
-              }}
-            >
-              Failed only
-            </button>
-            )}
-            <button
-              type="button"
-              className="selection-action"
-              disabled={selected.size === 0}
-              onClick={() => {
-                hasInteracted.current = true;
-                setSelected(new Set());
-              }}
-            >
-              Clear
-            </button>
-            <span className="selection-count">
-              {selected.size} of {scenes.length} selected
-            </span>
-          </>
-        )}
+            <>
+              <span
+                className="mx-1 w-px self-stretch bg-[var(--border)]"
+                aria-hidden
+              />
+              <button
+                type="button"
+                className={SELECTION_ACTION}
+                onClick={() => {
+                  hasInteracted.current = true;
+                  setSelected(new Set(scenes.map((s) => s.id)));
+                }}
+              >
+                Select all
+              </button>
+              {!isAllFailed && (
+                <button
+                  type="button"
+                  className={SELECTION_ACTION}
+                  disabled={failed === 0}
+                  onClick={() => {
+                    hasInteracted.current = true;
+                    setSelected(
+                      new Set(
+                        scenes
+                          .filter((s) => s.status === "failed")
+                          .map((s) => s.id)
+                      )
+                    );
+                  }}
+                >
+                  Failed only
+                </button>
+              )}
+              <button
+                type="button"
+                className={SELECTION_ACTION}
+                disabled={selected.size === 0}
+                onClick={() => {
+                  hasInteracted.current = true;
+                  setSelected(new Set());
+                }}
+              >
+                Clear
+              </button>
+              <span className="ml-auto text-[11px] uppercase tracking-[0.14em] text-[var(--muted)]">
+                {selected.size} of {scenes.length} selected
+              </span>
+            </>
+          )}
         </div>
         {messages}
       </div>
-      <ul className="scene-list">
+      <ul className="m-0 flex list-none flex-col gap-2 p-0">
         {scenes.map((s) => (
           <li
             key={s.id}
-            className={`scene-item scene-${s.status ?? "pending"}`}
+            className={`flex flex-col overflow-hidden rounded-[2px] border bg-[color-mix(in_srgb,var(--panel)_60%,transparent)] text-[13px] ${sceneBorderClass(s.status)}`}
           >
-            <div className="scene-row">
+            <div className="grid grid-cols-[36px_36px_1fr_auto_auto] items-center gap-3 pr-3 min-h-12">
               <input
                 type="checkbox"
                 className="scene-check"
@@ -313,25 +334,31 @@ export function RenderPanel({
                 disabled={!checkboxesEnabled}
                 aria-label={`Select scene ${s.sceneNumber} for generation`}
               />
-              <span className="scene-num">
+              <span className="text-right font-mono text-[var(--muted)]">
                 {String(s.sceneNumber).padStart(2, "0")}
               </span>
-              <span className="scene-title">
+              <span className="text-[var(--text)]">
                 {s.title ?? s.sceneId ?? `Scene ${s.sceneNumber}`}
               </span>
-              <span className="scene-status">{s.status ?? "pending"}</span>
+              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+                {s.status ?? "pending"}
+              </span>
               {s.videoPath && (
                 <a
                   href={s.videoPath}
                   target="_blank"
                   rel="noreferrer"
-                  className="scene-link"
+                  className="text-[11px] uppercase tracking-[0.18em] text-[var(--text)] no-underline"
                 >
                   open ↗
                 </a>
               )}
             </div>
-            {s.error && <p className="scene-error">{s.error}</p>}
+            {s.error && (
+              <p className="m-0 break-words border-t border-[color-mix(in_srgb,#ff7466_30%,var(--border))] bg-[color-mix(in_srgb,#ff7466_8%,transparent)] px-3 py-2.5 pl-[60px] text-xs leading-[1.45] text-[#ff7466]">
+                {s.error}
+              </p>
+            )}
           </li>
         ))}
       </ul>

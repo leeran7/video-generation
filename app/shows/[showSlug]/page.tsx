@@ -40,20 +40,22 @@ export default async function ShowPage({
   const antagonists = characterRows.filter((r) => r.rosterNumber == null);
 
   return (
-    <main>
-      <p className="show-meta">
+    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
+      <p className="mb-5 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
         {heroes.length} heroes · {antagonists.length} antagonists
       </p>
 
       {heroes.length > 0 && (
         <>
-          <h3 className="roster-heading">Heroes</h3>
-          <div className="cards-container">
+          <h3 className="mb-4 mt-8 border-b border-[var(--border)] pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-[var(--muted)]">
+            Heroes
+          </h3>
+          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
             {heroes.map((row) => (
               <Link
                 key={row.slug}
                 href={`/shows/${showSlug}/characters/${row.slug}`}
-                className="card-link"
+                className="group flex h-full text-inherit no-underline"
               >
                 <CharacterCard
                   character={row.data as unknown as Character}
@@ -67,13 +69,15 @@ export default async function ShowPage({
 
       {antagonists.length > 0 && (
         <>
-          <h3 className="roster-heading">Antagonists</h3>
-          <div className="cards-container">
+          <h3 className="mb-4 mt-8 border-b border-[var(--border)] pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-[var(--muted)]">
+            Antagonists
+          </h3>
+          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
             {antagonists.map((row) => (
               <Link
                 key={row.slug}
                 href={`/shows/${showSlug}/characters/${row.slug}`}
-                className="card-link"
+                className="group flex h-full text-inherit no-underline"
               >
                 <AntagonistCard
                   antagonist={row.data as unknown as Antagonist}

@@ -100,21 +100,31 @@ export default async function EpisodeDetailPage({
     ? await marked.parse(ep.scriptContent)
     : null;
 
+  const sectionClass =
+    "border-b border-[var(--border)] px-7 py-5 last:border-b-0";
+  const sectionLabelClass =
+    "mb-1.5 border-b border-[var(--border)] pb-1 text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]";
+
   return (
-    <main>
-      <Link href={`/shows/${showSlug}/episodes`} className="back-link">
+    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
+      <Link
+        href={`/shows/${showSlug}/episodes`}
+        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]"
+      >
         ← Episodes
       </Link>
 
-      <div className="detail">
-        <div className="detail-bar" />
-        <div className="detail-header">
-          <div className="detail-eyebrow">
+      <div className="overflow-hidden rounded border border-[var(--border)] bg-[var(--panel)]">
+        <div className="h-1 bg-[var(--accent,var(--text))]" />
+        <div className="flex flex-col justify-center px-7 pb-6 pt-7">
+          <div className="mb-2 text-[11px] uppercase tracking-[0.3em] text-[var(--muted)]">
             {arc ? `Arc ${arc.arcNumber} · ${arc.title}` : "No arc"} ·{" "}
             Ep {String(ep.episodeNumber).padStart(2, "0")}
           </div>
-          <h2 className="detail-name">{ep.title}</h2>
-          <p className="detail-alias">
+          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-bold tracking-[0.05em] text-[var(--accent,var(--text))]">
+            {ep.title}
+          </h2>
+          <p className="m-0 text-[13px] uppercase tracking-[0.2em] text-[var(--muted)]">
             {ep.runtimeSeconds
               ? `${Math.round(ep.runtimeSeconds / 60)} min`
               : "Runtime —"}
@@ -122,9 +132,9 @@ export default async function EpisodeDetailPage({
             {focus?.name ? ` · Focus: ${focus.name}` : ""}
           </p>
           {ep.masterVideoPath && (
-            <div className="detail-actions">
+            <div className="mt-3.5 flex flex-wrap items-center gap-3.5">
               <a
-                className="render-master-link"
+                className="border-b border-dashed border-[var(--muted)] pb-px text-xs uppercase tracking-[0.16em] text-[var(--muted)] no-underline transition-colors hover:border-[var(--text)] hover:text-[var(--text)]"
                 href={ep.masterVideoPath}
                 target="_blank"
                 rel="noreferrer"
@@ -136,18 +146,23 @@ export default async function EpisodeDetailPage({
         </div>
 
         {ep.brief && (
-          <section className="detail-section">
-            <div className="section-label">Hook</div>
-            <p className="section-content">{ep.brief}</p>
+          <section className={sectionClass}>
+            <div className={sectionLabelClass}>Hook</div>
+            <p className="m-0 text-sm leading-[1.6] text-[var(--text)]">
+              {ep.brief}
+            </p>
           </section>
         )}
 
         {ep.tags && ep.tags.length > 0 && (
-          <section className="detail-section">
-            <div className="section-label">Tags</div>
-            <div className="traits-list">
+          <section className={sectionClass}>
+            <div className={sectionLabelClass}>Tags</div>
+            <div className="flex flex-wrap gap-1.5">
               {ep.tags.map((tag) => (
-                <span key={tag} className="trait-tag">
+                <span
+                  key={tag}
+                  className="rounded-[2px] border border-[color-mix(in_srgb,var(--accent,var(--text))_30%,transparent)] bg-[color-mix(in_srgb,var(--accent,var(--text))_12%,transparent)] px-2.5 py-[3px] text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--accent,var(--text))]"
+                >
                   {tag}
                 </span>
               ))}
@@ -164,10 +179,10 @@ export default async function EpisodeDetailPage({
           initialScenes={sceneRows}
         />
 
-        <section className="detail-section">
-          <div className="section-label">Script</div>
+        <section className={sectionClass}>
+          <div className={sectionLabelClass}>Script</div>
           {scriptHtml ? (
-            <details className="script-disclosure">
+            <details className="script-disclosure mt-1">
               <summary>View script</summary>
               <div
                 className="script-md"
@@ -175,7 +190,9 @@ export default async function EpisodeDetailPage({
               />
             </details>
           ) : (
-            <p className="placeholder-text">No script content seeded.</p>
+            <p className="text-[13px] uppercase tracking-[0.1em] text-[var(--muted)]">
+              No script content seeded.
+            </p>
           )}
         </section>
       </div>
