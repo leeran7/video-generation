@@ -94,7 +94,7 @@ export default async function EpisodesPage({
     if (agg.complete < agg.total) {
       return (
         <span
-          className={`${badgeBase} border-[color-mix(in_srgb,var(--text)_30%,var(--border))] text-[var(--text)]`}
+          className={`${badgeBase} border-[color-mix(in_srgb,var(--text)_30%,var(--border))] text-(--text)`}
         >
           {agg.complete}/{agg.total}
         </span>
@@ -115,20 +115,20 @@ export default async function EpisodesPage({
   const orphanEpisodes = byArc.get(null) ?? [];
 
   const epRowClass =
-    "grid grid-cols-[80px_1fr_auto_auto] items-center gap-4 rounded border border-[var(--border)] bg-[var(--panel)] px-4 py-3.5 text-[var(--text)] no-underline transition-colors hover:border-[var(--text)] hover:bg-[color-mix(in_srgb,var(--panel)_70%,var(--bg))]";
+    "grid grid-cols-[80px_1fr_auto_auto] items-center gap-4 rounded border border-(--border) bg-(--panel) px-4 py-3.5 text-(--text) no-underline transition-colors hover:border-(--text) hover:bg-[color-mix(in_srgb,var(--panel)_70%,var(--bg))]";
   const arcSectionClass = "mt-9 first-of-type:mt-6";
   const arcHeadClass =
-    "mb-3 flex items-baseline gap-3.5 border-b border-[var(--border)] pb-2";
+    "mb-3 flex items-baseline gap-3.5 border-b border-(--border) pb-2";
   const arcNumClass =
-    "text-[11px] font-bold uppercase tracking-[0.4em] text-[var(--muted)]";
-  const arcTitleClass = "m-0 text-lg tracking-[0.05em]";
+    "text-[11px] font-bold uppercase tracking-[0.25em] text-(--muted)";
+  const arcTitleClass = "m-0 text-lg font-bold tracking-[-0.01em]";
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <h2 className="m-0 mb-1 text-[clamp(32px,5vw,48px)] font-normal tracking-[0.1em] text-[var(--text)]">
+      <h2 className="m-0 mb-1 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em] text-(--text)">
         Episodes
       </h2>
-      <p className="mb-5 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+      <p className="mb-5 text-[11px] uppercase tracking-[0.15em] text-(--muted)">
         {epRows.length} episode{epRows.length === 1 ? "" : "s"} ·{" "}
         {arcsWithEpisodes.length} arc{arcsWithEpisodes.length === 1 ? "" : "s"}
       </p>
@@ -148,19 +148,19 @@ export default async function EpisodesPage({
                     href={`/shows/${showSlug}/episodes/${ep.slug}`}
                     className={epRowClass}
                   >
-                    <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--muted)]">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-(--muted)">
                       Ep {String(ep.episodeNumber).padStart(2, "0")}
                     </span>
-                    <span className="min-w-0 text-[15px] tracking-[0.02em]">
+                    <span className="min-w-0 text-[15px]">
                       {ep.title}
                     </span>
                     {renderBadge(ep.id, !!ep.masterVideoPath)}
-                    <span className="col-start-4 justify-self-end text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                    <span className="col-start-4 justify-self-end text-[11px] uppercase tracking-[0.15em] text-(--muted)">
                       {ep.runtimeSeconds
                         ? `${Math.round(ep.runtimeSeconds / 60)} min`
                         : "—"}
                       {ep.lockStatus && ep.lockStatus !== "draft" && (
-                        <span className="ml-1 text-[var(--text)]">
+                        <span className="ml-1 text-(--text)">
                           · {ep.lockStatus}
                         </span>
                       )}
@@ -186,14 +186,14 @@ export default async function EpisodesPage({
                   href={`/shows/${showSlug}/episodes/${ep.slug}`}
                   className={epRowClass}
                 >
-                  <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--muted)]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-(--muted)">
                     Ep {String(ep.episodeNumber).padStart(2, "0")}
                   </span>
                   <span className="min-w-0 text-[15px] tracking-[0.02em]">
                     {ep.title}
                   </span>
                   {renderBadge(ep.id, !!ep.masterVideoPath)}
-                  <span className="col-start-4 justify-self-end text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                  <span className="col-start-4 justify-self-end text-[11px] uppercase tracking-[0.2em] text-(--muted)">
                     {ep.runtimeSeconds
                       ? `${Math.round(ep.runtimeSeconds / 60)} min`
                       : "—"}
@@ -206,7 +206,7 @@ export default async function EpisodesPage({
       )}
 
       {epRows.length === 0 && (
-        <p className="text-[13px] uppercase tracking-[0.1em] text-[var(--muted)]">
+        <p className="text-[13px] uppercase tracking-[0.1em] text-(--muted)">
           No episodes seeded yet.
         </p>
       )}

@@ -101,30 +101,30 @@ export default async function EpisodeDetailPage({
     : null;
 
   const sectionClass =
-    "border-b border-[var(--border)] px-7 py-5 last:border-b-0";
+    "border-b border-(--border) px-7 py-5 last:border-b-0";
   const sectionLabelClass =
-    "mb-1.5 border-b border-[var(--border)] pb-1 text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]";
+    "mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)";
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
       <Link
         href={`/shows/${showSlug}/episodes`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]"
+        className="mb-6 inline-block text-xs uppercase tracking-[0.15em] text-(--muted) no-underline transition-colors hover:text-(--text)"
       >
         ← Episodes
       </Link>
 
-      <div className="overflow-hidden rounded border border-[var(--border)] bg-[var(--panel)]">
+      <div className="overflow-hidden rounded border border-(--border) bg-(--panel)">
         <div className="h-1 bg-[var(--accent,var(--text))]" />
         <div className="flex flex-col justify-center px-7 pb-6 pt-7">
-          <div className="mb-2 text-[11px] uppercase tracking-[0.3em] text-[var(--muted)]">
+          <div className="mb-2 text-[11px] uppercase tracking-[0.2em] text-(--muted)">
             {arc ? `Arc ${arc.arcNumber} · ${arc.title}` : "No arc"} ·{" "}
             Ep {String(ep.episodeNumber).padStart(2, "0")}
           </div>
-          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-bold tracking-[0.05em] text-[var(--accent,var(--text))]">
+          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.01em] text-[var(--accent,var(--text))]">
             {ep.title}
           </h2>
-          <p className="m-0 text-[13px] uppercase tracking-[0.2em] text-[var(--muted)]">
+          <p className="m-0 text-[13px] uppercase tracking-[0.15em] text-(--muted)">
             {ep.runtimeSeconds
               ? `${Math.round(ep.runtimeSeconds / 60)} min`
               : "Runtime —"}
@@ -134,7 +134,7 @@ export default async function EpisodeDetailPage({
           {ep.masterVideoPath && (
             <div className="mt-3.5 flex flex-wrap items-center gap-3.5">
               <a
-                className="border-b border-dashed border-[var(--muted)] pb-px text-xs uppercase tracking-[0.16em] text-[var(--muted)] no-underline transition-colors hover:border-[var(--text)] hover:text-[var(--text)]"
+                className="border-b border-dashed border-(--muted) pb-px text-xs uppercase tracking-[0.16em] text-(--muted) no-underline transition-colors hover:border-(--text) hover:text-(--text)"
                 href={ep.masterVideoPath}
                 target="_blank"
                 rel="noreferrer"
@@ -148,7 +148,7 @@ export default async function EpisodeDetailPage({
         {ep.brief && (
           <section className={sectionClass}>
             <div className={sectionLabelClass}>Hook</div>
-            <p className="m-0 text-sm leading-[1.6] text-[var(--text)]">
+            <p className="m-0 text-sm leading-[1.6] text-(--text)">
               {ep.brief}
             </p>
           </section>
@@ -190,7 +190,7 @@ export default async function EpisodeDetailPage({
               />
             </details>
           ) : (
-            <p className="text-[13px] uppercase tracking-[0.1em] text-[var(--muted)]">
+            <p className="text-[13px] uppercase tracking-[0.1em] text-(--muted)">
               No script content seeded.
             </p>
           )}

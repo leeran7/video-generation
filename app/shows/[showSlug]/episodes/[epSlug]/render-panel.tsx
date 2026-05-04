@@ -33,13 +33,13 @@ type JobResponse = {
 
 const TERMINAL = new Set(["complete", "failed", "error", "expired"]);
 
-const SECTION = "border-b border-[var(--border)] px-7 py-5 last:border-b-0";
+const SECTION = "border-b border-(--border) px-7 py-5 last:border-b-0";
 const SECTION_LABEL =
-  "mb-1.5 border-b border-[var(--border)] pb-1 text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]";
+  "mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)";
 const RENDER_BUTTON =
-  "cursor-pointer rounded-[2px] border border-[var(--text)] bg-[var(--text)] px-[18px] py-[9px] font-[inherit] text-xs uppercase tracking-[0.18em] text-[var(--bg)] transition-opacity hover:enabled:opacity-85 disabled:cursor-not-allowed disabled:opacity-40";
+  "cursor-pointer rounded-[2px] border border-(--text) bg-(--text) px-[18px] py-[9px] font-[inherit] text-xs uppercase tracking-[0.18em] text-(--bg) transition-opacity hover:enabled:opacity-85 disabled:cursor-not-allowed disabled:opacity-40";
 const SELECTION_ACTION =
-  "cursor-pointer rounded-[2px] border border-[var(--border)] bg-transparent px-2.5 py-[5px] font-[inherit] text-[11px] uppercase tracking-[0.16em] text-[var(--text)] transition-colors hover:enabled:border-[var(--text)] disabled:cursor-not-allowed disabled:opacity-40";
+  "cursor-pointer rounded-[2px] border border-(--border) bg-transparent px-2.5 py-[5px] font-[inherit] text-[11px] uppercase tracking-[0.16em] text-(--text) transition-colors hover:enabled:border-(--text) disabled:cursor-not-allowed disabled:opacity-40";
 
 function sceneBorderClass(status: string | null): string {
   if (status === "complete")
@@ -48,7 +48,7 @@ function sceneBorderClass(status: string | null): string {
     return "border-[color-mix(in_srgb,#ff7466_50%,var(--border))]";
   if (status === "generating")
     return "border-[color-mix(in_srgb,var(--text)_30%,var(--border))]";
-  return "border-[var(--border)]";
+  return "border-(--border)";
 }
 
 export function RenderPanel({
@@ -235,8 +235,8 @@ export function RenderPanel({
   );
 
   const messages = hasMessages && (
-    <div className="flex flex-wrap items-center gap-3 border-t border-[var(--border)] pt-2">
-      {hint && <span className="text-xs text-[var(--muted)]">{hint}</span>}
+    <div className="flex flex-wrap items-center gap-3 border-t border-(--border) pt-2">
+      {hint && <span className="text-xs text-(--muted)">{hint}</span>}
       {errorText && <span className="text-xs text-[#ff7466]">{errorText}</span>}
     </div>
   );
@@ -245,7 +245,7 @@ export function RenderPanel({
     return (
       <section className={SECTION}>
         <div className={SECTION_LABEL}>Render</div>
-        <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-[var(--border)] bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
+        <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-(--border) bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
           <div className="flex flex-wrap items-center gap-2.5">{renderButton}</div>
           {messages}
         </div>
@@ -262,13 +262,13 @@ export function RenderPanel({
         {total > 0 ? ` · ${done}/${total} complete` : ""}
         {failed > 0 ? ` · ${failed} failed` : ""}
       </div>
-      <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-[var(--border)] bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
+      <div className="my-3.5 flex flex-col gap-2.5 rounded-[2px] border border-(--border) bg-[color-mix(in_srgb,var(--panel)_40%,transparent)] p-3">
         <div className="flex flex-wrap items-center gap-2.5">
           {renderButton}
           {checkboxesEnabled && (
             <>
               <span
-                className="mx-1 w-px self-stretch bg-[var(--border)]"
+                className="mx-1 w-px self-stretch bg-(--border)"
                 aria-hidden
               />
               <button
@@ -311,7 +311,7 @@ export function RenderPanel({
               >
                 Clear
               </button>
-              <span className="ml-auto text-[11px] uppercase tracking-[0.14em] text-[var(--muted)]">
+              <span className="ml-auto text-[11px] uppercase tracking-[0.14em] text-(--muted)">
                 {selected.size} of {scenes.length} selected
               </span>
             </>
@@ -334,13 +334,13 @@ export function RenderPanel({
                 disabled={!checkboxesEnabled}
                 aria-label={`Select scene ${s.sceneNumber} for generation`}
               />
-              <span className="text-right font-mono text-[var(--muted)]">
+              <span className="text-right font-mono text-(--muted)">
                 {String(s.sceneNumber).padStart(2, "0")}
               </span>
-              <span className="text-[var(--text)]">
+              <span className="text-(--text)">
                 {s.title ?? s.sceneId ?? `Scene ${s.sceneNumber}`}
               </span>
-              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+              <span className="text-[11px] uppercase tracking-[0.18em] text-(--muted)">
                 {s.status ?? "pending"}
               </span>
               {s.videoPath && (
@@ -348,7 +348,7 @@ export function RenderPanel({
                   href={s.videoPath}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[11px] uppercase tracking-[0.18em] text-[var(--text)] no-underline"
+                  className="text-[11px] uppercase tracking-[0.18em] text-(--text) no-underline"
                 >
                   open ↗
                 </a>

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Syne } from "next/font/google";
 import { SiteNav } from "@/components/site-nav";
 import "./globals.css";
+
+const syne = Syne({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Studio — AI Production Platform",
@@ -14,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={syne.className}>
         <SiteNav />
         {children}
       </body>

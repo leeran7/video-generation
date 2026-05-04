@@ -41,13 +41,13 @@ export default async function ShowPage({
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <p className="mb-5 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+      <p className="mb-5 text-[11px] uppercase tracking-[0.2em] text-(--muted)">
         {heroes.length} heroes · {antagonists.length} antagonists
       </p>
 
       {heroes.length > 0 && (
         <>
-          <h3 className="mb-4 mt-8 border-b border-[var(--border)] pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-[var(--muted)]">
+          <h3 className="mb-4 mt-8 border-b border-(--border) pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-(--muted)">
             Heroes
           </h3>
           <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
@@ -69,7 +69,7 @@ export default async function ShowPage({
 
       {antagonists.length > 0 && (
         <>
-          <h3 className="mb-4 mt-8 border-b border-[var(--border)] pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-[var(--muted)]">
+          <h3 className="mb-4 mt-8 border-b border-(--border) pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-(--muted)">
             Antagonists
           </h3>
           <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">

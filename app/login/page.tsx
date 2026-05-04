@@ -38,22 +38,22 @@ export default function LoginPage() {
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <h1 className="mb-8 text-[clamp(32px,5vw,48px)] tracking-[0.1em]">
+      <h1 className="mb-8 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em]">
         Sign in
       </h1>
-      <div className="w-full overflow-hidden rounded border border-[var(--border)] bg-[var(--panel)] text-left">
-        <div className="h-1 bg-[var(--text)]" aria-hidden />
+      <div className="w-full overflow-hidden rounded border border-(--border) bg-(--panel) text-left">
+        <div className="h-1 bg-(--text)" aria-hidden />
         <form className="flex flex-col gap-[22px] px-8 pb-8 pt-7" onSubmit={handleLogin}>
           <div className="flex flex-col gap-2">
             <label
-              className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--muted)]"
+              className="text-[10px] font-bold uppercase tracking-[0.3em] text-(--muted)"
               htmlFor="email"
             >
               Email
             </label>
             <input
               id="email"
-              className="w-full rounded-[2px] border border-[var(--border)] bg-[var(--bg)] px-[14px] py-[11px] text-sm tracking-[0.02em] text-[var(--text)] outline-none transition-colors placeholder:text-[var(--muted)] hover:border-[var(--muted)] focus:border-[var(--text)] focus:ring-2 focus:ring-white/20"
+              className="w-full rounded-[2px] border border-(--border) bg-(--bg) px-[14px] py-[11px] text-sm tracking-[0.02em] text-(--text) outline-none transition-colors placeholder:text-(--muted) hover:border-(--muted) focus:border-(--text) focus:ring-2 focus:ring-white/20"
               type="email"
               autoComplete="email"
               value={email}
@@ -63,14 +63,14 @@ export default function LoginPage() {
           </div>
           <div className="flex flex-col gap-2">
             <label
-              className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--muted)]"
+              className="text-[10px] font-bold uppercase tracking-[0.3em] text-(--muted)"
               htmlFor="password"
             >
               Password
             </label>
             <input
               id="password"
-              className="w-full rounded-[2px] border border-[var(--border)] bg-[var(--bg)] px-[14px] py-[11px] text-sm tracking-[0.02em] text-[var(--text)] outline-none transition-colors placeholder:text-[var(--muted)] hover:border-[var(--muted)] focus:border-[var(--text)] focus:ring-2 focus:ring-white/20"
+              className="w-full rounded-[2px] border border-(--border) bg-(--bg) px-[14px] py-[11px] text-sm tracking-[0.02em] text-(--text) outline-none transition-colors placeholder:text-(--muted) hover:border-(--muted) focus:border-(--text) focus:ring-2 focus:ring-white/20"
               type="password"
               autoComplete="current-password"
               value={password}
@@ -87,7 +87,7 @@ export default function LoginPage() {
           <div className="mt-2">
             <button
               type="submit"
-              className="w-fit rounded-[2px] border border-[var(--text)] bg-[var(--text)] px-[18px] py-[9px] text-xs uppercase tracking-[0.18em] text-[var(--bg)] transition-opacity hover:enabled:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              className="w-fit rounded-[2px] border border-(--text) bg-(--text) px-[18px] py-[9px] text-xs uppercase tracking-[0.18em] text-(--bg) transition-opacity hover:enabled:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
               disabled={loading}
             >
               {loading ? "Signing in…" : "Sign in"}

@@ -15,18 +15,18 @@ export function AntagonistDetail({
   const episodes = antagonist.episodes ?? [];
   const chipBase =
     "rounded-[2px] border px-2.5 py-[3px] text-[11px] font-bold uppercase tracking-[0.1em]";
-  const chipAccent = `${chipBase} border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] text-[var(--accent)]`;
-  const chipMuted = `${chipBase} border-[var(--border)] bg-transparent text-[var(--muted)]`;
+  const chipAccent = `${chipBase} border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] text-(--accent)`;
+  const chipMuted = `${chipBase} border-(--border) bg-transparent text-(--muted)`;
 
   return (
     <article
-      className="overflow-hidden rounded border border-[var(--border)] bg-[var(--panel)]"
+      className="overflow-hidden rounded border border-(--border) bg-(--panel)"
       style={style}
     >
-      <div className="h-1 bg-[var(--accent)]" />
-      <div className="grid items-stretch border-b border-[var(--border)] [grid-template-columns:1fr] min-[721px]:[grid-template-columns:280px_1fr]">
+      <div className="h-1 bg-(--accent)" />
+      <div className="grid items-stretch border-b border-(--border) [grid-template-columns:1fr] min-[721px]:[grid-template-columns:280px_1fr]">
         {antagonist.imageUrl && (
-          <div className="border-b border-[var(--border)] min-[721px]:border-b-0 min-[721px]:border-r min-[721px]:border-[var(--border)]">
+          <div className="border-b border-(--border) min-[721px]:border-b-0 min-[721px]:border-r min-[721px]:border-(--border)">
             <img
               className="block aspect-square w-full bg-black object-cover"
               src={antagonist.imageUrl}
@@ -37,10 +37,10 @@ export function AntagonistDetail({
         )}
 
         <header className="flex flex-col justify-center px-7 pb-6 pt-7">
-          <div className="mb-2 text-[11px] uppercase tracking-[0.3em] text-[var(--muted)]">
+          <div className="mb-2 text-[11px] uppercase tracking-[0.2em] text-(--muted)">
             {antagonist.type}
           </div>
-          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-bold tracking-[0.05em] text-[var(--accent)]">
+          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.01em] text-(--accent)">
             {antagonist.name}
           </h2>
 
@@ -111,11 +111,11 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-b border-[var(--border)] px-7 py-5 last:border-b-0">
-      <div className="mb-1.5 border-b border-[var(--border)] pb-1 text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]">
+    <section className="border-b border-(--border) px-7 py-5 last:border-b-0">
+      <div className="mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)">
         {label}
       </div>
-      <div className="text-sm leading-[1.6] text-[var(--text)]">{children}</div>
+      <div className="text-sm leading-[1.6] text-(--text)">{children}</div>
     </section>
   );
 }

@@ -21,26 +21,26 @@ export function ShowAppHeader({
   const crumbs = buildBreadcrumbs(pathname, base, showTitle);
 
   return (
-    <header className="sticky top-[49px] z-40 border-b border-[var(--border)] bg-[var(--bg)]">
+    <header className="sticky top-[49px] z-40 border-b border-(--border) bg-(--bg)">
       <div className="mx-auto max-w-[1400px] px-6 pb-0 pt-[14px]">
         <nav className="mb-1.5" aria-label="Breadcrumb">
-          <ol className="m-0 flex list-none flex-wrap items-center gap-x-0.5 p-0 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--muted)]">
+          <ol className="m-0 flex list-none flex-wrap items-center gap-x-0.5 p-0 text-[10px] font-bold uppercase tracking-[0.15em] text-(--muted)">
             {crumbs.map((c, i) => (
               <li key={`${c.label}-${i}`} className="inline-flex items-center gap-1.5">
                 {i > 0 ? (
-                  <span className="select-none font-medium text-[var(--muted)]" aria-hidden>
+                  <span className="select-none font-medium text-(--muted)" aria-hidden>
                     /
                   </span>
                 ) : null}
                 {c.href ? (
                   <Link
                     href={c.href}
-                    className="text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]"
+                    className="text-(--muted) no-underline transition-colors hover:text-(--text)"
                   >
                     {c.label}
                   </Link>
                 ) : (
-                  <span className="text-[var(--text)]" aria-current="page">
+                  <span className="text-(--text)" aria-current="page">
                     {c.label}
                   </span>
                 )}
@@ -48,7 +48,7 @@ export function ShowAppHeader({
             ))}
           </ol>
         </nav>
-        <h1 className="mb-[14px] text-[clamp(24px,4vw,40px)] font-bold tracking-[0.08em] text-[var(--text)]">
+        <h1 className="mb-[14px] text-[clamp(24px,4vw,40px)] font-extrabold tracking-[-0.01em] text-(--text)">
           {showTitle}
         </h1>
         <ul className="m-0 flex list-none flex-wrap gap-1 p-0 pb-3">
@@ -63,8 +63,8 @@ export function ShowAppHeader({
               <li key={link.segment}>
                 <Link
                   href={href}
-                  className={`inline-block rounded-[2px] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]${
-                    active ? " bg-white/10 text-[var(--text)]" : ""
+                  className={`inline-block rounded-[2px] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)${
+                    active ? " bg-white/10 text-(--text)" : ""
                   }`}
                   aria-current={active ? "page" : undefined}
                 >

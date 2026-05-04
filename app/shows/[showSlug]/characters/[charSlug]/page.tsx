@@ -46,7 +46,7 @@ export default async function CharacterPage({
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
       <Link
         href={`/shows/${showSlug}`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-[var(--muted)] no-underline transition-colors hover:text-[var(--text)]"
+        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
       >
         ← Back to {show.title}
       </Link>
