@@ -180,7 +180,17 @@ export default async function EpisodeDetailPage({
         />
 
         <section className={sectionClass}>
-          <div className={sectionLabelClass}>Script</div>
+          <div className="mb-1.5 flex items-center justify-between border-b border-(--border) pb-1">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">
+              Script
+            </div>
+            <Link
+              href={`/shows/${showSlug}/episodes/${epSlug}/script`}
+              className="text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
+            >
+              Edit ↗
+            </Link>
+          </div>
           {scriptHtml ? (
             <details className="script-disclosure mt-1">
               <summary>View script</summary>

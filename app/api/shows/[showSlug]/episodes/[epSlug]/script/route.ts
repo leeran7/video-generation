@@ -1,0 +1,63 @@
+import { NextResponse } from "next/server";
+import { and, eq, sql } from "drizzle-orm";
+
+import { db } from "@/lib/db/client";
+import { episodes, shows } from "@/lib/db/schema";
+import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
+
+export async function PUT(
+  req: Request,
+  { params }: { params: Promise<{ showSlug: string; epSlug: string }> }
+) {
+  const { showSlug, epSlug } = await params;
+
+  let scriptContent: string;
+  try {
+    const body = (await req.json()) as { scriptContent?: unknown };
+    if (typeof body?.scriptContent !== "string") {
+      return NextResponse.json(
+        { error: "scriptContent must be a string" },
+        { status: 400 }
+      );
+    }
+    scriptContent = body.scriptContent;
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const [show] = await db
+    .select({ id: shows.id })
+    .from(shows)
+    .where(eq(shows.slug, showSlug))
+    .limit(1);
+  if (!show) {
+    return NextResponse.json({ error: "Show not found" }, { status: 404 });
+  }
+
+  const [ep] = await db
+    .select({ id: episodes.id, slug: episodes.slug })
+    .from(episodes)
+    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
+    .limit(1);
+  if (!ep) {
+    return NextResponse.json({ error: "Episode not found" }, { status: 404 });
+  }
+
+  await db
+    .update(episodes)
+    .set({ scriptContent, updatedAt: sql`now()` })
+    .where(eq(episodes.id, ep.id));
+
+  let syncWarning: string | null = null;
+  try {
+    await syncScenesFromScript({
+      id: ep.id,
+      slug: ep.slug,
+      scriptContent,
+    });
+  } catch (err) {
+    syncWarning = err instanceof Error ? err.message : String(err);
+  }
+
+  return NextResponse.json({ ok: true, syncWarning });
+}
