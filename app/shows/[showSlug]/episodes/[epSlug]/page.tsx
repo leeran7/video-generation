@@ -13,6 +13,8 @@ import {
 } from "@/lib/db/schema";
 import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 import { getJobStatus } from "@/lib/inngest/job-status";
+import { getShowAccess } from "@/lib/auth/show-access";
+import { MetadataEditor } from "./metadata-editor";
 import { RenderPanel } from "./render-panel";
 
 marked.setOptions({ gfm: true, breaks: false });
@@ -40,6 +42,9 @@ export default async function EpisodeDetailPage({
 
   if (!ep) notFound();
 
+  const access = await getShowAccess(showSlug);
+  const canEdit = !!access?.canEdit;
+
   try {
     await syncScenesFromScript({
       id: ep.id,
@@ -53,7 +58,7 @@ export default async function EpisodeDetailPage({
     );
   }
 
-  const [arc, focus, latestJob] = await Promise.all([
+  const [arc, focus, latestJob, charOptions] = await Promise.all([
     ep.arcId
       ? db
           .select()
@@ -77,6 +82,16 @@ export default async function EpisodeDetailPage({
       .orderBy(desc(jobs.createdAt))
       .limit(1)
       .then((r) => r[0] ?? null),
+    db
+      .select({ slug: characters.slug, name: characters.name })
+      .from(characters)
+      .where(eq(characters.showId, show.id))
+      .orderBy(asc(characters.rosterNumber))
+      .then((rows) =>
+        rows
+          .filter((r): r is { slug: string; name: string } => !!r.name)
+          .map((r) => ({ slug: r.slug, name: r.name }))
+      ),
   ]);
 
   const jobStatus = latestJob ? await getJobStatus(latestJob.id) : null;
@@ -145,19 +160,19 @@ export default async function EpisodeDetailPage({
           )}
         </div>
 
-        {ep.brief && (
-          <section className={sectionClass}>
-            <div className={sectionLabelClass}>Hook</div>
-            <p className="m-0 text-sm leading-[1.6] text-(--text)">
+        <section className={sectionClass}>
+          <div className="mb-1.5 flex items-center justify-between border-b border-(--border) pb-1">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">
+              Metadata
+            </div>
+          </div>
+          {ep.brief && (
+            <p className="m-0 mb-3 text-sm leading-[1.6] text-(--text)">
               {ep.brief}
             </p>
-          </section>
-        )}
-
-        {ep.tags && ep.tags.length > 0 && (
-          <section className={sectionClass}>
-            <div className={sectionLabelClass}>Tags</div>
-            <div className="flex flex-wrap gap-1.5">
+          )}
+          {ep.tags && ep.tags.length > 0 && (
+            <div className="mb-3 flex flex-wrap gap-1.5">
               {ep.tags.map((tag) => (
                 <span
                   key={tag}
@@ -167,29 +182,45 @@ export default async function EpisodeDetailPage({
                 </span>
               ))}
             </div>
-          </section>
-        )}
+          )}
+          {canEdit && (
+            <MetadataEditor
+              showSlug={showSlug}
+              epSlug={epSlug}
+              initialTitle={ep.title}
+              initialBrief={ep.brief ?? ""}
+              initialTags={ep.tags ?? []}
+              initialFocusCharacterSlug={focus?.slug ?? ""}
+              initialLockStatus={ep.lockStatus ?? "draft"}
+              characterOptions={charOptions}
+            />
+          )}
+        </section>
 
-        <RenderPanel
-          key={jobStatus?.job.id ?? "no-job"}
-          showSlug={showSlug}
-          epSlug={epSlug}
-          hasScript={!!ep.scriptContent}
-          initialJob={jobStatus}
-          initialScenes={sceneRows}
-        />
+        {canEdit && (
+          <RenderPanel
+            key={jobStatus?.job.id ?? "no-job"}
+            showSlug={showSlug}
+            epSlug={epSlug}
+            hasScript={!!ep.scriptContent}
+            initialJob={jobStatus}
+            initialScenes={sceneRows}
+          />
+        )}
 
         <section className={sectionClass}>
           <div className="mb-1.5 flex items-center justify-between border-b border-(--border) pb-1">
             <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">
               Script
             </div>
-            <Link
-              href={`/shows/${showSlug}/episodes/${epSlug}/script`}
-              className="text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-            >
-              Edit ↗
-            </Link>
+            {canEdit && (
+              <Link
+                href={`/shows/${showSlug}/episodes/${epSlug}/script`}
+                className="text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
+              >
+                Edit ↗
+              </Link>
+            )}
           </div>
           {scriptHtml ? (
             <details className="script-disclosure mt-1">

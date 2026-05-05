@@ -11,6 +11,7 @@ import {
 } from "@/lib/character-data";
 import { db } from "@/lib/db/client";
 import { characters, shows } from "@/lib/db/schema";
+import { getShowAccess } from "@/lib/auth/show-access";
 
 export default async function CharacterPage({
   params,
@@ -40,16 +41,28 @@ export default async function CharacterPage({
 
   if (!row) notFound();
 
+  const access = await getShowAccess(showSlug);
+  const canEdit = !!access?.canEdit;
   const isHero = row.type === "hero";
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <Link
-        href={`/shows/${showSlug}`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-      >
-        ← Back to {show.title}
-      </Link>
+      <div className="mb-6 flex items-center justify-between">
+        <Link
+          href={`/shows/${showSlug}`}
+          className="inline-block text-xs uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
+        >
+          ← Back to {show.title}
+        </Link>
+        {isHero && canEdit && (
+          <Link
+            href={`/shows/${showSlug}/characters/${charSlug}/edit`}
+            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-(--muted) no-underline transition-colors hover:text-(--text)"
+          >
+            Edit ↗
+          </Link>
+        )}
+      </div>
 
       {isHero ? (
         <CharacterDetail

@@ -4,6 +4,7 @@ import { and, asc, eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
 import { characters, episodes, shows } from "@/lib/db/schema";
+import { getShowAccess } from "@/lib/auth/show-access";
 import { ScriptEditor } from "./script-editor";
 
 export default async function ScriptEditorPage({
@@ -19,6 +20,9 @@ export default async function ScriptEditorPage({
     .where(eq(shows.slug, showSlug))
     .limit(1);
   if (!show) notFound();
+
+  const access = await getShowAccess(showSlug);
+  if (!access?.canEdit) notFound();
 
   const [ep] = await db
     .select({
