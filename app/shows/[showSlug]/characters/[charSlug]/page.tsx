@@ -10,7 +10,7 @@ import {
   type Character,
 } from "@/lib/character-data";
 import { db } from "@/lib/db/client";
-import { characters, shows } from "@/lib/db/schema";
+import { characters } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
 
 export default async function CharacterPage({
@@ -20,13 +20,9 @@ export default async function CharacterPage({
 }) {
   const { showSlug, charSlug } = await params;
 
-  const [show] = await db
-    .select()
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-
-  if (!show) notFound();
+  const access = await getShowAccess(showSlug);
+  if (!access) notFound();
+  const show = access.show;
 
   const [row] = await db
     .select()
@@ -41,8 +37,7 @@ export default async function CharacterPage({
 
   if (!row) notFound();
 
-  const access = await getShowAccess(showSlug);
-  const canEdit = !!access?.canEdit;
+  const canEdit = access.canEdit;
   const isHero = row.type === "hero";
 
   return (

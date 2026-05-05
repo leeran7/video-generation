@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { asc, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { arcs, episodes, scenes, shows } from "@/lib/db/schema";
-import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 
 export default async function EpisodesPage({
   params,
@@ -20,32 +19,18 @@ export default async function EpisodesPage({
 
   if (!show) notFound();
 
-  const arcRows = await db
-    .select()
-    .from(arcs)
-    .where(eq(arcs.showId, show.id))
-    .orderBy(asc(arcs.season), asc(arcs.arcNumber));
-
-  const epRows = await db
-    .select()
-    .from(episodes)
-    .where(eq(episodes.showId, show.id))
-    .orderBy(asc(episodes.episodeNumber));
-
-  await Promise.all(
-    epRows.map((ep) =>
-      syncScenesFromScript({
-        id: ep.id,
-        slug: ep.slug,
-        scriptContent: ep.scriptContent,
-      }).catch((err) => {
-        console.error(
-          `[episodes list ${ep.slug}] sync-scenes-from-script:`,
-          err instanceof Error ? err.message : err
-        );
-      })
-    )
-  );
+  const [arcRows, epRows] = await Promise.all([
+    db
+      .select()
+      .from(arcs)
+      .where(eq(arcs.showId, show.id))
+      .orderBy(asc(arcs.season), asc(arcs.arcNumber)),
+    db
+      .select()
+      .from(episodes)
+      .where(eq(episodes.showId, show.id))
+      .orderBy(asc(episodes.episodeNumber)),
+  ]);
 
   const sceneAggRows = await db
     .select({

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { episodes, jobs, scenes, shows } from "@/lib/db/schema";
+import { episodes, jobs, scenes } from "@/lib/db/schema";
 import { inngest } from "@/lib/inngest/client";
 import { expireStalePendingJobs } from "@/lib/inngest/cleanup";
 import { getShowAccess } from "@/lib/auth/show-access";
@@ -33,19 +33,12 @@ export async function POST(
     // No body / invalid JSON — treat as full re-run.
   }
 
-  const [show] = await db
-    .select({ id: shows.id })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) {
-    return NextResponse.json({ error: "Show not found" }, { status: 404 });
-  }
-
   const [ep] = await db
     .select({ id: episodes.id, scriptContent: episodes.scriptContent })
     .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
+    .where(
+      and(eq(episodes.showId, access.show.id), eq(episodes.slug, epSlug))
+    )
     .limit(1);
   if (!ep) {
     return NextResponse.json({ error: "Episode not found" }, { status: 404 });

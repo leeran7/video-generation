@@ -38,14 +38,12 @@ export default async function LocationsPage({
 }) {
   const { showSlug } = await params;
 
-  const [show] = await db
-    .select()
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
+  const [showResult, locations] = await Promise.all([
+    db.select().from(shows).where(eq(shows.slug, showSlug)).limit(1),
+    loadLocations(),
+  ]);
+  const show = showResult[0];
   if (!show) notFound();
-
-  const locations = await loadLocations();
 
   const byArea = new Map<string, LocationRow[]>();
   for (const loc of locations) {

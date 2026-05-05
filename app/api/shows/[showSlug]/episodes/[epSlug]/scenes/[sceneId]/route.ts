@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { and, eq, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { episodes, scenes, shows } from "@/lib/db/schema";
+import { episodes, scenes } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
 
 type Patch = {
@@ -40,28 +40,17 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const [show] = await db
-    .select({ id: shows.id })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) {
-    return NextResponse.json({ error: "Show not found" }, { status: 404 });
-  }
-
-  const [ep] = await db
-    .select({ id: episodes.id })
-    .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
-    .limit(1);
-  if (!ep) {
-    return NextResponse.json({ error: "Episode not found" }, { status: 404 });
-  }
-
   const [scene] = await db
     .select({ id: scenes.id })
     .from(scenes)
-    .where(and(eq(scenes.episodeId, ep.id), eq(scenes.id, sceneId)))
+    .innerJoin(episodes, eq(scenes.episodeId, episodes.id))
+    .where(
+      and(
+        eq(scenes.id, sceneId),
+        eq(episodes.slug, epSlug),
+        eq(episodes.showId, access.show.id)
+      )
+    )
     .limit(1);
   if (!scene) {
     return NextResponse.json({ error: "Scene not found" }, { status: 404 });

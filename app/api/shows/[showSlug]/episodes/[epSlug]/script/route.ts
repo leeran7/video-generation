@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { and, eq, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { episodes, shows } from "@/lib/db/schema";
+import { episodes } from "@/lib/db/schema";
 import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 import { getShowAccess } from "@/lib/auth/show-access";
 
@@ -34,19 +34,12 @@ export async function PUT(
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const [show] = await db
-    .select({ id: shows.id })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) {
-    return NextResponse.json({ error: "Show not found" }, { status: 404 });
-  }
-
   const [ep] = await db
     .select({ id: episodes.id, slug: episodes.slug })
     .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
+    .where(
+      and(eq(episodes.showId, access.show.id), eq(episodes.slug, epSlug))
+    )
     .limit(1);
   if (!ep) {
     return NextResponse.json({ error: "Episode not found" }, { status: 404 });

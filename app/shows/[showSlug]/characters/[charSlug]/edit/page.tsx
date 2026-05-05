@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { characters, shows } from "@/lib/db/schema";
+import { characters } from "@/lib/db/schema";
 import type { Character } from "@/lib/character-data";
 import { getShowAccess } from "@/lib/auth/show-access";
 import { CharacterEditor } from "./character-editor";
@@ -15,13 +15,6 @@ export default async function CharacterEditPage({
 }) {
   const { showSlug, charSlug } = await params;
 
-  const [show] = await db
-    .select({ id: shows.id, title: shows.title })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) notFound();
-
   const access = await getShowAccess(showSlug);
   if (!access?.canEdit) notFound();
 
@@ -29,7 +22,7 @@ export default async function CharacterEditPage({
     .select()
     .from(characters)
     .where(
-      and(eq(characters.showId, show.id), eq(characters.slug, charSlug))
+      and(eq(characters.showId, access.show.id), eq(characters.slug, charSlug))
     )
     .limit(1);
   if (!row) notFound();

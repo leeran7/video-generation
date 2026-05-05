@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { and, asc, eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { characters, episodes, shows } from "@/lib/db/schema";
+import { characters, episodes } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
 import { ScriptEditor } from "./script-editor";
 
@@ -14,34 +14,30 @@ export default async function ScriptEditorPage({
 }) {
   const { showSlug, epSlug } = await params;
 
-  const [show] = await db
-    .select({ id: shows.id, title: shows.title })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) notFound();
-
   const access = await getShowAccess(showSlug);
   if (!access?.canEdit) notFound();
+  const showId = access.show.id;
 
-  const [ep] = await db
-    .select({
-      id: episodes.id,
-      title: episodes.title,
-      slug: episodes.slug,
-      scriptContent: episodes.scriptContent,
-      lockStatus: episodes.lockStatus,
-    })
-    .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
-    .limit(1);
+  const [epResult, charRows] = await Promise.all([
+    db
+      .select({
+        id: episodes.id,
+        title: episodes.title,
+        slug: episodes.slug,
+        scriptContent: episodes.scriptContent,
+        lockStatus: episodes.lockStatus,
+      })
+      .from(episodes)
+      .where(and(eq(episodes.showId, showId), eq(episodes.slug, epSlug)))
+      .limit(1),
+    db
+      .select({ name: characters.name, slug: characters.slug })
+      .from(characters)
+      .where(eq(characters.showId, showId))
+      .orderBy(asc(characters.rosterNumber)),
+  ]);
+  const ep = epResult[0];
   if (!ep) notFound();
-
-  const charRows = await db
-    .select({ name: characters.name, slug: characters.slug })
-    .from(characters)
-    .where(eq(characters.showId, show.id))
-    .orderBy(asc(characters.rosterNumber));
 
   const characterNames = charRows
     .map((r) => r.name)

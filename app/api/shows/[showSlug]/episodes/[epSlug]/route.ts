@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { and, eq, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { characters, episodes, shows } from "@/lib/db/schema";
+import { characters, episodes } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
 
 type Patch = {
@@ -34,19 +34,12 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const [show] = await db
-    .select({ id: shows.id })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) {
-    return NextResponse.json({ error: "Show not found" }, { status: 404 });
-  }
+  const showId = access.show.id;
 
   const [ep] = await db
     .select({ id: episodes.id })
     .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
+    .where(and(eq(episodes.showId, showId), eq(episodes.slug, epSlug)))
     .limit(1);
   if (!ep) {
     return NextResponse.json({ error: "Episode not found" }, { status: 404 });
@@ -91,7 +84,7 @@ export async function PATCH(
         .from(characters)
         .where(
           and(
-            eq(characters.showId, show.id),
+            eq(characters.showId, showId),
             eq(characters.slug, patch.focusCharacterSlug)
           )
         )

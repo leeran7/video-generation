@@ -25,18 +25,12 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // Local JWT signature check — no network round-trip to Supabase.
+  // Pages/APIs that need a verified user still call getUser() server-side.
+  const { data } = await supabase.auth.getClaims();
+  const hasUser = !!data?.claims?.sub;
 
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith("/login") &&
-    !request.nextUrl.pathname.startsWith("/register") &&
-    !request.nextUrl.pathname.startsWith("/forgot-password") &&
-    !request.nextUrl.pathname.startsWith("/reset-password") &&
-    !request.nextUrl.pathname.startsWith("/api/auth/check-email")
-  ) {
+  if (!hasUser) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);

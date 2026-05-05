@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { and, eq, sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { characters, shows } from "@/lib/db/schema";
+import { characters } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
 
 type Patch = {
@@ -35,20 +35,11 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const [show] = await db
-    .select({ id: shows.id })
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-  if (!show) {
-    return NextResponse.json({ error: "Show not found" }, { status: 404 });
-  }
-
   const [row] = await db
     .select({ id: characters.id, data: characters.data })
     .from(characters)
     .where(
-      and(eq(characters.showId, show.id), eq(characters.slug, charSlug))
+      and(eq(characters.showId, access.show.id), eq(characters.slug, charSlug))
     )
     .limit(1);
   if (!row) {

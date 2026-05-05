@@ -9,9 +9,7 @@ import {
   episodes,
   jobs,
   scenes,
-  shows,
 } from "@/lib/db/schema";
-import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
 import { getJobStatus } from "@/lib/inngest/job-status";
 import { getShowAccess } from "@/lib/auth/show-access";
 import { MetadataEditor } from "./metadata-editor";
@@ -26,37 +24,18 @@ export default async function EpisodeDetailPage({
 }) {
   const { showSlug, epSlug } = await params;
 
-  const [show] = await db
-    .select()
-    .from(shows)
-    .where(eq(shows.slug, showSlug))
-    .limit(1);
-
-  if (!show) notFound();
+  const access = await getShowAccess(showSlug);
+  if (!access) notFound();
+  const showId = access.show.id;
+  const canEdit = access.canEdit;
 
   const [ep] = await db
     .select()
     .from(episodes)
-    .where(and(eq(episodes.showId, show.id), eq(episodes.slug, epSlug)))
+    .where(and(eq(episodes.showId, showId), eq(episodes.slug, epSlug)))
     .limit(1);
 
   if (!ep) notFound();
-
-  const access = await getShowAccess(showSlug);
-  const canEdit = !!access?.canEdit;
-
-  try {
-    await syncScenesFromScript({
-      id: ep.id,
-      slug: ep.slug,
-      scriptContent: ep.scriptContent,
-    });
-  } catch (err) {
-    console.error(
-      `[episodes/${epSlug}] sync-scenes-from-script:`,
-      err instanceof Error ? err.message : err
-    );
-  }
 
   const [arc, focus, latestJob, charOptions] = await Promise.all([
     ep.arcId
@@ -85,7 +64,7 @@ export default async function EpisodeDetailPage({
     db
       .select({ slug: characters.slug, name: characters.name })
       .from(characters)
-      .where(eq(characters.showId, show.id))
+      .where(eq(characters.showId, showId))
       .orderBy(asc(characters.rosterNumber))
       .then((rows) =>
         rows
@@ -94,7 +73,10 @@ export default async function EpisodeDetailPage({
       ),
   ]);
 
-  const jobStatus = latestJob ? await getJobStatus(latestJob.id) : null;
+  const [jobStatus, scriptHtml] = await Promise.all([
+    latestJob ? getJobStatus(latestJob.id) : Promise.resolve(null),
+    ep.scriptContent ? marked.parse(ep.scriptContent) : Promise.resolve(null),
+  ]);
   const sceneRows = jobStatus
     ? jobStatus.scenes
     : await db
@@ -110,10 +92,6 @@ export default async function EpisodeDetailPage({
         .from(scenes)
         .where(eq(scenes.episodeId, ep.id))
         .orderBy(asc(scenes.sceneNumber));
-
-  const scriptHtml = ep.scriptContent
-    ? await marked.parse(ep.scriptContent)
-    : null;
 
   const sectionClass =
     "border-b border-(--border) px-7 py-5 last:border-b-0";
