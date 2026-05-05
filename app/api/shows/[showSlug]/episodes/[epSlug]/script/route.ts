@@ -4,12 +4,21 @@ import { and, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { episodes, shows } from "@/lib/db/schema";
 import { syncScenesFromScript } from "@/lib/episodes/sync-scenes-from-script";
+import { getShowAccess } from "@/lib/auth/show-access";
 
 export async function PUT(
   req: Request,
   { params }: { params: Promise<{ showSlug: string; epSlug: string }> }
 ) {
   const { showSlug, epSlug } = await params;
+
+  const access = await getShowAccess(showSlug);
+  if (!access) {
+    return NextResponse.json({ error: "Show not found" }, { status: 404 });
+  }
+  if (!access.canEdit) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   let scriptContent: string;
   try {

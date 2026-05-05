@@ -5,12 +5,21 @@ import { db } from "@/lib/db/client";
 import { episodes, jobs, scenes, shows } from "@/lib/db/schema";
 import { inngest } from "@/lib/inngest/client";
 import { expireStalePendingJobs } from "@/lib/inngest/cleanup";
+import { getShowAccess } from "@/lib/auth/show-access";
 
 export async function POST(
   req: Request,
   { params }: { params: Promise<{ showSlug: string; epSlug: string }> }
 ) {
   const { showSlug, epSlug } = await params;
+
+  const access = await getShowAccess(showSlug);
+  if (!access) {
+    return NextResponse.json({ error: "Show not found" }, { status: 404 });
+  }
+  if (!access.canEdit) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   let sceneIds: string[] = [];
   try {
