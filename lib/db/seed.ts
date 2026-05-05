@@ -20,6 +20,8 @@ function readJson(path: string): Record<string, unknown> {
 }
 
 async function main() {
+  // Read-only on the shows row: creator_id is set out-of-band and must not be
+  // overwritten here. A future "create-show" form will own that flow.
   const [show] = await db.select().from(shows).where(eq(shows.slug, "nova-force"));
   if (!show) throw new Error("shows row for 'nova-force' not found");
 

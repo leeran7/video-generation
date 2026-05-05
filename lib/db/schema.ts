@@ -15,6 +15,7 @@ export const shows = pgTable("shows", {
   slug: text("slug").unique().notNull(),
   format: jsonb("format").$type<Record<string, unknown> | null>(),
   seriesBible: jsonb("series_bible").$type<Record<string, unknown> | null>(),
+  creatorId: uuid("creator_id"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
