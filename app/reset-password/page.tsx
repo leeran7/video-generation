@@ -22,30 +22,14 @@ export default function ResetPasswordPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const supabase = createClient();
-    const url = new URL(window.location.href);
-    const code = url.searchParams.get("code");
-
-    async function ensureSession() {
-      if (code) {
-        const { error: exchErr } =
-          await supabase.auth.exchangeCodeForSession(code);
-        url.searchParams.delete("code");
-        history.replaceState(null, "", url.pathname + url.search);
-        if (exchErr) {
-          setError(exchErr.message);
-          setReady(true);
-          return;
+    createClient()
+      .auth.getSession()
+      .then(({ data }) => {
+        if (!data.session) {
+          setError("Reset link is invalid or has expired. Request a new one.");
         }
-      }
-      const { data } = await supabase.auth.getSession();
-      if (!data.session) {
-        setError("Reset link is invalid or has expired. Request a new one.");
-      }
-      setReady(true);
-    }
-
-    ensureSession();
+        setReady(true);
+      });
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
