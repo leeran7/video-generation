@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 import { CharacterDetail } from "@/components/character-detail";
 import { AntagonistDetail } from "@/components/antagonist-detail";
+import { GenerateImageButton } from "@/components/generate-image-button";
 import {
   ANTAGONIST_ACCENT,
   accentForRoster,
@@ -68,6 +69,18 @@ export default async function CharacterPage({
         <AntagonistDetail
           antagonist={row.data as unknown as Antagonist}
           accent={ANTAGONIST_ACCENT}
+        />
+      )}
+
+      {canEdit && (
+        <GenerateImageButton
+          showSlug={showSlug}
+          charSlug={charSlug}
+          defaultPrompt={
+            (row.data as unknown as Character).visualDistinctions ??
+            (row.data as unknown as Antagonist).visualHook ??
+            ""
+          }
         />
       )}
     </main>
