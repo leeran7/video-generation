@@ -8,13 +8,23 @@ export default async function Home() {
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <h1 className="mb-1 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em]">
-        Studio
-      </h1>
-      <p className="mb-8 text-xs uppercase tracking-[0.15em] text-(--muted)">
-        {showRows.length} show{showRows.length === 1 ? "" : "s"}
-      </p>
-      <div className="mt-4 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
+      <div className="flex items-end justify-between">
+        <div>
+          <h1 className="mb-1 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em]">
+            Studio
+          </h1>
+          <p className="text-xs uppercase tracking-[0.15em] text-(--muted)">
+            {showRows.length} show{showRows.length === 1 ? "" : "s"}
+          </p>
+        </div>
+        <Link
+          href="/shows/new"
+          className="mb-1 rounded border border-(--border) px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.18em] text-(--muted) no-underline transition-colors hover:border-(--text) hover:text-(--text)"
+        >
+          + New show
+        </Link>
+      </div>
+      <div className="mt-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
         {showRows.map((show) => (
           <Link
             key={show.id}
