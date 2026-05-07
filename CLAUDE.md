@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm dev                   # start Next.js dev server
+pnpm dev                   # start Next.js dev server (uses --webpack, see note below)
 pnpm build                 # Next.js production build
 pnpm lint                  # ESLint (via next lint)
 
@@ -28,6 +28,8 @@ pnpm pipeline:stitch -- --reencode <path/to/manifest.json>   # force re-encode f
 ```
 
 Pipeline scripts run via `tsx` (no build step needed). FFmpeg must be on `PATH` (or set `FFMPEG_PATH`).
+
+**Dev runs on Webpack, not Turbopack.** `next dev --webpack` is intentional. Next.js 16.2.4's Turbopack dev runtime (`app-page-turbo.runtime.dev.js`) leaks promise-tracking entries via React's experimental async profiler (`pendingOperations.set` in the async_hooks `init` callback), driven by the per-chunk `for await (...subscription)` loop in `hot-reloader-turbopack.js`. Long-running dev sessions hit V8's Map size limit (`2^24` entries) and crash with `RangeError: Map maximum size exceeded`. Webpack dev is unaffected. Revisit after upgrading Next.
 
 ## Architecture
 

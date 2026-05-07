@@ -5,8 +5,8 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "dev": "concurrently -n next,inngest -c cyan,magenta --kill-others-on-fail \"next dev\" \"inngest dev -u http://localhost:3000/api/inngest --poll-interval 30\"",
-    "dev:next": "next dev",
+    "dev": "concurrently -n next,inngest -c cyan,magenta --kill-others-on-fail \"next dev --webpack\" \"inngest dev -u http://localhost:3000/api/inngest --poll-interval 30\"",
+    "dev:next": "next dev --webpack",
     "dev:inngest": "inngest dev -u http://localhost:3000/api/inngest --poll-interval 30",
     "build": "next build",
     "start": "next start",
