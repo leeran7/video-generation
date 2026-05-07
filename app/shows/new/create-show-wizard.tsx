@@ -11,6 +11,8 @@ import { StepWorld } from "./wizard/step-world";
 import { StepStyle } from "./wizard/step-style";
 import { StepCast } from "./wizard/step-cast";
 import { StepPlan } from "./wizard/step-plan";
+import { Button } from "@/components/ui/atoms";
+import { ApiClient } from "@/lib/api/client";
 
 // ─── Step indicator ───────────────────────────────────────────────────────────
 
@@ -130,39 +132,24 @@ export function CreateShowWizard() {
     setSubmitError("");
     setSubmitting(true);
     try {
-      const res = await fetch("/api/shows", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: state.title,
-          logline: state.logline,
-          genres: state.genres,
-          tones: state.tones,
-          videoScope: state.videoScope,
-          episodeSeconds: state.episodeSeconds,
-          totalEpisodes: state.videoScope === "single" ? 1 : state.totalEpisodes,
-          platform: state.platform,
-          settingDescription: state.settingDescription,
-          worldRules: state.worldRules,
-          visualStyle: state.visualStyle,
-          thematicFocus: state.thematicFocus,
-          draftCharacters: state.characters,
-          designStyleId: state.designStyleId,
-        }),
+      const api = new ApiClient();
+      const { showSlug } = await api.createShow({
+        title: state.title,
+        logline: state.logline,
+        genres: state.genres,
+        tones: state.tones,
+        videoScope: state.videoScope,
+        episodeSeconds: state.episodeSeconds,
+        totalEpisodes: state.videoScope === "single" ? 1 : state.totalEpisodes,
+        platform: state.platform,
+        settingDescription: state.settingDescription,
+        worldRules: state.worldRules,
+        visualStyle: state.visualStyle,
+        thematicFocus: state.thematicFocus,
+        draftCharacters: state.characters,
+        designStyleId: state.designStyleId,
       });
-
-      const text = await res.text();
-      let data: { showSlug?: string; error?: string } = {};
-      try {
-        data = JSON.parse(text);
-      } catch {
-        throw new Error(
-          `Server error (${res.status})${text ? `: ${text.slice(0, 200)}` : ""}`
-        );
-      }
-
-      if (!res.ok) throw new Error(data.error ?? `Server error ${res.status}`);
-      router.push(`/shows/${data.showSlug}`);
+      router.push(`/shows/${showSlug}`);
     } catch (err) {
       setSubmitError((err as Error).message);
       setSubmitting(false);
@@ -206,33 +193,23 @@ export function CreateShowWizard() {
       {/* Navigation — hidden on QuickStart (it manages its own buttons) */}
       {!isFirstStep && (
         <div className="mt-10 flex items-center justify-between border-t border-(--border) pt-6">
-          <button
-            type="button"
-            onClick={() => setStep((s) => s - 1)}
-            className="rounded border border-(--border) px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-(--muted) transition-colors hover:border-(--text) hover:text-(--text)"
-          >
+          <Button variant="ghost" type="button" onClick={() => setStep((s) => s - 1)}>
             ← Back
-          </button>
+          </Button>
 
           <div className="flex flex-col items-end gap-1">
             {!isLastStep ? (
-              <button
+              <Button
                 type="button"
                 onClick={() => setStep((s) => s + 1)}
                 disabled={!canAdvance()}
-                className="rounded border border-(--text) bg-(--text) px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-(--bg) transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-30"
               >
                 Continue →
-              </button>
+              </Button>
             ) : (
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={submitting}
-                className="rounded border border-(--text) bg-(--text) px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-(--bg) transition-opacity hover:opacity-80 disabled:opacity-40"
-              >
+              <Button type="button" onClick={handleSubmit} disabled={submitting}>
                 {submitting ? "Creating…" : "Create show →"}
-              </button>
+              </Button>
             )}
             {!canAdvance() && !isLastStep && (
               <span className="text-[10px] text-(--muted)">{advanceHint()}</span>

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { cn } from "@/lib/cn";
 import { WizardState, GENRES, TONES, slugify } from "./types";
-import { sectionClass, inputClass, textareaClass, FieldLabel, ChipGrid, AiButton } from "./atoms";
+import { Input, Textarea, Label, SectionCard, ChipGrid, AiButton } from "./atoms";
+import { ApiClient } from "@/lib/api/client";
 
 function sample<T>(arr: T[], count: number): T[] {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
@@ -39,9 +41,9 @@ export function StepConcept({
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/shows/check-slug?slug=${encodeURIComponent(state.slug)}`);
-        const data = (await res.json()) as { available?: boolean };
-        setSlugStatus(data.available ? "available" : "taken");
+        const api = new ApiClient();
+        const { available } = await api.checkSlug(state.slug);
+        setSlugStatus(available ? "available" : "taken");
       } catch {
         setSlugStatus("idle");
       }
@@ -55,19 +57,8 @@ export function StepConcept({
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/ai/generate-concept", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ hint: state.title || state.logline || "" }),
-      });
-      const data = (await res.json()) as {
-        title?: string;
-        logline?: string;
-        genres?: string[];
-        tones?: string[];
-        error?: string;
-      };
-      if (!res.ok) throw new Error(data.error ?? "Generation failed");
+      const api = new ApiClient();
+      const data = await api.generateConcept(state.title || state.logline || "");
       setSlugEdited(false);
       set({
         title: data.title ?? state.title,
@@ -93,10 +84,10 @@ export function StepConcept({
 
   return (
     <div className="space-y-7">
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-5 flex items-start justify-between gap-4">
           <div>
-            <FieldLabel>Show concept</FieldLabel>
+            <Label>Show concept</Label>
             <p className="text-xs text-(--muted)">Fill in a title or logline, or let AI invent one.</p>
           </div>
           <div className="flex flex-col items-end gap-1">
@@ -109,9 +100,9 @@ export function StepConcept({
 
         <div className="grid gap-5 md:grid-cols-[1fr_auto]">
           <div>
-            <FieldLabel>Show title</FieldLabel>
-            <input
-              className={inputClass}
+            <Label htmlFor="show-title">Show title</Label>
+            <Input
+              id="show-title"
               placeholder="e.g. Nova Force, The Hollow, Cascade City…"
               value={state.title}
               onChange={(e) => set({ title: e.target.value })}
@@ -120,31 +111,25 @@ export function StepConcept({
           </div>
           <div className="min-w-[220px]">
             <div className="mb-1.5 flex items-baseline justify-between">
-              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">
-                URL slug
-              </label>
+              <Label htmlFor="show-slug">URL slug</Label>
               {slugIndicator}
             </div>
             <div className="flex items-center gap-1">
               <span className="shrink-0 text-xs text-(--muted)">/shows/</span>
-              <input
-                className={`${inputClass} ${
-                  slugStatus === "taken"
-                    ? "border-[color-mix(in_srgb,#ff7466_50%,var(--border))] focus:ring-[#ff7466]"
-                    : slugStatus === "available"
-                    ? "border-[color-mix(in_srgb,#22c55e_50%,var(--border))] focus:ring-[#22c55e]"
-                    : ""
-                }`}
+              <Input
+                id="show-slug"
+                className={cn(
+                  slugStatus === "taken" &&
+                    "border-[color-mix(in_srgb,#ff7466_50%,var(--border))] focus:ring-[#ff7466]",
+                  slugStatus === "available" &&
+                    "border-[color-mix(in_srgb,#22c55e_50%,var(--border))] focus:ring-[#22c55e]"
+                )}
                 value={state.slug}
                 onChange={(e) => {
                   setSlugEdited(true);
-                  // Allow hyphens mid-typing; only strip invalid chars, not trailing hyphens
                   set({ slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "") });
                 }}
-                onBlur={(e) => {
-                  // Clean up leading/trailing hyphens on blur
-                  set({ slug: slugify(e.target.value) });
-                }}
+                onBlur={(e) => set({ slug: slugify(e.target.value) })}
                 placeholder="my-show"
               />
             </div>
@@ -157,20 +142,20 @@ export function StepConcept({
         </div>
 
         <div className="mt-5">
-          <FieldLabel>Logline</FieldLabel>
-          <textarea
-            className={textareaClass}
+          <Label htmlFor="show-logline">Logline</Label>
+          <Textarea
+            id="show-logline"
             rows={2}
             placeholder="One or two sentences: who is this about, what do they want, what's in the way?"
             value={state.logline}
             onChange={(e) => set({ logline: e.target.value })}
           />
         </div>
-      </div>
+      </SectionCard>
 
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-2 flex items-center justify-between">
-          <FieldLabel>Genre · pick all that apply</FieldLabel>
+          <Label>Genre · pick all that apply</Label>
           <button
             type="button"
             onClick={() => set({ genres: sample(GENRES, Math.floor(Math.random() * 2) + 1) })}
@@ -190,11 +175,11 @@ export function StepConcept({
             })
           }
         />
-      </div>
+      </SectionCard>
 
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-2 flex items-center justify-between">
-          <FieldLabel>Tone · pick all that apply</FieldLabel>
+          <Label>Tone · pick all that apply</Label>
           <button
             type="button"
             onClick={() => set({ tones: sample(TONES, Math.floor(Math.random() * 2) + 2) })}
@@ -214,7 +199,7 @@ export function StepConcept({
             })
           }
         />
-      </div>
+      </SectionCard>
     </div>
   );
 }

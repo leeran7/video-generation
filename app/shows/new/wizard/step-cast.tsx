@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/cn";
 import { WizardState, DraftCharacter, uid, emptyCharacter } from "./types";
-import { sectionClass, inputClass, textareaClass, FieldLabel, AiButton } from "./atoms";
+import { Input, Textarea, Label, SectionCard, AiButton } from "./atoms";
+import { ApiClient } from "@/lib/api/client";
 
 function CharacterCard({
   char,
@@ -28,11 +30,12 @@ function CharacterCard({
               key={t}
               type="button"
               onClick={() => onChange({ type: t })}
-              className={`rounded-[2px] border px-2.5 py-[3px] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors ${
+              className={cn(
+                "rounded-[2px] border px-2.5 py-[3px] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
                 char.type === t
                   ? typeColors[t]
                   : "border-(--border) text-(--muted) hover:border-(--text)"
-              }`}
+              )}
             >
               {t}
             </button>
@@ -41,7 +44,7 @@ function CharacterCard({
         <button
           type="button"
           onClick={onRemove}
-          className="text-[11px] uppercase tracking-[0.1em] text-(--muted) transition-colors hover:text-[#ff7466]"
+          className="text-[11px] uppercase tracking-widest text-(--muted) transition-colors hover:text-[#ff7466]"
         >
           Remove
         </button>
@@ -49,36 +52,36 @@ function CharacterCard({
 
       <div className="grid gap-3 sm:grid-cols-2">
         <div>
-          <FieldLabel>Full name</FieldLabel>
-          <input
-            className={inputClass}
+          <Label htmlFor={`name-${char.id}`}>Full name</Label>
+          <Input
+            id={`name-${char.id}`}
             placeholder="Marcus Valdez"
             value={char.name}
             onChange={(e) => onChange({ name: e.target.value })}
           />
         </div>
         <div>
-          <FieldLabel>Codename / alias</FieldLabel>
-          <input
-            className={inputClass}
+          <Label htmlFor={`codename-${char.id}`}>Codename / alias</Label>
+          <Input
+            id={`codename-${char.id}`}
             placeholder="Surge"
             value={char.codename}
             onChange={(e) => onChange({ codename: e.target.value })}
           />
         </div>
         <div>
-          <FieldLabel>Role in story</FieldLabel>
-          <input
-            className={inputClass}
+          <Label htmlFor={`role-${char.id}`}>Role in story</Label>
+          <Input
+            id={`role-${char.id}`}
             placeholder="Reluctant leader, comic relief…"
             value={char.role}
             onChange={(e) => onChange({ role: e.target.value })}
           />
         </div>
         <div>
-          <FieldLabel>Ability / defining trait</FieldLabel>
-          <input
-            className={inputClass}
+          <Label htmlFor={`ability-${char.id}`}>Ability / defining trait</Label>
+          <Input
+            id={`ability-${char.id}`}
             placeholder="Electricity manipulation…"
             value={char.ability}
             onChange={(e) => onChange({ ability: e.target.value })}
@@ -87,9 +90,9 @@ function CharacterCard({
       </div>
 
       <div className="mt-3">
-        <FieldLabel>Character brief</FieldLabel>
-        <textarea
-          className={textareaClass}
+        <Label htmlFor={`brief-${char.id}`}>Character brief</Label>
+        <Textarea
+          id={`brief-${char.id}`}
           rows={3}
           placeholder="Who are they, what do they want, what are they afraid of?"
           value={char.brief}
@@ -134,23 +137,15 @@ export function StepCast({
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/ai/generate-characters", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: state.title,
-          logline: state.logline,
-          genres: state.genres,
-          worldRules: state.worldRules,
-          visualStyle: state.visualStyle,
-          count: state.castCount,
-        }),
+      const api = new ApiClient();
+      const data = await api.generateCharacters({
+        title: state.title,
+        logline: state.logline,
+        genres: state.genres,
+        worldRules: state.worldRules,
+        visualStyle: state.visualStyle,
+        count: state.castCount,
       });
-      const data = (await res.json()) as {
-        characters?: Omit<DraftCharacter, "id">[];
-        error?: string;
-      };
-      if (!res.ok) throw new Error(data.error ?? "Generation failed");
       set({ characters: (data.characters ?? []).map((c) => ({ ...c, id: uid() })) });
     } catch (err) {
       setError((err as Error).message);
@@ -161,10 +156,10 @@ export function StepCast({
 
   return (
     <div className="space-y-7">
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="flex flex-wrap items-end gap-6">
           <div>
-            <FieldLabel>Main cast size</FieldLabel>
+            <Label>Main cast size</Label>
             <div className="flex gap-2">
               {[2, 3, 4, 5, 6, 7, 8].map((n) => {
                 const active = state.castCount === n;
@@ -173,11 +168,12 @@ export function StepCast({
                     key={n}
                     type="button"
                     onClick={() => setCastCount(n)}
-                    className={`w-10 rounded border py-2 text-sm font-bold transition-colors ${
+                    className={cn(
+                      "w-10 rounded border py-2 text-sm font-bold transition-colors",
                       active
                         ? "border-[color-mix(in_srgb,var(--text)_60%,transparent)] bg-[color-mix(in_srgb,var(--text)_10%,transparent)] text-(--text)"
                         : "border-(--border) text-(--muted) hover:border-(--text) hover:text-(--text)"
-                    }`}
+                    )}
                   >
                     {n}
                   </button>
@@ -192,7 +188,7 @@ export function StepCast({
             {error && <span className="text-[11px] text-[#ff7466]">{error}</span>}
           </div>
         </div>
-      </div>
+      </SectionCard>
 
       {state.characters.length > 0 && (
         <div className="space-y-4">

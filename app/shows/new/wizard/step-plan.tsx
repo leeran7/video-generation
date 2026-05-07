@@ -1,13 +1,13 @@
 "use client";
 
+import { cn } from "@/lib/cn";
 import { DESIGN_STYLES } from "@/lib/design-styles";
 import { WizardState, formatDuration, formatTotalTime } from "./types";
-import { sectionClass } from "./atoms";
+import { Label, SectionCard } from "./atoms";
 
-// Rough cost estimates (per unit)
-const RUNWAY_COST_PER_SEC = 0.05;   // Gen-4 video output, ~$0.05/sec
-const IMAGE_COST_PER_CHAR = 0.08;   // gpt-image-1 medium quality
-const MUSIC_COST_PER_MIN = 0.15;    // AI music generation
+const RUNWAY_COST_PER_SEC = 0.05;
+const IMAGE_COST_PER_CHAR = 0.08;
+const MUSIC_COST_PER_MIN = 0.15;
 
 export function StepPlan({
   state,
@@ -25,7 +25,6 @@ export function StepPlan({
   const antagonists = state.characters.filter((c) => c.type === "antagonist");
   const supporting = state.characters.filter((c) => c.type === "supporting");
 
-  // Cost breakdown
   const videoCost = totalSeconds * RUNWAY_COST_PER_SEC;
   const imageCost = state.characters.length * IMAGE_COST_PER_CHAR;
   const musicCost = (totalSeconds / 60) * MUSIC_COST_PER_MIN;
@@ -38,7 +37,7 @@ export function StepPlan({
   return (
     <div className="space-y-5">
       {/* Show summary */}
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">Show</div>
         <h2 className="mb-1 text-2xl font-extrabold tracking-[-0.01em] text-(--text)">
           {state.title || <span className="text-(--muted)">Untitled</span>}
@@ -52,17 +51,17 @@ export function StepPlan({
             {[...state.genres, ...state.tones].map((g) => (
               <span
                 key={g}
-                className="rounded-[2px] border border-(--border) px-2.5 py-[3px] text-[10px] uppercase tracking-[0.1em] text-(--muted)"
+                className="rounded-[2px] border border-(--border) px-2.5 py-[3px] text-[10px] uppercase tracking-widest text-(--muted)"
               >
                 {g}
               </span>
             ))}
           </div>
         )}
-      </div>
+      </SectionCard>
 
       <div className="grid gap-5 md:grid-cols-2">
-        <div className={sectionClass}>
+        <SectionCard>
           <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">Format</div>
           <dl className="space-y-1.5 text-sm">
             {[
@@ -78,20 +77,20 @@ export function StepPlan({
               </div>
             ))}
           </dl>
-        </div>
+        </SectionCard>
 
-        <div className={sectionClass}>
+        <SectionCard>
           <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">World</div>
           {state.worldRules ? (
             <p className="line-clamp-4 text-sm leading-[1.6] text-(--text)">{state.worldRules}</p>
           ) : (
             <p className="text-[11px] text-(--muted)">No world bible added yet.</p>
           )}
-        </div>
+        </SectionCard>
       </div>
 
       {state.characters.length > 0 && (
-        <div className={sectionClass}>
+        <SectionCard>
           <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">
             Cast · {state.characters.length} character{state.characters.length !== 1 ? "s" : ""}
           </div>
@@ -124,20 +123,17 @@ export function StepPlan({
                 )
             )}
           </div>
-        </div>
+        </SectionCard>
       )}
 
       {/* Production cost estimate */}
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">
           Production cost estimate
         </div>
 
-        {/* Scenes per episode control */}
         <div className="mb-5">
-          <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.2em] text-(--muted)">
-            Scenes per episode
-          </label>
+          <Label>Scenes per episode</Label>
           <div className="flex gap-2">
             {[2, 3, 4, 5, 6, 8].map((n) => {
               const active = state.scenesPerEpisode === n;
@@ -146,11 +142,12 @@ export function StepPlan({
                   key={n}
                   type="button"
                   onClick={() => set({ scenesPerEpisode: n })}
-                  className={`w-10 rounded border py-2 text-sm font-bold transition-colors ${
+                  className={cn(
+                    "w-10 rounded border py-2 text-sm font-bold transition-colors",
                     active
                       ? "border-[color-mix(in_srgb,var(--text)_60%,transparent)] bg-[color-mix(in_srgb,var(--text)_10%,transparent)] text-(--text)"
                       : "border-(--border) text-(--muted) hover:border-(--text) hover:text-(--text)"
-                  }`}
+                  )}
                 >
                   {n}
                 </button>
@@ -191,7 +188,7 @@ export function StepPlan({
           Estimates based on Runway Gen-4 video (~$0.05/sec), gpt-image-1 character sheets (~$0.08/image), and AI music (~$0.15/min).
           Actual costs vary by generation settings and re-renders.
         </p>
-      </div>
+      </SectionCard>
     </div>
   );
 }

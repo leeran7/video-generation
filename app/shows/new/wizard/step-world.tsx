@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { WizardState } from "./types";
-import { sectionClass, textareaClass, FieldLabel, AiButton } from "./atoms";
+import { Textarea, Label, SectionCard, AiButton } from "./atoms";
+import { ApiClient } from "@/lib/api/client";
 
 export function StepWorld({
   state,
@@ -18,24 +19,15 @@ export function StepWorld({
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/ai/generate-bible", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: state.title,
-          logline: state.logline,
-          genres: state.genres,
-          tones: state.tones,
-          settingDescription: state.settingDescription,
-        }),
+      const api = new ApiClient();
+      const data = await api.generateBible({
+        title: state.title,
+        logline: state.logline,
+        genres: state.genres,
+        tones: state.tones,
+        audience: "",
+        settingDescription: state.settingDescription,
       });
-      const data = (await res.json()) as {
-        worldRules?: string;
-        visualStyle?: string;
-        thematicFocus?: string;
-        error?: string;
-      };
-      if (!res.ok) throw new Error(data.error ?? "Generation failed");
       set({
         worldRules: data.worldRules ?? "",
         visualStyle: data.visualStyle ?? "",
@@ -52,10 +44,10 @@ export function StepWorld({
 
   return (
     <div className="space-y-7">
-      <div className={sectionClass}>
-        <FieldLabel>Setting & world description</FieldLabel>
-        <textarea
-          className={textareaClass}
+      <SectionCard>
+        <Label htmlFor="setting-description">Setting & world description</Label>
+        <Textarea
+          id="setting-description"
           rows={4}
           placeholder="Describe the world. Where and when does the show take place? What's unusual about it?"
           value={state.settingDescription}
@@ -70,14 +62,14 @@ export function StepWorld({
           )}
           {error && <span className="text-[11px] text-[#ff7466]">{error}</span>}
         </div>
-      </div>
+      </SectionCard>
 
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="space-y-5">
           <div>
-            <FieldLabel>World rules</FieldLabel>
-            <textarea
-              className={textareaClass}
+            <Label htmlFor="world-rules">World rules</Label>
+            <Textarea
+              id="world-rules"
               rows={5}
               placeholder="What makes this world work? Its rules, physics, internal logic."
               value={state.worldRules}
@@ -85,9 +77,9 @@ export function StepWorld({
             />
           </div>
           <div>
-            <FieldLabel>Visual style & aesthetic</FieldLabel>
-            <textarea
-              className={textareaClass}
+            <Label htmlFor="visual-style">Visual style & aesthetic</Label>
+            <Textarea
+              id="visual-style"
               rows={4}
               placeholder="Art direction, color palette, cinematography approach, lighting mood."
               value={state.visualStyle}
@@ -95,9 +87,9 @@ export function StepWorld({
             />
           </div>
           <div>
-            <FieldLabel>Thematic focus</FieldLabel>
-            <textarea
-              className={textareaClass}
+            <Label htmlFor="thematic-focus">Thematic focus</Label>
+            <Textarea
+              id="thematic-focus"
               rows={4}
               placeholder="What is the show really about beneath the genre surface?"
               value={state.thematicFocus}
@@ -105,7 +97,7 @@ export function StepWorld({
             />
           </div>
         </div>
-      </div>
+      </SectionCard>
     </div>
   );
 }

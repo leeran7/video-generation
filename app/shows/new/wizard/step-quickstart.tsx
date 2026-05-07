@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { WizardState, GENRES, TONES, PLATFORMS, uid } from "./types";
-import { textareaClass, AiButton } from "./atoms";
-
-type GeneratedShow = Omit<WizardState, "slug" | "scenesPerEpisode">;
+import { WizardState, uid } from "./types";
+import { Textarea, Button } from "./atoms";
+import { ApiClient } from "@/lib/api/client";
 
 export function StepQuickStart({
   onGenerated,
@@ -21,14 +20,8 @@ export function StepQuickStart({
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/ai/generate-show", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ hint: hint.trim() }),
-      });
-      const data = (await res.json()) as Partial<GeneratedShow> & { error?: string };
-      if (!res.ok) throw new Error(data.error ?? "Generation failed");
-
+      const api = new ApiClient();
+      const data = await api.generateShow(hint.trim());
       const chars = (data.characters ?? []).map((c) => ({ ...c, id: uid() }));
       onGenerated({ ...data, characters: chars });
     } catch (err) {
@@ -41,8 +34,8 @@ export function StepQuickStart({
   return (
     <div className="space-y-8 pt-2">
       <div className="space-y-3">
-        <textarea
-          className={textareaClass + " min-h-[120px] text-base"}
+        <Textarea
+          className="min-h-[120px] text-base"
           placeholder="Describe an idea, a genre, a vibe, a character — or leave this blank and let AI invent everything from scratch."
           value={hint}
           onChange={(e) => setHint(e.target.value)}
@@ -52,23 +45,24 @@ export function StepQuickStart({
       </div>
 
       <div className="flex flex-col gap-3">
-        <button
+        <Button
           type="button"
           onClick={handleGenerate}
           disabled={loading}
-          className="flex w-full items-center justify-center gap-3 rounded border border-(--text) bg-(--text) py-4 text-sm font-bold uppercase tracking-[0.18em] text-(--bg) transition-opacity hover:opacity-80 disabled:opacity-40"
+          className="flex w-full items-center justify-center gap-3 py-4 text-sm"
         >
           <span className="text-base leading-none">✦</span>
           {loading ? "Generating your show…" : "Generate everything with AI"}
-        </button>
+        </Button>
 
-        <button
+        <Button
+          variant="ghost"
           type="button"
           onClick={onManual}
-          className="w-full rounded border border-(--border) py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-(--muted) transition-colors hover:border-(--text) hover:text-(--text)"
+          className="w-full py-3 text-[11px]"
         >
           Build it myself →
-        </button>
+        </Button>
       </div>
 
       <p className="text-center text-[11px] text-(--muted)">

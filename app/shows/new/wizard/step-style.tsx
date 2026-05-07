@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/cn";
 import { DESIGN_STYLES } from "@/lib/design-styles";
 import { WizardState } from "./types";
-import { sectionClass, FieldLabel, AiButton } from "./atoms";
+import { Label, SectionCard, AiButton } from "./atoms";
+import { ApiClient } from "@/lib/api/client";
 
 export function StepStyle({
   state,
@@ -22,24 +24,14 @@ export function StepStyle({
     setAiError("");
     setAiReason("");
     try {
-      const res = await fetch("/api/ai/suggest-style", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: state.title,
-          logline: state.logline,
-          genres: state.genres,
-          tones: state.tones,
-          settingDescription: state.settingDescription,
-          visualStyle: state.visualStyle,
-        }),
+      const api = new ApiClient();
+      const data = await api.suggestStyle({
+        title: state.title,
+        logline: state.logline,
+        genres: state.genres,
+        tones: state.tones,
+        settingDescription: state.settingDescription,
       });
-      const data = (await res.json()) as {
-        styleId?: string;
-        reason?: string;
-        error?: string;
-      };
-      if (!res.ok) throw new Error(data.error ?? "Suggestion failed");
       if (data.styleId) {
         set({ designStyleId: data.styleId });
         setAiSuggestedId(data.styleId);
@@ -54,10 +46,10 @@ export function StepStyle({
 
   return (
     <div className="space-y-5">
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <FieldLabel>Art style for character design sheets</FieldLabel>
+            <Label>Art style for character design sheets</Label>
             <p className="text-xs text-(--muted)">
               This style guides how AI renders characters for your show.
             </p>
@@ -78,7 +70,7 @@ export function StepStyle({
             <span className="text-xs text-(--muted)">{aiReason}</span>
           </div>
         )}
-      </div>
+      </SectionCard>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {DESIGN_STYLES.map((s) => {
@@ -89,14 +81,14 @@ export function StepStyle({
               key={s.id}
               type="button"
               onClick={() => set({ designStyleId: s.id })}
-              className={`group flex flex-col overflow-hidden rounded border text-left transition-all ${
+              className={cn(
+                "group flex flex-col overflow-hidden rounded border text-left transition-all",
                 active
                   ? "border-[color-mix(in_srgb,var(--text)_60%,transparent)] ring-1 ring-[color-mix(in_srgb,var(--text)_25%,transparent)]"
                   : "border-(--border) hover:border-(--text)"
-              }`}
+              )}
             >
               <div className="relative aspect-square w-full overflow-hidden bg-(--panel)">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={s.image}
                   alt={s.label}
@@ -123,14 +115,16 @@ export function StepStyle({
                 )}
               </div>
               <div
-                className={`flex items-center justify-between px-3 py-2.5 ${
+                className={cn(
+                  "flex items-center justify-between px-3 py-2.5",
                   active ? "bg-[color-mix(in_srgb,var(--text)_8%,transparent)]" : "bg-(--panel)"
-                }`}
+                )}
               >
                 <span
-                  className={`text-[11px] font-bold uppercase tracking-[0.14em] ${
+                  className={cn(
+                    "text-[11px] font-bold uppercase tracking-[0.14em]",
                     active ? "text-(--text)" : "text-(--muted)"
-                  }`}
+                  )}
                 >
                   {s.label}
                 </span>

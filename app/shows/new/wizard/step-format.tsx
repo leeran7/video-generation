@@ -1,7 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/cn";
 import { WizardState, VideoScope, PLATFORMS, formatDuration, formatTotalTime } from "./types";
-import { sectionClass, FieldLabel } from "./atoms";
+import { Label, SectionCard } from "./atoms";
 
 const SLIDER_MIN = 10;
 const SLIDER_MAX = 180;
@@ -11,7 +12,6 @@ const SCOPE_OPTIONS: { value: VideoScope; label: string; sub: string }[] = [
   { value: "single", label: "Single video", sub: "One standalone production" },
   { value: "series", label: "Series", sub: "Multiple episodes, released over time" },
 ];
-
 
 export function StepFormat({
   state,
@@ -29,8 +29,8 @@ export function StepFormat({
   return (
     <div className="space-y-7">
       {/* Single vs series */}
-      <div className={sectionClass}>
-        <FieldLabel>What are you making?</FieldLabel>
+      <SectionCard>
+        <Label>What are you making?</Label>
         <div className="grid grid-cols-2 gap-3">
           {SCOPE_OPTIONS.map((opt) => {
             const active = state.videoScope === opt.value;
@@ -39,11 +39,12 @@ export function StepFormat({
                 key={opt.value}
                 type="button"
                 onClick={() => set({ videoScope: opt.value })}
-                className={`flex flex-col rounded border px-4 py-3 text-left transition-colors ${
+                className={cn(
+                  "flex flex-col rounded border px-4 py-3 text-left transition-colors",
                   active
                     ? "border-[color-mix(in_srgb,var(--text)_60%,transparent)] bg-[color-mix(in_srgb,var(--text)_8%,transparent)]"
                     : "border-(--border) hover:border-(--text)"
-                }`}
+                )}
               >
                 <span className="text-sm font-bold text-(--text)">{opt.label}</span>
                 <span className="text-[11px] text-(--muted)">{opt.sub}</span>
@@ -51,13 +52,13 @@ export function StepFormat({
             );
           })}
         </div>
-      </div>
+      </SectionCard>
 
-       {/* Episode count — only for series */}
-       {!isSingle && (
-        <div className={sectionClass}>
+      {/* Episode count — only for series */}
+      {!isSingle && (
+        <SectionCard>
           <div className="mb-5 flex items-baseline justify-between gap-4">
-            <FieldLabel>Number of episodes</FieldLabel>
+            <Label>Number of episodes</Label>
             <input
               type="number"
               min={2}
@@ -89,13 +90,13 @@ export function StepFormat({
             {state.totalEpisodes} episodes × {formatDuration(state.episodeSeconds)} ={" "}
             <strong className="text-(--text)">{formatTotalTime(totalSeconds)}</strong> total
           </div>
-        </div>
+        </SectionCard>
       )}
 
       {/* Video length slider */}
-      <div className={sectionClass}>
+      <SectionCard>
         <div className="mb-5 flex items-baseline justify-between">
-          <FieldLabel>{isSingle ? "Video length" : "Episode length"}</FieldLabel>
+          <Label>{isSingle ? "Video length" : "Episode length"}</Label>
           <span className="text-lg font-extrabold tracking-tight text-(--text)">
             {formatDuration(state.episodeSeconds)}
           </span>
@@ -131,13 +132,11 @@ export function StepFormat({
             })}
           </div>
         </div>
-      </div>
-
-     
+      </SectionCard>
 
       {/* Platform */}
-      <div className={sectionClass}>
-        <FieldLabel>Target platform</FieldLabel>
+      <SectionCard>
+        <Label>Target platform</Label>
         <div className="flex flex-wrap gap-2">
           {PLATFORMS.map((p) => {
             const active = state.platform === p;
@@ -146,18 +145,19 @@ export function StepFormat({
                 key={p}
                 type="button"
                 onClick={() => set({ platform: p })}
-                className={`rounded border px-3 py-[5px] text-[11px] font-bold uppercase tracking-[0.08em] transition-colors ${
+                className={cn(
+                  "rounded border px-3 py-[5px] text-[11px] font-bold uppercase tracking-[0.08em] transition-colors",
                   active
                     ? "border-[color-mix(in_srgb,var(--text)_60%,transparent)] bg-[color-mix(in_srgb,var(--text)_10%,transparent)] text-(--text)"
                     : "border-(--border) text-(--muted) hover:border-(--text) hover:text-(--text)"
-                }`}
+                )}
               >
                 {p}
               </button>
             );
           })}
         </div>
-      </div>
+      </SectionCard>
     </div>
   );
 }
