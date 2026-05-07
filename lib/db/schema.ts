@@ -4,6 +4,7 @@ import {
   uuid,
   text,
   integer,
+  boolean,
   jsonb,
   timestamp,
   unique,
@@ -74,6 +75,29 @@ export const episodes = pgTable("episodes", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
 
+export const locations = pgTable(
+  "locations",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    showId: uuid("show_id").references(() => shows.id, { onDelete: "cascade" }),
+    slug: text("slug").notNull(),
+    name: text("name").notNull(),
+    area: text("area"),
+    interior: boolean("interior").default(false),
+    conceptBoard: boolean("concept_board").default(false),
+    conceptBoardAsset: text("concept_board_asset"),
+    referenceImageAsset: text("reference_image_asset"),
+    runwayStyleRefAsset: text("runway_style_ref_asset"),
+    notes: text("notes"),
+    data: jsonb("data")
+      .$type<Record<string, unknown>>()
+      .default(sql`'{}'::jsonb`),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [unique().on(table.showId, table.slug)]
+);
+
 export const scenes = pgTable(
   "scenes",
   {
@@ -83,7 +107,7 @@ export const scenes = pgTable(
     }),
     sceneNumber: integer("scene_number").notNull(),
     sceneId: text("scene_id"),
-    locationId: uuid("location_id"),
+    locationId: uuid("location_id").references(() => locations.id),
     title: text("title"),
     durationSeconds: integer("duration_seconds"),
     scriptBlock: text("script_block"),

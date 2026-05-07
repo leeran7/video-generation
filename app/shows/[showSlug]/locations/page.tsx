@@ -1,35 +1,8 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
-import { shows } from "@/lib/db/schema";
-
-type LocationRow = {
-  slug: string;
-  name: string;
-  area: string;
-  interior: boolean;
-  conceptBoard: boolean;
-  notes: string;
-};
-
-type LocationsFile = {
-  locations: LocationRow[];
-};
-
-async function loadLocations(): Promise<LocationRow[]> {
-  const file = path.join(process.cwd(), "production/locations.json");
-  try {
-    const raw = await readFile(file, "utf8");
-    const parsed = JSON.parse(raw) as LocationsFile;
-    return parsed.locations ?? [];
-  } catch {
-    return [];
-  }
-}
+import { shows, locations } from "@/lib/db/schema";
 
 export default async function LocationsPage({
   params,
@@ -38,22 +11,27 @@ export default async function LocationsPage({
 }) {
   const { showSlug } = await params;
 
-  const [showResult, locations] = await Promise.all([
-    db.select().from(shows).where(eq(shows.slug, showSlug)).limit(1),
-    loadLocations(),
-  ]);
-  const show = showResult[0];
-  if (!show) notFound();
+  const [showResult] = await db
+    .select()
+    .from(shows)
+    .where(eq(shows.slug, showSlug))
+    .limit(1);
+  if (!showResult) notFound();
 
-  const byArea = new Map<string, LocationRow[]>();
-  for (const loc of locations) {
-    const key = loc.area || "Unknown";
+  const rows = await db
+    .select()
+    .from(locations)
+    .where(eq(locations.showId, showResult.id));
+
+  const byArea = new Map<string, typeof rows>();
+  for (const loc of rows) {
+    const key = loc.area ?? "Unknown";
     const list = byArea.get(key) ?? [];
     list.push(loc);
     byArea.set(key, list);
   }
   const areas = [...byArea.keys()].sort();
-  const withBoard = locations.filter((l) => l.conceptBoard).length;
+  const withBoard = rows.filter((l) => l.conceptBoard).length;
 
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
@@ -61,11 +39,11 @@ export default async function LocationsPage({
         Locations
       </h2>
       <p className="mb-5 text-[11px] uppercase tracking-[0.15em] text-(--muted)">
-        {locations.length} location{locations.length === 1 ? "" : "s"} ·{" "}
+        {rows.length} location{rows.length === 1 ? "" : "s"} ·{" "}
         {withBoard} with concept board
       </p>
 
-      {locations.length === 0 && (
+      {rows.length === 0 && (
         <p className="text-[13px] uppercase tracking-[0.1em] text-(--muted)">
           No locations registered.
         </p>
@@ -104,9 +82,7 @@ export default async function LocationsPage({
                   </div>
                   <div className="flex flex-col gap-2 px-3.5 pb-3.5 pt-3">
                     <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="m-0 text-sm text-(--text)">
-                        {loc.name}
-                      </h3>
+                      <h3 className="m-0 text-sm text-(--text)">{loc.name}</h3>
                       <span
                         className={`whitespace-nowrap rounded-[2px] border px-1.5 py-0.5 text-[10px] uppercase tracking-[0.16em] ${
                           loc.interior
