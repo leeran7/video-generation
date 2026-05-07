@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
-
+import { OpenAIClient } from "@/lib/ai/openai";
 import { toUserFacingError } from "@/lib/ai/error";
 import { getCurrentUserId } from "@/lib/auth/show-access";
 import { GENRES, TONES } from "@/app/shows/new/wizard/types";
@@ -49,22 +48,13 @@ Rules:
 - title must not include words like "Chronicles", "Legacy", "Rising", "Origins"`;
 
   try {
-    const openai = new OpenAI();
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
-      response_format: { type: "json_object" },
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.95,
-      max_tokens: 300,
-    });
-
-    const raw = completion.choices[0]?.message?.content ?? "{}";
-    const result = JSON.parse(raw) as {
+    const ai = new OpenAIClient();
+    const result = await ai.jsonChat<{
       title?: string;
       logline?: string;
       genres?: string[];
       tones?: string[];
-    };
+    }>([{ role: "user", content: prompt }], { temperature: 0.95, max_tokens: 300 });
 
     const validGenres = (result.genres ?? []).filter((g) => GENRES.includes(g));
     const validTones = (result.tones ?? []).filter((t) => TONES.includes(t));

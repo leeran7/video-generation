@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
-
+import { OpenAIClient } from "@/lib/ai/openai";
 import { toUserFacingError } from "@/lib/ai/error";
 import { getCurrentUserId } from "@/lib/auth/show-access";
 import { GENRES, TONES, PLATFORMS } from "@/app/shows/new/wizard/types";
@@ -72,17 +71,11 @@ Constraints:
 - Do NOT include an "id" field on characters`;
 
   try {
-    const openai = new OpenAI();
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
-      response_format: { type: "json_object" },
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.9,
-      max_tokens: 1500,
-    });
-
-    const raw = completion.choices[0]?.message?.content ?? "{}";
-    const result = JSON.parse(raw) as Record<string, unknown>;
+    const ai = new OpenAIClient();
+    const result = await ai.jsonChat<Record<string, unknown>>(
+      [{ role: "user", content: prompt }],
+      { temperature: 0.9, max_tokens: 1500 }
+    );
 
     // Validate and sanitize
     const validGenres = ((result.genres as string[]) ?? []).filter((g) => GENRES.includes(g));

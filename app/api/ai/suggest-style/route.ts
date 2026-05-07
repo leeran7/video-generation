@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
-
+import { OpenAIClient } from "@/lib/ai/openai";
 import { toUserFacingError } from "@/lib/ai/error";
 import { getCurrentUserId } from "@/lib/auth/show-access";
 import { DESIGN_STYLES } from "@/lib/design-styles";
@@ -61,17 +60,11 @@ Respond with JSON only:
 }`;
 
   try {
-    const openai = new OpenAI();
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
-      response_format: { type: "json_object" },
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      max_tokens: 200,
-    });
-
-    const raw = completion.choices[0]?.message?.content ?? "{}";
-    const result = JSON.parse(raw) as { styleId?: string; reason?: string };
+    const ai = new OpenAIClient();
+    const result = await ai.jsonChat<{ styleId?: string; reason?: string }>(
+      [{ role: "user", content: prompt }],
+      { temperature: 0.7, max_tokens: 200 }
+    );
 
     const validId = DESIGN_STYLES.find((s) => s.id === result.styleId)?.id;
     if (!validId) {

@@ -1,6 +1,5 @@
-import OpenAI from "openai";
-import type { ImagesResponse } from "openai/resources/images";
 import { and, eq, isNotNull, ne, sql } from "drizzle-orm";
+import { OpenAIClient } from "@/lib/ai/openai";
 
 import { getStyle } from "@/lib/design-styles";
 
@@ -56,7 +55,7 @@ export const generateImage = inngest.createFunction(
     });
 
     const imageUrl = await step.run("generate-and-upload", async () => {
-      const openai = new OpenAI();
+      const ai = new OpenAIClient();
       const supabase = getImageStorageClient();
       await ensureImageBucket(supabase);
 
@@ -86,24 +85,9 @@ export const generateImage = inngest.createFunction(
 
       if (styleRefs.length > 0) {
         const styledPrompt = `Match the exact art style of the provided reference images. Use the same linework, proportions, rendering, and color treatment.\n\n${fullPrompt}`;
-        const result = (await openai.images.edit({
-          model: "gpt-image-1",
-          image: styleRefs,
-          prompt: styledPrompt,
-          n: 1,
-          size: "1536x1024",
-          quality: "high",
-        } as Parameters<typeof openai.images.edit>[0])) as ImagesResponse;
-        b64 = result.data?.[0]?.b64_json;
+        b64 = await ai.editImage(styledPrompt, styleRefs);
       } else {
-        const result = (await openai.images.generate({
-          model: "gpt-image-1",
-          prompt: fullPrompt,
-          n: 1,
-          size: "1536x1024",
-          quality: "high",
-        } as Parameters<typeof openai.images.generate>[0])) as ImagesResponse;
-        b64 = result.data?.[0]?.b64_json;
+        b64 = await ai.generateImage(fullPrompt);
       }
 
       if (!b64) throw new Error("OpenAI returned no image data");

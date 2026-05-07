@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
-
+import { OpenAIClient } from "@/lib/ai/openai";
 import { toUserFacingError } from "@/lib/ai/error";
 import { getCurrentUserId } from "@/lib/auth/show-access";
 
@@ -28,11 +27,8 @@ export async function POST(req: Request) {
     };
 
   try {
-  const openai = new OpenAI();
-  const completion = await openai.chat.completions.create({
-    model: "gpt-4o",
-    response_format: { type: "json_object" },
-    messages: [
+    const ai = new OpenAIClient();
+    const result = await ai.jsonChat([
       {
         role: "system",
         content:
@@ -54,19 +50,8 @@ Requirements:
 
 Return JSON: { "characters": [ { "name": string, "codename": string, "type": "hero" | "antagonist" | "supporting", "role": string (e.g. "reluctant leader", "wild card", "ideological foil"), "ability": string (power, skill, or defining trait), "brief": string (2–3 sentences: who they are, what they want, what they're afraid of) } ] }`,
       },
-    ],
-  });
-
-  const content = completion.choices[0]?.message?.content;
-  if (!content) {
-    return NextResponse.json({ error: "No response from AI" }, { status: 500 });
-  }
-
-    try {
-      return NextResponse.json(JSON.parse(content));
-    } catch {
-      return NextResponse.json({ error: "AI returned malformed JSON" }, { status: 500 });
-    }
+    ]);
+    return NextResponse.json(result);
   } catch (err) {
     const message = toUserFacingError(err);
     return NextResponse.json({ error: message }, { status: 500 });
