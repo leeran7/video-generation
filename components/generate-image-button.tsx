@@ -36,7 +36,6 @@ export function GenerateImageButton({
       if (!res.ok) throw new Error(data.error ?? "Failed to start generation");
       setJobId(data.jobId ?? null);
       setState("queued");
-      // Refresh after a delay to pick up the new image once the job completes.
       setTimeout(() => router.refresh(), 60_000);
     } catch (err) {
       setState("error");

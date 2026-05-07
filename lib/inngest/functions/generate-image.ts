@@ -2,6 +2,8 @@ import OpenAI from "openai";
 import type { ImagesResponse } from "openai/resources/images";
 import { and, eq, isNotNull, ne, sql } from "drizzle-orm";
 
+import { getStyle } from "@/lib/design-styles";
+
 import { db } from "@/lib/db/client";
 import { characters, jobs } from "@/lib/db/schema";
 import { inngest } from "@/lib/inngest/client";
@@ -30,14 +32,17 @@ export const generateImage = inngest.createFunction(
     },
   },
   async ({ event, step }) => {
-    const { jobId, characterId, showId, slug, category, prompt } = event.data as {
+    const { jobId, characterId, showId, slug, category, prompt, styleId } = event.data as {
       jobId: string;
       characterId: string;
       showId: string;
       slug: string;
       category: "hero" | "antagonist";
       prompt: string;
+      styleId?: string;
     };
+
+    const style = getStyle(styleId ?? "animated-series");
 
     if (!process.env.OPENAI_API_KEY) {
       throw new Error("OPENAI_API_KEY not set — cannot generate images.");
@@ -77,8 +82,10 @@ export const generateImage = inngest.createFunction(
 
       let b64: string | undefined;
 
+      const fullPrompt = `${prompt}\n\n${style.promptSuffix}`;
+
       if (styleRefs.length > 0) {
-        const styledPrompt = `Match the exact art style of the provided reference images. Use the same linework, proportions, rendering, and color treatment. ${prompt}`;
+        const styledPrompt = `Match the exact art style of the provided reference images. Use the same linework, proportions, rendering, and color treatment.\n\n${fullPrompt}`;
         const result = (await openai.images.edit({
           model: "gpt-image-1",
           image: styleRefs,
@@ -91,7 +98,7 @@ export const generateImage = inngest.createFunction(
       } else {
         const result = (await openai.images.generate({
           model: "gpt-image-1",
-          prompt,
+          prompt: fullPrompt,
           n: 1,
           size: "1536x1024",
           quality: "high",

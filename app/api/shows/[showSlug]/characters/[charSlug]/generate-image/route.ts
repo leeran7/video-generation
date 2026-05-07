@@ -44,6 +44,10 @@ export async function _POST_REAL(
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
+  // Read the show's art style from seriesBible
+  const bible = access.show.seriesBible as Record<string, unknown> | null;
+  const styleId = typeof bible?.designStyleId === "string" ? bible.designStyleId : "animated-series";
+
   const [char] = await db
     .select({ id: characters.id, slug: characters.slug, type: characters.type })
     .from(characters)
@@ -73,6 +77,7 @@ export async function _POST_REAL(
         slug: char.slug,
         category,
         prompt,
+        styleId,
       },
     });
   } catch (err) {

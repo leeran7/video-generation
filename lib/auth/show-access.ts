@@ -10,6 +10,7 @@ export type ShowAccess = {
     slug: string;
     title: string;
     creatorId: string | null;
+    seriesBible: Record<string, unknown> | null;
   };
   userId: string | null;
   canEdit: boolean;
@@ -33,6 +34,7 @@ export async function getShowAccess(
         slug: shows.slug,
         title: shows.title,
         creatorId: shows.creatorId,
+        seriesBible: shows.seriesBible,
       })
       .from(shows)
       .where(eq(shows.slug, showSlug))
