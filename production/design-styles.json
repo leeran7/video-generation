@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "description": "All art styles available in the show creation wizard. Each entry includes the generation prompt to use in ChatGPT / DALL-E / gpt-image-1 to produce the 1024x1024 thumbnail saved to public/design-styles/{id}.png.",
+  "styles": [
+    {
+      "id": "animated-series",
+      "label": "Animated Series",
+      "imagePath": "public/design-styles/animated-series.png",
+      "generationPrompt": "Full-body character design sheet of a young adult superhero in a sleek costume with cape and chest emblem. Modern animated series style (similar to Invincible or The Owl House). Bold flat colors with clean black cel-shading outlines. Front-facing pose, arms slightly out. Clean white background. Professional animation studio quality.",
+      "promptSuffix": "Character design sheet in a modern animated series style. Clean linework, expressive proportions, bold flat colors with simple cel shading. Full-body front/back/side turnaround on white background."
+    },
+    {
+      "id": "anime",
+      "label": "Anime",
+      "imagePath": "public/design-styles/anime.png",
+      "generationPrompt": "Full-body character design sheet of a teenage anime hero in dynamic battle stance. Spiky hair, large expressive eyes, detailed costume with armor pieces and glowing accents. Japanese anime style similar to My Hero Academia or Demon Slayer. Sharp linework, vibrant colors, speed lines behind figure. White background. Studio-quality anime art.",
+      "promptSuffix": "Character design sheet in a Japanese anime style. Sharp linework, large expressive eyes, dynamic proportions. Full-body turnaround views on white background with color palette swatches."
+    },
+    {
+      "id": "comic-book",
+      "label": "Comic Book",
+      "imagePath": "public/design-styles/comic-book.png",
+      "generationPrompt": "Full-body character design sheet of a muscular superhero in a classic Western comic book style. Bold ink outlines, dynamic pose, halftone shading, primary color scheme. Art style similar to classic Marvel or DC comics. Dramatic upward angle. Solid white background with subtle halftone dot pattern. Professional comic illustration.",
+      "promptSuffix": "Character design sheet in a Western comic book style. Bold ink outlines, dynamic musculature, high-contrast colors. Full-body front and action pose on white background."
+    },
+    {
+      "id": "concept-art",
+      "label": "Concept Art",
+      "imagePath": "public/design-styles/concept-art.png",
+      "generationPrompt": "Detailed character concept art of an original superhero. Painterly rendering with dramatic rim lighting, atmospheric shading. Multiple notes and callouts pointing to costume details and material textures. Three-quarter view pose. Dark atmospheric background with soft gradient. Professional concept art quality similar to Arcane or Spider-Verse.",
+      "promptSuffix": "Character concept art sheet. Painterly rendering, detailed costume/material callouts, soft lighting. Multiple angle sketches with notes on white background."
+    },
+    {
+      "id": "flat-vector",
+      "label": "Flat Vector",
+      "imagePath": "public/design-styles/flat-vector.png",
+      "generationPrompt": "Full-body character design of a sleek superhero in clean modern flat vector illustration style. Bold geometric shapes, minimal shading, limited but vibrant color palette. No outlines between same-colored areas, crisp silhouette. Similar to Steven Universe or Gravity Falls aesthetic. Pure white background. Professionally designed vector art.",
+      "promptSuffix": "Character design in a clean flat vector illustration style. Minimal shading, geometric shapes, limited color palette. Full-body silhouette and color variants on white background."
+    },
+    {
+      "id": "pixel-art",
+      "label": "Pixel Art",
+      "imagePath": "public/design-styles/pixel-art.png",
+      "generationPrompt": "Detailed pixel art character sprite sheet of a superhero. 32-bit retro game aesthetic. Character shown in multiple poses: idle, running, and action attack pose. Clean pixel grid, carefully anti-aliased edges, limited but expressive color palette. Black background. High-quality game sprite art similar to Octopath Traveler or Shovel Knight.",
+      "promptSuffix": "Character sprite sheet in a retro pixel art style. 16-bit or 32-bit aesthetic, limited color palette, clear animation frames. Multiple poses on transparent/white background."
+    },
+    {
+      "id": "3d-cgi",
+      "label": "3D CGI",
+      "imagePath": "public/design-styles/3d-cgi.png",
+      "generationPrompt": "Full-body 3D CGI rendered character design of a superhero. Smooth Pixar/DreamWorks quality render with subsurface scattering skin, volumetric hair, physically-based materials. Soft studio three-point lighting, slight ambient occlusion. Neutral gradient background. Turntable-style render showing front view. High-quality CGI character concept.",
+      "promptSuffix": "Character design in a 3D CGI animation style. Smooth subsurface scattering skin, volumetric hair, physically-based material shading. Turntable render views on neutral background with texture/material callouts."
+    },
+    {
+      "id": "watercolor",
+      "label": "Watercolor",
+      "imagePath": "public/design-styles/watercolor.png",
+      "generationPrompt": "Full-body watercolor illustration of a superhero character. Loose expressive brushwork, visible paper texture, wet-on-wet color bleeding, warm-cool color interplay. Detailed but painterly — clear character silhouette with loose ink lines over watercolor washes. Cream paper background. Gallery-quality illustration art.",
+      "promptSuffix": "Character illustration in a loose watercolor painting style. Wet-on-wet color bleeds, visible paper texture, soft ink linework. Full-body painting with visible brushwork and color palette on white paper background."
+    },
+    {
+      "id": "noir",
+      "label": "Noir",
+      "imagePath": "public/design-styles/noir.png",
+      "generationPrompt": "Full-body character design of a noir detective/hero. Extreme chiaroscuro black and white with harsh single-source lighting from below. Long shadows, heavy ink blacks, minimal midtones. Trench coat, fedora, dramatic silhouette. Rain-streaked city alley background in deep shadow. 1940s detective comic illustration quality.",
+      "promptSuffix": "Character design in a film noir style. High-contrast black and white with dramatic chiaroscuro lighting. Heavy shadows, stark highlights, minimal mid-tones. Strong silhouette on dark background."
+    },
+    {
+      "id": "chibi",
+      "label": "Chibi",
+      "imagePath": "public/design-styles/chibi.png",
+      "generationPrompt": "Full-body chibi character design of a superhero with oversized round head that makes up 60% of their height, tiny simplified body, huge sparkling eyes with multiple catchlights, exaggerated cute expressions. Pastel color scheme with soft gradients. Super detailed face, simplified body. White background with small decorative stars and hearts. High-quality chibi illustration art.",
+      "promptSuffix": "Character in chibi/super-deformed style. Oversized round head (50–60% of total height), tiny simplified body, huge sparkly eyes, exaggerated expressions. Cute pastel color palette on white background."
+    },
+    {
+      "id": "retro-cartoon",
+      "label": "Retro Cartoon",
+      "imagePath": "public/design-styles/retro-cartoon.png",
+      "generationPrompt": "Full-body character design of a 1940s rubber hose cartoon superhero. Round fluid forms, white gloves, bendy limbs, exaggerated round eyes with pie-cut pupils, wide toothy grin. Muted vintage color palette with aged look. Black bold outlines. Classic Fleischer Studios / early Disney aesthetic. Cream background with film grain texture.",
+      "promptSuffix": "Character design in a classic 1930s–1960s rubber hose cartoon style. Bendy limbs, white gloves, exaggerated round forms, muted vintage color palette. Bold black outlines on aged cream background."
+    },
+    {
+      "id": "cyberpunk",
+      "label": "Cyberpunk",
+      "imagePath": "public/design-styles/cyberpunk.png",
+      "generationPrompt": "Full-body cyberpunk character design of a street mercenary with cybernetic augmentations — glowing neon implants, tech-wear jacket, holographic visor. Neon magenta and cyan accent lighting against near-black base colors. Detailed mechanical arm, data ports, neon-lit city background at night. Blade Runner / Ghost in the Shell visual quality.",
+      "promptSuffix": "Character design in a cyberpunk aesthetic. Dark base palette with neon accent lighting (magenta, cyan, electric blue). Cybernetic implants, tech-wear, holographic UI elements. High-contrast on near-black background."
+    },
+    {
+      "id": "ghibli",
+      "label": "Studio Ghibli",
+      "imagePath": "public/design-styles/ghibli.png",
+      "generationPrompt": "Full-body character design in the Studio Ghibli aesthetic. A young adventurer in practical travel clothes — soft naturalistic anime style, expressive round face, flowing hair, hand-painted warmth in the colors. No heavy outlines. Subtle shading, gentle highlights. Clean white background with soft warm atmospheric glow. Quality matching Spirited Away or Princess Mononoke.",
+      "promptSuffix": "Character design in the Studio Ghibli aesthetic. Soft naturalistic anime — expressive round faces, hand-painted color warmth, flowing hair and fabric, subtle shading. No heavy outlines. Clean white background with soft atmospheric lighting."
+    },
+    {
+      "id": "manga",
+      "label": "Manga",
+      "imagePath": "public/design-styles/manga.png",
+      "generationPrompt": "Full-body character design in a black and white manga style. Crisp ink linework, screen-tone dot shading patterns on clothing and shadows, dramatic hatching for deep shadows, speed lines radiating behind the figure. Small expression inset panels in the corners. Clean white background. Publication-quality manga art similar to One Piece or Berserk.",
+      "promptSuffix": "Character design in a black and white manga style. Crisp ink linework, screen-tone shading patterns, speed lines, dramatic hatching for shadows. Multiple expression insets in the corners. White background. Publication-ready manga art."
+    },
+    {
+      "id": "dark-fantasy",
+      "label": "Dark Fantasy",
+      "imagePath": "public/design-styles/dark-fantasy.png",
+      "generationPrompt": "Full-body character concept art in a detailed dark fantasy illustration style. A warrior or mage in ornate battle-worn armor or layered robes with intricate patterns and runes. Dramatic rim lighting from below, atmospheric particle effects, rich jewel-toned color palette — deep crimson, midnight blue, tarnished gold. Painterly rendering. Dark moody background. High-detail fantasy RPG concept art quality similar to Dark Souls or Dragon Age.",
+      "promptSuffix": "Character design in a detailed dark fantasy illustration style. Ornate armor or robe with intricate patterns, battle-worn details, dramatic atmospheric lighting. Rich jewel-toned color palette. Painterly rendering, dark moody background. High-detail fantasy RPG concept art quality."
+    },
+    {
+      "id": "art-nouveau",
+      "label": "Art Nouveau",
+      "imagePath": "public/design-styles/art-nouveau.png",
+      "generationPrompt": "Full-body character design in an Art Nouveau poster illustration style inspired by Alphonse Mucha. An elegant figure in flowing robes surrounded by an ornamental border of sinuous vines, flowers, and geometric patterns. Flat areas of muted gold, sage green, dusty rose. Elongated graceful proportions. Decorative background with subtle floral motifs. Cream parchment background.",
+      "promptSuffix": "Character design in an Art Nouveau poster style. Alphonse Mucha-inspired ornamental border of flowing vines and geometric patterns framing the figure. Sinuous lines, muted gold and sage palette, flat areas of decorative pattern. Elegant full-body illustration on cream background."
+    },
+    {
+      "id": "claymation",
+      "label": "Claymation",
+      "imagePath": "public/design-styles/claymation.png",
+      "generationPrompt": "Full-body character design rendered to look like a handmade stop-motion clay puppet. Visible clay texture with subtle fingerprint marks and tool marks, slightly imperfect smooth surfaces, bold saturated colors with matte finish. Aardman / Laika aesthetic — Wallace and Gromit or Coraline quality. Expressive round face built from clay. Neutral warm studio backdrop with diffuse soft-box lighting.",
+      "promptSuffix": "Character design rendered to look like a stop-motion clay puppet. Visible clay texture, fingerprint marks, bold saturated colors. Aardman/Laika aesthetic — expressive face with clay-built features. Neutral studio backdrop with soft diffuse lighting."
+    },
+    {
+      "id": "pop-art",
+      "label": "Pop Art",
+      "imagePath": "public/design-styles/pop-art.png",
+      "generationPrompt": "Full-body character design in a bold Pop Art graphic style. Roy Lichtenstein-inspired Ben-Day halftone dots on shadows, thick black outlines, flat primary colors — red, yellow, blue, black and white only. Dynamic action pose. A speech bubble graphic element with bold text. Graphic and flat, extremely high visual impact. Pure white background.",
+      "promptSuffix": "Character design in a bold Pop Art graphic style. Roy Lichtenstein-inspired Ben-Day dots, thick black outlines, flat primary colors (red, yellow, blue, black), bold speech bubble graphic element. Graphic and flat, high visual impact. White background."
+    },
+    {
+      "id": "ink-wash",
+      "label": "Ink Wash",
+      "imagePath": "public/design-styles/ink-wash.png",
+      "generationPrompt": "Full-body character design in a traditional East Asian ink wash painting style (sumi-e). A warrior or monk in minimal flowing robes. Sparse confident brushstrokes — wet ink gradients ranging from deep black to near-invisible pale grey. Deliberate use of negative white space. Simple but deeply expressive. Off-white rice paper texture background. Calligraphic elegance and restraint.",
+      "promptSuffix": "Character design in a traditional East Asian ink wash painting style (sumi-e). Minimal brushstrokes, wet ink gradients from deep black to pale grey, deliberate negative space. Simple but expressive. Off-white rice paper texture background. Calligraphic elegance."
+    },
+    {
+      "id": "pastel-sketch",
+      "label": "Pastel Sketch",
+      "imagePath": "public/design-styles/pastel-sketch.png",
+      "generationPrompt": "Full-body character design in a soft pastel sketch style. Loose confident pencil construction lines still visible, layered soft pastel color blocking for costume and skin. Visible paper grain texture. Warm approachable illustration feel — like a professional character sketchbook study page. Handwritten-style notes pointing to design details. Light cream textured paper background.",
+      "promptSuffix": "Character design in a soft pastel sketch style. Loose confident pencil lines, layered pastel color blocking, visible paper grain. Warm and approachable — like a professional character study sketchbook page. Light cream background with subtle texture."
+    },
+    {
+      "id": "gothic-lolita",
+      "label": "Gothic Lolita",
+      "imagePath": "public/design-styles/gothic-lolita.png",
+      "generationPrompt": "Full-body character design in a Gothic Lolita fashion illustration style. Elaborate layered dress with black and white lace, ribbon bows, petticoats, Victorian corset, coffin purse, and rose accessories. Pale skin, dramatic eye makeup, elegant elongated fashion-illustration proportions. Flat clean fashion illustration rendering. White background with subtle decorative frame.",
+      "promptSuffix": "Character design in a Gothic Lolita fashion illustration style. Elaborate layered dress with lace, ribbons, petticoats and Victorian-inspired details. Dark color palette with white lace accents, roses, coffin motifs. Elegant elongated proportions. Flat fashion illustration style on white background."
+    },
+    {
+      "id": "storybook",
+      "label": "Storybook",
+      "imagePath": "public/design-styles/storybook.png",
+      "generationPrompt": "Full-body character design in a classic children's storybook illustration style. A young adventurer in practical cozy clothing. Warm gouache or tempera paint quality — thick opaque color, rounded friendly proportions, wide expressive eyes, rich earthy color palette. Hand-crafted textured paint surface. Similar to Beatrix Potter, Jon Klassen, or Chris Van Allsburg in quality. Soft warm natural outdoor background.",
+      "promptSuffix": "Character design in a classic children's storybook illustration style. Warm gouache or tempera paint quality, rounded friendly proportions, expressive face, rich earthy color palette. Hand-crafted texture. Similar to Beatrix Potter or Jon Klassen quality. Soft natural background."
+    }
+  ]
+}
