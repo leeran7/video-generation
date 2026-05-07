@@ -37,7 +37,7 @@ export const renderEpisode = inngest.createFunction(
       };
       const { jobId, episodeId } = data;
       const message =
-        (error as Error)?.message ?? String(error) ?? "Unknown error";
+        (error as Error)?.message ?? String(error);
 
       if (jobId) {
         await db

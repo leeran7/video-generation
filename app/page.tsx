@@ -2,20 +2,19 @@ import Link from "next/link";
 import { asc } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { shows } from "@/lib/db/schema";
+import { PageContainer, PageHeading, Subtext } from "@/components/ui/atoms";
 
 export default async function Home() {
   const showRows = await db.select().from(shows).orderBy(asc(shows.title));
 
   return (
-    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
+    <PageContainer>
       <div className="flex items-end justify-between">
         <div>
-          <h1 className="mb-1 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em]">
-            Studio
-          </h1>
-          <p className="text-xs uppercase tracking-[0.15em] text-(--muted)">
+          <PageHeading>Studio</PageHeading>
+          <Subtext>
             {showRows.length} show{showRows.length === 1 ? "" : "s"}
-          </p>
+          </Subtext>
         </div>
         <Link
           href="/shows/new"
@@ -24,7 +23,7 @@ export default async function Home() {
           + New show
         </Link>
       </div>
-      <div className="mt-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
+      <div className="mt-8 grid gap-4 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
         {showRows.map((show) => (
           <Link
             key={show.id}
@@ -40,6 +39,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-    </main>
+    </PageContainer>
   );
 }

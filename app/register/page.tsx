@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+import { ApiClient } from "@/lib/api/client";
 import {
   AuthShell,
   authInputClass,
@@ -27,13 +27,8 @@ export default function RegisterPage() {
   async function checkEmailExists(value: string): Promise<boolean> {
     if (!value || !/^\S+@\S+\.\S+$/.test(value)) return false;
     try {
-      const res = await fetch("/api/auth/check-email", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email: value }),
-      });
-      if (!res.ok) return false;
-      const { exists } = (await res.json()) as { exists: boolean };
+      const api = new ApiClient();
+      const { exists } = await api.checkEmail(value);
       return !!exists;
     } catch {
       return false;
