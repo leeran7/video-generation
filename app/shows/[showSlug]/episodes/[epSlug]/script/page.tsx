@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { and, asc, eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
 import { characters, episodes } from "@/lib/db/schema";
 import { getShowAccess } from "@/lib/auth/show-access";
+import { PageContainer, PageHeading, Subtext, BackLink } from "@/components/ui/atoms";
 import { ScriptEditor } from "./script-editor";
 
 export default async function ScriptEditorPage({
@@ -44,19 +44,14 @@ export default async function ScriptEditorPage({
     .filter((n): n is string => !!n);
 
   return (
-    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <Link
-        href={`/shows/${showSlug}/episodes/${epSlug}`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.15em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-      >
+    <PageContainer>
+      <BackLink href={`/shows/${showSlug}/episodes/${epSlug}`}>
         ← Back to episode
-      </Link>
-      <h1 className="m-0 mb-1 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.02em] text-(--text)">
-        {ep.title}
-      </h1>
-      <p className="mb-5 text-[11px] uppercase tracking-[0.15em] text-(--muted)">
+      </BackLink>
+      <PageHeading size="md">{ep.title}</PageHeading>
+      <Subtext className="mb-5">
         Script editor {ep.lockStatus ? `· ${ep.lockStatus}` : ""}
-      </p>
+      </Subtext>
 
       <ScriptEditor
         showSlug={showSlug}
@@ -64,6 +59,6 @@ export default async function ScriptEditorPage({
         initialContent={ep.scriptContent ?? ""}
         characterNames={characterNames}
       />
-    </main>
+    </PageContainer>
   );
 }

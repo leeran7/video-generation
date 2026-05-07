@@ -11,6 +11,7 @@ import {
 } from "@/lib/character-data";
 import { db } from "@/lib/db/client";
 import { characters, shows } from "@/lib/db/schema";
+import { PageContainer, Subtext, SectionHeading, CardGrid } from "@/components/ui/atoms";
 
 export default async function ShowPage({
   params,
@@ -40,17 +41,15 @@ export default async function ShowPage({
   const antagonists = characterRows.filter((r) => r.rosterNumber == null);
 
   return (
-    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <p className="mb-5 text-[11px] uppercase tracking-[0.2em] text-(--muted)">
+    <PageContainer>
+      <Subtext className="mb-5">
         {heroes.length} heroes · {antagonists.length} antagonists
-      </p>
+      </Subtext>
 
       {heroes.length > 0 && (
         <>
-          <h3 className="mb-4 mt-8 border-b border-(--border) pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-(--muted)">
-            Heroes
-          </h3>
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+          <SectionHeading className="mb-4 mt-8">Heroes</SectionHeading>
+          <CardGrid>
             {heroes.map((row) => (
               <Link
                 key={row.slug}
@@ -63,16 +62,14 @@ export default async function ShowPage({
                 />
               </Link>
             ))}
-          </div>
+          </CardGrid>
         </>
       )}
 
       {antagonists.length > 0 && (
         <>
-          <h3 className="mb-4 mt-8 border-b border-(--border) pb-1.5 text-xs font-bold uppercase tracking-[0.4em] text-(--muted)">
-            Antagonists
-          </h3>
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+          <SectionHeading className="mb-4 mt-8">Antagonists</SectionHeading>
+          <CardGrid>
             {antagonists.map((row) => (
               <Link
                 key={row.slug}
@@ -85,9 +82,9 @@ export default async function ShowPage({
                 />
               </Link>
             ))}
-          </div>
+          </CardGrid>
         </>
       )}
-    </main>
+    </PageContainer>
   );
 }

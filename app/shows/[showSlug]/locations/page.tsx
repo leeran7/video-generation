@@ -3,6 +3,7 @@ import { eq } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
 import { shows, locations } from "@/lib/db/schema";
+import { PageContainer, PageHeading, Subtext, EmptyState } from "@/components/ui/atoms";
 
 export default async function LocationsPage({
   params,
@@ -34,20 +35,13 @@ export default async function LocationsPage({
   const withBoard = rows.filter((l) => l.conceptBoard).length;
 
   return (
-    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <h2 className="m-0 mb-1 text-[clamp(32px,5vw,48px)] font-extrabold tracking-[-0.02em] text-(--text)">
-        Locations
-      </h2>
-      <p className="mb-5 text-[11px] uppercase tracking-[0.15em] text-(--muted)">
-        {rows.length} location{rows.length === 1 ? "" : "s"} ·{" "}
-        {withBoard} with concept board
-      </p>
+    <PageContainer>
+      <PageHeading>Locations</PageHeading>
+      <Subtext className="mb-5">
+        {rows.length} location{rows.length === 1 ? "" : "s"} · {withBoard} with concept board
+      </Subtext>
 
-      {rows.length === 0 && (
-        <p className="text-[13px] uppercase tracking-[0.1em] text-(--muted)">
-          No locations registered.
-        </p>
-      )}
+      {rows.length === 0 && <EmptyState>No locations registered.</EmptyState>}
 
       {areas.map((area) => {
         const list = byArea.get(area)!;
@@ -67,7 +61,6 @@ export default async function LocationsPage({
                 >
                   <div className="flex aspect-video items-center justify-center border-b border-(--border) bg-[color-mix(in_srgb,var(--panel)_80%,black)]">
                     {loc.conceptBoard ? (
-                      // eslint-disable-next-line @next/next/no-img-element
                       <img
                         className="block h-full w-full object-cover"
                         src={`/api/locations/${loc.slug}/board`}
@@ -93,9 +86,7 @@ export default async function LocationsPage({
                         {loc.interior ? "Interior" : "Exterior"}
                       </span>
                     </div>
-                    <p className="m-0 text-xs leading-[1.5] text-(--muted)">
-                      {loc.notes}
-                    </p>
+                    <p className="m-0 text-xs leading-[1.5] text-(--muted)">{loc.notes}</p>
                   </div>
                 </li>
               ))}
@@ -103,6 +94,6 @@ export default async function LocationsPage({
           </section>
         );
       })}
-    </main>
+    </PageContainer>
   );
 }

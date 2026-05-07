@@ -14,6 +14,7 @@ import { getJobStatus } from "@/lib/inngest/job-status";
 import { getShowAccess } from "@/lib/auth/show-access";
 import { MetadataEditor } from "./metadata-editor";
 import { RenderPanel } from "./render-panel";
+import { Card, AccentBar, Chip, BackLink } from "@/components/ui/atoms";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -93,28 +94,20 @@ export default async function EpisodeDetailPage({
         .where(eq(scenes.episodeId, ep.id))
         .orderBy(asc(scenes.sceneNumber));
 
-  const sectionClass =
-    "border-b border-(--border) px-7 py-5 last:border-b-0";
-  const sectionLabelClass =
-    "mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)";
-
   return (
     <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <Link
-        href={`/shows/${showSlug}/episodes`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.15em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-      >
+      <BackLink href={`/shows/${showSlug}/episodes`}>
         ← Episodes
-      </Link>
+      </BackLink>
 
-      <div className="overflow-hidden rounded border border-(--border) bg-(--panel)">
-        <div className="h-1 bg-[var(--accent,var(--text))]" />
+      <Card>
+        <AccentBar style={{ background: "var(--accent, var(--text))" }} />
         <div className="flex flex-col justify-center px-7 pb-6 pt-7">
           <div className="mb-2 text-[11px] uppercase tracking-[0.2em] text-(--muted)">
             {arc ? `Arc ${arc.arcNumber} · ${arc.title}` : "No arc"} ·{" "}
             Ep {String(ep.episodeNumber).padStart(2, "0")}
           </div>
-          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.01em] text-[var(--accent,var(--text))]">
+          <h2 className="m-0 mb-2 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.01em] text-(--accent,var(--text))">
             {ep.title}
           </h2>
           <p className="m-0 text-[13px] uppercase tracking-[0.15em] text-(--muted)">
@@ -138,11 +131,9 @@ export default async function EpisodeDetailPage({
           )}
         </div>
 
-        <section className={sectionClass}>
+        <section className="border-b border-(--border) px-7 py-5 last:border-b-0">
           <div className="mb-1.5 flex items-center justify-between border-b border-(--border) pb-1">
-            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">
-              Metadata
-            </div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">Metadata</div>
           </div>
           {ep.brief && (
             <p className="m-0 mb-3 text-sm leading-[1.6] text-(--text)">
@@ -152,12 +143,7 @@ export default async function EpisodeDetailPage({
           {ep.tags && ep.tags.length > 0 && (
             <div className="mb-3 flex flex-wrap gap-1.5">
               {ep.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-[2px] border border-[color-mix(in_srgb,var(--accent,var(--text))_30%,transparent)] bg-[color-mix(in_srgb,var(--accent,var(--text))_12%,transparent)] px-2.5 py-[3px] text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--accent,var(--text))]"
-                >
-                  {tag}
-                </span>
+                <Chip key={tag}>{tag}</Chip>
               ))}
             </div>
           )}
@@ -186,11 +172,9 @@ export default async function EpisodeDetailPage({
           />
         )}
 
-        <section className={sectionClass}>
+        <section className="border-b border-(--border) px-7 py-5 last:border-b-0">
           <div className="mb-1.5 flex items-center justify-between border-b border-(--border) pb-1">
-            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">
-              Script
-            </div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-(--muted)">Script</div>
             {canEdit && (
               <Link
                 href={`/shows/${showSlug}/episodes/${epSlug}/script`}
@@ -209,12 +193,12 @@ export default async function EpisodeDetailPage({
               />
             </details>
           ) : (
-            <p className="text-[13px] uppercase tracking-[0.1em] text-(--muted)">
+            <p className="text-[13px] uppercase tracking-widest text-(--muted)">
               No script content seeded.
             </p>
           )}
         </section>
-      </div>
+      </Card>
     </main>
   );
 }

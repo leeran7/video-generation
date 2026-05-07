@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 
@@ -6,6 +5,7 @@ import { db } from "@/lib/db/client";
 import { characters } from "@/lib/db/schema";
 import type { Character } from "@/lib/character-data";
 import { getShowAccess } from "@/lib/auth/show-access";
+import { PageContainer, PageHeading, Subtext, BackLink } from "@/components/ui/atoms";
 import { CharacterEditor } from "./character-editor";
 
 export default async function CharacterEditPage({
@@ -29,36 +29,26 @@ export default async function CharacterEditPage({
 
   if (row.type !== "hero") {
     return (
-      <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-        <Link
-          href={`/shows/${showSlug}/characters/${charSlug}`}
-          className="mb-6 inline-block text-xs uppercase tracking-[0.15em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-        >
+      <PageContainer>
+        <BackLink href={`/shows/${showSlug}/characters/${charSlug}`}>
           ← Back to character
-        </Link>
-        <p className="text-sm text-(--muted)">
-          Antagonist editing is not yet supported.
-        </p>
-      </main>
+        </BackLink>
+        <p className="text-sm text-(--muted)">Antagonist editing is not yet supported.</p>
+      </PageContainer>
     );
   }
 
   const data = row.data as unknown as Character;
 
   return (
-    <main className="mx-auto max-w-[1400px] px-6 pb-20 pt-10">
-      <Link
-        href={`/shows/${showSlug}/characters/${charSlug}`}
-        className="mb-6 inline-block text-xs uppercase tracking-[0.15em] text-(--muted) no-underline transition-colors hover:text-(--text)"
-      >
+    <PageContainer>
+      <BackLink href={`/shows/${showSlug}/characters/${charSlug}`}>
         ← Back to {data.codename || row.name}
-      </Link>
-      <h1 className="m-0 mb-1 text-[clamp(28px,4vw,40px)] font-extrabold tracking-[-0.02em] text-(--text)">
-        Edit {data.codename || row.name}
-      </h1>
-      <p className="mb-5 text-[11px] uppercase tracking-[0.15em] text-(--muted)">
+      </BackLink>
+      <PageHeading size="md">Edit {data.codename || row.name}</PageHeading>
+      <Subtext className="mb-5">
         {row.lockStatus ? `Status: ${row.lockStatus}` : "Status: draft"}
-      </p>
+      </Subtext>
 
       <CharacterEditor
         showSlug={showSlug}
@@ -70,6 +60,6 @@ export default async function CharacterEditPage({
           data,
         }}
       />
-    </main>
+    </PageContainer>
   );
 }

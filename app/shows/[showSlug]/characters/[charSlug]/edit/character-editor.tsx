@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Character } from "@/lib/character-data";
+import { Input, Textarea, Label, ErrorText } from "@/components/ui/atoms";
+import { ApiClient } from "@/lib/api/client";
 
 type Initial = {
   name: string;
@@ -100,23 +102,13 @@ export function CharacterEditor({
     setSaving(true);
     setError(null);
     try {
-      const res = await fetch(
-        `/api/shows/${showSlug}/characters/${charSlug}`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: codename.trim(),
-            realName: realName.trim() || null,
-            lockStatus,
-            data: dataPayload,
-          }),
-        }
-      );
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body?.error ?? `HTTP ${res.status}`);
-      }
+      const api = new ApiClient();
+      await api.updateCharacter(showSlug, charSlug, {
+        name: codename.trim(),
+        realName: realName.trim() || null,
+        lockStatus,
+        data: dataPayload as unknown as Record<string, unknown>,
+      });
       setSavedAt(Date.now());
       router.refresh();
     } catch (err) {
@@ -126,46 +118,25 @@ export function CharacterEditor({
     }
   };
 
-  const labelClass = "text-[10px] uppercase tracking-[0.2em] text-(--muted)";
-  const inputClass =
-    "w-full rounded-[2px] border border-(--border) bg-(--bg) px-3 py-2 text-sm text-(--text) outline-none focus:border-(--text)";
-
   return (
     <div className="grid gap-5 rounded border border-(--border) bg-(--panel) p-6">
       <SectionHeader>Identity</SectionHeader>
-      <div className="grid gap-3.5 [grid-template-columns:1fr] min-[640px]:[grid-template-columns:1fr_1fr]">
-        <Field label="Codename" labelClass={labelClass}>
-          <input
-            className={inputClass}
-            value={codename}
-            onChange={(e) => setCodename(e.target.value)}
-          />
+      <div className="grid gap-3.5 grid-cols-[1fr] min-[640px]:grid-cols-[1fr_1fr]">
+        <Field label="Codename">
+          <Input value={codename} onChange={(e) => setCodename(e.target.value)} />
         </Field>
-        <Field label="Real name" labelClass={labelClass}>
-          <input
-            className={inputClass}
-            value={realName}
-            onChange={(e) => setRealName(e.target.value)}
-          />
+        <Field label="Real name">
+          <Input value={realName} onChange={(e) => setRealName(e.target.value)} />
         </Field>
-        <Field label="Age" labelClass={labelClass}>
-          <input
-            className={inputClass}
-            inputMode="numeric"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
+        <Field label="Age">
+          <Input inputMode="numeric" value={age} onChange={(e) => setAge(e.target.value)} />
         </Field>
-        <Field label="Role" labelClass={labelClass}>
-          <input
-            className={inputClass}
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          />
+        <Field label="Role">
+          <Input value={role} onChange={(e) => setRole(e.target.value)} />
         </Field>
-        <Field label="Lock status" labelClass={labelClass}>
+        <Field label="Lock status">
           <select
-            className={inputClass}
+            className="w-full rounded border border-(--border) bg-(--bg) px-3 py-2 text-sm text-(--text) focus:outline-none focus:ring-1 focus:ring-(--text)"
             value={lockStatus}
             onChange={(e) => setLockStatus(e.target.value)}
           >
@@ -176,20 +147,16 @@ export function CharacterEditor({
       </div>
 
       <SectionHeader>Traits</SectionHeader>
-      <Field label="Traits (comma-separated)" labelClass={labelClass}>
-        <input
-          className={inputClass}
-          value={traitsInput}
-          onChange={(e) => setTraitsInput(e.target.value)}
-        />
+      <Field label="Traits (comma-separated)">
+        <Input value={traitsInput} onChange={(e) => setTraitsInput(e.target.value)} />
       </Field>
 
       <SectionHeader>Profile</SectionHeader>
       <div className="grid gap-3.5">
         {TEXTAREA_FIELDS.map((f) => (
-          <Field key={f.key} label={f.label} labelClass={labelClass}>
-            <textarea
-              className={`${inputClass} min-h-[88px]`}
+          <Field key={f.key} label={f.label}>
+            <Textarea
+              className="min-h-[88px]"
               value={(data[f.key] as string) ?? ""}
               onChange={(e) => setField(f.key, e.target.value as never)}
             />
@@ -198,12 +165,9 @@ export function CharacterEditor({
       </div>
 
       <SectionHeader>Season 1 arc (JSON)</SectionHeader>
-      <Field
-        label='Array of { act, episodes: number[], description }'
-        labelClass={labelClass}
-      >
-        <textarea
-          className={`${inputClass} min-h-[180px] font-mono text-xs`}
+      <Field label="Array of { act, episodes: number[], description }">
+        <Textarea
+          className="min-h-[180px] font-mono text-xs"
           value={arcJson}
           onChange={(e) => setArcJson(e.target.value)}
           spellCheck={false}
@@ -221,15 +185,13 @@ export function CharacterEditor({
         </label>
       )}
 
-      {error && <p className="m-0 text-[12px] text-rose-400">{error}</p>}
+      {error && <ErrorText>{error}</ErrorText>}
 
       <div className="flex items-center gap-3 border-t border-(--border) pt-4">
         <button
           type="button"
           onClick={onSave}
-          disabled={
-            saving || !codename.trim() || (isLocked && !overrideLock)
-          }
+          disabled={saving || !codename.trim() || (isLocked && !overrideLock)}
           className="rounded-[2px] border border-(--text) bg-(--text) px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-(--bg) transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save changes"}
@@ -244,20 +206,12 @@ export function CharacterEditor({
   );
 }
 
-function Field({
-  label,
-  labelClass,
-  children,
-}: {
-  label: string;
-  labelClass: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="grid gap-1.5">
-      <span className={labelClass}>{label}</span>
+    <Label className="grid gap-1.5">
+      <span>{label}</span>
       {children}
-    </label>
+    </Label>
   );
 }
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ApiClient } from "@/lib/api/client";
 
 type SceneRow = {
   id: string;
@@ -92,9 +93,8 @@ export function RenderPanel({
 
     async function tick() {
       try {
-        const res = await fetch(`/api/jobs/${jobId}`, { cache: "no-store" });
-        if (!res.ok) throw new Error(`Status ${res.status}`);
-        const body = (await res.json()) as JobResponse;
+        const api = new ApiClient();
+        const body = await api.getJob(jobId);
         if (cancelled) return;
         setJob(body.job);
         setScenes(body.scenes);
@@ -145,28 +145,8 @@ export function RenderPanel({
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const res = await fetch(
-        `/api/shows/${showSlug}/episodes/${epSlug}/render`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sceneIds: [...selected] }),
-        }
-      );
-      const text = await res.text();
-      let body: { jobId?: string; error?: string } = {};
-      if (text) {
-        try {
-          body = JSON.parse(text);
-        } catch {
-          throw new Error(
-            `Server returned non-JSON (${res.status}): ${text.slice(0, 200)}`
-          );
-        }
-      }
-      if (!res.ok || !body.jobId) {
-        throw new Error(body.error ?? `Failed (${res.status})`);
-      }
+      const api = new ApiClient();
+      await api.renderEpisode(showSlug, epSlug, [...selected]);
       hasInteracted.current = false;
       router.refresh();
     } catch (err) {
@@ -355,7 +335,7 @@ export function RenderPanel({
               )}
             </div>
             {s.error && (
-              <p className="m-0 break-words border-t border-[color-mix(in_srgb,#ff7466_30%,var(--border))] bg-[color-mix(in_srgb,#ff7466_8%,transparent)] px-3 py-2.5 pl-[60px] text-xs leading-[1.45] text-[#ff7466]">
+              <p className="m-0 wrap-break-word border-t border-[color-mix(in_srgb,#ff7466_30%,var(--border))] bg-[color-mix(in_srgb,#ff7466_8%,transparent)] px-3 py-2.5 pl-[60px] text-xs leading-[1.45] text-[#ff7466]">
                 {s.error}
               </p>
             )}

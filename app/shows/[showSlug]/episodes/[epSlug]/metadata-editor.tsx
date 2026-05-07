@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Input, Textarea, Label, ErrorText } from "@/components/ui/atoms";
+import { ApiClient } from "@/lib/api/client";
 
 type CharacterOption = { slug: string; name: string };
 
@@ -38,24 +40,14 @@ export function MetadataEditor({
     setSaving(true);
     setError(null);
     try {
-      const res = await fetch(`/api/shows/${showSlug}/episodes/${epSlug}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: title.trim(),
-          brief: brief.trim() || null,
-          tags: tagsInput
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean),
-          focusCharacterSlug: focusSlug || null,
-          lockStatus,
-        }),
+      const api = new ApiClient();
+      await api.updateEpisode(showSlug, epSlug, {
+        title: title.trim(),
+        brief: brief.trim() || null,
+        tags: tagsInput.split(",").map((t) => t.trim()).filter(Boolean),
+        focusCharacterSlug: focusSlug || null,
+        lockStatus,
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body?.error ?? `HTTP ${res.status}`);
-      }
       setOpen(false);
       router.refresh();
     } catch (err) {
@@ -87,39 +79,29 @@ export function MetadataEditor({
     );
   }
 
-  const labelClass =
-    "text-[10px] uppercase tracking-[0.2em] text-(--muted)";
-  const inputClass =
-    "w-full rounded-[2px] border border-(--border) bg-(--bg) px-3 py-2 text-sm text-(--text) outline-none focus:border-(--text)";
-
   return (
     <div className="mt-2 grid gap-3.5">
-      <Field label="Title" labelClass={labelClass}>
-        <input
-          className={inputClass}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <Field label="Title">
+        <Input value={title} onChange={(e) => setTitle(e.target.value)} />
       </Field>
-      <Field label="Hook (brief)" labelClass={labelClass}>
-        <textarea
-          className={`${inputClass} min-h-[72px]`}
+      <Field label="Hook (brief)">
+        <Textarea
+          className="min-h-[72px]"
           value={brief}
           onChange={(e) => setBrief(e.target.value)}
         />
       </Field>
-      <Field label="Tags (comma-separated)" labelClass={labelClass}>
-        <input
-          className={inputClass}
+      <Field label="Tags (comma-separated)">
+        <Input
           value={tagsInput}
           onChange={(e) => setTagsInput(e.target.value)}
           placeholder="origin, action, surge"
         />
       </Field>
-      <div className="grid gap-3.5 [grid-template-columns:1fr] min-[640px]:[grid-template-columns:2fr_1fr]">
-        <Field label="Focus character" labelClass={labelClass}>
+      <div className="grid gap-3.5 grid-cols-[1fr] min-[640px]:grid-cols-[2fr_1fr]">
+        <Field label="Focus character">
           <select
-            className={inputClass}
+            className="w-full rounded-[2px] border border-(--border) bg-(--bg) px-3 py-2 text-sm text-(--text) outline-none focus:border-(--text)"
             value={focusSlug}
             onChange={(e) => setFocusSlug(e.target.value)}
           >
@@ -131,9 +113,9 @@ export function MetadataEditor({
             ))}
           </select>
         </Field>
-        <Field label="Lock status" labelClass={labelClass}>
+        <Field label="Lock status">
           <select
-            className={inputClass}
+            className="w-full rounded-[2px] border border-(--border) bg-(--bg) px-3 py-2 text-sm text-(--text) outline-none focus:border-(--text)"
             value={lockStatus}
             onChange={(e) => setLockStatus(e.target.value)}
           >
@@ -143,9 +125,7 @@ export function MetadataEditor({
         </Field>
       </div>
 
-      {error && (
-        <p className="m-0 text-[12px] text-rose-400">{error}</p>
-      )}
+      {error && <ErrorText>{error}</ErrorText>}
 
       <div className="flex items-center gap-2">
         <button
@@ -169,19 +149,11 @@ export function MetadataEditor({
   );
 }
 
-function Field({
-  label,
-  labelClass,
-  children,
-}: {
-  label: string;
-  labelClass: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="grid gap-1.5">
-      <span className={labelClass}>{label}</span>
+    <Label className="grid gap-1.5">
+      <span>{label}</span>
       {children}
-    </label>
+    </Label>
   );
 }

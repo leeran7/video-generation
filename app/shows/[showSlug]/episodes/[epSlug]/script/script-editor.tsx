@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import { ApiClient } from "@/lib/api/client";
 import { markdown } from "@codemirror/lang-markdown";
 import { EditorView } from "@codemirror/view";
 import { autocompletion, type CompletionContext } from "@codemirror/autocomplete";
@@ -34,25 +35,17 @@ export function ScriptEditor({
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [previewHtml, setPreviewHtml] = useState<string>("");
   const lastSavedRef = useRef(initialContent);
+  const [lastSaved, setLastSaved] = useState(initialContent);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const save = useCallback(
     async (next: string) => {
       setState("saving");
       try {
-        const res = await fetch(
-          `/api/shows/${showSlug}/episodes/${epSlug}/script`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ scriptContent: next }),
-          }
-        );
-        if (!res.ok) {
-          const body = await res.json().catch(() => ({}));
-          throw new Error(body?.error ?? `HTTP ${res.status}`);
-        }
+        const api = new ApiClient();
+        await api.saveScript(showSlug, epSlug, next);
         lastSavedRef.current = next;
+        setLastSaved(next);
         setErrorMsg(null);
         setState("saved");
       } catch (err) {
@@ -135,7 +128,7 @@ export function ScriptEditor({
         <button
           type="button"
           onClick={() => save(value)}
-          disabled={state === "saving" || value === lastSavedRef.current}
+          disabled={state === "saving" || value === lastSaved}
           className="rounded-[2px] border border-(--border) bg-(--panel) px-3 py-1.5 font-bold text-(--text) transition-colors hover:border-(--text) disabled:cursor-not-allowed disabled:opacity-50"
         >
           Save now
@@ -147,7 +140,7 @@ export function ScriptEditor({
         )}
       </div>
 
-      <div className="grid gap-4 [grid-template-columns:1fr] min-[1024px]:[grid-template-columns:1fr_1fr]">
+      <div className="grid gap-4 grid-cols-[1fr] min-[1024px]:grid-cols-[1fr_1fr]">
         <div className="overflow-hidden rounded border border-(--border) bg-(--panel)">
           <CodeMirror
             value={value}
@@ -163,7 +156,7 @@ export function ScriptEditor({
             onChange={handleChange}
           />
         </div>
-        <div className="overflow-auto rounded border border-(--border) bg-(--panel) [max-height:70vh]">
+        <div className="overflow-auto rounded border border-(--border) bg-(--panel) max-h-[70vh]">
           <div
             className="script-md"
             dangerouslySetInnerHTML={{ __html: previewHtml }}
