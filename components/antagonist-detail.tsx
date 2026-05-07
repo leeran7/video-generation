@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Antagonist } from "@/lib/character-data";
+import { AccentBar, Chip, DetailSection } from "@/components/ui/atoms";
 
 export function AntagonistDetail({
   antagonist,
@@ -9,21 +10,12 @@ export function AntagonistDetail({
   accent: string;
 }) {
   const style = { "--accent": accent } as CSSProperties;
-  const shortAffiliation = antagonist.affiliation
-    ?.split(/\s[—–-]\s/)[0]
-    .trim();
+  const shortAffiliation = antagonist.affiliation?.split(/\s[—–-]\s/)[0].trim();
   const episodes = antagonist.episodes ?? [];
-  const chipBase =
-    "rounded-[2px] border px-2.5 py-[3px] text-[11px] font-bold uppercase tracking-[0.1em]";
-  const chipAccent = `${chipBase} border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] text-(--accent)`;
-  const chipMuted = `${chipBase} border-(--border) bg-transparent text-(--muted)`;
 
   return (
-    <article
-      className="overflow-hidden rounded border border-(--border) bg-(--panel)"
-      style={style}
-    >
-      <div className="h-1 bg-(--accent)" />
+    <article className="overflow-hidden rounded border border-(--border) bg-(--panel)" style={style}>
+      <AccentBar />
       <div className="grid items-stretch border-b border-(--border) [grid-template-columns:1fr] min-[721px]:[grid-template-columns:280px_1fr]">
         {antagonist.imageUrl && (
           <div className="border-b border-(--border) min-[721px]:border-b-0 min-[721px]:border-r min-[721px]:border-(--border)">
@@ -45,45 +37,39 @@ export function AntagonistDetail({
           </h2>
 
           <div className="mb-1 flex flex-wrap gap-1.5">
-            {shortAffiliation && (
-              <span className={chipAccent}>{shortAffiliation}</span>
-            )}
+            {shortAffiliation && <Chip>{shortAffiliation}</Chip>}
             {episodes.map((n) => (
-              <span key={n} className={chipMuted}>
-                Ep {n}
-              </span>
+              <Chip key={n} variant="muted">Ep {n}</Chip>
             ))}
             {antagonist.revealedInEpisode != null && (
-              <span className={chipMuted}>
-                Revealed Ep {antagonist.revealedInEpisode}
-              </span>
+              <Chip variant="muted">Revealed Ep {antagonist.revealedInEpisode}</Chip>
             )}
           </div>
         </header>
       </div>
 
-      <Section label="Visual hook">{antagonist.visualHook}</Section>
-      <Section label="Role in plot">{antagonist.roleInPlot}</Section>
-      <Section label="Outcome">{antagonist.outcome}</Section>
+      <DetailSection label="Visual hook">{antagonist.visualHook}</DetailSection>
+      <DetailSection label="Role in plot">{antagonist.roleInPlot}</DetailSection>
+      <DetailSection label="Outcome">{antagonist.outcome}</DetailSection>
 
       {antagonist.motivation && (
-        <Section label="Motivation">{antagonist.motivation}</Section>
+        <DetailSection label="Motivation">{antagonist.motivation}</DetailSection>
       )}
       {antagonist.publicPresentation && (
-        <Section label="Public presentation">
+        <DetailSection label="Public presentation">
           {antagonist.publicPresentation}
-        </Section>
+        </DetailSection>
       )}
       {antagonist.originSketch && (
-        <Section label="Origin sketch">{antagonist.originSketch}</Section>
+        <DetailSection label="Origin sketch">{antagonist.originSketch}</DetailSection>
       )}
       {antagonist.ideologicalTwist && (
-        <Section label="Ideological twist">
+        <DetailSection label="Ideological twist">
           {antagonist.ideologicalTwist}
-        </Section>
+        </DetailSection>
       )}
       {antagonist.methods && antagonist.methods.length > 0 && (
-        <Section label="Methods">
+        <DetailSection label="Methods">
           <ul className="m-0 flex flex-col gap-1.5 pl-5">
             {antagonist.methods.map((m, i) => (
               <li key={i} className="text-sm leading-[1.55]">
@@ -91,31 +77,14 @@ export function AntagonistDetail({
               </li>
             ))}
           </ul>
-        </Section>
+        </DetailSection>
       )}
       {antagonist.voiceNotes && (
-        <Section label="Voice notes">{antagonist.voiceNotes}</Section>
+        <DetailSection label="Voice notes">{antagonist.voiceNotes}</DetailSection>
       )}
       {antagonist.continuityNote && (
-        <Section label="Continuity note">{antagonist.continuityNote}</Section>
+        <DetailSection label="Continuity note">{antagonist.continuityNote}</DetailSection>
       )}
     </article>
-  );
-}
-
-function Section({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="border-b border-(--border) px-7 py-5 last:border-b-0">
-      <div className="mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)">
-        {label}
-      </div>
-      <div className="text-sm leading-[1.6] text-(--text)">{children}</div>
-    </section>
   );
 }

@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Character } from "@/lib/character-data";
+import { AccentBar, Chip, DetailSection } from "@/components/ui/atoms";
 
 export function CharacterDetail({
   character,
@@ -9,13 +10,11 @@ export function CharacterDetail({
   accent: string;
 }) {
   const style = { "--accent": accent } as CSSProperties;
-  const chipClass =
-    "rounded-[2px] border border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-2.5 py-[3px] text-[11px] font-bold uppercase tracking-[0.1em] text-(--accent)";
 
   return (
     <article className="overflow-hidden rounded border border-(--border) bg-(--panel)" style={style}>
-      <div className="h-1 bg-(--accent)" />
-      <div className="grid items-stretch border-b border-(--border) [grid-template-columns:1fr] min-[721px]:[grid-template-columns:280px_1fr]">
+      <AccentBar />
+      <div className="grid items-stretch border-b border-(--border) grid-cols-[1fr] min-[721px]:grid-cols-[280px_1fr]">
         {character.imageUrl && (
           <div className="border-b border-(--border) min-[721px]:border-b-0 min-[721px]:border-r min-[721px]:border-(--border)">
             <img
@@ -39,32 +38,26 @@ export function CharacterDetail({
         </header>
       </div>
 
-      <Section label="Personality">{character.personality}</Section>
+      <DetailSection label="Personality">{character.personality}</DetailSection>
 
-      <Section label="Traits">
+      <DetailSection label="Traits">
         <div className="flex flex-wrap gap-1.5">
           {character.traits.map((trait) => (
-            <span key={trait} className={chipClass}>
-              {trait}
-            </span>
+            <Chip key={trait}>{trait}</Chip>
           ))}
         </div>
-      </Section>
+      </DetailSection>
 
-      <Section label="Mindset">{character.mindset}</Section>
-      <Section label="Powers">{character.powers}</Section>
-      <Section label="Powers — specifics">{character.powersSpec}</Section>
-      <Section label="Visual distinctions">
-        {character.visualDistinctions}
-      </Section>
-      <Section label="Voice cadence">{character.voiceCadence}</Section>
-      <Section label="Humanizing details">{character.humanizingDetails}</Section>
-      <Section label="Influences & twist">{character.influencesAndTwist}</Section>
-      <Section label="Animation craft notes">
-        {character.animationCraftNotes}
-      </Section>
+      <DetailSection label="Mindset">{character.mindset}</DetailSection>
+      <DetailSection label="Powers">{character.powers}</DetailSection>
+      <DetailSection label="Powers — specifics">{character.powersSpec}</DetailSection>
+      <DetailSection label="Visual distinctions">{character.visualDistinctions}</DetailSection>
+      <DetailSection label="Voice cadence">{character.voiceCadence}</DetailSection>
+      <DetailSection label="Humanizing details">{character.humanizingDetails}</DetailSection>
+      <DetailSection label="Influences & twist">{character.influencesAndTwist}</DetailSection>
+      <DetailSection label="Animation craft notes">{character.animationCraftNotes}</DetailSection>
 
-      <Section label="Season 1 arc">
+      <DetailSection label="Season 1 arc">
         <div className="flex flex-col gap-3.5">
           {character.seasonOneArc.map((act) => (
             <div
@@ -85,24 +78,7 @@ export function CharacterDetail({
             </div>
           ))}
         </div>
-      </Section>
+      </DetailSection>
     </article>
-  );
-}
-
-function Section({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="border-b border-(--border) px-7 py-5 last:border-b-0">
-      <div className="mb-1.5 border-b border-(--border) pb-1 text-[10px] uppercase tracking-[0.2em] text-(--muted)">
-        {label}
-      </div>
-      <div className="text-sm leading-[1.6] text-(--text)">{children}</div>
-    </section>
   );
 }
